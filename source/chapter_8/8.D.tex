@@ -12,26 +12,15 @@
 
 任取\(v_1 \in V\)，考虑一列向量\(v_1,\cdots,N^{m_1}v_1\)，其中\(N^{m_1} \ne 0\)但\(N^{m_1+1}v_1=0\).
 
-根据\textit{8.A.5}，\(v_1,\cdots,N^{m_1}v_1\)线性无关.令\(U_1=\myspan (v_1,\cdots,N^{m_1}v_1)\)，
+根据\textit{8.A.5}，\(v_1,\cdots,N^{m_1}v_1\)线性无关.令\(U=\myspan (v_1,\cdots,N^{m_1}v_1)\)，
 
-则\(N(U_1)=\myspan (Nv_1,\cdots,N^{m_1}v_1) \subset U\)，因此\(U_1\)是\(N\)下的不变子空间.
+则\(N(U)=\myspan (Nv_1,\cdots,N^{m_1}v_1) \subset U\)，因此\(U\)是\(N\)下的不变子空间.
 
-考虑商空间\(V/U_1,\mydim (V/U_1)=\mydim V-\mydim U_1<\mydim V\)，因此可以对\(V/U_1\)使用归纳.
+考虑商空间\(V/U,\mydim (V/U)=\mydim V-\mydim U<\mydim V\)，因此可以对\(V/U\)使用归纳.
 
-构造\(N\)在\(V/U_1\)上的诱导变换\(\ol{N} \in L(V/U_1)\)满足\(\forall \ol{v}=v+U_1 \in V/U_1,\ol{N}\ol{v}=Nv+U=\ol{Nv}\).
+构造\(N\)在\(V/U\)上的诱导变换\(\ol{N} \in L(V/U)\)满足\(\forall \ol{v}=v+U \in V/U,\ol{N}\ol{v}=Nv+U=\ol{Nv}\).
 
-下面验证这个构造的合法性.考虑\(\ol{v_1}=\ol{v_2} \in V/U_1\)，于是\(v_1-v_2 \in U_1\).
-
-由于\(U_1\)是\(N\)下的不变子空间，因而\(N(v_1-v_2)=Nv_1-Nv_2 \in U_1\)，即\(\ol{Nv_1}=\ol{Nv_2}\).
-
-随后验证\(\ol{N}\)是线性变换，依旧考虑\(\ol{v_1},\ol{v_2} \in V/U_1\).
-    \begin{align*}
-        \ol{N}(c_1\ol{v_1}+c_2\ol{v_2})=&\ol{N(c_1v_1+c_2v_2)} =c_1\ol{Nv_1}+c_2\ol{Nv_2}
-    \end{align*}
-考虑\(\forall \ol{v} \in V/U_1\)，则\(\ol{N}^m \ol{v}=\ol{N^m v}\).
-由\(N\)是幂零算子得\(N^{\mydim V}=0,\ol{N^{\mydim V}}=\ol{0}\).
-
-因此\(\ol{N} \in L(V/U_1)\)是合法的、线性的幂零算子，可以使用归纳.
+\(\ol{N}\)的合法性和线性性由定理5.14保证，幂零性继承自\(N\)，故可以使用归纳.
 
 则\(\ol{N^{m_2}u_2},\cdots,\ol{u_2},\cdots,\ol{N^{m_n}u_n},\cdots,\ol{u_n}\)是\(V/U_1\)的基，
 满足\(\ol{N^{m_2+1}u_2}=\cdots=\ol{N^{m_n+1}u_n}=\ol{0}\).
@@ -41,7 +30,7 @@
 
 令\(\forall i=2,\cdots,n,v_i=u_i-x_i^{m_i+1}\)，则\(N^{m_i+1}v_i=N^{m_i+1}u_i-N^{m_i+1}x_i^{m_i+1}=N^{m_i+1}u_i-x_i^0=0\).
 
-则\(U_i=\myspan(N^{m_i}v_i,\cdots,v_i)\)是\(v_i\)生成的循环子空间，且在\(N\)下不变.
+则\(\forall i=1,\cdots,n,\myspan(N^{m_i}v_i,\cdots,v_i)\)是\(v_i\)生成的循环子空间，且在\(N\)下不变.
 
 考虑到\(\forall j=0,\cdots,m_i,x_i^j \in U\)，
 故\(\ol{N^jv_i}=\ol{N^j(u_i-x_i^{m_i+1})}=\ol{N^ju_i-x_i^{m_i-j+1}}=\ol{N^ju_i}\).
@@ -59,5 +48,5 @@
 
 若\(m_i+1 \geq m_1\)，则\(x_i^{m_i+1}=0\)，即\(N^{m_i+1}u_i=0\)，此时\(v_i=u_i\)，不需要调整.
 
-因此\(\forall i=2,\cdots,n,v_i\)总存在，即\(x_i^{m_i+1}\)的存在性得到保证，归纳完成.
+因此\(\forall i=2,\cdots,n,v_i\)总存在，即\(v_i\)的存在性得到保证，归纳完成.
 

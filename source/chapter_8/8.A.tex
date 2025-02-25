@@ -80,35 +80,22 @@
 \hspace*{\fill}
 
 \textit{3.}
-设\(T \in L(V)\)是可逆变换.证明：\(\forall \lambda \ne 0,G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
+设\(T \in L(V)\)是可逆变换且\(\mydim V=n\).证明：\(\forall \lambda \ne 0,G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
 
 \textit{Proof}
-设\(\mydim V=n\)，则\(G(\lambda,T)=\Ker (T-\lambda I)^n,G(\lambda^{-1},T^{-1})=\Ker (T^{-1}-\lambda^{-1} I)^n\).
-
 使用数学归纳法.\(n=1\)时，根据\textit{5.C.9}，\(E(\lambda,T)=E(\lambda^{-1},T^{-1})\)，命题成立.
 
-接着假设\(\Ker (T-\lambda I)^{n-1}=\Ker (T^{-1}-\lambda^{-1} I)^{n-1}\)，考虑\(\forall v \in \Ker (T-\lambda I)^n\).
-
-即\((T-\lambda I)^n v=(T-\lambda I)^{n-1}(T-\lambda I)v=0\).
-
-利用归纳假设，有\((T-\lambda I)v \in \Ker (T-\lambda I)^{n-1}=\Ker (T^{-1}-\lambda^{-1} I)^{n-1}\).
-
-根据定理5.20，有\((T^{-1}-\lambda^{-1} I)^{n-1}(T-\lambda I)v=(T-\lambda I)(T^{-1}-\lambda^{-1} I)^{n-1}v=0\).
-
-利用\(n=1\)时的结论，有\((T^{-1}-\lambda^{-1} I)^{n-1}v \in \Ker (T-\lambda I)=\Ker (T^{-1}-\lambda^{-1} I)\).
-
-得到\((T^{-1}-\lambda^{-1} I)(T^{-1}-\lambda^{-1} I)^{n-1}v=(T^{-1}-\lambda^{-1} I)^n v=0\)，
-
-因此\(v \in \Ker (T^{-1}-\lambda^{-1} I)^n \Rightarrow G(\lambda,T) \subseteq G(\lambda^{-1},T^{-1})\).
-
-\(G(\lambda^{-1},T^{-1}) \subseteq G(\lambda,T)\)的过程完全一致.综上，\(G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
+再假设\(n-1\)的情况成立，考虑\(n\)的情况.令\(u=(T-\lambda)v=(T^{-1}-\lambda^{-1} I)v\).
+    \begin{align*}
+        &(T-\lambda)^n v=(T-\lambda I)^{n-1}(T-\lambda I)v=(T-\lambda I)^{n-1}u=0 \\
+        &(T^{-1}-\lambda^{-1} I)^n v=(T^{-1}-\lambda^{-1} I)^{n-1}(T^{-1}-\lambda^{-1} I)v=(T^{-1}-\lambda^{-1} I)^{n-1}u=0
+    \end{align*}
+根据归纳假设，两式等价，即\(G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
 
 \hspace*{\fill}
 
 \textit{5.}
-设\(T \in L(V),v \in V,m \in N^*\)，且满足\(T^{m-1}v \ne 0,T^m v=0\).
-
-求证：\(v,Tv,\cdots,T^{m-1}v\)线性无关.
+设\(T \in L(V),v \in V,m \in N^*\)，且\(T^{m-1}v \ne 0,T^m v=0\).求证：\(v,Tv,\cdots,T^{m-1}v\)线性无关.
 
 \textit{Proof}
 令\(\sum_{i=0}^{m-1} a_iT^i v=0\).对等式两边施加算子\(T^{m-1}\)，
