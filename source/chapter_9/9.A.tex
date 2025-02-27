@@ -2,9 +2,9 @@
 实算子有一维或二维不变子空间.
 
 \textit{Proof}
-考虑实算子\(T \in L(V)\)，则\(T_C \in L(V_C)\)至少有一个特征值\(\lambda=a+bi\).
+考虑实算子\(T \in L(V)\)，则\(T_C \in L(V_C)\)至少有一个特征值\(\lambda=(a,b)\).
 
-故有\(u,v \in V\)使得\(Tu+iTv=T_C(u+iv)=(a+bi)(u+iv)=(au-bv)+i(av+bu)\).
+故有不全为零的\(u,v \in V\)使得\((Tu,Tv)=T_C(u,v)=(a,b)(u,v)=(au-bv,av+bu)\).
 
 因此\(Tu=au-bv \in \myspan(u,v),Tv=av+bu \in \myspan(u,v),T(\myspan(u,v)) \subseteq \myspan(u,v)\).
 
@@ -15,24 +15,24 @@
 \textit{Theorem 9.12} {\kaishu 共轭的广义特征子空间}
 设\(V\)是实向量空间且\(T \in L(V)\)，则
     \begin{align*}
-        \forall n \in N^*,(T_C-\lambda I)^n (u+iv)=0 \Leftrightarrow (T_C-\ol{\lambda} I)^n (u-iv)=0
+        \forall n \in N^*,(T_C-\lambda I)^n (u,v)=0 \Leftrightarrow (T_C-\ol{\lambda} I)^n (u,-v)=0
     \end{align*}
 \textit{Proof}
 使用数学归纳法，先考虑\(n=1\)的情况.
     \begin{align*}
-        (T_C-\lambda I)(u+iv)=(Tu-au+bv)+i(Tv-av-bu)=0 \\
-        (T_C-\ol{\lambda} I)(u-iv)=(Tu-au+bv)-i(Tv-av-bu)=0
+        &(T_C-\lambda I)(u,v)=(Tu-au+bv,Tv-av-bu)=0 \\
+        &(T_C-\ol{\lambda} I)(u,-v)=(Tu-au+bv,-(Tv-av-bu))=0
     \end{align*}
 因此两式都等价于\(Tu-au+bv=0\)且\(Tv-av-bu=0\)，证毕.
 
 再假设\(n-1\)的情况成立，考虑\(n\)的情况.令\(x=Tu-au+bv,y=Tv-av-bu\)，
 
-则\((T_C-\lambda I)(u+iv)=x+iy,(T_C-\ol{\lambda} I)(u-iv)=x-iy\).
+则\((T_C-\lambda I)(u,v)=(x,y),(T_C-\ol{\lambda} I)(u,-v)=(x,-y)\).
     \begin{align*}
-        (T_C-\lambda I)^n (u+iv)=(T_C-\lambda I)^{n-1}(T_C-\lambda I)(u+iv)
-        =(T_C-\lambda I)^{n-1}(x+iy)=0 \\
-        (T_C-\ol{\lambda} I)^n (u-iv)=(T_C-\ol{\lambda} I)^{n-1}(T_C-\ol{\lambda}I)(u-iv)
-        =(T_C-\ol{\lambda} I)^{n-1}(x-iy)=0    
+        (T_C-\lambda I)^n (u,v)=(T_C-\lambda I)^{n-1}(T_C-\lambda I)(u,v)
+        =(T_C-\lambda I)^{n-1}(x,y)=0 \\
+        (T_C-\ol{\lambda} I)^n (u,-v)=(T_C-\ol{\lambda} I)^{n-1}(T_C-\ol{\lambda}I)(u,-v)
+        =(T_C-\ol{\lambda} I)^{n-1}(x,-y)=0    
     \end{align*}
 根据归纳假设，两式等价，即\((T_C-\lambda I)^n (u+iv)=0 \Leftrightarrow (T_C-\ol{\lambda} I)^n (u-iv)=0\).
 
@@ -46,10 +46,29 @@
 设\(t_1,\cdots,t_m\)是\(T_C\)的实特征值，
 \(\lambda_1,\cdots,\lambda_n,\ol{\lambda_1},\cdots,\ol{\lambda_n}\)是其共轭复特征值.
 
+由于共轭特征值对应的重数相等，故共轭特征值的重数可以都设为\(l_i\).
+
 设\(t_i\)对应的重数为\(d_i\)，\(\lambda_i\)对应的重数为\(l_i\)，则\(T_C\)的特征多项式为
     \begin{align*}
         \prod_{i=1}^m (z-t_i)^{d_i} \prod_{i=1}^n (t-\lambda_i)^{l_i}(t-\ol{\lambda_i})^{l_i}
         =\prod_{i=1}^m (z-t_i)^{d_i} \prod_{i=1}^n (z^2-2\mathrm{Re}(\lambda_j)z+\abs{\lambda_i}^2)^{l_i}
     \end{align*}
 由于\(\mathrm{Re}(\lambda_j),\abs{\lambda_i}^2\)均为实数，故特征多项式的系数均为实数.
+
+\newpage
+
+\textit{Theorem} {\kaishu 广义特征子空间分解的实向量空间版本}
+设\(V\)是实向量空间且\(T \in L(V)\).
+
+对于\(T_C \in L(V_C)\)，若\(t_1,\cdots,t_m\)是\(T_C\)的实特征值，
+\(\lambda_1,\cdots,\lambda_n,\ol{\lambda_1},\cdots,\ol{\lambda_n}\)是其共轭复特征值.
+
+\(\forall i=1,\cdots,n,G(\lambda_i,T_C),G(\ol{\lambda_i},T_C)\)的基为
+\((u_1,v_1),\cdots,(u_{n_i},v_{n_i})\)和\((u_1,-v_1),\cdots,(u_{n_i},-v_{n_i})\).
+
+则\(V=\oplus_{i=1}^m G(t_i,T) \oplus \oplus_{i=1}^n U_i\)
+且\(\forall i=1,\cdots,n,U_i=\myspan(u_1,v_1,\cdots,u_{n_i},v_{n_i})\).
+
+\textit{Proof}
+显然\(V_C=\oplus_{i=1}^m G(t_i,T_C) \oplus \oplus_{i=1}^n (G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C))\).
 
