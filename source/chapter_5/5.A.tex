@@ -90,7 +90,7 @@
 \textit{b.Proof}
 设\(e_1,\cdots,e_n\)是\(F^n\)的标准基.
 
-根据\textit{5.A.10.a}，\(\forall i=1,\cdots,n,U_i=\myspan (e_i)\)都是\(T\)的不变子空间.
+根据\textit{5.A.10.a}，\(\forall i=1,\cdots,n,U_i=\altspan (e_i)\)都是\(T\)的不变子空间.
 
 又根据\textit{5.A.4}，其中任意若干\(U_i\)之和都是\(T\)的不变子空间.
 
@@ -197,14 +197,14 @@
 \textit{28.}
 设\(V\)是有限维向量空间.
 
-\(T \in L(V)\)满足任意维数为\(\mydim V-1\)的子空间都是不变子空间.求证：\(T=\lambda I,\lambda \in F\).
+\(T \in L(V)\)满足任意维数为\(\dim V-1\)的子空间都是不变子空间.求证：\(T=\lambda I,\lambda \in F\).
 
 \textit{Proof}
 设\(v_1,\cdots,v_m\)是\(V\)的一组基.则\(\exists a_i^j \in F,Tv_j=\sum_{i=1}^m a_i^j v_i\).
 
-我们不妨先考虑所有包含\(\myspan (v_1)\)的且维数为\(\mydim V-1\)的子空间.
+我们不妨先考虑所有包含\(\altspan (v_1)\)的且维数为\(\dim V-1\)的子空间.
 
-设\(U_i=\myspan (v_i)\)，这些子空间的统一形式可以被写作\(\sum_{i=1}^m U_i(i \ne k,k \ne 1)\).
+设\(U_i=\altspan (v_i)\)，这些子空间的统一形式可以被写作\(\sum_{i=1}^m U_i(i \ne k,k \ne 1)\).
 
 由于该子空间不变，故\(Tv_1=\sum_{i=1}^m a_i^1 v_i \in \sum_{i=1}^m U_i(i \ne k)\).
 
@@ -244,7 +244,7 @@
 求证：\(e^{\lambda_1 x},\cdots,e^{\lambda_n x}\)在由实值函数组成的函数空间中线性无关.
 
 \textit{Proof}
-令\(V=\myspan (e^{\lambda_1 x},\cdots,e^{\lambda_n x})\)，并定义\(T \in L(V)\)为\(Tf=f'\).
+令\(V=\altspan (e^{\lambda_1 x},\cdots,e^{\lambda_n x})\)，并定义\(T \in L(V)\)为\(Tf=f'\).
 
 由于\((e^{\lambda_i x})'=\lambda_i e^{\lambda_i x}\)，即\(Tf_i=\lambda_i f_i\)，故\(e^{\lambda_i x}\)是\(T\)的特征向量.
 

@@ -4,23 +4,23 @@
 使得线性算子\(T\)的矩阵是上三角矩阵.
 
 \textit{Proof}
-使用数学归纳法.\(\mydim V=1\)的情况显然成立.
+使用数学归纳法.\(\dim V=1\)的情况显然成立.
 
-现在假设对于任意的\(U\)满足\(\mydim U<\mydim V\)，\(U\)都满足条件.
+现在假设对于任意的\(U\)满足\(\dim U<\dim V\)，\(U\)都满足条件.
 
 根据定理5.21，该复向量空间必存在一个特征值\(\lambda\)及对应的特征向量\(u\).
 
-令\(U=\myspan(u)\)，考虑商空间\(V/U\)，\(\mydim V/U=n-1\)，因此可以对其使用假设.
+令\(U=\altspan(u)\)，考虑商空间\(V/U\)，\(\dim V/U=n-1\)，因此可以对其使用假设.
 
 构造\(T\)在\(V/U\)上的诱导变换\(T/U\)满足\(\forall v+U \in V/U,(T/U)(v+U)=Tv+U\).
 
-则\(V/U\)存在一组基\(v_1+U,\cdots,v_n+U\)满足\((T/U)(v_i+U) \in \myspan(v_1+U,\cdots,v_n+U)\).
+则\(V/U\)存在一组基\(v_1+U,\cdots,v_n+U\)满足\((T/U)(v_i+U) \in \altspan(v_1+U,\cdots,v_n+U)\).
 
 将商空间\(V/U\)的基提升至原空间，将有\(\forall i=1,\cdots,n,Tv_i=\mu u+\sum_{j=1}^i a_jv_j\).
 
 合并\(u\)和提升后的\(v_1,\cdots,v_n\).根据\textit{3.E.13}，\(u,v_1,\cdots,v_n\)是\(V\)的一组基.
 
-且满足\(\forall i=1,\cdots,n,Tv_i \in \myspan(u,v_1,\cdots,v_i)\).
+且满足\(\forall i=1,\cdots,n,Tv_i \in \altspan(u,v_1,\cdots,v_i)\).
 
 \hspace*{\fill}
 
@@ -96,7 +96,7 @@
 \textit{Proof}
 使用反证法.设\(\exists \lambda \in F,p(\lambda)=0\)但\(T-\lambda I\)可逆.
 
-根据代数基本定理，存在\(q(T) \in L(V)\)，使得\(p(T)=(T-\lambda I)q(T),\mydeg q<\mydeg p\).
+根据代数基本定理，存在\(q(T) \in L(V)\)，使得\(p(T)=(T-\lambda I)q(T),\altdeg q<\altdeg p\).
 
 因此\(q(T)\)不能满足\(q(T)v=0\).但是\(v \ne 0\)，因而\((T-\lambda I)v \ne 0\).
 
@@ -143,7 +143,7 @@
         \varphi(\lambda p+\mu q)=(\lambda p+\mu q)(T)v=(\lambda p(T)+\mu q(T))v
         =\lambda p(T)v+\mu q(T)v=\lambda(\varphi p)+\mu(\varphi q)
     \end{align*}
-由于\(\mydim P_n(C)=n+1,\mydim V=n\)，因此该变换不是单射变换，
+由于\(\dim P_n(C)=n+1,\dim V=n\)，因此该变换不是单射变换，
 
 也即存在\(v \ne 0\)使得\(p(T)v=\sum_{i=0}^n a_i(T^iv)=0\)，后文证明与原文相同.
 

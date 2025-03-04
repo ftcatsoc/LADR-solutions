@@ -1,5 +1,5 @@
 \textit{Theorem 7.24}{\kaishu 复谱定理}
-设\(V\)是有限维复内积空间且\(T \in L(V),\mydim V=n\).
+设\(V\)是有限维复内积空间且\(T \in L(V),\dim V=n\).
 
 求证：\(T\)是正规算子等价于\(V\)有一组\(T\)的规范正交特征向量组成的基.
 
@@ -45,7 +45,7 @@
 \hspace*{\fill}
 
 \textit{Theorem 7.29}{\kaishu 实谱定理}
-设\(V\)是有限维实内积空间且\(T \in L(V),\mydim V=n\).
+设\(V\)是有限维实内积空间且\(T \in L(V),\dim V=n\).
 
 求证：\(T\)是自伴算子等价于\(V\)有一组\(T\)的规范正交特征向量组成的基.
 
@@ -56,7 +56,7 @@
 
 充分性：由于实内积空间上的自伴算子一定有特征值\footnote{这个结论将在复化章节中证明.}，
 
-故设\(e_1\)满足\(\norm{e_1}=1\)是\(T\)的特征向量，令\(U=\myspan(e_1)\)，考虑\(U^\bot\).
+故设\(e_1\)满足\(\norm{e_1}=1\)是\(T\)的特征向量，令\(U=\altspan(e_1)\)，考虑\(U^\bot\).
 
 根据引理7.28，\(T|_{U^\bot}\)是自伴算子，故\(T|_{U^\bot}\)也有特征向量\(e_2\)满足\(\norm{e_2}=1\).
 
@@ -67,7 +67,7 @@
 \newpage
 
 \textit{4.}
-设\(V\)是有限维复内积空间且\(T \in L(V),\mydim V=n\).\(\lambda_1,\cdots,\lambda_m\)是\(T\)的所有相异特征值.
+设\(V\)是有限维复内积空间且\(T \in L(V),\dim V=n\).\(\lambda_1,\cdots,\lambda_m\)是\(T\)的所有相异特征值.
 
 求证：\(T\)是正规算子当且仅当\(V=\oplus_{i=1}^m E(\lambda_i,T)\)且特征空间两两正交.
 
@@ -88,7 +88,7 @@
 \textit{Proof}
 根据复谱定理，\(V\)有一组规范正交特征基\(e_1,\cdots,e_n\).
 
-从而\(M(T)=\diag(\lambda_1,\cdots,\lambda_n),M(T^*)=\diag(\ol{\lambda_1},\cdots,\ol{\lambda_n})\).
+从而\(M(T)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n),M(T^*)=\mathrm{diag}(\ol{\lambda_1},\cdots,\ol{\lambda_n})\).
 
 \(M(T)=M(T^*)\)等价于\(\forall i=1,\cdots,n,\lambda_i=\ol{\lambda_i}\)，
 即\(\forall i=1,\cdots,n,\lambda_i\)都是实数，证毕.
@@ -101,7 +101,7 @@
 求证：\(T\)是自伴算子且为幂等算子.
 
 \textit{Proof}
-\(V\)应有一组规范正交特征基\(e_1,\cdots,e_n\)，从而\(M(T)=\diag(\lambda_1,\cdots,\lambda_n)\).
+\(V\)应有一组规范正交特征基\(e_1,\cdots,e_n\)，从而\(M(T)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n)\).
 
 若\(T^9=T^8\)，则\(\forall i=1,\cdots,n,\lambda_i^9=\lambda_i^8,\lambda_i^8(\lambda_i-1)=0\)，
 即特征值只可能为\(0\)或\(1\).
@@ -158,7 +158,7 @@
 \textit{Proof}
 必要性的证明与原来一致.
 
-充分性：设\(\lambda_1\)是\(T\)的特征值，\(e_1\)满足\(\norm{e_1}=1\)是与之对应的特征向量，令\(U=\myspan(e_1)\).
+充分性：设\(\lambda_1\)是\(T\)的特征值，\(e_1\)满足\(\norm{e_1}=1\)是与之对应的特征向量，令\(U=\altspan(e_1)\).
 
 显然\(T|_{U^\bot}\)也是正规算子，设\(\lambda_2\)是其特征值，\(e_2\)满足\(\norm{e_2}=1\)是与之对应的特征向量.
 

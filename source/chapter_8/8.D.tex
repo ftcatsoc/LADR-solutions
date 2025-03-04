@@ -8,19 +8,17 @@
     \end{align*}
 
 \textit{Proof}
-使用数学归纳法.考虑\(\mydim V=1\)的情况.取\(\forall v \in V\)，则\(v\)即为\(V\)的基，且\(Nv=0\).
+使用数学归纳法.考虑\(\dim V=1\)的情况.取\(\forall v \in V\)，则\(v\)即为\(V\)的基，且\(Nv=0\).
 
-现在假设对于任意的有限维复向量空间\(U\)满足\(\mydim U<\mydim V\)，都存在满足如上条件的基.
+现在假设对于任意的有限维复向量空间\(U\)满足\(\dim U<\dim V\)，都存在满足如上条件的基.
 
-给出最大循环子空间\(U=\myspan(v_1,\cdots,N^{m_1}v_1)\)满足如下条件：
-    \begin{align*}
-        &a.\text{\kaishu 不存在} v \in V \text{\kaishu 使得} Nv=v_1 
-        \text{\kaishu ，否则} \myspan(v,v_1,\cdots,N^{m_1}v_1) \text{\kaishu 是更大的循环子空间}; \\
-        &b.N^{m_1+1}v_1=0 \text{\kaishu ，否则} \myspan(v_1,\cdots,N^{m_1+1}v_1) \text{\kaishu 是更大的循环子空间}.
-    \end{align*}
-令\(N(U)=\myspan(Nv_1,\cdots,N^{m_1}v_1) \subset U\)，因此\(U\)是\(N\)下的不变子空间.
+任取\(v_1 \notin \Img N\)，构造循环子空间\(U=\altspan(v_1,\cdots,N^{m_1}v_1)\)满足\(N^{m_1+1}=0\).
 
-考虑商空间\(V/U,\mydim (V/U)=\mydim V-\mydim U<\mydim V\)，因此可以对\(V/U\)使用归纳.
+其循环基的线性无关性由\textit{8.A.5}保证，且不存在\(v \in V\)使得\(Nv=v_1\)，故\(U\)的循环基不可扩张.
+
+且由\(N(U)=\altspan(Nv_1,\cdots,N^{m_1}v_1) \subset U\)得到\(U\)是\(N\)下的不变子空间.
+
+考虑商空间\(V/U,\dim (V/U)=\dim V-\dim U<\dim V\)，因此可以对\(V/U\)使用归纳.
 
 构造\(N\)在\(V/U\)上的诱导变换\(\ol{N} \in L(V/U)\)满足\(\forall \ol{v}=v+U \in V/U,\ol{N}\ol{v}=Nv+U=\ol{Nv}\).
 
@@ -29,34 +27,34 @@
 则\(\ol{N^{m_2}u_2},\cdots,\ol{u_2},\cdots,\ol{N^{m_n}u_n},\cdots,\ol{u_n}\)是\(V/U\)的基，
 满足\(\ol{N^{m_2+1}u_2}=\cdots=\ol{N^{m_n+1}u_n}=\ol{0}\).
 
-因此\(\forall i=2,\cdots,n,N^{m_i+1}u_i \in U\)，令\(\forall i=2,\cdots,n,N^{m_i+1}u_i=x_i^0\).
-设\(x_i^0=\sum_{k=0}^{m_i}c_kN^kv_1 \in U\).
+因此\(\forall i=2,\cdots,n,\ol{N^{m_i+1}u_i}=\ol{0}\)可推出\(\forall i=2,\cdots,n,N^{m_i+1}u_i \in U\).
 
-若\(m_i \geq m_1\)，则\(x_i^0=N^{m_i+1}u_i=N^{m_i-m_1}(N^{m_1+1}u_i)=0\).令\(v_i=u_i\)，选取\(v_i\)为代表元.
+若\(m_i \geq m_1\)，则\(N^{m_i+1}u_i=N^{m_i-m_1}(N^{m_1+1}u_i)=0\).令\(v_i=u_i\)，选取\(v_i\)为代表元.
 
-若\(m_i<m_1\)，构造迭代调整链\(x_i^0,\cdots,x_i^{m_i+1} \in U\)满足\(\forall j=1,\cdots,m_i+1,Nx_i^j=x_i^{j-1}\).
+若\(m_i<m_1\)，写\(N^{m_i+1}u_i \in U\)为\(\sum_{k=0}^{m_1}c_kN^kv_1\)，下证\(c_0=\cdots=c_{m_i}=0\).
 
-下证\(x_i^0 \in \myspan(N^{m_i+1}v_1,\cdots,N^{m_1}v_1)=\Img (N|_U)^{m_i+1}\)，使用数学归纳法和反证法.
-
-假设存在\(p_{\min} \in \{0,\cdots,m_i\}\)使得\(a_p \ne 0\)，那么\(N^{m_i+1}u_i=x_i^0=\sum_{k=p}^{m_i}c_kN^kv_1\)，变形得到
+假设存在\(p_{\min} \in \{0,\cdots,m_i\}\)使得\(c_p \ne 0\)，那么\(N^{m_i+1}u_i=\sum_{k=p}^{m_1}c_kN^kv_1\)，变形得到
     \begin{align*}
-        v_1=\dfrac{1}{a_p}(N^{m_i+1}u_i-\sum_{k=p+1}^{m_i}c_kN^kv_1)
-        =N(\dfrac{1}{a_p}(N^{m_i}u_i-\sum_{k=p+1}^{m_i}c_kN^{k-1}v_1))=Nv
+        c_pN^pv_1=N^{m_i+1}u_i-\sum_{k=p+1}^{m_1}c_kN^kv_1 \Rightarrow
+        v_1=N \left( \dfrac{1}{c_p}N^{m_i-p}u_i-\dfrac{1}{c_p}\sum_{k=p+1}^{m_1}c_kN^{k-p-1}v_1 \right)=Nv
     \end{align*}
-于是存在\(v\)使得\(Nv=v_1\)，与\(U\)作为最大循环子空间相矛盾，故\(a_0=\cdots=a_{m_i}=0\).
+于是存在\(v\)使得\(Nv=v_1\)，与\(U\)作为最大循环子空间相矛盾，故\(c_0=\cdots=c_{m_i}=0\).
 
-于是\(x_i^0 \in \Img (N|_U)^{m_i+1}\)，即存在\(x_i^{m_i+1} \in U\)使得
-\((N|_U)^{m_i+1}x_i^{m_i+1}=N^{m_i+1}x_i^{m_i+1}=x_i^0\).
+定义\(x_i^0=N^{m_i+1}u_i=\sum_{k=m_i+1}^{m_1}c_kN^kv_1\).构造链\(\{x_i^j\}\)满足
+\(\forall j=0,\cdots,m_i+1,Nx_i^j=x_i^{j-1}\).
+
+那么\(\forall j=0,\cdots,m_i+1,x_i^j=\sum_{k=m_i+1}^{m_1}c_kN^{k-j}v_1\)，调整链的存在性得证.
 
 通过调整项\(x_i^{m_i+1}\)调整代表元\(u_i\)为\(v_i\)满足\(\forall i=2,\cdots,n,v_i=u_i-x_i^{m_i+1}\)，则
     \begin{align*}
-        &\forall i=2,\cdots,n,N^{m_i+1}v_i=N^{m_i+1}u_i-N^{m_i+1}x_i^{m_i+1}=N^{m_i+1}u_i-x_i^0=0 \\
-        &\forall j=0,\cdots,m_i+1,\ol{N^jv_i}=\ol{N^j(u_i-x_i^{m_i+1})}=\ol{N^ju_i-x_i^{m_i-j+1}}=\ol{N^ju_i}
+        \forall j=0,\cdots,m_i+1,\ol{N^jv_i}=\ol{N^j(u_i-x_i^{m_i+1})}=\ol{N^ju_i-x_i^{m_i-j+1}}=\ol{N^ju_i} 
+    \end{align*}
+这表明\(\forall j=0,\cdots,m_i+1, N^jv_i\)都是\(\ol{N^ju_i}\)的代表元.进一步地，
+    \begin{align*}
+        \forall i=2,\cdots,n,N^{m_i+1}v_i=N^{m_i+1}u_i-N^{m_i+1}x_i^{m_i+1}=N^{m_i+1}u_i-x_i^0=0
     \end{align*}
 故选择\(\ol{N^{m_2}u_2},\cdots,\ol{u_2},\cdots,\ol{N^{m_n}u_n},\cdots,\ol{u_n}\)的代表元
 \(N^{m_1}v_2,\cdots,v_2,\cdots,N^{m_n}v_n,\cdots,v_n\).
 
-根据\textit{3.E.13}，\(N^{m_1}v_1,\cdots,v_1,\cdots,N^{m_n}v_n,\cdots,v_n\)即为\(V\)的一组基，
-
-且满足\(N^{m_1+1}v_1=\cdots=N^{m_n+1}v_n=0\).
+根据\textit{3.E.13}，\(N^{m_1}v_1,\cdots,v_1,\cdots,N^{m_n}v_n,\cdots,v_n\)是一组满足条件的基.
 

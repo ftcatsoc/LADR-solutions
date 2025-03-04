@@ -151,7 +151,7 @@
 
 (\textit{b})证明：\(V\)中任意包含\(v_1,\cdots,v_m\)的仿射集都必然包含\(A\).
 
-(\textit{c})证明：\(V\)中存在某个向量\(v\)和某个满足\(\mydim U \leq m-1\)的子空间\(U\)，使得\(A=v+U\).
+(\textit{c})证明：\(V\)中存在某个向量\(v\)和某个满足\(\dim U \leq m-1\)的子空间\(U\)，使得\(A=v+U\).
 
 \textit{a.Proof}
 取\(A\)中的两点\(\sum_{i=1}^m \lambda_i v_i,\sum_{i=1}^m \mu_i v_i\)，
@@ -172,17 +172,17 @@
 将\(v_i=u_0+u_i\)代入，有\(\sum_{i=1}^m \lambda_i(u_0+u_i)=u_0+\sum_{i=1}^m \lambda_i u_i\).
 因此\(\sum_{i=1}^m \lambda_i u_i \in U\).
 
-同时，\(\sum_{i=1}^m \lambda_i u_i \in \myspan (u_1,\cdots,u_m)\)，
-因此\(U \subseteq \myspan (u_1,\cdots,u_m)\).
+同时，\(\sum_{i=1}^m \lambda_i u_i \in \altspan (u_1,\cdots,u_m)\)，
+因此\(U \subseteq \altspan (u_1,\cdots,u_m)\).
 
-根据定理2.7，\(\myspan (u_1,\cdots,u_m)\)是能包含\(u_1,\cdots,u_m\)的最小子空间.
+根据定理2.7，\(\altspan (u_1,\cdots,u_m)\)是能包含\(u_1,\cdots,u_m\)的最小子空间.
 
 能够包含\(u_1,\cdots,u_m\)的子空间必然包含\(U\)，也即能够包含\(v_1,\cdots,v_m\)的仿射集必然包含\(A\).
 
 \textit{c.Proof}
 将\textit{3.E.11.b}中的\(u_0\)替换成\(v_1\)，则\(\forall i=2,\cdots,m,u_i=v_i-v_1\).
 
-因此\(A=u_0+U=u_0+\myspan (u_1,\cdots,u_m)=v_1+\myspan (v_2-v_1,\cdots,v_m-v_1)\).
+因此\(A=u_0+U=u_0+\altspan (u_1,\cdots,u_m)=v_1+\altspan (v_2-v_1,\cdots,v_m-v_1)\).
 
 显然，\(U\)就是满足要求的子空间.
 
@@ -200,7 +200,7 @@
 
 由于\(v+U=w+u+U=w+U\)且\(w \notin U\)，得\(w=0\)，从而\(\Ker T=\{0\}\)，即\(T\)为单射变换.
 
-由\(\mydim (U \times (V/U))=\mydim V\)得到\(T\)是满射变换.综上，\(T\)为可逆变换，证毕.
+由\(\dim (U \times (V/U))=\dim V\)得到\(T\)是满射变换.综上，\(T\)为可逆变换，证毕.
 
 \newpage
 
@@ -210,21 +210,21 @@
 \(u_1,\cdots,u_n\)是\(U\)的一组基.求证：\(v_1,\cdots,v_m,u_1,\cdots,u_n\)是\(V\)的一组基.
 
 \textit{Proof}
-先证\(V=\myspan (v_1,\cdots,v_m,u_1,\cdots,u_n)\).
+先证\(V=\altspan (v_1,\cdots,v_m,u_1,\cdots,u_n)\).
 
 \(\forall v+U \in V/U, \exists a_i \in F\)，使得\(v+U=\sum_{i=1}^m a_i(v_i+U)=\sum_{i=1}^m a_iv_i+U\).
 
-从而\(v-\sum_{i=1}^m a_iv_i \in U\)，即\(\exists u \in \myspan (u_1,\cdots,u_n) \in U,v-\sum_{i=1}^m a_iv_i=u\).
+从而\(v-\sum_{i=1}^m a_iv_i \in U\)，即\(\exists u \in \altspan (u_1,\cdots,u_n) \in U,v-\sum_{i=1}^m a_iv_i=u\).
 
-最终\(v=\sum_{i=1}^m a_iv_i+u \in \myspan (v_1,\cdots,v_m,u_1,\cdots,u_n)\)，证毕.
+最终\(v=\sum_{i=1}^m a_iv_i+u \in \altspan (v_1,\cdots,v_m,u_1,\cdots,u_n)\)，证毕.
 
 再证\(v_1,\cdots,v_m,u_1,\cdots,u_n\)线性无关.由于\(v_1+U,\cdots,v_m+U\)是\(V/U\)的一组基，
 
 故\(\sum_{i=1}^m a_i(v_i+U)=U \Rightarrow a_1=\cdots=a_m=0\).
 
-因此\(v_1,\cdots,v_m\)线性无关且\(\myspan (v_1,\cdots,v_m) \cap U=\{0\}\).
+因此\(v_1,\cdots,v_m\)线性无关且\(\altspan (v_1,\cdots,v_m) \cap U=\{0\}\).
 
-根据定理2.34和\textit{2.B.8}，\(V=\myspan (v_1,\cdots,v_m) \oplus U\)，
+根据定理2.34和\textit{2.B.8}，\(V=\altspan (v_1,\cdots,v_m) \oplus U\)，
 即\(v_1,\cdots,v_m,u_1,\cdots,u_n\)是\(V\)的一组基.
 
 \hspace*{\fill}
@@ -264,25 +264,25 @@
 \textit{18.}
 设\(U\)是\(V\)的一个子空间且\(V/U\)是有限维向量空间.
 
-求证：存在\(V\)的另一个子空间\(W\)，使得\(\mydim W=\mydim V/U\)且\(V=U \oplus W\).
+求证：存在\(V\)的另一个子空间\(W\)，使得\(\dim W=\dim V/U\)且\(V=U \oplus W\).
 
 \textit{Proof}
 由于\(V/U\)是有限维向量空间，设\(v_1+U,\cdots,v_m+U\)是\(V/U\)的一组基.
 
 从而\(\forall v+U \in V/U,v+U=\sum_{i=1}^m a_i(v_i+U)=\sum_{i=1}^m a_iv_i+U\).
 
-即\(v-\sum_{i=1}^m a_iv_i=u \in U,v=\sum_{i=1}^m a_iv_i+u\)，得到\(V=\myspan (v_1,\cdots,v_m)+U\).
+即\(v-\sum_{i=1}^m a_iv_i=u \in U,v=\sum_{i=1}^m a_iv_i+u\)，得到\(V=\altspan (v_1,\cdots,v_m)+U\).
 
-下证\(v_1,\cdots,v_m\)线性无关且\(\myspan (v_1,\cdots,v_m) \cap U =\{0\}\).
+下证\(v_1,\cdots,v_m\)线性无关且\(\altspan (v_1,\cdots,v_m) \cap U =\{0\}\).
 
 \(\sum_{i=1}^m a_i(v_i+U)=\sum_{i=1}^m a_iv_i+U=U \Rightarrow a_1=\cdots=a_m=0\)，即\(v_1,\cdots,v_m\)线性无关.
 
-使用反证法.若\(v_0 \ne 0 \in \myspan (v_1,\cdots,v_m) \cap U\)，
+使用反证法.若\(v_0 \ne 0 \in \altspan (v_1,\cdots,v_m) \cap U\)，
 即存在至少一个\(a_i \ne 0\)，使得\(v_0=\sum_{i=1}^m a_iv_i\).
 
 然而\(v_0 \in U \Rightarrow v_0+U=U \Rightarrow a_1=\cdots=a_m=0\).
 
-矛盾，假设不成立，令\(W=\myspan (v_1,\cdots,v_m)\)，原命题即得证.
+矛盾，假设不成立，令\(W=\altspan (v_1,\cdots,v_m)\)，原命题即得证.
 
 \hspace*{\fill}
 

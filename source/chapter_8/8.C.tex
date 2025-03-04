@@ -14,7 +14,7 @@
 
 根据定理8.55，\(G(\lambda_i,T)\)存在一组\textit{Jordan}基\(N_i^{m_1}v_1,\cdots,v_1,\cdots,N_i^{m_n}v_n,\cdots,v_n\).
 
-因此\(\max \{m_1,\cdots,m_n\}=k_i\)，并令\(U_j=\myspan (N_i^{m_j}v_j,\cdots,v_j)\)，
+因此\(\max \{m_1,\cdots,m_n\}=k_i\)，并令\(U_j=\altspan (N_i^{m_j}v_j,\cdots,v_j)\)，
 则\(G(\lambda_i,T)=\oplus_{j=1}^n U_j\).
 
 根据定理8.55的证明，\(\forall j=1,\cdots,n,U_j\)都是\(N_i\)下的不变子空间，且有\(N_i^{m_j}|_{U_j}=0\).
@@ -40,7 +40,7 @@
 \textit{2.}
 设\(V\)是有限维向量空间且\(T \in L(V)\)只有两个特征值\(5,6\).
 
-求证：\((T-5I)^{n-1}(T-6I)^{n-1}=0\)，其中\(n=\mydim V\).
+求证：\((T-5I)^{n-1}(T-6I)^{n-1}=0\)，其中\(n=\dim V\).
 
 \textit{Proof}
 \(T\)有两个特征值，故每个特征值的重数最多为\(n-1\).
@@ -52,7 +52,7 @@
 \textit{7.}
 设\(V\)是有限维向量空间且\(P \in L(V)\)满足\(P^2=P\).
 
-求证：\(P\)的特征多项式是\(z^m(z-1)^n\)，其中\(m=\mydim \Ker P,n=\mydim \Img P\).
+求证：\(P\)的特征多项式是\(z^m(z-1)^n\)，其中\(m=\dim \Ker P,n=\dim \Img P\).
 
 \textit{Proof}
 根据\textit{5.B.4}，\(V=\Ker P \oplus \Img P\).
@@ -64,14 +64,14 @@
 
 由空间维数的限制，只能有\(E(0,P)=G(0,P),\Img P=E(1,P)=G(1,P)\).
 
-因此\(P\)的特征多项式为\(p_c(z)=z^{\mydim G(0,P)}(z-1)^{\mydim G(1,P)}=z^m(z-1)^n\).
+因此\(P\)的特征多项式为\(p_c(z)=z^{\dim G(0,P)}(z-1)^{\dim G(1,P)}=z^m(z-1)^n\).
 
 \newpage
 
 \textit{10.}
 设\(V\)是有限维向量空间且\(T \in L(V)\)是可逆算子.
 
-令\(p,q\)分别指代\(T,T^{-1}\)的特征多项式，证明：\(q(z)=\dfrac{z^{\mydim V}}{p(0)}p(\dfrac{1}{z})\).
+令\(p,q\)分别指代\(T,T^{-1}\)的特征多项式，证明：\(q(z)=\dfrac{z^{\dim V}}{p(0)}p(\dfrac{1}{z})\).
 
 \textit{Proof}
 根据\textit{8.A.3}和\textit{5.A.21}，\(G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
@@ -83,7 +83,7 @@
         q(z)=\prod_{i=1}^m (z-\lambda_i^{-1})^{d_i}
             =\prod_{i=1}^m \dfrac{z^{d_i}}{\lambda^{d_i}}(\lambda_i-\dfrac{1}{z})^{d_i}
             =\prod_{i=1}^m \dfrac{z^{d_i}}{-\lambda^{d_i}}(\dfrac{1}{z}-\lambda_i)^{d_i}
-            =\dfrac{z^{\mydim V}}{p(0)}p(\dfrac{1}{z})
+            =\dfrac{z^{\dim V}}{p(0)}p(\dfrac{1}{z})
     \end{align*}
 
 \hspace*{\fill}
@@ -114,11 +114,11 @@
 设\(a_0,\cdots,a_{n-1} \in C\).给出以下矩阵的特征多项式和极小多项式.
     \begin{equation*}
         \begin{pmatrix}
-            0 &   &        &   & -a_0     \\
-            1 & 0 &        &   & -a_1     \\
-              & 1 & \ddots &   & \vdots   \\
-              &   & \ddots & 0 & -a_{n-2} \\
-              &   &        & 1 & -a_{n-1} 
+            0      & \cdots & \cdots & 0      & -a_0     \\
+            1      & \ddots  &        & \vdots & -a_1     \\
+            0      & \ddots & \ddots & \vdots & \vdots   \\
+            \vdots & \ddots & 1      & 0      & -a_{n-2} \\
+            0      & \cdots & 0      & 1      & -a_{n-1} 
         \end{pmatrix}
     \end{equation*}
 \textit{Proof}
@@ -129,5 +129,5 @@
 
 从而矩阵的极小多项式为\(\sum_{i=0}^n a_iT^i,a_n=1\).
 
-由于\(\mydim p_m(z)=\mydim V\)，根据\textit{8.C.17}，其特征多项式与极小多项式相同.
+由于\(\dim p_m(z)=\dim V\)，根据\textit{8.C.17}，其特征多项式与极小多项式相同.
 

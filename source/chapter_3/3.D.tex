@@ -24,7 +24,7 @@
 \hspace*{\fill}
 
 \textit{2.}
-设\(V\)是有限维向量空间且\(\mydim V \geq 1\).
+设\(V\)是有限维向量空间且\(\dim V \geq 1\).
 
 求证\(L(V)\)中所有不可逆算子构成的集合不是\(L(V)\)的一个子空间.
 
@@ -86,11 +86,11 @@
 
 令\(T_2v_1,\cdots,T_2v_m\)是\(\Img T_2\)的一组基.根据\textit{3.B.24}和\textit{3.A.4}，
 
-令\(K=\myspan (v_1,\cdots,v_m)\)，则\(V=\Ker T \oplus K\)，且\(v_1,\cdots,v_m\)线性无关.
+令\(K=\altspan (v_1,\cdots,v_m)\)，则\(V=\Ker T \oplus K\)，且\(v_1,\cdots,v_m\)线性无关.
 
 下证\(T_1v_1,\cdots,T_1v_m\)也线性无关.令\(\sum_{i=1}^m a_iT_1v_i=T_1\sum_{i=1}^m a_iv_i=0\).
 
-由于\(\Ker T_1=\Ker T_2\)且\(\Ker T \cap \myspan (v_1,\cdots,v_m)=\{0\}\)，故\(\sum_{i=1}^m a_iv_i=0\).
+由于\(\Ker T_1=\Ker T_2\)且\(\Ker T \cap \altspan (v_1,\cdots,v_m)=\{0\}\)，故\(\sum_{i=1}^m a_iv_i=0\).
 
 结合\(v_1,\cdots,v_m\)线性无关得到\(a_1=\cdots=a_m=0\)，即\(T_1v_1,\cdots,T_1v_m\)也线性无关.
 
@@ -150,7 +150,7 @@
 \(v_1^\beta,\cdots,v_m^\beta,u_1^\beta,\cdots,u_n^\beta\)，其中\(u_1^\beta,\cdots,u_n^\beta\)线性无关.
 
 根据\textit{3.B.24}，
-\(\Ker T_1=\myspan (u_1^\alpha,\cdots,u_m^\alpha),\Ker T_2=\myspan (u_1^\beta,\cdots,u_n^\beta)\).
+\(\Ker T_1=\altspan (u_1^\alpha,\cdots,u_m^\alpha),\Ker T_2=\altspan (u_1^\beta,\cdots,u_n^\beta)\).
 
 现在定义线性变换\(S\).令
     \begin{align*}
@@ -181,7 +181,7 @@
 \textit{6.}
 设\(V\)和\(W\)是有限维向量空间且\(T_1,T_2 \in L(V,W)\).
 
-求证：\(\mydim \Ker T_1=\mydim \Ker T_2\)等价于存在可逆算子\(R \in L(V),S \in L(W)\)，使得\(T_1=ST_2R\).
+求证：\(\dim \Ker T_1=\dim \Ker T_2\)等价于存在可逆算子\(R \in L(V),S \in L(W)\)，使得\(T_1=ST_2R\).
 
 \textit{Proof}
 必要性：\(T_1=ST_2R \Rightarrow S^{-1}T_1=T_2R\).
@@ -189,8 +189,8 @@
 根据\textit{3.D.4}，\(\Ker T_1=\Ker T_2R\).
 根据\textit{3.D.5}，\(\Img S^{-1}T_1=\Img T_2\).
     \begin{align*}
-        \mydim \Ker T_1 &=\mydim \Ker T_2R=\mydim V-\mydim \Img T_2R \\
-        &=\mydim V-\mydim \Img T_2=\mydim \Ker T_2
+        \dim \Ker T_1 &=\dim \Ker T_2R=\dim V-\dim \Img T_2R \\
+        &=\dim V-\dim \Img T_2=\dim \Ker T_2
     \end{align*}
 
 充分性：令\(v_1^\alpha,\cdots,v_m^\alpha\)和\(v_1^\beta,\cdots,v_m^\beta\)
@@ -245,13 +245,13 @@
 \textit{Proof}
 令\(w_1,\cdots,w_m\)为\(\Img T\)的一组基.找到\(v_1,\cdots,v_m\)，使得\(\forall i=1,\cdots,m,T_1v_i=w_i\).
 
-根据\textit{3.A.4}，\(v_1,\cdots,v_m\)线性无关.令\(U=\myspan (v_1,\cdots,v_m)\).
+根据\textit{3.A.4}，\(v_1,\cdots,v_m\)线性无关.令\(U=\altspan (v_1,\cdots,v_m)\).
 
 下证\(T|_U\)是一个可逆变换.先证\(\Ker T|_U=\{0\}\).令\(Tv=T\sum_{i=1}^m a_iv_i=\sum_{i=1}^m a_iw_i=0\).
 
 由于\(w_1,\cdots,w_m\)线性无关，故\(a_1=\cdots=a_m=0\)，从而\(\Ker T|_U=\{0\}\)，证毕.
 
-又因为\(\Img T|_U=\Img T=\myspan (w_1,\cdots,w_m)\)，故\(T|_U\)是满射变换.综上，\(T|_U\)是可逆变换.
+又因为\(\Img T|_U=\Img T=\altspan (w_1,\cdots,w_m)\)，故\(T|_U\)是满射变换.综上，\(T|_U\)是可逆变换.
 
 \hspace*{\fill}
 
@@ -322,11 +322,11 @@
 \hspace*{\fill}
 
 \textit{19.}
-设\(T \in L(P(R))\)满足\(T\)是单射变换，且\(\forall p \ne 0 \in P(R)\)满足\(\mydeg Tp \leq \mydeg p\).
+设\(T \in L(P(R))\)满足\(T\)是单射变换，且\(\forall p \ne 0 \in P(R)\)满足\(\altdeg Tp \leq \altdeg p\).
 
 (\textit{a})证明：\(T\)是满射变换.
 
-(\textit{b})证明：对于任意非零多项式\(p \in P(R)\)都有\(\mydeg Tp=\mydeg p\).
+(\textit{b})证明：对于任意非零多项式\(p \in P(R)\)都有\(\altdeg Tp=\altdeg p\).
 
 \textit{a.Proof}
 由\(T \in L(P(R))\)单射结合\textit{3.D.3}得到\(\forall n \in N*,T|_{P_n(R)}\)单射.
@@ -334,7 +334,7 @@
 结合定理3.69，\(T|_{P_n(R)}\)是一个满射变换，从而\(T\)也是一个满射变换.
 
 \textit{b.Proof}
-运用数学归纳法和反证法，设\(\mydeg p=n+1,\mydeg Tp<n+1\).
+运用数学归纳法和反证法，设\(\altdeg p=n+1,\altdeg Tp<n+1\).
 
 由\textit{3.D.19.a}，\(T|_{P_n(R)}\)满射，故\(\exists q \in P_n(R),Tp=T|_{P_n(R)}q\).
 

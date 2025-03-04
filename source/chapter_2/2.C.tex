@@ -6,27 +6,27 @@
 \textit{Proof}
 使用数学归纳法.先验证\(m=0\)的情况，显然成立.
 
-随后假设\(j=m\)时结论成立，需证\(\myspan (p_0,p_1,\cdots,p_m,p_{m+1})=\myspan (1,x,\cdots,x^m,x^{m+1})\).
+随后假设\(j=m\)时结论成立，需证\(\altspan (p_0,p_1,\cdots,p_m,p_{m+1})=\altspan (1,x,\cdots,x^m,x^{m+1})\).
 
-下证\(1^{\circ}\myspan (p_0,p_1,\cdots,p_m,p_{m+1}) \subseteq \myspan (1,x,\cdots,x^m,x^{m+1})\)
+下证\(1^{\circ}\altspan (p_0,p_1,\cdots,p_m,p_{m+1}) \subseteq \altspan (1,x,\cdots,x^m,x^{m+1})\)
 
-并且\(2^{\circ}\myspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \myspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
+并且\(2^{\circ}\altspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
 
-\(1^{\circ}\)的证明是显然的.\(\forall p\in \myspan (p_0,p_1,\cdots,p_m,p_{m+1}),p\in P_{m+1}(F)\).
+\(1^{\circ}\)的证明是显然的.\(\forall p\in \altspan (p_0,p_1,\cdots,p_m,p_{m+1}),p\in P_{m+1}(F)\).
 
-即\(\myspan (p_0,p_1,\cdots,p_m,p_{m+1})\subseteq \myspan (1,x,\cdots,x^m,x^{m+1})\).
+即\(\altspan (p_0,p_1,\cdots,p_m,p_{m+1})\subseteq \altspan (1,x,\cdots,x^m,x^{m+1})\).
 
 下证\(2^{\circ}\)成立.设选定的\(p_{m+1}=a_{m+1}x^{m+1}+\sum_{i=0}^m a_ix^i(a_{m+1} \ne 0)\).
 
-变形得到\(x^{i+1}=\dfrac{p_{m+1}-\sum_{i=0}^m a_ix^i}{a_{m+1}} \in \myspan (1,x,\cdots,x^m,p_{m+1})\).
+变形得到\(x^{i+1}=\dfrac{p_{m+1}-\sum_{i=0}^m a_ix^i}{a_{m+1}} \in \altspan (1,x,\cdots,x^m,p_{m+1})\).
 
-而\(\myspan (p_0,p_1,\cdots,p_m)=\myspan (1,x,\cdots,x^m)\)，
+而\(\altspan (p_0,p_1,\cdots,p_m)=\altspan (1,x,\cdots,x^m)\)，
 
-故\(\myspan (1,x,\cdots,x^m,p_{m+1})=\myspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
+故\(\altspan (1,x,\cdots,x^m,p_{m+1})=\altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
 
-从而\(x^{m+1}\in \myspan (p_0,p_1,\cdots,p_m,p_{m+1})\)，
+从而\(x^{m+1}\in \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\)，
 
-进而\(\myspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \myspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
+进而\(\altspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
 
 如此\(1^{\circ}\)和\(2^{\circ}\)均成立且向量均线性无关，即该张成组确实是\(P_m(F)\)的一组基.
 
@@ -35,26 +35,26 @@
 \textit{14.}
 设\(U_1,\cdots,U_m\)都是\(V\)的有限维子空间，且\(U_1,\cdots,U_m\)相互独立.
 
-求证：\(\sum_{i=1}^m U_i\)是有限维向量空间，且\(\mydim \sum_{i=1}^m U_i=\sum_{i=1}^m \mydim U_i\).
+求证：\(\sum_{i=1}^m U_i\)是有限维向量空间，且\(\dim \sum_{i=1}^m U_i=\sum_{i=1}^m \dim U_i\).
 
 \textit{Proof}
 设\(U_i\)的一组基为\(u_1^i,\cdots,u_{a_i}^i\)，
-则\(\sum_{i=1}^m U_i=\myspan(u_1^1,\cdots,u_{a_1}^1,\cdots,u_{a_m}^1,\cdots,u_{a_m}^m)\).
+则\(\sum_{i=1}^m U_i=\altspan(u_1^1,\cdots,u_{a_1}^1,\cdots,u_{a_m}^1,\cdots,u_{a_m}^m)\).
 
-因而\(\mydim \sum_{i=1}^m U_i \leq \sum_{i=1}^m \mydim U_i\)，即\(\sum_{i=1}^m U_i\)是有限维向量空间.
+因而\(\dim \sum_{i=1}^m U_i \leq \sum_{i=1}^m \dim U_i\)，即\(\sum_{i=1}^m U_i\)是有限维向量空间.
 
 下面使用数学归纳法，先验证\(U_1+U_2\)的情况.
 
-由于\(\mydim (U_1+U_2)=\mydim U_1+\mydim U_2-\mydim (U_1\cap U_2)\)且\(U_1\cap U_2=\{0\}\)，
+由于\(\dim (U_1+U_2)=\dim U_1+\dim U_2-\dim (U_1\cap U_2)\)且\(U_1\cap U_2=\{0\}\)，
 
-故\(\mydim (U_1+U_2)=\mydim U_1+\mydim U_2\)，从而\(n=2\)的情况成立.
+故\(\dim (U_1+U_2)=\dim U_1+\dim U_2\)，从而\(n=2\)的情况成立.
 
 随后假设\(n=m\)时结论成立，则当\(n=m+1\)时，
 
-有\(\mydim (\sum_{i=1}^m U_i+U_{m+1})=\mydim \sum_{i=1}^m U_i+\mydim U_{m+1}-\mydim (\sum_{i=1}^m U_i \cap U_{m+1})\).
+有\(\dim (\sum_{i=1}^m U_i+U_{m+1})=\dim \sum_{i=1}^m U_i+\dim U_{m+1}-\dim (\sum_{i=1}^m U_i \cap U_{m+1})\).
 
-由于\(n=m\)时结论成立，故\(\mydim \sum_{i=1}^m U_i=\sum_{i=1}^m \mydim U_i\).
+由于\(n=m\)时结论成立，故\(\dim \sum_{i=1}^m U_i=\sum_{i=1}^m \dim U_i\).
 
 又由于\(U_i\)相互独立，故\(\sum_{i=1}^m U_i \cap U_{n+1}=\{0\}\).
-故\(\mydim \sum_{i=1}^m U_i=\sum_{i=1}^m \mydim U_i\)，证毕.
+故\(\dim \sum_{i=1}^m U_i=\sum_{i=1}^m \dim U_i\)，证毕.
 

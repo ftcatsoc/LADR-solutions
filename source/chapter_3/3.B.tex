@@ -1,12 +1,12 @@
 \textit{3.}
 设\(v_1,\cdots,v_m \in V\)，定义\(T \in L(F^m,V)\)为\(T(z_1,\cdots,z_m)=\sum_{i=1}^m z_iv_i\).
 
-(\textit{a})若\(V=\myspan (v_1,\cdots,v_m)\)，则\(T\)具有怎样的性质？
+(\textit{a})若\(V=\altspan (v_1,\cdots,v_m)\)，则\(T\)具有怎样的性质？
 
 (\textit{b})若\(v_1,\cdots,v_m\)线性无关，则\(T\)具有怎样的性质？
 
 \textit{a.Proof}
-由于\(\Img T=\myspan (v_1,\cdots,v_m)=V\)，故\(T\)满射.
+由于\(\Img T=\altspan (v_1,\cdots,v_m)=V\)，故\(T\)满射.
 
 \textit{b.Proof}
 令\(T(z_1,\cdots,z_m)=\sum_{i=1}^m z_iv_i=0\).
@@ -28,18 +28,18 @@
 \hspace*{\fill}
 
 \textit{10.}
-设\(V=\myspan (v_1,\cdots,v_m)\)且\(T\in L(V,W)\)，求证：\(\Img T=\myspan (Tv_1,\cdots,Tv_m)\).
+设\(V=\altspan (v_1,\cdots,v_m)\)且\(T\in L(V,W)\)，求证：\(\Img T=\altspan (Tv_1,\cdots,Tv_m)\).
 
 \textit{Proof}
-\(\Img T=\{Tv|v\in V\}=\{Tv|v\in \myspan(v_1,\cdots,v_m)\}\).
+\(\Img T=\{Tv|v\in V\}=\{Tv|v\in \altspan(v_1,\cdots,v_m)\}\).
 
-\(\forall u=T\sum_{i=1}^m a_iv_i \in \Img T,u=\sum_{i=1}^m a_iTv_i \in \myspan(Tv_1,\cdots,Tv_m)\)；
+\(\forall u=T\sum_{i=1}^m a_iv_i \in \Img T,u=\sum_{i=1}^m a_iTv_i \in \altspan(Tv_1,\cdots,Tv_m)\)；
 
-\(\forall u=\sum_{i=1}^m a_iTv_i \in \myspan(Tv_1,\cdots,Tv_m),u=T\sum_{i=1}^m a_iv_i \in \Img T\).
+\(\forall u=\sum_{i=1}^m a_iTv_i \in \altspan(Tv_1,\cdots,Tv_m),u=T\sum_{i=1}^m a_iv_i \in \Img T\).
 
-因而有\(\Img T \subseteq \myspan(Tv_1,\cdots,Tv_m),\myspan(Tv_1,\cdots,Tv_m) \subseteq \Img T\).
+因而有\(\Img T \subseteq \altspan(Tv_1,\cdots,Tv_m),\altspan(Tv_1,\cdots,Tv_m) \subseteq \Img T\).
 
-即\(\Img T=\myspan (Tv_1,\cdots,Tv_m)\)，证毕.
+即\(\Img T=\altspan (Tv_1,\cdots,Tv_m)\)，证毕.
 
 \hspace*{\fill}
 
@@ -53,7 +53,7 @@
 
 使得\(v_1,\cdots,v_m,u_1,\cdots,u_n\)为\(V\)的一组基.
 
-令\(U=\myspan (u_1,\cdots,u_n)\)，则\(U\cap \Ker T=\{0\}\)显然成立，下证\(\Img T=\{Tu|u\in U\}\).
+令\(U=\altspan (u_1,\cdots,u_n)\)，则\(U\cap \Ker T=\{0\}\)显然成立，下证\(\Img T=\{Tu|u\in U\}\).
 
 令\(\forall w\in V,\exists u\in U,v\in \Ker T, w=u+v\)，从而
     \begin{align*}
@@ -64,16 +64,16 @@
 \newpage
 
 \textit{17.}
-设\(V\)和\(W\)是有限维的.求证：当且仅当\(\mydim V\leq \mydim W\)，存在单射的\(T\in L(V,W)\).
+设\(V\)和\(W\)是有限维的.求证：当且仅当\(\dim V\leq \dim W\)，存在单射的\(T\in L(V,W)\).
 
 \textit{Proof}
 必要性：若存在单射的\(T\in L(V,W)\)，
 
-则\(\mydim V=\mydim \Ker T+\mydim \Img T=\mydim \Img T \leq \mydim W\)，证毕.
+则\(\dim V=\dim \Ker T+\dim \Img T=\dim \Img T \leq \dim W\)，证毕.
 
 充分性：设\(v_1,\cdots,v_m\)和\(w_1,\cdots,w_n\)分别为\(V\)和\(W\)的一组基.
 
-有\(\mydim V=m\leq n=\mydim W\)，从而定义\(Tv_i=w_i,i=1,\cdots,m\).
+有\(\dim V=m\leq n=\dim W\)，从而定义\(Tv_i=w_i,i=1,\cdots,m\).
 
 定理3.5保证了线性变换\(T\)的存在性，下证\(T\)是单射的.
 
@@ -84,26 +84,26 @@
 \textit{19.}
 设\(V\)和\(W\)是有限维的，\(U\)是\(V\)的一个子空间.
 
-求证：当且仅当\(\mydim U \geq \mydim V-\mydim W\)，存在\(T\in L(V,W)\)，满足\(\Ker T=U\).
+求证：当且仅当\(\dim U \geq \dim V-\dim W\)，存在\(T\in L(V,W)\)，满足\(\Ker T=U\).
 
 \textit{Proof}
-必要性：原式等价于\(\mydim U=\mydim \Ker T=\mydim V-\mydim \Img T \geq \mydim V-\mydim W\)，
+必要性：原式等价于\(\dim U=\dim \Ker T=\dim V-\dim \Img T \geq \dim V-\dim W\)，
 
-即\(\mydim \Img T \leq \mydim W\)，证毕.
+即\(\dim \Img T \leq \dim W\)，证毕.
 
 充分性：设\(v_1,\cdots,v_m\)是\(U\)的一组基.由于\(U\)是\(V\)的一个子空间，
 
 故存在线性无关的\(v_{m+1},\cdots,v_{m+n}\)使得\(v_1,\cdots,v_{m+n}\)是\(V\)的一组基.
 
-从而原式等价于\(m\geq (m+n)-\mydim W\)，即\(\mydim W\geq n\).令
+从而原式等价于\(m\geq (m+n)-\dim W\)，即\(\dim W\geq n\).令
     \begin{align*}
         Tv_i=0,i=1,\cdots,m \quad Tv_i=w_i,i=m+1,\cdots,m+n
     \end{align*}
 定理3.5保证了线性变换\(T\)的存在性.
 
-\(\Ker T=U\)显然成立，同时\(\Img T=\myspan (Tv_{m+1},\cdots,Tv_{m+n})\).
+\(\Ker T=U\)显然成立，同时\(\Img T=\altspan (Tv_{m+1},\cdots,Tv_{m+n})\).
 
-由于\(\mydim \Img T\leq \mydim W\)，这要求\(n\leq \mydim W\)，与条件相符.
+由于\(\dim \Img T\leq \dim W\)，这要求\(n\leq \dim W\)，与条件相符.
 
 \hspace*{\fill}
 
@@ -144,9 +144,9 @@
 
 \(\exists S,TS=I\)，从而\(T(Sw)=w,w\in \Img T\)，矛盾，必要性得证.
 
-充分性：设\(w_1,\cdots,w_m\)是\(W\)的一组基.由于\(T\)是满射变换，\(\Img T=\myspan (w_1,\cdots,w_m)\).
+充分性：设\(w_1,\cdots,w_m\)是\(W\)的一组基.由于\(T\)是满射变换，\(\Img T=\altspan (w_1,\cdots,w_m)\).
 
-设\(v_1,\cdots,v_m\in V,V=\myspan (v_1,\cdots,v_m,u_1,\cdots,u_n)\)，则定义
+设\(v_1,\cdots,v_m\in V,V=\altspan (v_1,\cdots,v_m,u_1,\cdots,u_n)\)，则定义
     \begin{align*}
         Sw_i=v_i,i=1,\cdots,m \quad
         Tv_i=w_i,i=1,\cdots,m \quad Tu_j=0,j=1,\cdots,n
@@ -175,7 +175,7 @@
 
 有\(\sum_{i=1}^m a_iT_1v_i=T_1(\sum_{i=1}^m a_iv_i)=0\)，得\(a_1=\cdots=a_m=0\)，从而\(v_1,\cdots,v_m\)线性无关.
 
-令\(K=\myspan (v_1,\cdots,v_m)\)，从而\(V=K \oplus \Ker T\).现在定义线性变换\(S\).
+令\(K=\altspan (v_1,\cdots,v_m)\)，从而\(V=K \oplus \Ker T\).现在定义线性变换\(S\).
 
 由于\(T_1v_1,\cdots,T_1v_m\)线性无关，故将其补充为\(W\)的一组基\(T_1v_1,\cdots,T_1v_m,w_1,\cdots,w_n\).
     \begin{align*}
@@ -202,7 +202,7 @@
 
 故\(\forall v \in \Img T_1, v \in \Img T_2\)，即\(\Img T_1 \subseteq \Img T_2\)，必要性得证. 
 
-充分性：设\(u_1,\cdots,u_m\)是\(V\)的一组基，从而\(\Img T_1=\myspan(u_1,\cdots,u_m) \subseteq \Img T_2\).
+充分性：设\(u_1,\cdots,u_m\)是\(V\)的一组基，从而\(\Img T_1=\altspan(u_1,\cdots,u_m) \subseteq \Img T_2\).
 
 因此\(\exists v_1,\cdots,v_m \in V\)，使得\(T_1u_i=T_2v_i,i=1,\cdots,m\).定义\(S\)为
     \begin{align*}
@@ -219,18 +219,18 @@
 
 \begin{comment}
     \textit{26.}
-    设\(D \in L(P(R))\)对于其中任意的多项式\(p\)满足\(\mydeg Dp=\mydeg p-1\).
+    设\(D \in L(P(R))\)对于其中任意的多项式\(p\)满足\(\altdeg Dp=\altdeg p-1\).
 
     求证：\(D\)是满射变换.
 
     \textit{Proof}
     根据\textit{3.B.10}，命题等价于
         \begin{align*}
-            \myspan (D(x),D(x^2),\cdots)=\Img D=P(R)=\myspan (1,x,\cdots)
+            \altspan (D(x),D(x^2),\cdots)=\Img D=P(R)=\altspan (1,x,\cdots)
         \end{align*}
-    根据\textit{2.C.10}，由于\(\mydeg Dp=\mydeg p-1\)，
+    根据\textit{2.C.10}，由于\(\altdeg Dp=\altdeg p-1\)，
 
-    故\(\myspan (D(x),D(x^2),\cdots)=\myspan (1,x,\cdots)\)成立.
+    故\(\altspan (D(x),D(x^2),\cdots)=\altspan (1,x,\cdots)\)成立.
 \end{comment}
 
 \textit{28.}

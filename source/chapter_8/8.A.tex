@@ -28,14 +28,14 @@
 从而\(Tv_0=\lambda_{k}v_0\)，进一步有
     \begin{align*}
         (T-\lambda I)v_0=(\lambda_{k}-\lambda_i)v_0 \Rightarrow 
-        (T-\lambda I)^{\mydim V} v_0=(\lambda_{k}-\lambda_i)^{\mydim V}v_0
+        (T-\lambda I)^{\dim V} v_0=(\lambda_{k}-\lambda_i)^{\dim V}v_0
     \end{align*}
-对等式两边施加算子\(\prod_{i=1}^m (T-\lambda_i I)^{\mydim V}(T-\lambda_{k})^k(i \ne k)\).
+对等式两边施加算子\(\prod_{i=1}^m (T-\lambda_i I)^{\dim V}(T-\lambda_{k})^k(i \ne k)\).
     \begin{align*}
-        0=a_{k}\prod_{i=1}^m (T-\lambda_i I)^{\mydim V}(T-\lambda_{k})^k v_{k}
-        =a_{k}\prod_{i=1}^m (\lambda_{k}-\lambda_i)^{\mydim V} v_0
+        0=a_{k}\prod_{i=1}^m (T-\lambda_i I)^{\dim V}(T-\lambda_{k})^k v_{k}
+        =a_{k}\prod_{i=1}^m (\lambda_{k}-\lambda_i)^{\dim V} v_0
     \end{align*}
-由于这些特征值各不相同，故\(\forall i=1,\cdots,m,(\lambda_i-\lambda_{k})^{\mydim V} \ne 0\).
+由于这些特征值各不相同，故\(\forall i=1,\cdots,m,(\lambda_i-\lambda_{k})^{\dim V} \ne 0\).
 从而只能有\(a_{k}=0\).
 
 两者的证明思路大体相似，但定理8.13需要多乘以一个算子来构造一个“狭义”特征向量，
@@ -49,19 +49,19 @@
 使得\(M(N)\)是对角线元素均为\(0\)的上三角矩阵.
 
 \textit{Proof}
-设\(\mydim V=n\)，并令\(B_1=\{v_1^1,\cdots,v_{n_1}^1\}\)是\(\Ker N\)的一组基.
+设\(\dim V=n\)，并令\(B_1=\{v_1^1,\cdots,v_{n_1}^1\}\)是\(\Ker N\)的一组基.
 
 由于\(\forall i=1,\cdots,n,\Ker N^i \subseteq \Ker N^{i+1}\)，故依次扩充该基为\(\Ker N^2,\cdots,\Ker N^n\)的一组基.
 
 从\(\Ker N^{i-1}\)扩充至\(\Ker N^i\)时，所添加的向量组为\(B_i=\{v_{n_{i-1}+1}^i,\cdots,v_{n_i}^i\},i=1,\cdots,n\).
 
-因\(\Ker N^i=\myspan(B_1,\cdots,B_i)\)且\(\Ker N^n=V\)，故\(B_1,\cdots,B_n\)中向量顺序排列即得\(V\)的基.
+因\(\Ker N^i=\altspan(B_1,\cdots,B_i)\)且\(\Ker N^n=V\)，故\(B_1,\cdots,B_n\)中向量顺序排列即得\(V\)的基.
 
-由于\(N(\Ker N^{i+1}) \subseteq \Ker N^i\)，因此\(N \myspan(B_i) \subseteq \myspan(B_1,\cdots,B_{i-1})\).
+由于\(N(\Ker N^{i+1}) \subseteq \Ker N^i\)，因此\(N \altspan(B_i) \subseteq \altspan(B_1,\cdots,B_{i-1})\).
 
 因此\(M(N,(B_1,\cdots,B_n))\)中，\(B_i\)列中的\(B_i,\cdots,B_n\)行元素均为\(0\).
 
-因此在基\(B_1,\cdots,B_n\)下，\(\forall v \in \myspan(B_i),Nv\)都不会由对角线及其之下的分量构成.
+因此在基\(B_1,\cdots,B_n\)下，\(\forall v \in \altspan(B_i),Nv\)都不会由对角线及其之下的分量构成.
 
 以矩阵语言表述，也就是\(M(N)\)是对角线元素均为\(0\)的上三角矩阵.
 
@@ -80,7 +80,7 @@
 \hspace*{\fill}
 
 \textit{3.}
-设\(T \in L(V)\)是可逆变换且\(\mydim V=n\).证明：\(\forall \lambda \ne 0,G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
+设\(T \in L(V)\)是可逆变换且\(\dim V=n\).证明：\(\forall \lambda \ne 0,G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
 
 \textit{Proof}
 使用数学归纳法.\(n=1\)时，根据\textit{5.C.9}，\(E(\lambda,T)=E(\lambda^{-1},T^{-1})\)，命题成立.
@@ -112,14 +112,14 @@
 设\(S,T \in L(V)\)且\(ST\)是幂零算子，证明\(TS\)也是幂零算子.
 
 \textit{Proof}
-\(\Ker (TS)^{\mydim V}=\Ker (TS)^{\mydim V+1}=\Ker T(ST)^{\mydim V}S=V\).
+\(\Ker (TS)^{\dim V}=\Ker (TS)^{\dim V+1}=\Ker T(ST)^{\dim V}S=V\).
 
-其中\((ST)^{\mydim V}=0\)，因此第三个等号成立.
+其中\((ST)^{\dim V}=0\)，因此第三个等号成立.
 
 \hspace*{\fill}
 
 \textit{11.}
-证明或给出反例：若\(T \in L(V)\)且\(\mydim V=n\)，则\(T^n\)可对角化.
+证明或给出反例：若\(T \in L(V)\)且\(\dim V=n\)，则\(T^n\)可对角化.
 
 \textit{Proof}
 反例：设\(V=C^2,T(z_1,z_2)=(z_1,0)\)，则\(T^2(z_1,z_2)=(z_1,0)\).
@@ -136,26 +136,26 @@
 \textit{Proof}
 设\(v_1,\cdots,v_m\)是满足条件的一组基.
 
-由于该矩阵是三角矩阵，则根据定理5.26有\(Nv_i \in \myspan (v_1,\cdots,v_i)\).
+由于该矩阵是三角矩阵，则根据定理5.26有\(Nv_i \in \altspan (v_1,\cdots,v_i)\).
 
-进一步，由于对角线元素均为\(0\)，因此\(Nv_i \in \myspan (v_1,\cdots,v_{i-1})\).
+进一步，由于对角线元素均为\(0\)，因此\(Nv_i \in \altspan (v_1,\cdots,v_{i-1})\).
 
 因此\(\forall i=1,\cdots,m,N^m v_i=0\)，即\(N\)是幂零算子，证毕.
 
 \hspace*{\fill}
 
 \textit{15.}
-设\(N \in L(V)\)满足\(\Ker N^{\mydim V-1} \ne \Ker N^{\mydim V}\).
+设\(N \in L(V)\)满足\(\Ker N^{\dim V-1} \ne \Ker N^{\dim V}\).
 
-求证：\(N\)是幂零算子且\(\forall i=1,\cdots,\mydim V,\mydim \Ker N^i=i\).
+求证：\(N\)是幂零算子且\(\forall i=1,\cdots,\dim V,\dim \Ker N^i=i\).
 
 \textit{Proof}
-由于\(\Ker N^{\mydim V-1} \ne \Ker N^{\mydim V}\)，
-故\(\mydim \Ker N^i\)随\(i\)在\([1,\mydim V]\)上严格单调增长.
+由于\(\Ker N^{\dim V-1} \ne \Ker N^{\dim V}\)，
+故\(\dim \Ker N^i\)随\(i\)在\([1,\dim V]\)上严格单调增长.
 
-因此\(\mydim \Ker N<\cdots<\mydim \Ker N^{\mydim V} \leq \mydim V\).
+因此\(\dim \Ker N<\cdots<\dim \Ker N^{\dim V} \leq \dim V\).
 
-得到\(\mydim \Ker N^{\mydim V}=\mydim V\)，即\(N\)是幂零算子，且\(\mydim \Ker N^i=i\).
+得到\(\dim \Ker N^{\dim V}=\dim V\)，即\(N\)是幂零算子，且\(\dim \Ker N^i=i\).
 
 \hspace*{\fill}
 
@@ -174,23 +174,23 @@
 
 \textit{Proof}
 根据\textit{8.A.16}，\(\forall i \in N^*,\Img T^{m+i} \subseteq \Img T^m\).
-下证\(\forall i \in N^*,\mydim \Img T^{m+i}=\mydim \Img T^m\).
+下证\(\forall i \in N^*,\dim \Img T^{m+i}=\dim \Img T^m\).
 
-根据定理3.22，\(\forall i \in N^*,\mydim \Img T^i=\mydim V-\mydim \Ker T^i\)，
+根据定理3.22，\(\forall i \in N^*,\dim \Img T^i=\dim V-\dim \Ker T^i\)，
 
-故\(\mydim \Img T^m=\mydim \Img T^{m+1}\)表明\(\mydim \Ker T^m=\mydim \Ker T^{m+1}\)，即\(\Ker T^m =\Ker T^{m+1}\).
+故\(\dim \Img T^m=\dim \Img T^{m+1}\)表明\(\dim \Ker T^m=\dim \Ker T^{m+1}\)，即\(\Ker T^m =\Ker T^{m+1}\).
 
-得\(\forall i \in N^*,\mydim \Img T^{m+i}=\mydim V-\mydim \Ker T^{m+i}=\mydim V-\mydim \Ker T^m=\mydim \Img T^m\).
+得\(\forall i \in N^*,\dim \Img T^{m+i}=\dim V-\dim \Ker T^{m+i}=\dim V-\dim \Ker T^m=\dim \Img T^m\).
 
 从而根据\textit{2.C.1}，\(\forall i \in N^*,\Img T^{i+1}=\Img T^i\).
 
 \hspace*{\fill}
 
 \textit{18.}
-设\(T \in L(V),\mydim V=n\).求证：\(\Img T^n=\Img T^{n+1}=\cdots\)
+设\(T \in L(V),\dim V=n\).求证：\(\Img T^n=\Img T^{n+1}=\cdots\)
 
 \textit{Proof}
-根据定理3.22和定理8.4，\(\forall i>n \in N^*,\mydim \Img T^{i+1}=\mydim \Img T^i\).
+根据定理3.22和定理8.4，\(\forall i>n \in N^*,\dim \Img T^{i+1}=\dim \Img T^i\).
 
 根据\textit{2.C.1}和\textit{8.A.16}，\(\forall i \in N^*,\Img T^{i+1}=\Img T^i\).
 

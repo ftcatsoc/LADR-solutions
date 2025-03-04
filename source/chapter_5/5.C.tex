@@ -27,10 +27,10 @@
 
 假设\(b\)成立.根据定理2.43和3.22，
     \begin{align*}
-        \mydim V &= \mydim \Ker T+\mydim \Img T \\
-        \mydim V &= \mydim \Ker T+\mydim \Img T-\mydim (\Img T \cap \Ker T)
+        \dim V &= \dim \Ker T+\dim \Img T \\
+        \dim V &= \dim \Ker T+\dim \Img T-\dim (\Img T \cap \Ker T)
     \end{align*}
-得到\(\mydim (\Img T \cap \Ker T)=0 \Rightarrow \Ker T \cap \Img T=\{0\}\).
+得到\(\dim (\Img T \cap \Ker T)=0 \Rightarrow \Ker T \cap \Img T=\{0\}\).
 
 假设\(c\)成立，令\(u_1,\cdots,u_m\)和\(w_1,\cdots,w_n\)分别为\(\Ker T\)和\(\Img T\)的一组基.
 
@@ -45,17 +45,17 @@
 证明：若\(\forall i=1,\cdots,m,V=E(\lambda_i,I) \oplus \Img(T-\lambda_i I)\)，则\(T\)可对角化.
 
 \textit{Proof}
-使用数学归纳法，当\(\mydim V=1\)时，\(V=E(\lambda_1,T),\Img(T-\lambda_1 I)=\{0\}\)，显然成立.
+使用数学归纳法，当\(\dim V=1\)时，\(V=E(\lambda_1,T),\Img(T-\lambda_1 I)=\{0\}\)，显然成立.
 
-现假设对于任意的\(U\)满足\(\mydim U<\mydim V\)，结论均成立.
+现假设对于任意的\(U\)满足\(\dim U<\dim V\)，结论均成立.
 
-令\(\Img(T-\lambda_1 I)=U\).\(U\)是\(T\)下的不变子空间且\(\mydim U<\mydim V\)，对其使用归纳.
+令\(\Img(T-\lambda_1 I)=U\).\(U\)是\(T\)下的不变子空间且\(\dim U<\dim V\)，对其使用归纳.
 
 从而\(U\)有一组由\(T|_U\)的特征向量构成的基\(v_1^U,\cdots,v_m^U\)，使得\(M(T|_U)\)为对角矩阵.
 
 \(E(\lambda_1,T)\)作为\(V\)的特征空间显然有\(T|_{E(\lambda_i,T)}\)的特征基\(v_1,\cdots,v_n\).
 
-将这两组基合并，则有\(M(T,(v_1,\cdots,v_n,v_1^U,\cdots,v_m^U))=\diag(\lambda_1,\cdots,\lambda_m)\).
+将这两组基合并，则有\(M(T,(v_1,\cdots,v_n,v_1^U,\cdots,v_m^U))=\mathrm{diag}(\lambda_1,\cdots,\lambda_m)\).
 
 从而\(V\)有\(T\)的特征基，即\(T\)可对角化.
 
@@ -64,11 +64,11 @@
 \textit{6.}
 设\(V\)是有限维向量空间.
 
-\(T \in L(V)\)有\(\mydim V\)个不同的特征向量，\(S \in L(V)\)有和\(T\)相同的特征向量.
+\(T \in L(V)\)有\(\dim V\)个不同的特征向量，\(S \in L(V)\)有和\(T\)相同的特征向量.
 求证：\(ST=TS\).
 
 \textit{Proof}
-令\(\mydim V=n\)，设\(v_1,\cdots,v_n\)是\(S,T\)的特征向量.
+令\(\dim V=n\)，设\(v_1,\cdots,v_n\)是\(S,T\)的特征向量.
 
 根据特征向量的独立性，\(v_1,\cdots,v_n\)是\(V\)的一组基.
 
@@ -84,7 +84,7 @@
 \hspace*{\fill}
 
 \textit{12.}
-设\(V\)是有限维向量空间且\(\mydim V=n\).\(R,T \in L(V)\)都有特征值\(\lambda_1,\cdots,\lambda_n\).
+设\(V\)是有限维向量空间且\(\dim V=n\).\(R,T \in L(V)\)都有特征值\(\lambda_1,\cdots,\lambda_n\).
 
 求证：存在可逆变换\(S \in L(V)\)，使得\(R=S^{-1}TS\).
 

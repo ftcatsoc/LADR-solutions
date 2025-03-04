@@ -31,7 +31,7 @@
 \textit{Proof}
 \(T\)是自伴算子，由谱定理给出\(V\)的一组规范正交特征基\(e_1,\cdots,e_n\).
 
-得到\(T,T^k\)在这组基下的矩阵\(M(T)=\diag(\lambda_1,\cdots,\lambda_n),M(T^k)=\diag(\lambda_1^k,\cdots,\lambda_n^k)\).
+得到\(T,T^k\)在这组基下的矩阵\(M(T)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n),M(T^k)=\mathrm{diag}(\lambda_1^k,\cdots,\lambda_n^k)\).
 
 由\(\forall i=1,\cdots,n,\lambda_i \geq 0\)得到\(\lambda_i^k \geq 0\).
 根据定理7.35(\textit{a})(\textit{b})，\(T^k\)是正算子.
@@ -102,14 +102,14 @@
 \hspace*{\fill}
 
 \textit{11.}
-设\(V\)是有限维内积空间，\(\mydim V=n\).\(T_1,T_2 \in L(V)\)是自伴算子且拥有相同的\(n\)个特征值.
+设\(V\)是有限维内积空间，\(\dim V=n\).\(T_1,T_2 \in L(V)\)是自伴算子且拥有相同的\(n\)个特征值.
 
 求证：存在等距算子\(S \in L(V)\)，使得\(T_1=S^*T_2S\).
 
 \textit{Proof}
 根据谱定理分别给出\(T_1,T_2\)的一组规范正交特征基\(e_1,\cdots,e_n,f_1,\cdots,f_n\).
 
-从而\(M(T_1,e_1,\cdots,e_n)=M(T_2,f_1,\cdots,f_n)=\diag(\lambda_1,\cdots,\lambda_n)\).
+从而\(M(T_1,e_1,\cdots,e_n)=M(T_2,f_1,\cdots,f_n)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n)\).
 
 定义\(S \in L(V)\)为\(\forall i=1,\cdots,n,Se_i=f_i\).
 由于\(\norm{Se_i}=\norm{f_i}=\norm{e_i}=1\)，故\(S\)是等距算子.

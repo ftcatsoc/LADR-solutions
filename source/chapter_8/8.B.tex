@@ -29,13 +29,13 @@
 \(\Ker (T-\lambda_i I)^n=G(\lambda_i,T)\)，显然\((T-\lambda_i I)|_{G(\lambda_i,T)}\)是幂零算子.
 
 \textit{c.Proof}
-使用第二数学归纳法，设\(\mydim V=n\).当\(n=1\)时，\(V=G(\lambda,T)\)，命题成立.
+使用第二数学归纳法，设\(\dim V=n\).当\(n=1\)时，\(V=G(\lambda,T)\)，命题成立.
 
-设对于任意有限维复向量空间\(U\)和\(R \in L(U)\)满足\(\mydim U<\mydim V\)，结论均成立.
+设对于任意有限维复向量空间\(U\)和\(R \in L(U)\)满足\(\dim U<\dim V\)，结论均成立.
 
 由\(V=\Ker (T-\lambda_1 I)^n \oplus \Img (T-\lambda_1 I)^n\)，令\(U=\Img (T-\lambda_1 I)^n\).
 
-由\(U\)是\(T\)下的不变子空间且满足\(\mydim U<\mydim V\)，因而\(U\)有一组\(T|_U\)的广义特征基.
+由\(U\)是\(T\)下的不变子空间且满足\(\dim U<\dim V\)，因而\(U\)有一组\(T|_U\)的广义特征基.
 
 \(G(\lambda_1,T)\)作为\(V\)的广义特征子空间显然有\(T|_{G(\lambda_i,T)}\)的广义特征基.
 
@@ -46,16 +46,16 @@
 
 将这些向量按照所属空间重新标号为\(v_1^i,\cdots,v_{n_i}^i,i=1,\cdots,m\)，上标\(i\)表示第\(i\)个特征值.
 
-令\(U_i=\myspan(v_1^i,\cdots,v_{n_i}^i)\)，则\(V=\oplus_{i=1}^m U_i,\mydim V=\sum_{i=1}^m \mydim U_i\).
+令\(U_i=\altspan(v_1^i,\cdots,v_{n_i}^i)\)，则\(V=\oplus_{i=1}^m U_i,\dim V=\sum_{i=1}^m \dim U_i\).
 
 同时\(\forall i=1,\cdots,m,U_i \subseteq G(\lambda_i,T)\).
-于是\(\forall i=1,\cdots,m,\mydim U_i \leq \mydim G(\lambda_i,T)\).
+于是\(\forall i=1,\cdots,m,\dim U_i \leq \dim G(\lambda_i,T)\).
 
 由于广义特征子空间之和为直和，得到
     \begin{align*}
-        \mydim \oplus_{i=1}^m G(\lambda_i,T)=\sum_{i=1}^m \mydim G(\lambda_i,T) \geq \sum_{i=1}^m \mydim U_i=\mydim V
+        \dim \oplus_{i=1}^m G(\lambda_i,T)=\sum_{i=1}^m \dim G(\lambda_i,T) \geq \sum_{i=1}^m \dim U_i=\dim V
     \end{align*}
-于是只能取等，有\(\forall i=1,\cdots,m,\mydim U_i=\mydim G(\lambda_i,T)\)，即\(U_i=G(\lambda_i,T)\).
+于是只能取等，有\(\forall i=1,\cdots,m,\dim U_i=\dim G(\lambda_i,T)\)，即\(U_i=G(\lambda_i,T)\).
 
 从而\(V=\oplus_{i=1}^m U_i=\oplus_{i=1}^m G(\lambda_i,T)\)，证毕.
 
@@ -113,18 +113,18 @@
 \textit{Proof}
 根据\textit{5.A.15}，\(T\)和\(S^{-1}TS\)拥有相同的特征值，设\(\lambda\)是其中之一.
 
-现在考虑\((S^{-1}TS-\lambda I)^{\mydim V}\).根据\textit{5.B.5}，
+现在考虑\((S^{-1}TS-\lambda I)^{\dim V}\).根据\textit{5.B.5}，
     \begin{align*}
-        (S^{-1}TS-\lambda I)^{\mydim V}&=(S^{-1}TS-\lambda S^{-1}S)^{\mydim V}=(S^{-1}(TS-\lambda S))^{\mydim V} \\
-        &=(S^{-1}(T-\lambda I)S)^{\mydim V}=S^{-1}(T-\lambda I)^{\mydim V}S
+        (S^{-1}TS-\lambda I)^{\dim V}&=(S^{-1}TS-\lambda S^{-1}S)^{\dim V}=(S^{-1}(TS-\lambda S))^{\dim V} \\
+        &=(S^{-1}(T-\lambda I)S)^{\dim V}=S^{-1}(T-\lambda I)^{\dim V}S
     \end{align*}
 对于\(v \in \Ker G(\lambda,T)\)，考虑\(S^{-1}v\)，有
-\((S^{-1}(T-\lambda I)^{\mydim V}S)(S^{-1}v)=S((T-\lambda I)^{\mydim V}v)=0\).
+\((S^{-1}(T-\lambda I)^{\dim V}S)(S^{-1}v)=S((T-\lambda I)^{\dim V}v)=0\).
 
 因此\(S^{-1}(G(\lambda,T)) \subseteq G(\lambda,S^{-1}TS)\)，
 同理\(S(G(\lambda,S^{-1}TS)) \subseteq G(\lambda,T)\).
 
-从而\(\mydim G(\lambda,T)=\mydim G(\lambda,S^{-1}TS)\).
+从而\(\dim G(\lambda,T)=\dim G(\lambda,S^{-1}TS)\).
 
 \hspace*{\fill}
 
@@ -202,7 +202,7 @@
 \hspace*{\fill}
 
 \textit{11.}
-设\(V\)满足\(\mydim V=n\)是有限维复向量空间且\(T \in L(V)\)，\(\lambda_1,\cdots,\lambda_m\)是其所有相异特征值.
+设\(V\)满足\(\dim V=n\)是有限维复向量空间且\(T \in L(V)\)，\(\lambda_1,\cdots,\lambda_m\)是其所有相异特征值.
 
 设\(v_1,\cdots,v_n\)是\(V\)的一组基，并满足\(M(T,(v_1,\cdots,v_n))\)是上三角矩阵.
 
@@ -211,11 +211,11 @@
 \textit{Proof}
 使用数学归纳法.当\(n=1\)时，\(v\)为\(V\)的基，\(M(T,v)=(\lambda_1)\)，为上三角矩阵.
 
-现假设对于任意满足\(\mydim U<\mydim V=n\)的有限维复向量空间\(U\)，结论均成立.
+现假设对于任意满足\(\dim U<\dim V=n\)的有限维复向量空间\(U\)，结论均成立.
 
 由\(V=G(\lambda_1,T) \oplus \Img (T-\lambda_1 I)^n\)，不妨令\(U=\Img (T-\lambda_1 I)^n\).
 
-根据引理8.20，\(U\)是\(T\)下的不变子空间，且满足\(\mydim U<\mydim V\)，因此可对\(U\)使用归纳假设.
+根据引理8.20，\(U\)是\(T\)下的不变子空间，且满足\(\dim U<\dim V\)，因此可对\(U\)使用归纳假设.
 
 根据定理5.27，给定\(u_1,\cdots,u_p\)作为\(U\)的一组基使得\(M(T|_U,(u_1,\cdots,u_p))\)是上三角矩阵，
 
@@ -223,7 +223,7 @@
 
 考虑\(G(\lambda_1,T)\).若有一组基\(v_1,\cdots,v_q\)使得\(M(T|_{G(\lambda_1,T)},(v_1,\cdots,v_q))\)是上三角矩阵，
 
-则\(\lambda_1\)在矩阵对角线上出现的次数和\(\lambda_1\)的重数均为\(\mydim G(\lambda_1,T)\).
+则\(\lambda_1\)在矩阵对角线上出现的次数和\(\lambda_1\)的重数均为\(\dim G(\lambda_1,T)\).
 
 将\(T|_{G(\lambda_1,T)}\)上的基和\(T|_U\)上的基合并，即可得到\(M(T,(v_1,\cdots,v_q,u_1,\cdots,u_p))\)的上三角矩阵.
 

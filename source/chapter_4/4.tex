@@ -1,7 +1,7 @@
 \textit{Theorem 4.6*}{\kaishu 多项式的因式分解}
-设\(\mydeg p=m\)且\(\lambda \in F\).
+设\(\altdeg p=m\)且\(\lambda \in F\).
 
-那么\(p(\lambda)=0\)当且仅当存在\(\mydeg q=m-1\)，使得\(p(z)=(z-\lambda)q(z)\).
+那么\(p(\lambda)=0\)当且仅当存在\(\altdeg q=m-1\)，使得\(p(z)=(z-\lambda)q(z)\).
 
 \textit{Proof}
 充分性显然，下证必要性.设\(p(z)=\sum_{i=0}^m a_iz^i,a_0,\cdots,a_m \in F\).
@@ -18,16 +18,16 @@
 \hspace*{\fill}
 
 \textit{Theorem 4.8*}{\kaishu 多项式的零点上限}
-设\(p \in P(F),\mydeg p=m\)，那么\(p\)至多有\(m\)个零点.
+设\(p \in P(F),\altdeg p=m\)，那么\(p\)至多有\(m\)个零点.
 
 \textit{Proof}
 使用数学归纳法.当\(m=1\)时，显然\(p(z)\)只有一个零点\(-\dfrac{a_0}{a_1}\).
 
-设结论对于任意\(\mydeg q=m-1\)的\(q(z)\)均成立.当\(\mydeg p=m\)时，若\(p\)无零点，则结论成立.
+设结论对于任意\(\altdeg q=m-1\)的\(q(z)\)均成立.当\(\altdeg p=m\)时，若\(p\)无零点，则结论成立.
 
-若\(p\)有一个零点\(\lambda\)，则根据\textit{4.6*}，存在\(\mydeg q=m-1\)，使得\(p(z)=(z-\lambda)q(z)\).
+若\(p\)有一个零点\(\lambda\)，则根据\textit{4.6*}，存在\(\altdeg q=m-1\)，使得\(p(z)=(z-\lambda)q(z)\).
 
-由于\(\mydeg q=m-1\)，根据归纳假设，\(q\)至多有\(m-1\)个零点，故\(p\)至多有\(m\)个零点，得证.
+由于\(\altdeg q=m-1\)，根据归纳假设，\(q\)至多有\(m-1\)个零点，故\(p\)至多有\(m\)个零点，得证.
 
 \hspace*{\fill}
 
@@ -37,21 +37,21 @@
 则\(\forall i=0,\cdots,m,a_i=b_i\)，也即\(p\)的系数唯一确定.
 
 \textit{Proof}
-使用反证法.若\(\exists i=0,\cdots,m,a_i \ne b_i\)，则\(\mydeg (p-q)>0\)且有限.
+使用反证法.若\(\exists i=0,\cdots,m,a_i \ne b_i\)，则\(\altdeg (p-q)>0\)且有限.
 
-于是\(p-q\)最多有\(\mydeg (p-q)\)个零点，而\(p-q=0\)有无穷个零点，矛盾，得证.
+于是\(p-q\)最多有\(\altdeg (p-q)\)个零点，而\(p-q=0\)有无穷个零点，矛盾，得证.
 
 \hspace*{\fill}
 
 \textit{Theorem 4.9*}{\kaishu 多项式的带余除法}
 设\(p,s \in P(F),s \ne 0\)，
 
-则存在唯一的\(q,r \in P(F)\)使得\(p=sq+r\)，且满足\(\mydeg r<\mydeg s\).
+则存在唯一的\(q,r \in P(F)\)使得\(p=sq+r\)，且满足\(\altdeg r<\altdeg s\).
 
 \textit{Proof}
-令\(\mydeg p=n,\mydeg s=m\)，则根据\textit{2.C.10}，\(1,\cdots,z^{m-1},s,zs,z^{n-m}s\)线性无关.
+令\(\altdeg p=n,\altdeg s=m\)，则根据\textit{2.C.10}，\(1,\cdots,z^{m-1},s,zs,z^{n-m}s\)线性无关.
 
-由于该向量组长度为\(n+1=\mydim P_n(F)\)，故它是\(P_n(F)\)的一组基.
+由于该向量组长度为\(n+1=\dim P_n(F)\)，故它是\(P_n(F)\)的一组基.
 
 因此\(\forall p \in P_n(F),\exists a_0,\cdots,a_{m-1},b_0,\cdots,b_{n-m},\)
 \(p=\sum_{i=0}^{m-1}a_iz^i+s\sum_{i=0}^{n-m}b_iz^i\).
