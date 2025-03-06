@@ -56,7 +56,7 @@
 
 \newpage
 
-\textit{Theorem} {\kaishu 广义特征空间分解的实向量空间版本}
+\textit{Theorem 9.1*} {\kaishu 广义特征空间分解的实向量空间版本}
 设\(V\)是实向量空间且\(T \in L(V)\).
 
 对于\(T_C \in L(V_C)\)，若\(t_1,\cdots,t_m\)是\(T_C\)的实特征值，
@@ -95,33 +95,33 @@
 
 \newpage
 
-\textit{Theorem Jordan}{\kaishu 基存在性的实向量空间版本}
+\textit{Theorem 9.2* Jordan}{\kaishu 基存在性的实向量空间版本}
 设\(V\)是有限维实向量空间且\(T \in L(V)\).
 
 \(t_1,\cdots,t_m\)是\(T_C\)的实特征值，\(\lambda_1,\cdots,\lambda_n,\ol{\lambda_1},\cdots,\ol{\lambda_n}\)是其共轭复特征值.
 
-考虑幂零算子\((T_C-\lambda_i I)|_{G(\lambda_i,T_C)}\).设\((u_1,v_1),\cdots,(T_C-\lambda_i I)^{m_i}(u_1,v_1)\)是一组循环基.
+对于\(\lambda_i=a_i+b_i i\)，考虑\(G(\lambda_i,T_C)\)中的复循环基\((u_1,v_1),\cdots,(T_C-\lambda_i I)^{m_1}(u_1,v_1)\).
 
-下证\(u_i,v_i\)的幂零指数相等，且均为\(m_i\).令\(u,v\)的幂零指数分别为\(m_u,m_v\)，假设\(m_u<m_v\).
-
-考虑\(G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C)\)对应的实空间\(U_i\)的维数，此时\(\dim U_i=m_u+m_v+2\).
-
-且\(\dim U_i\)应当为\(2m_i+2\).考虑到\(T_C\)的幂零指数\(m_i=\max\{m_u,m_v\}=m_v\)，
-
-因此联立两个表达式\(m_u+m_v+2=2m_i+2\)得到\(m_u=m_v\)，矛盾，故\(m_u=m_v=m_i\).
-
-因此\((u_1,v_1),\cdots,(T_C-\lambda_i I)^{m_1}(u_1,v_1),\cdots,(u_p,v_p),\cdots,(T_C-\lambda_i I)^{m_p}(u_p,v_p)\)
-
-是\(G(\lambda_i,T_C)\)的一组\textit{Jordan}基，\(\forall j=1,\cdots,p,m_j\)是\(u_j,v_j\)的幂零指数.
-
-设\(\lambda_i=a+bi\).从而\(G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C)\)的复\textit{Jordan}基对应的实基为
+给出实空间内对应的递推循环子空间\(U_i^1=\altspan(u_1^0,v_1^0,\cdots,u_1^{m_1},v_1^{m_1})\)构造如下：
     \begin{align*}
-        &(T-aI)^{m_1}u_1+b(T-bI)^{m_1-1}v_1,(T-bI)^{m_1}v_1-a(T-aI)^{m_1-1}u_1,\cdots,u_1,v_1,\cdots \\
-        &(T-aI)^{m_n}u_n+b(T-bI)^{m_n-1}v_n,(T-bI)^{m_n}v_n-a(T-aI)^{m_n-1}u_n,\cdots,u_n,v_n
+        \forall k=0,\cdots,m_i,u_1^k=(T-a_iI)u_1^{k-1}+b_i v_1^{k-1},v_1^k=(T-a_iI)v_1^{k-1}-b_i u_1^{k-1}
     \end{align*}
-这组基下的\(M(T)\)是实向量空间的\textit{Jordan}标准型.
+\(u^k,v^k\)的显式构造如下：
     \begin{align*}
-        M(T)=
+        &u_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j u_0+\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j v_0 \\
+        &v_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j v_0-\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j u_0
+    \end{align*}
+因此若存在\(p<m_1+1\)使得\((T-a_iI)^p u_1^0=0\)或\((T-a_iI)^p v_1^0=0\)，那么
+    \begin{align*}
+        u_1^p/v_1^p \in \altspan(u_1^{p-1},v_1^{p-1},\cdots,u_1^0,v_1^0)
+    \end{align*}
+从而导致递推链出现冗余，因此\(u,v,(u,v)\)的幂零指数严格相等.将上述递推链变形为
+    \begin{align*}
+        \forall k=0,\cdots,m_i,Tu_1^k=u_1^{k+1}+a_i u_1^k-b_i v_1^k,Tv_1^k=v_1^{k+1}+a_i v_1^k+b_i u_1^k
+    \end{align*}
+这组基下的\(M(T|_{U_i},(u_1^{m_1},v_1^{m_1},\cdots,u_1^0,v_1^0))\)是实向量空间的\textit{Jordan}标准型.
+    \begin{align*}
+        M(T_i)=
         \begin{pmatrix}
             C      & I       & \cdots & 0      \\
             0      & C       & \ddots & \vdots \\
@@ -139,4 +139,5 @@
             0 & 1
         \end{pmatrix}
     \end{align*}
+于是\(M(T)=\mathrm{diag}(M(T_1),\cdots,M(T_q))\)，其中\(U_1,\cdots,U_q\)是\(G(\lambda_i,T_C)\)对应的所有循环子空间.
 
