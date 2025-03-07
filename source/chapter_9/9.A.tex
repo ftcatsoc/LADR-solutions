@@ -104,24 +104,24 @@
 
 给出实空间内对应的递推循环子空间\(U_i^1=\altspan(u_1^0,v_1^0,\cdots,u_1^{m_1},v_1^{m_1})\)构造如下：
     \begin{align*}
-        \forall k=0,\cdots,m_i,u_1^k=(T-a_iI)u_1^{k-1}+b_i v_1^{k-1},v_1^k=(T-a_iI)v_1^{k-1}-b_i u_1^{k-1}
+        &\forall k=0,\cdots,m_i,u_1^k=(T-a_iI)u_1^{k-1}+b_i v_1^{k-1},v_1^k=(T-a_iI)v_1^{k-1}-b_i u_1^{k-1} \\
+        &\forall k=0,\cdots,m_i,Tu_1^k=u_1^{k+1}+a_i u_1^k-b_i v_1^k,Tv_1^k=v_1^{k+1}+a_i v_1^k+b_i u_1^k
     \end{align*}
-\(u^k,v^k\)的显式构造如下：
+    \begin{comment}
+        \(u^k,v^k\)的显式构造如下：
+            \begin{align*}
+                &u_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j u_0+\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j v_0 \\
+                &v_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j v_0-\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j u_0
+            \end{align*}
+        因此若存在\(p<m_1+1\)使得\((T-a_iI)^p u_1^0=0\)或\((T-a_iI)^p v_1^0=0\)，那么
+            \begin{align*}
+                u_1^p/v_1^p \in \altspan(u_1^{p-1},v_1^{p-1},\cdots,u_1^0,v_1^0)
+            \end{align*}
+        从而导致递推链出现冗余，因此\(u,v,(u,v)\)的幂零指数严格相等.
+    \end{comment}
+这组基下的\(M(T|_{U_j},(u_1^{m_1},v_1^{m_1},\cdots,u_1^0,v_1^0))\)是实向量空间的\textit{Jordan}标准型.
     \begin{align*}
-        &u_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j u_0+\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j v_0 \\
-        &v_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j v_0-\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j u_0
-    \end{align*}
-因此若存在\(p<m_1+1\)使得\((T-a_iI)^p u_1^0=0\)或\((T-a_iI)^p v_1^0=0\)，那么
-    \begin{align*}
-        u_1^p/v_1^p \in \altspan(u_1^{p-1},v_1^{p-1},\cdots,u_1^0,v_1^0)
-    \end{align*}
-从而导致递推链出现冗余，因此\(u,v,(u,v)\)的幂零指数严格相等.将上述递推链变形为
-    \begin{align*}
-        \forall k=0,\cdots,m_i,Tu_1^k=u_1^{k+1}+a_i u_1^k-b_i v_1^k,Tv_1^k=v_1^{k+1}+a_i v_1^k+b_i u_1^k
-    \end{align*}
-这组基下的\(M(T|_{U_i},(u_1^{m_1},v_1^{m_1},\cdots,u_1^0,v_1^0))\)是实向量空间的\textit{Jordan}标准型.
-    \begin{align*}
-        M(T_i)=
+        M(T|_{U_j})=
         \begin{pmatrix}
             C      & I       & \cdots & 0      \\
             0      & C       & \ddots & \vdots \\
@@ -130,8 +130,8 @@
         \end{pmatrix}
         ,C=
         \begin{pmatrix}
-            a & -b \\
-            b & a
+            a_i & -b_i \\
+            b_i & a_i
         \end{pmatrix}
         ,I=
         \begin{pmatrix}
@@ -140,4 +140,22 @@
         \end{pmatrix}
     \end{align*}
 于是\(M(T)=\mathrm{diag}(M(T_1),\cdots,M(T_q))\)，其中\(U_1,\cdots,U_q\)是\(G(\lambda_i,T_C)\)对应的所有循环子空间.
+
+\hspace*{\fill}
+
+\textit{Theorem 9.3*} {\kaishu 实自伴算子的特征值}
+实内积空间上的自伴算子一定有特征值.
+
+\textit{Proof}
+设\(V\)是有限维实内积空间且\(T \in L(V)\)是自伴算子，考虑\(T_C \in L(V_C)\).
+
+下证\(T_C\)是自伴算子.考虑\((u_1,v_1),(u_2,v_2) \in V_C\).
+    \begin{align*}
+        &\ip{T_C(u_1,v_1)}{(u_2,v_2)}=\ip{Tu_1}{v_2}+\ip{Tv_1}{u_2}+i(\ip{Tv_1}{u_2}-\ip{Tu_1}{v_2}) \\
+        &\ip{(u_1,v_1)}{T_C(u_2,v_2)}=\ip{u_1}{Tv_2}+\ip{v_1}{Tu_2}+i(\ip{v_1}{Tu_2}-\ip{u_1}{Tv_2}) \\
+        &\ip{Tu_1}{v_2}=\ip{u_1}{Tv_2},\ip{Tv_1}{u_2}=\ip{v_1}{Tu_2},
+         \ip{Tv_1}{u_2}=\ip{u_1}{Tv_2},\ip{Tu_1}{v_2}=\ip{v_1}{Tu_2} \\
+        &\Rightarrow \ip{T_C(u_1,v_1)}{(u_2,v_2)}=\ip{(u_1,v_1)}{T_C(u_2,v_2)}
+    \end{align*}
+于是\(T_C\)是自伴算子，故\(T_C\)的特征值均为实数，从而\(T\)拥有实特征值.
 
