@@ -1,0 +1,136 @@
+\section{7.C Positive Operators and Isometries}
+
+\begin{problem}[1]\label{7.C.1}
+    证明或给出反例：若\(T \in L(V)\)是自伴算子且\(e_1,\cdots,e_n\)是\(V\)的规范正交基，
+
+    且满足\(\forall i=1,\cdots,n,\ip*{Te_i}{e_i} \geq 0\)，则\(T\)是正算子.
+\end{problem}
+
+\begin{proof}
+    反例：令\(V=R^2,T(z_1,z_2)=(z_1,-z_2)\)，内积为欧式内积.显然\(T\)是自伴算子.
+
+    \(e_1=\dfrac{1}{\sqrt{2}}(1,-1),e_2=\dfrac{1}{\sqrt{2}}(1,1)\)是一组规范正交基.
+    \(\ip*{Te_1}{e_1}=0,\ip*{Te_2}{e_2}=0\).
+    
+    然而\(\ip*{T(0,1)}{(0,1)}=-1<0\)，即\(T\)不是正算子.
+\end{proof}
+
+\begin{problem}[2]\label{7.C.2}
+    若\(T \in L(V)\)是正算子且\(\exists v,w \in V,Tv=w,Tw=v\).证明：\(v=w\).
+\end{problem}
+
+\begin{proof}
+    由\(T^2v=v,T^2w=w\)，故有\(v,w \in E(1,T^2)\).
+
+    由于\(T\)是\(T^2\)的唯一正平方根，故其特征值必为\(T^2\)的算术平方根，即\(1\).
+    
+    由于\(E(1,T^2)=E(1,T)\)，故\(v,w \in E(1,T)\)，得\(Tv=v,Tw=w\)，即\(w=v\).
+\end{proof}
+
+\begin{problem}[6]\label{7.C.6}
+    若\(T \in L(V)\)是正算子.证明：\(\forall k \in N^*,T^k\)是正算子.
+\end{problem}
+
+\begin{proof}
+    \(T\)是自伴算子，由谱定理给出\(V\)的一组规范正交特征基\(e_1,\cdots,e_n\).
+
+    得到\(T,T^k\)在这组基下的矩阵\(M(T)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n),M(T^k)=\mathrm{diag}(\lambda_1^k,\cdots,\lambda_n^k)\).
+
+    由\(\forall i=1,\cdots,n,\lambda_i \geq 0\)得到\(\lambda_i^k \geq 0\).
+    根据定理7.35，\(T^k\)是正算子.
+\end{proof}
+
+\begin{problem}[7]\label{7.C.7}
+    设\(T \in L(V)\)是正算子.证明：\(T\)可逆等价于\(\forall v \ne 0 \in V,\ip*{Tv}{v}>0\).
+\end{problem}
+
+\begin{proof}
+    \(\forall v \ne 0 \in V,\ip*{Tv}{v}>0\)等价于\(\forall v \ne 0 \in V,Tv \ne 0,\ker T=\{0\}\)，即\(T\)可逆.
+\end{proof}
+
+\begin{problem}[8]\label{7.C.8}
+    设\(T \in L(V),\forall u,v \in V\).定义\(\ip*{u}{v}_T\)为\(\ip*{u}{v}_T=\ip*{Tu}{v}\).
+
+    求证：\(\ip*{u}{v}_T\)是\(V\)上的内积等价于\(T\)在原内积定义下是可逆正算子.
+\end{problem}
+
+\begin{proof}
+    充分性：首先验证\(\ip*{u}{v}_T\)的左变元线性.
+
+    \(\ip*{\lambda u_1+\mu u_2}{v}_T=\ip*{T(\lambda u_1+\mu u_2)}{u}\)
+    \(=\lambda \ip*{Tu_1}{v}+\mu \ip*{Tu_2}{v}=\lambda \ip*{u_1}{v}_T+\mu \ip*{u_2}{v}_T\).
+    
+    再验证其共轭对称性.\(\ip*{v}{Tu}=\ol{\ip*{Tu}{v}}=\ol{\ip*{u}{v}_T}=\ip*{v}{u}_T=\ip*{Tv}{u}\).
+    
+    因此若要满足共轭对称性，\(T\)必须为自伴算子.
+    
+    验证正定性.\(\ip*{u}{u}_T=\ip*{Tu}{u} \geq 0\)，故\(T\)必为正算子.
+    
+    令\(\ip*{Tu}{u}=0\)推出\(u=0\)，即\(u \ne 0\)推出\(\ip*{Tu}{u}>0\)，根据\probref{7.C.7}，\(T\)是可逆正算子.
+    
+    必要性的证明路径与之相同，容易验证.
+\end{proof}
+
+\newpage
+
+\begin{problem}[10]\label{7.C.10}
+    设\(V\)是有限维内积空间且\(S \in L(V)\)，证明以下命题等价：
+
+    a.\(S\)是等距变换；
+    
+    b.\(\forall u,v \in V,\ip*{S^*u}{S^*v}=\ip*{u}{v}\)；
+    
+    c.对于\(V\)的任意一组规范正交基\(e_1,\cdots,e_n\)，\(S^*e_1,\cdots,S^*e_n\)也是\(V\)的一组规范正交基.
+\end{problem}
+
+\begin{proof}
+    先证明\(a \Rightarrow b\).由定理7.42得到\(S^*\)是等距算子.根据\probref{6.A.20}，有
+    \begin{align*}
+        \ip*{S^*u}{S^*v}&=\dfrac{1}{4}(\norm*{S^*u+S^*v}^2-\norm*{S^*u-S^*v}^2+\norm*{S^*u+iS^*v}^2i-\norm*{S^*u-iS^*v}^2i) \\
+        &=\dfrac{1}{4}(\norm*{S^*(u+v)}^2-\norm*{S^*(u-v)}^2+\norm*{S^*(u+iv)}^2i-\norm*{S^*(u-iv)}^2i) \\
+        &=\dfrac{1}{4}(\norm*{u+v}^2-\norm*{u-v}^2+\norm*{u+iv}^2i-\norm*{u-iv}^2i)=\ip*{u}{v}
+    \end{align*}
+    实内积空间的情况用习题6.A.19证明，\(a \Rightarrow b\)成立.%此处使用了硬编码
+
+    再证明\(b \Rightarrow c\).\(\forall i,j=1,\cdots,n,\ip*{S^*e_i}{S^*e_j}=\ip*{e_i}{e_j}=\delta_{i,j}\).
+    因此\(S^*e_1,\cdots,S^*e_n\)是规范正交基.
+
+    最后证明\(c \Rightarrow a\).设\(e_1,\cdots,e_n\)是\(V\)的一组规范正交基.根据定理6.30，有
+
+    \(\forall v=\sum_{i=1}^n \ip*{v}{e_i}e_i \in V,\norm*{v}^2=\sum_{i=1}^n \ip*{v}{e_i}^2\),
+    \(\norm*{Sv}^2=\sum_{i=1}^n \ip*{Sv}{e_i}^2=\sum_{i=1}^n \ip*{v}{S^*e_i}^2\).
+
+    由于\(S^*e_1,\cdots,S^*e_n\)是\(V\)的规范正交基,故\(\sum_{i=1}^n \ip*{v}{S^*e_i}^2=\norm*{v}^2=\norm*{Sv}^2\).
+
+    从而\(S\)是等距算子，\(a \Rightarrow b \Rightarrow c \Rightarrow a\)，等价性得证.
+\end{proof}
+
+\begin{problem}[11]\label{7.C.11}
+    设\(\dim V=n\)且\(T_1,T_2 \in L(V)\)是自伴算子且拥有相同的\(n\)个特征值.
+
+    求证：存在等距算子\(S \in L(V)\)，使得\(T_1=S^*T_2S\).
+\end{problem}
+
+\begin{proof}
+    根据谱定理分别给出\(T_1,T_2\)的一组规范正交特征基\(e_1,\cdots,e_n,f_1,\cdots,f_n\).
+
+    从而\(M(T_1,e_1,\cdots,e_n)=M(T_2,f_1,\cdots,f_n)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n)\).
+    
+    定义\(S \in L(V)\)为\(\forall i=1,\cdots,n,Se_i=f_i\).
+    由于\(\norm*{Se_i}=\norm*{f_i}=\norm*{e_i}=1\)，故\(S\)是等距算子.
+    
+    根据定理7.42，\(S^{-1}=S^*\).于是对于\(\forall v=\sum_{i=1}^n \ip*{v}{e_i}e_i\)，有
+    \begin{align*}
+        (S^*T_2S)v&=(S^*T_2S)\sum_{i=1}^n \ip*{v}{e_i}e_i=S^*T_2\sum_{i=1}^n \ip*{v}{e_i}f_i
+        =S^*\sum_{i=1}^n \ip*{v}{e_i}\lambda_if_i \\
+        &=\sum_{i=1}^n \lambda_i\ip*{v}{e_i}S^{-1}f_i
+        =\sum_{i=1}^n \lambda_i\ip*{v}{e_i}e_i=T_1\sum_{i=1}^n \ip*{v}{e_i}e_i=T_1v
+    \end{align*}
+    总结：正算子是一类特殊的自伴算子，它们的特征值均为正数；
+
+    等距算子是一类特殊的正规算子，它们的特征值的绝对值均为\(1\).
+\end{proof}
+
+{\kaishu 有傅立叶变换背景的\textit{19*}将单独列出.}
+% End: source/chapter_7/7.C.tex
+

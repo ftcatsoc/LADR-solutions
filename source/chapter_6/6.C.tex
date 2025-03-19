@@ -1,0 +1,121 @@
+\section{6.C Orthonormal Complemants and Minimization Problems}
+
+\begin{problem}[1]\label{6.C.1}
+    设\(v_1,\cdots,v_m \in V\).证明：\(\{v_1,\cdots,v_m\}^\bot=\altspan(v_1,\cdots,v_m)^\bot\).
+\end{problem}
+
+\begin{proof}
+    由\(\{v_1,\cdots,v_m\} \subseteq \altspan(v_1,\cdots,v_m)\)，
+    故\(\altspan(v_1,\cdots,v_m)^\bot \subseteq \{v_1,\cdots,v_m\}^\bot\).
+    
+    下证\(\{v_1,\cdots,v_m\}^\bot \subseteq \altspan(v_1,\cdots,v_m)^\bot\)，
+    考虑\(v \in \{v_1,\cdots,v_m\}^\bot\).
+    
+    \(\forall i=1,\cdots,m,\ip*{v_i}{v}=0\)，则\(\ip*{\sum_{i=1}^m a_iv_i}{v}=\sum_{i=1}^m a_i\ip*{v_i}{v}=0\).
+    
+    而\(\forall a_1,\cdots,a_m \in F,\sum_{i=1}^m a_iv_i \in \altspan(v_1,\cdots,v_m)\)，
+    从而\(v \in \altspan(v_1,\cdots,v_m)^\bot\).
+    
+    即\(\forall v \in \{v_1,\cdots,v_m\}^\bot,v \in \altspan(v_1,\cdots,v_m)^\bot\)，证毕.    
+\end{proof}
+
+\begin{problem}[3]\label{6.C.3}
+    设\(u_1,\cdots,u_m,w_1,\cdots,w_n\)是\(V\)的一组基，且\(U=\altspan(u_1,\cdots,u_m)\).
+
+    对其应用Gram-Schmidt正交化，得到\(e_1,\cdots,e_m,f_1,\cdots,f_n\).
+    
+    证明：\(f_1,\cdots,f_n\)是\(U^\bot\)的一组规范正交基.
+\end{problem}
+
+\begin{proof}
+    考虑\(\forall a_i,b_i \in F,\sum_{i=1}^m a_ie_i \in \altspan(e_1,\cdots,e_m)=U,\)
+    \(\sum_{i=1}^n b_if_i \in \altspan(f_1,\cdots,f_n)\).
+    
+    \(\ip*{\sum_{i=1}^m a_ie_i}{\sum_{i=1}^n b_if_i}=\sum_{i=1}^m \sum_{i=1}^n a_i\ol{b_i} \ip*{e_i}{f_i}=0\)，
+    因此\(\forall f \in \altspan(f_1,\cdots,f_n), f\in U^\bot\).
+    
+    得到\(\altspan(f_1,\cdots,f_n) \subseteq U^\bot\)，结合\(\dim U^\bot=n=\dim \altspan(f_1,\cdots,f_n)\)，
+    
+    有\(U^\bot=\altspan(f_1,\cdots,f_n)\).
+\end{proof}
+
+\begin{problem}[5]\label{6.C.5}
+    设\(V\)是有限维内积空间且\(U\)是\(V\)的一个子空间.证明：\(P_U+P_{U^\bot}=I\).
+\end{problem}
+
+\begin{proof}
+    由于\(V=U \oplus U^\bot\)，故\(\forall v \in V,v=u+u',u \in U,u' \in U^\bot\).
+
+    \(\forall v \in V,(P_U+P_{U^\bot})(v)=P_U(v)+P_{U^\bot}(v)=u+u'=v=Iv\).
+\end{proof}
+
+\begin{problem}[8]\label{6.C.8}
+    设\(V\)是有限维内积空间且\(P \in L(V)\)满足\(P^2=P,\forall v \in V,\norm*{Pv} \leq \norm*{v}\).
+
+    求证：存在\(V\)的一个子空间\(U\)，使得\(P=P_U\).
+\end{problem}
+
+\begin{proof}
+    根据\probref{5.B.4}，\(V= \ker P \oplus \Img P\).猜想\(U=\Img P\).
+
+    令\(\forall v \in V,P_U v=u\)，则\(P_U^2 v=P_U u=u\)，
+    且\(\norm*{P_U v}=\norm*{(P_U v-v)+v} \leq \norm*{P_U v-v}+\norm*{v}\).
+    
+    因此\(P_{\Img P}\)满足\(P\)要求的一切性质.
+\end{proof}
+
+\begin{problem}[9]\label{6.C.9}
+    设\(V\)是内积空间且\(T \in L(V)\)，\(U\)是\(V\)的有限维子空间.
+
+    证明：\(U\)是\(T\)下的不变子空间和\(P_U T P_U=T P_U\)等价.
+\end{problem}
+
+\begin{proof}
+    充分性：\(\forall v \in V,v=u+u',u \in U,u' \in U^\bot\)，且\(\forall u \in U,Tu \in U\).
+
+    \(\forall v \in V,(P_U T P_U)v=(P_U T)u=Tu=T(P_U v)=(T P_U)v\).
+    
+    必要性：\(\forall u \in U,P_U(Tu)=(P_U T P_U)u=T(P_U u)=Tu\).
+    
+    根据正交投影的性质，\(Tu \in U\)，即\(U\)是\(T\)下的不变子空间.
+\end{proof}
+
+\newpage
+
+\begin{problem}[10]\label{6.C.10}
+    设\(V\)是有限维内积空间且\(T \in L(V)\)，\(U\)是\(V\)的一个子空间.
+
+    求证：\(U\)和\(U^\bot\)都是\(T\)下的不变子空间和\(P_U T=T P_U\)等价.
+\end{problem}
+
+\begin{proof}
+    充分性：\(\forall v \in V,v=u+u',u \in U,u' \in U^\bot\)，且\(\forall u \in U,u' \in U^\bot,Tu \in U,Tu' \in U^\bot\).
+
+    \(\forall v \in V,T(P_U v)=Tu=P_U(Tu)=P_U(Tu+Tu')=(P_U T)v\).
+    
+    必要性：\(\forall u \in U,P_U(Tu)=T(P_U u)=Tu\)，故\(Tu \in U\)，\(U\)是\(T\)的不变子空间；
+    
+    \(\forall u' \in U,P_U(Tu')=T(P_U u')=0\)，故\(Tu' \in U^\bot\)，\(U^\bot\)是\(T\)的不变子空间.
+\end{proof}
+
+\begin{problem}[11]\label{6.C.11}
+    在\(R^4\)中，令\(U=\altspan((1,1,0,0),(1,1,1,2)),u \in U\).
+    
+    给出能使\(\norm*{(1,2,3,4)-u}\)最小的\(u\).
+\end{problem}
+
+\begin{proof}
+    定义\(R^4\)上的内积为\(\ip*{(x_1,x_2,x_3,x_4)}{(y_1,y_2,y_3,y_4)}=\sum_{i=1}^4 x_iy_i\).
+
+    应用正交化，易得\(U\)的一组规范正交基是\(\dfrac{1}{\sqrt{2}}(1,1,0,0),\dfrac{1}{\sqrt{5}}(0,0,1,2)\).
+    
+    根据定理6.56和正交投影的性质1，有
+    \begin{align*}
+        u&=P_U(1,2,3,4) \\
+        &=\ip*{(1,2,3,4)}{\dfrac{1}{\sqrt{2}}(1,1,0,0)}(\dfrac{1}{\sqrt{2}}(1,1,0,0))
+        +\ip*{(1,2,3,4)}{\dfrac{1}{\sqrt{5}}(0,0,1,2)}(\dfrac{1}{\sqrt{5}}(0,0,1,2)) \\
+        &=(\dfrac{3}{2},\dfrac{3}{2},\dfrac{11}{5},\dfrac{22}{5})
+    \end{align*}
+\end{proof}
+% End: source/chapter_6/6.C.tex
+

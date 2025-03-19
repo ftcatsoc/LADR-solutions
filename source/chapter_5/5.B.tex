@@ -1,0 +1,148 @@
+\section{Eigenvectors and Upper-Triangular Matrices}
+
+\begin{theorem}[5.27]\label{thm 5.27} 三角矩阵的存在性 \:
+    设\(V\)是有限维复向量空间且\(T \in L(V)\).
+
+    证明：存在\(V\)的一组基\(v_1,\cdots,v_n\)，使得\(M(T,(v_1,\cdots,v_n))\)是上三角矩阵.
+\end{theorem}
+
+\begin{proof}
+    使用数学归纳法.\(\dim V=1\)的情况显然成立.
+
+    现在假设对于任意的\(U\)满足\(\dim U<\dim V\)，\(U\)都满足条件.
+    
+    根据定理5.21，该复向量空间必存在一个特征值\(\lambda\)及对应的特征向量\(v_1\).
+    
+    令\(U=\altspan(v_1)\)，考虑商空间\(V/U\)，\(\dim V/U=n-1\)，因此可以对其使用假设.
+    
+    构造\(T\)在\(V/U\)上的诱导变换\(\ol{T}\)满足\(\forall \ol{v} \in V/U,\ol{T}\ol{v}=\ol{Tv}\).
+    
+    则\(V/U\)存在一组基\(\ol{v_2},\cdots,\ol{v_n}\)满足\(\ol{Tv_i} \in \altspan(\ol{v_2},\cdots,\ol{v_n})\).
+    
+    将商空间\(V/U\)的基提升至原空间，将有\(\forall i=1,\cdots,n,Tv_i=\mu v_1+\sum_{j=2}^i a_jv_j\).
+    
+    合并\(v_1\)和提升后的\(v_2,\cdots,v_n\).根据\probref{3.E.13}，\(v_1,\cdots,v_n\)是\(V\)的一组满足条件的基.
+\end{proof}
+
+\begin{problem}[1]\label{5.B.1}
+    设\(T \in L(V)\)且存在\(n \in N^*\)使得\(T^n=0\).
+    
+    求证：\(I-T\)是可逆算子，且\((I-T)^{-1}=\sum_{i=0}^{n-1} T^i\).
+\end{problem}
+
+\begin{proof}
+    \((I-T)\sum_{i=0}^{n-1} T^i=\sum_{i=0}^{n-1} T^i-\sum_{i=1}^n T^i=I-T^n=I\).
+\end{proof}
+
+\begin{problem}[3]
+    设\(T \in L(V)\)，满足\(T^2=I\)且\(-1\)不是\(T\)的特征值.证明\(T=I\).
+\end{problem}
+
+\begin{proof}
+    \(T^2=I \Rightarrow (T+I)(T-I)=0\)，因此\(1\)和\(-1\)至少有一个是\(T\)的特征值.
+
+    而\(-1\)不是\(T\)的特征值，因此\(T=I\).
+\end{proof}
+
+\begin{problem}[4]\label{5.B.4}
+    设\(P \in L(V)\)满足\(P^2=P\).证明\(V=\ker P \oplus \Img P\).
+\end{problem}
+
+\begin{proof}
+    对于\(\forall v \in V,v=Pv+(v-Pv),Pv \in \Img P\).
+
+    \(P(v-Pv)=(P-P^2)v=0 \Rightarrow v-Pv \in \ker P\)，因此\(V=\Img P+\ker P\).
+    
+    考虑\(v \in \ker P \cap \Img P\)，则\(\exists u \in V\)，使得\(Pu=v\)，得\(v=Pu=P^2u=Pv=0\)，证毕.
+\end{proof}
+
+\begin{problem}[5]\label{5.B.5}
+    设\(S,T \in L(V)\)且\(S\)是可逆变换.设\(p \in P(F)\)，证明：\(p(STS^{-1})=Sp(T)S^{-1}\).
+\end{problem}
+
+\begin{proof}
+    对于\(Sv \in V\)，有\((STS^{-1})^m (Sv)=(STS^{-1})^{m-1}(S(Tv))=\cdots=(ST^m)v\).
+    \begin{align*}
+        p(STS^{-1})(Sv)=\sum_{i=0}^m a_i(STS^{-1})^m (Sv) 
+        =\sum_{i=0}^m a_i(ST^m)v=Sp(T)v=Sp(T)S^{-1}(Sv)
+    \end{align*}
+\end{proof}
+
+\newpage
+
+\begin{problem}[6]\label{5.B.6}
+    设\(T \in L(V)\)且\(U\)是\(T\)下的不变子空间.
+
+    求证：对于任意多项式\(p \in P(F)\)，\(U\)都是\(p(T)\)下的不变子空间.
+\end{problem}
+
+\begin{proof}
+    使用数学归纳法，设\(\altdeg p=n\).先验证\(n=0\)的情况.\(\forall u \in U,a_0u \in U\)，情况成立.
+    
+    设\(\altdeg p=n\)时结论成立，即\(\forall u \in U,p_n(T)u=\sum_{i=0}^n a_iT^iu \in U\).
+    
+    当\(\altdeg p=n+1\)时，\(\forall u \in U,p_{n+1}(T)u=\sum_{i=0}^{n+1} a_iT^iu=\sum_{i=0}^n a_iT^iu+a_{n+1}T^{n+1}u\).
+    
+    由于\(\sum_{i=0}^n a_iT^iu \in U,a_{n+1}T^{n+1}u \in U\)，故\(p_{n+1}(T)u \in U\)，证毕.
+\end{proof}
+
+\begin{problem}[9]\label{5.B.9}
+    设\(V\)是有限维向量空间且\(T \in L(V)\)，存在\(v \ne 0 \in V\).
+
+    令\(p\)是能使得\(p(T)v=0\)的次数最低的多项式.求证：\(p\)的所有零点都是\(T\)的特征值.
+\end{problem}
+
+\begin{proof}
+    使用反证法.设\(\exists \lambda \in F,p(\lambda)=0\)但\(T-\lambda I\)可逆.
+
+    根据代数基本定理，存在\(q(T) \in L(V)\)，使得\(p(T)=(T-\lambda I)q(T),\altdeg q<\altdeg p\).
+    
+    因此\(q(T)\)不能满足\(q(T)v=0\).但是\(v \ne 0\)，因而\((T-\lambda I)v \ne 0\).
+    
+    因此\(p(T)v=(T-\lambda I)q(T)v \ne 0\)，矛盾，从而原命题得证.
+\end{proof}
+
+\begin{problem}[11]\label{5.B.11}
+    设\(T \in L(V)\)和一个多项式\(p \in P(C)\)，\(\alpha \in C\).
+
+    求证：\(\alpha\)是\(p(T)\)的特征值和存在\(T\)的特征值\(\lambda\)使得\(\alpha=p(\lambda)\)等价.
+\end{problem}
+
+\begin{proof}
+    必要性：若\(Tv=\lambda v\)且\(\alpha=p(\lambda)\)，则\(p(T)v=\sum_{i=0}^n a_iT^iv=\sum_{i=0}^n a_i\lambda^iv=p(\lambda)v\).
+
+    充分性：\(\exists v \ne 0,Tv=\alpha v \Rightarrow (p(T)-\alpha I)\)不可逆.
+    
+    因此\(p(T)-\alpha I=c\prod_{i=1}^n (T-\lambda_i I)\)不可逆，即至少存在一个\(\lambda_i\)使得\(T-\lambda_i I\)不可逆，
+    
+    即\(\lambda_i\)是\(T\)的特征值，因此\(p(T)v=p(\lambda_i)v=\alpha v\).
+\end{proof}
+
+\begin{problem}[13]\label{5.B.13}
+    设\(W\)是复向量空间且\(T \in L(W)\)没有特征值.
+
+    求证：若\(U\)在\(T\)下不变，则\(U=\{0\}\)或者\(U\)为无限维向量空间.
+\end{problem}
+
+\begin{proof}
+    \(\{0\}\)的情况显然成立.现在假设\(U\)是非零有限维复向量空间.
+
+    则\(T|_U \in L(U)\)必有特征值\(\lambda\)，从而\(T \in L(W)\)实际上有一个特征值\(\lambda\)，矛盾.
+\end{proof}
+
+\begin{problem}[16]\label{5.B.16}
+    令\(\varphi:P_n(C) \rightarrow V\)为\(\varphi p=p(T)v\)，以此证明定理5.21.
+\end{problem}
+
+\begin{proof}
+    先证明\(\varphi\)是线性变换.
+    \begin{align*}
+        \varphi(\lambda p+\mu q)=(\lambda p+\mu q)(T)v=(\lambda p(T)+\mu q(T))v
+        =\lambda p(T)v+\mu q(T)v=\lambda(\varphi p)+\mu(\varphi q)
+    \end{align*}
+    由于\(\dim P_n(C)=n+1,\dim V=n\)，因此该变换不是单射变换，
+
+    也即存在\(v \ne 0\)使得\(p(T)v=\sum_{i=0}^n a_i(T^iv)=0\)，后文证明与原文相同.
+\end{proof}
+% End: source/chapter_5/5.B.tex
+

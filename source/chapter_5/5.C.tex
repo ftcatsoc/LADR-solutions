@@ -1,0 +1,162 @@
+\section{5.C Eigenspaces and Diagonal Matrices}
+
+\begin{problem}[1]\label{5.C.1}
+    设\(T \in L(V)\)可对角化.证明\(V=\ker T \oplus \Img T\).
+\end{problem}
+
+\begin{proof}
+    设\(\lambda_1,\cdots,\lambda_m\)是\(T\)的所有非零特征值.
+
+    由于\(T\)可对角化，故根据定理5.41，\(V=E(0,T)+\oplus_{i=1}^m E(\lambda_i,T)\).
+
+    考虑\(v_i \in E(\lambda_i,T)\)，有\(Tv_i=\lambda_iv_i,v_i=\dfrac{1}{\lambda_i}Tv_i\).
+
+    因此\(T(E(\lambda_i,T)) \subseteq E(\lambda_i,T),E(\lambda_i,T) \subseteq T(E(\lambda_i,T))\).
+
+    即\(\Img T=\oplus_{i=1}^m E(\lambda_i,T)\)且\(\ker T=E(0,T)\)，证毕.
+\end{proof}
+
+\begin{problem}[3]\label{5.C.3}
+    设\(V\)是有限维向量空间且\(T \in L(V)\).证明以下三个命题等价：
+
+    a.\(V=\ker T \oplus \Img T\) \quad b.\(V=\ker T+\Img T\) \quad c.\(\ker T \cap \Img T=\{0\}\).
+\end{problem}
+
+\begin{proof}
+    下证\(a \Rightarrow b \Rightarrow c \Rightarrow a\).\(a \Rightarrow b\)是显然的.
+
+    假设\(b\)成立.根据定理2.43和3.22，
+    \begin{align*}
+        \dim V &= \dim \ker T+\dim \Img T \\
+        \dim V &= \dim \ker T+\dim \Img T-\dim (\Img T \cap \ker T)
+    \end{align*}
+    得到\(\dim (\Img T \cap \ker T)=0 \Rightarrow \ker T \cap \Img T=\{0\}\).
+    
+    假设\(c\)成立，令\(u_1,\cdots,u_m\)和\(w_1,\cdots,w_n\)分别为\(\ker T\)和\(\Img T\)的一组基.
+    
+    根据\probref{2.B.8}，\(u_1,\cdots,u_m,w_1,\cdots,w_n\)是\(V\)的一组基.从而\(V=\ker T \oplus \Img T\)，证毕.
+\end{proof}
+
+\begin{problem}[5]\label{5.C.5}
+    设\(V\)是有限维复向量空间且\(T \in L(V)\).设\(\lambda_1,\cdots,\lambda_m\)是\(T\)的不同特征值.
+
+    证明：若\(\forall i=1,\cdots,m,V=E(\lambda_i,I) \oplus \Img(T-\lambda_i I)\)，则\(T\)可对角化.
+\end{problem}
+
+\begin{proof}
+    使用数学归纳法，当\(\dim V=1\)时，\(V=E(\lambda_1,T),\Img(T-\lambda_1 I)=\{0\}\)，显然成立.
+
+    现假设对于任意的\(U\)满足\(\dim U<\dim V\)，结论均成立.
+    
+    令\(\Img(T-\lambda_1 I)=U\).\(U\)是\(T\)下的不变子空间且\(\dim U<\dim V\)，对其使用归纳.
+    
+    从而\(U\)有一组由\(T|_U\)的特征向量构成的基\(v_1^U,\cdots,v_m^U\)，使得\(M(T|_U)\)为对角矩阵.
+    
+    \(E(\lambda_1,T)\)作为\(V\)的特征空间显然有\(T|_{E(\lambda_i,T)}\)的特征基\(v_1,\cdots,v_n\).
+    
+    将这两组基合并，则有\(M(T,(v_1,\cdots,v_n,v_1^U,\cdots,v_m^U))=\mathrm{diag}(\lambda_1,\cdots,\lambda_m)\).
+    
+    从而\(V\)有\(T\)的特征基，即\(T\)可对角化.
+\end{proof}
+
+\newpage
+
+\begin{problem}[6]\label{5.C.6}
+    设\(V\)是有限维向量空间.\(T \in L(V)\)有\(\dim V\)个不同的特征向量，
+
+    \(S \in L(V)\)有和\(T\)相同的特征向量.求证：\(ST=TS\).
+\end{problem}
+
+\begin{proof}
+    令\(\dim V=n\)，设\(v_1,\cdots,v_n\)是\(S,T\)的特征向量.
+
+    根据特征向量的独立性，\(v_1,\cdots,v_n\)是\(V\)的一组基.
+    
+    设\(\forall i=1,\cdots,m,Tv_i=\lambda_i^\alpha v_i,Sv_i=\lambda_i^\beta v_i\).
+    \begin{align*}
+        (ST)v &=(ST)\sum_{i=1}^n a_iv_i=S\sum_{i=1}^n a_i \lambda_i^\alpha v_i
+                =\sum_{i=1}^n a_i \lambda_i^\beta \lambda_i^\alpha v_i \\
+        (TS)v &=(TS)\sum_{i=1}^n a_iv_i=T\sum_{i=1}^n a_i \lambda_i^\beta v_i
+                =\sum_{i=1}^n a_i \lambda_i^\alpha \lambda_i^\beta v_i
+    \end{align*}
+    显然\(ST=TS\).
+\end{proof}
+
+\begin{problem}[12]\label{5.C.12}
+    设\(V\)是有限维向量空间且\(\dim V=n\).\(R,T \in L(V)\)都有特征值\(\lambda_1,\cdots,\lambda_n\).
+
+    求证：存在可逆变换\(S \in L(V)\)，使得\(R=S^{-1}TS\).
+\end{problem}
+
+\begin{proof}
+    根据定理5.44，显然\(R,T\)均可对角化.
+
+    设\(v_1^\alpha,\cdots,v_n^\alpha\)和\(v_1^\beta,\cdots,v_n^\beta\)
+    分别是\(R,T\)与\(\lambda_i\)对应的特征向量.
+    
+    根据定理5.10和2.39，\(v_1^\alpha,\cdots,v_n^\alpha\)和\(v_1^\beta,\cdots,v_n^\beta\)分别是\(V\)的一组基.
+    
+    定义线性变换\(S\)为\(Sv_i^\alpha=v_i^\beta,i=1,\cdots,n\)，故有
+    \begin{align*}
+        (S^{-1}TS)v &=(S^{-1}TS)\sum_{i=1}^n a_iv_i^\alpha=(S^{-1}T)\sum_{i=1}^n a_iv_i^\beta \\
+                    &=S^{-1}\sum_{i=1}^n a_i\lambda_i v_i^\beta=\sum_{i=1}^n a_i\lambda_i v_i^\alpha
+                        =\sum_{i=1}^n a_iRv_i^\alpha=Rv
+    \end{align*}
+    因而\(R=S^{-1}TS\)，证毕.
+\end{proof}
+
+\newpage
+
+\begin{problem}[16]\label{5.C.16}
+    斐波那契数列\(F_1,F_2,\cdots\)定义如下：
+    \begin{align*}
+        F_1=1,F_2=1,F_n=F_{n-2}+F_{n-1},n \geq 3
+    \end{align*}
+    并定义\(T \in L(R^2)\)为\(T(x,y)=(y,x+y)\).
+
+    a.证明\(\forall n \in N^*,T^n(0,1)=(F_n,F_{n+1})\).
+
+    b.给出\(T\)的特征值，并以此对角化\(M(T)\).
+    
+    c.利用b部分的结论给出\(T^n(0,1)\)，并证明
+    \begin{align*}
+        F_n=\dfrac{1}{\sqrt{5}}[(\dfrac{1+\sqrt{5}}{2})^n-(\dfrac{1-\sqrt{5}}{2})^n]
+    \end{align*}
+    d.利用c部分的结论证明{\kaishu 斐波那契数}\(F_n\)是最接近\(\dfrac{1}{\sqrt{5}}(\dfrac{1+\sqrt{5}}{2})^n\)的整数.
+\end{problem}
+
+\begin{proof}[证明a]
+    使用数学归纳法.\(n=1\)时，\(T(0,1)=(1,1)=(F_1,F_2)\).
+
+    下设\(n=k\)时结论成立.则\(n=k+1\)时，
+    \begin{align*}
+        T^{k+1}(0,1)=T(F_k,F_{k+1})=(F_{k+1},F_k+F_{k+1})=(F_{k+1},F_{k+2})
+    \end{align*}
+\end{proof}
+
+\begin{proof}[证明b]
+    令\((y,x+y)=T(x,y)=\lambda(x,y)\)，则\(y=\lambda x\)且\(x+y=\lambda y\).
+
+    得到\(\lambda^2-\lambda-1=0\)，故\(\lambda_1=\dfrac{1+\sqrt{5}}{2},\lambda_2=\dfrac{1-\sqrt{5}}{2}\).
+
+    分别解方程\((T-\lambda_1 I)v_1=0\)和\((T-\lambda_2 I)v_2=0\)，得到\(v_1=(1,\lambda_1),v_2=(1,\lambda_2)\).
+
+    于是\(M(T,((1,\lambda_1),(1,\lambda_2)))=\mathrm{diag}(\lambda_1,\lambda_2)\).
+\end{proof}
+
+\begin{proof}[证明c]
+    先分解初始向量.\((0,1)=\dfrac{1}{\sqrt{5}}(v_1-v_2)\)，
+    则\(T^n(0,1)=\dfrac{1}{\sqrt{5}}\lambda_1^n(1,\lambda_1)-\dfrac{1}{\sqrt{5}}\lambda_2^n(1,\lambda_2)\).
+
+    提取第一个分量即为\(F_n=\dfrac{1}{\sqrt{5}}(\lambda_1^n-\lambda_2^n)\).
+\end{proof}
+
+\begin{proof}[证明d]
+    由于\(\abs*{\lambda_2}=\abs*{\dfrac{1-\sqrt{5}}{2}}<1\)，故\(\forall n \in N^*,\abs*{\lambda_2^n}<1\).
+    \begin{align*}
+        \abs*{F_n-\dfrac{1}{\sqrt{5}}\lambda_1^n}=\dfrac{1}{\sqrt{5}}\abs*{\lambda_2^n}<\dfrac{1}{\sqrt{5}}<\dfrac{1}{2}
+    \end{align*}
+    由于误差小于\(\dfrac{1}{2}\)，故\(F_n\)是最接近\(\dfrac{1}{\sqrt{5}}\lambda_1^n\)的整数.
+\end{proof}
+% End: source/chapter_5/5.C.tex
+

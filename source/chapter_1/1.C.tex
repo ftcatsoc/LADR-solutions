@@ -1,0 +1,58 @@
+\section{1.C Subspaces}
+
+\begin{problem}[13]\label{1.C.10}
+    若对于\(\forall i=1,\cdots,m\)，都有\(U_i\)为\(V\)的子空间.
+
+    求证：\(\cup_{i=1}^m U_i\)仍是\(V\)的子空间与\(\exists j=1,\cdots,m\)，
+    使得\(\forall i=1,\cdots,m\)，\(U_i \subseteq U_j\)等价.
+\end{problem}
+
+\begin{lemma}\label{lem 1.C.10}
+    若\(V_1,V_2\)是\(V\)的子空间且\(V_1 \cup V_2\)仍为\(V\)的子空间，
+    则必然有\(V_1 \subseteq V_2\)或\(V_2 \subseteq V_1\).
+\end{lemma}
+
+\begin{proof}[引理证明]
+    任取\(v_1 \in V_1 \setminus V_2\)和\(v_2 \in V_2 \setminus V_1\)，考虑\(v_1+v_2\).
+
+    由于\(V_1 \cup V_2\)仍为\(V\)的子空间，故有\(v_1+v_2 \in V_1\)或\(v_1+v_2 \in V_2\).
+
+    若\(v_1+v_2 \in V_1\)，则\(v_2=(v_1+v_2)+(-v_1) \in V_1\)，与\(v_2 \notin V_1\)矛盾；
+
+    若\(v_1+v_2 \in V_2\)，则\(v_1=(v_1+v_2)+(-v_2) \in V_2\)，与\(v_1 \notin V_2\)矛盾.
+
+    因此必有\(V_1 \subseteq V_2\)或\(V_2 \subseteq V_1\).
+\end{proof}
+
+\begin{proof}[习题证明]
+    充分性的证明非常显然.
+
+    若\(\forall i=1,\cdots,m\)，\(U_i \subseteq U_j\)，则\(\cup_{i=1}^m U_i=U_j\)，
+    而\(U_j\)是\(V\)的一个子空间，证毕.
+
+    必要性：使用数学归纳法，并调用该引理，先考虑\(i=1\)的情况.令\(V_1=U_1,V_2=\cup_{i=2}^m U_i\).
+
+    根据引理，只可能出现\(\cup_{i=1}^m U_i \subseteq U_1\)或\(U_1 \subseteq \cup_{i=2}^m U_i\)两种情况之一.
+
+    若为情况一则\(U_1\)即为所求，若为情况二则\(\cup_{i=2}^m U_i\)是\(V\)的子空间，归纳继续.
+
+    设\(i=j\)时归纳继续，即\(U_j \subseteq \cup_{i=j+1}^m U_i\).
+    则当\(i=j+1\)时，令\(V_1=U_{j+1},V_2=\cup_{i=j+2}^m U_i\)，
+
+    仍有\(\cup_{i=j+2}^m U_i \subseteq U_{j+1}\)或\(U_{j+1} \subseteq \cup_{i=j+2}^m U_i\)，
+    即\(U_{j+1}\)是所求子集，或者归纳可以继续.
+
+    由于子空间个数有限，因此进程一定可以在某一步结束，下证结束时找到的\(U_j\)即为所求.
+
+    不妨假设第\(j\)步找到了满足条件的\(U_j\)，即\(U_j\)满足\(\cup_{i=j+1}^m U_i\subseteq U_j\).
+
+    此时回到第\(j-1\)步，由于该步必为情况二，
+    因此\(U_{j-1} \subseteq \cup_{i=j}^m U_i=U_j\)，即\(U_{j-1} \subseteq U_j\).
+
+    随即\(\cup_{i=j-1}^m U_i=U_j\)，进而\(U_{j-2} \subseteq \cup_{i=j-1}^m U_i=U_j\).
+    以此类推，\(\forall i=1,\cdots,j-1\)，\(U_i\subseteq U_j\).
+
+    结合\(\cup_{i=j+1}^m U_i \subseteq U_j\)，得\(\forall i=1,\cdots,m,U_i \subseteq U_j\)，证毕.
+\end{proof}
+% End: source/chapter_1/1.C.tex
+

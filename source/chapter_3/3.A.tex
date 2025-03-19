@@ -1,0 +1,59 @@
+\section{3.A The Vector Space of Linear Maps}
+
+\begin{problem}[11]\label{3.A.11}
+    设\(V\)是有限维向量空间.设\(U\)是\(V\)的一个子空间且\(S\in L(U,W)\).
+
+    求证：存在\(T\in L(V,W)\)，对所有\(u\in U\)满足\(Tu=Su\).
+\end{problem}
+
+\begin{proof}
+    设\(u_1,\cdots,u_m\)是\(U\)的一组基.由于\(U\)是\(V\)的一个子空间，
+
+    故存在\(v_1,\cdots,v_n\)，使得\(u_1,\cdots,u_m,v_1,\cdots,v_n\)是\(V\)的一个子空间.
+
+    随后证明\(T\)的存在性.设\(w_{m+1},\cdots,w_{m+n} \in W\)，令
+    \begin{align*}
+        Tu_i=Su_i,i=1,\cdots,m \quad Tv_i=0,i=m+1,\cdots,m+n
+    \end{align*}
+    定理3.5保证了线性变换\(T\)的存在性.从而对于任意的\(u=\sum_{i=1}^m a_iu_i\)，有
+    \begin{align*}
+        Tu=T\sum_{i=1}^m a_iu_i=\sum_{i=1}^m a_iTu_i=\sum_{i=1}^m a_iSu_i=S\sum_{i=1}^m a_iu_i=Su
+    \end{align*}
+\end{proof}
+
+\begin{problem}[12]\label{3.A.12}
+    设\(V \ne \phi\)是有限维向量空间且\(W\)是无限维向量空间.
+
+    求证：\(L(V,W)\)是无限维向量空间.
+\end{problem}
+
+\begin{proof}
+    根据\cref{2.A.13}，\(W\)中存在向量组\(w_1,w_2,\cdots\)满足\(\forall m \in N^*,w_1,\cdots,w_m\)线性无关.
+
+    设存在一些\(T_i\)满足\(T_iv=w_i,i=1,\cdots,m\)，下证\(\forall m \in N^*,T_1,\cdots,T_m\)线性无关.
+    
+    考虑\((\sum_{i=1}^m a_iT_i)v=0\)，则有\(\sum_{i=1}^m a_i(T_iv)=\sum_{i=1}^m a_iw_i=0\).
+    
+    根据习题2.A.14，有\(a_1=\cdots=a_m=0\)，从而\(T_1,\cdots,T_m\)线性无关，证毕.
+    %此处使用了硬编码
+\end{proof}
+
+\begin{problem}[13]\label{3.A.13}
+    设\(v_1,\cdots,v_m\)是\(V\)中一列线性相关的向量且\(W \ne \{0\}\).
+
+    求证：\(W\)中存在\(w_1,\cdots,w_m\)，使得没有\(T\in L(V,W)\)能满足\(\forall i=1,\cdots,m,Tv_i=w_i\).    
+\end{problem}
+
+\begin{proof}
+    由于\(v_1,\cdots,v_m\)线性相关，不妨令\(\sum_{i=1}^m a_iv_i=0\)且\(a_t \ne 0\).
+
+    下面构造\(w_1,\cdots,w_m\).令其中\(w_t \ne 0\)，且\(w_i=0\)若\(i \ne t\).
+    
+    利用反证法.若\(Tv_i=w_i\)对于任意的\(i=1,\cdots,m\)均成立，则
+    \begin{align*}
+        0=T\sum_{i=1}^m a_iv_i=\sum_{i=1}^m a_iTv_i=\sum_{i=1}^m a_iw_i=a_tw_t \ne 0
+    \end{align*}
+    矛盾.假设不成立，原命题得证.    
+\end{proof}
+% End: source/chapter_3/3.A.tex
+

@@ -1,0 +1,147 @@
+\section{7.A Self-Adjoint and Normal Operators}
+
+\begin{theorem}[7.10]\label{thm 7.10} 伴随算子的矩阵 \:
+    \(e_1,\cdots,e_m,f_1,\cdots,f_n\)分别是\(V,W\)的规范正交基.
+
+    设\(T \in L(V,W)\)，则在这两组基下的\(M(T)\)是\(M(T^*)\)的共轭转置，即\(\ol{M(T)^T}=M(T^*)\).
+\end{theorem}
+
+\begin{proof}
+    考虑\(M(T)_{i,j}\).由于\(Te_j=\sum_{i=1}^n \ip*{Te_j}{f_i}f_i\)，从而\(M(T)_{i,j}=\ip*{Te_j}{f_i}\).
+
+    再考虑\(M(T^*)_{j,i}\).由于\(T^*f_i=\sum_{j=1}^n \ip*{T^*f_i}{e_j}e_j\)，从而\(M(T^*)_{j,i}=\ip*{T^*f_i}{e_j}\).
+    \begin{align*}
+        M(T^*)_{j,i}=\ip*{T^*f_i}{e_j}=\ip*{f_i}{Te_j}=\ol{\ip*{Te_j}{f_i}}=\ol{M(T)_{i,j}}
+    \end{align*}
+    于是\(\ol{M(T)^T}=M(T^*)\)，证毕.
+\end{proof}
+
+\begin{problem}[2]\label{7.A.2}
+    设\(V\)是有限维内积空间且\(T \in L(V)\).
+
+    证明：\(\lambda\)是\(T\)的特征值和\(\ol{\lambda}\)是\(T^*\)的特征值等价.
+\end{problem}
+
+\begin{proof}
+    利用\(\dim \ker(T^*)=\dim \ker(T)\)，有
+    \begin{align*}
+        0<\dim \ker(T-\lambda I)=\dim \ker(T-\lambda I)^*=\dim \ker(T^*-\ol{\lambda}I)
+    \end{align*}
+因此\(E(\ol{\lambda},T^*) \ne \{0\}\)，即\(\ol{\lambda}\)是\(T^*\)的一个特征值.
+\end{proof}
+
+\begin{problem}[3]\label{7.A.3}
+    设\(V\)是有限维内积空间且\(T \in L(V)\)，\(U\)是\(V\)的一个子空间.
+
+    求证：\(U\)在\(T\)下不变和\(U^\bot\)和\(T^*\)下不变等价.
+\end{problem}
+
+\begin{proof}
+    由\(\forall u \in U,u' \in U^\bot\)，则\(\ip*{u}{u'}=0\)，考虑\(\ip*{Tu}{u'}\)和\(\ip*{u}{T^*u'}\).
+
+    由\(\ip*{Tu}{u'}=0 \Leftrightarrow \ip*{u}{T^*u'}=0\)，得到\(Tu \in U\)和\(T^*u' \in U^\bot\)等价.
+\end{proof}
+
+\begin{problem}[4]\label{7.A.4}
+    设\(T \in L(V,W)\).求证：
+    a.\(T\)单射和\(T^*\)满射等价. \quad b.\(T\)满射和\(T^*\)单射等价.
+\end{problem}
+
+\begin{proof}[证明a]
+    \(\ker T=\{0\} \Leftrightarrow (\ker T)^\bot=V \Leftrightarrow \Img T^*=V\).
+\end{proof}
+
+\begin{proof}[证明b]
+    \(\Img T=V \Leftrightarrow (\Img T)^\bot=\{0\} \Leftrightarrow \Img T^*=\{0\}\).
+\end{proof}
+
+\begin{problem}[11]\label{7.A.11}
+    设\(P \in L(V)\)满足\(P^2=P\).
+    
+    求证：\(T\)是自伴算子等价于存在\(V\)的一个子空间\(U\)，使得\(P=P_U\).
+\end{problem}
+
+\begin{proof}
+    必要性：考虑\(U\)和\(U^\bot\).\(\forall v,w \in V,v=v_1+v_2,w=w_1+w_2,v_1,w_1 \in U,v_2,w_2 \in U^\bot\).
+    \begin{align*}
+        \ip*{Pv}{w}=\ip*{v_1}{w_1+w_2}=\ip*{v_1}{w_1}+\ip*{v_1}{w_2}=\ip*{v_1}{w_1}+\ip*{v_2}{w_1}=\ip*{v}{Pw}
+    \end{align*}
+    充分性：根据\probref{5.B.4}，\(V= \ker P \oplus \Img P\).考虑\(\forall v=v_1+v_2,v_1 \in \ker P,v_2 \in \Img P\).
+    \begin{align*}
+        \ip*{Pv}{v}=\ip*{v_2}{v_1+v_2}=\ip*{v_2}{v_1}+\norm*{v_2}^2
+        =\ip*{v_1}{v_2}+\norm*{v_2}^2=\ip*{v_1+v_2}{v_2}=\ip*{v}{Pv}
+    \end{align*}
+    因此\(\ip*{v_1}{v_2}=0\)，即\(\ker P\)和\(\Img P\)互为正交补，取\(U=\Img P\)即可.
+\end{proof}
+
+\newpage
+
+\begin{problem}[14]\label{7.A.14}
+    设\(T \in L(V)\)是正规算子.\(v,w \in V\)满足\(Tv=3v,Tw=4w,\norm*{v}=\norm*{w}=2\).
+
+    求\(\norm*{T(v+w)}\).
+\end{problem}
+
+\begin{proof}
+    根据定理7.22，\(\ip*{v}{w}=0\)，从而\(\norm*{T(v+w)}^2=\norm*{3v+4w}^2=\norm*{3v}^2+\norm*{4w}^2=100\).
+    
+    根据范数的正定性，显然有\(\norm*{T(v+w)}=10\).
+\end{proof}
+
+\begin{problem}[15]\label{7.A.15}
+    给定\(u,x \in V\)，定义\(T \in L(V)\)为\(\forall v \in V,Tv=\ip*{v}{u}x\).
+
+    a.当\(F=R\)时，证明：\(T\)是自伴算子等价于\(\exists \lambda \ne 0 \in R,x=\lambda u\).
+    
+    b.证明：\(T\)是正规算子等价于\(\exists \lambda \ne 0,x=\lambda u\).
+\end{problem}
+
+\begin{proof}[证明a]
+    \(\ip*{v}{T^*w}=\ip*{Tv}{w}=\ip*{v}{u}\ip*{x}{w}=\ip*{v}{\ip*{x}{w}u},T^*w=\ip*{x}{w}u\).
+
+    必要性：\(\ip*{Tv}{w}=\ip*{\lambda \ip*{v}{u}}{w}u=\lambda \ip*{v}{u} \ip*{u}{w}\)
+    \(=\ip*{v}{\lambda \ip*{w}{u}u}=\ip*{v}{Tw}\).
+    
+    充分性：\(\ip*{x}{w}u=T^*w=Tw=\ip*{w}{u}x\).取\(w=u\)，得\(\lambda=\dfrac{\ip*{x}{x}}{\ip*{x}{u}}\).
+\end{proof}
+
+\begin{proof}[证明b]
+    分别给出\(T^*T\)和\(TT^*\).
+    \begin{align*}
+        &(T^*T)v=T^*(\ip*{v}{u}x)=\ip*{v}{u}T^*x=\norm*{x}^2\ip*{v}{u}u \\
+        &(TT^*)v=T(\ip*{x}{v}u)=\ip*{x}{v}Tu=\norm*{u}^2\ip*{x}{v}x
+    \end{align*}
+    必要性：\((T^*T)v=\norm*{\lambda u}^2 \ip*{v}{u}u=\lambda \ol{\lambda} \norm*{u}^2 \ip*{v}{u}u\)
+    \(=\norm*{u}^2 \ip*{v}{\lambda u}\lambda u=(TT^*)v\).
+
+    充分性：\(\norm*{x}^2\ip*{v}{u}u=\norm*{u}^2\ip*{x}{v}x\).取\(v=x\)，得\(\lambda=\dfrac{\ip*{x}{u}}{\ip*{u}{u}}\).
+\end{proof}
+
+\begin{problem}[16]\label{7.A.16}
+    设\(T \in L(V)\)是正规算子.求证：\(\ker T^*=\ker T,\Img T^*=\Img T\).
+\end{problem}
+
+\begin{proof}
+    \(\forall v \in V,Tv=0 \Leftrightarrow \norm*{Tv}=0 \Leftrightarrow \norm*{T^*v}=0 \Leftrightarrow T^*v=0\).
+
+    \(\Img T^*=(\ker T)^\bot=(\ker T^*)^\bot=\Img T\).
+
+    \(V=\ker T \oplus (\ker T)^\bot=\ker T \oplus \Img T^*=\ker T \oplus \Img T\).
+\end{proof}
+
+\begin{problem}[17]\label{7.A.17}
+    设\(T \in L(V)\)是正规算子.求证：\(\forall n \in N^*,\ker T^n=\ker T,\Img T^n=\Img T\).
+\end{problem}
+
+\begin{proof}
+    先证明\(\ker T^2 \subseteq \ker T\).考虑\(v \in \ker T^2\)，则\(\ip*{T^2 v}{T^2 v}=0\).
+    \begin{align*}
+        &\ip*{T^2 v}{T^2 v}=\ip*{Tv}{T^*T^2v}=\ip*{Tv}{T^2T^*v}=\ip*{T^*Tv}{TT^*v}=0 \Rightarrow T^*Tv=0 \\
+        &\ip*{T^*Tv}{v}=\ip*{Tv}{Tv}=0 \Rightarrow Tv=0 \Rightarrow v \in \ker T
+    \end{align*}
+    结合显然的\(\ker T \subseteq \ker T^2\)有\(\ker T^2=\ker T\).
+
+    根据定理8.3和\probref{8.A.17}，有\(\forall n \in N^*,\ker T^n=\ker T,\Img T^n=\Img T\).
+\end{proof}
+% End: source/chapter_7/7.A.tex
+

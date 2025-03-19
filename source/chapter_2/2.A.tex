@@ -1,0 +1,41 @@
+\section{2.A Span and Linear Independnce}
+
+\begin{problem}[10]\label{2.A.10}
+    设\(v_1,\cdots,v_m\)在\(V\)中线性无关且\(w\in V\).
+
+    求证：若\(v_1+w,\cdots,v_m+w\)线性相关，则\(w\in \altspan (v_1,\cdots,v_m)\).
+\end{problem}
+
+\begin{proof}
+    若\(v_1+w,\cdots,v_m+w\)线性相关，则有\(\sum_{i=1}^m a_i(v_i+w)=0,\exists i=1,\cdots,m,a_i\ne 0\).
+    
+    从而\(\sum_{i=1}^m a_iv_i+w\sum_{i=1}^m a_i=0\).
+
+    \begin{enumerate}
+        \item 若\(\sum_{i=1}^m a_i\ne 0\)，则\(w=-\dfrac{\sum_{i=1}^m a_iv_i}{\sum_{i=1}^m a_i}\in \altspan (v_1,\cdots,v_m)\).
+        \item 若\(\sum_{i=1}^m a_i=0\)，则\(\sum_{i=1}^m a_iv_i=0\).
+    \end{enumerate}
+
+    而\(v_1,\cdots,v_m\)在\(V\)中线性无关，故\(a_1=\cdots=a_m=0\).从而\(\forall i=1,\cdots,m, a_i=0\)，矛盾.
+\end{proof}
+
+\begin{problem}[13]\label{2.A.13}
+    求证：\(V\)是无限维向量空间等价于\(V\)中存在无限多线性无关的向量.
+\end{problem}
+
+\begin{proof}
+    必要性的证明是显然的，以下使用数学归纳法证明充分性.
+    
+    先看\(n=1\)的情况并设\(v_1 \ne 0 \in V\).
+    
+    由于\(V\)是无限维的，故一定存在\(v_2 \in V \notin \altspan(v_1)\)，从而\(v_1,v_2\)线性无关.
+    
+    再假设\(n=m\)时情况成立，即\(V\)中存在\(v_1,\cdots,v_m\)线性无关.
+    
+    考虑\(n=m+1\)时的情况.由于\(V\)是无限维的，故一定存在\(v_{m+1} \notin \altspan(v_1,\cdots,v_m)\).
+    
+    根据习题2.A.11，\(v_1,\cdots,v_m,v_{m+1}\)线性无关.因此命题对任意的自然数\(m\)均成立，证毕.
+    %此处使用了硬编码
+\end{proof}
+% End: source/chapter_2/2.A.tex
+

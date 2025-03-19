@@ -1,0 +1,66 @@
+\section{2.C Dimensions}
+
+\begin{problem}[10]\label{2.C.10}
+    设\(p_0,p_1,\cdots,p_m\in P(F)\)，其中\(p_j\)是次数为\(j\)的多项式.
+
+    求证：\(p_0,p_1,\cdots,p_m\)是\(P_m(F)\)的一组基.
+\end{problem}
+
+\begin{proof}
+    使用数学归纳法.先验证\(m=0\)的情况，显然成立.
+
+    随后假设\(j=m\)时结论成立，需证\(\altspan (p_0,p_1,\cdots,p_m,p_{m+1})=\altspan (1,x,\cdots,x^m,x^{m+1})\).
+
+    \begin{enumerate}
+        \item \(\altspan (p_0,p_1,\cdots,p_m,p_{m+1}) \subseteq \altspan (1,x,\cdots,x^m,x^{m+1})\).
+        \item \(\altspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
+    \end{enumerate}
+    
+    情况一的证明是显然的.\(\forall p\in \altspan (p_0,p_1,\cdots,p_m,p_{m+1}),p\in P_{m+1}(F)\).
+    
+    即\(\altspan (p_0,p_1,\cdots,p_m,p_{m+1})\subseteq \altspan (1,x,\cdots,x^m,x^{m+1})\).
+    
+    下证情况二成立.设选定的\(p_{m+1}=a_{m+1}x^{m+1}+\sum_{i=0}^m a_ix^i(a_{m+1} \ne 0)\).
+    
+    变形得到\(x^{i+1}=\dfrac{p_{m+1}-\sum_{i=0}^m a_ix^i}{a_{m+1}} \in \altspan (1,x,\cdots,x^m,p_{m+1})\).
+    
+    而\(\altspan (p_0,p_1,\cdots,p_m)=\altspan (1,x,\cdots,x^m)\)，
+    
+    故\(\altspan (1,x,\cdots,x^m,p_{m+1})=\altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
+    
+    从而\(x^{m+1}\in \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\)，
+    
+    进而\(\altspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
+    
+    如此双边包含关系均成立且向量均线性无关，即该张成组确实是\(P_m(F)\)的一组基.    
+\end{proof}
+
+\begin{problem}[14]\label{2.C.14}
+    设\(U_1,\cdots,U_m\)都是\(V\)的有限维子空间，且\(U_1,\cdots,U_m\)相互独立.
+
+    求证：\(\sum_{i=1}^m U_i\)是有限维向量空间，且\(\dim \sum_{i=1}^m U_i=\sum_{i=1}^m \dim U_i\).
+\end{problem}
+
+\begin{proof}
+    设\(U_i\)的一组基为\(u_1^i,\cdots,u_{a_i}^i\)，
+    则\(\sum_{i=1}^m U_i=\altspan(u_1^1,\cdots,u_{a_1}^1,\cdots,u_{a_m}^1,\cdots,u_{a_m}^m)\).
+
+    因而\(\dim \sum_{i=1}^m U_i \leq \sum_{i=1}^m \dim U_i\)，即\(\sum_{i=1}^m U_i\)是有限维向量空间.
+
+    下面使用数学归纳法，先验证\(U_1+U_2\)的情况.
+
+    由于\(\dim (U_1+U_2)=\dim U_1+\dim U_2-\dim (U_1\cap U_2)\)且\(U_1\cap U_2=\{0\}\)，
+
+    故\(\dim (U_1+U_2)=\dim U_1+\dim U_2\)，从而\(n=2\)的情况成立.
+
+    随后假设\(n=m\)时结论成立，则当\(n=m+1\)时，
+
+    有\(\dim (\sum_{i=1}^m U_i+U_{m+1})=\dim \sum_{i=1}^m U_i+\dim U_{m+1}-\dim (\sum_{i=1}^m U_i \cap U_{m+1})\).
+
+    由于\(n=m\)时结论成立，故\(\dim \sum_{i=1}^m U_i=\sum_{i=1}^m \dim U_i\).
+
+    又由于\(U_i\)相互独立，故\(\sum_{i=1}^m U_i \cap U_{n+1}=\{0\}\).
+    故\(\dim \sum_{i=1}^m U_i=\sum_{i=1}^m \dim U_i\)，证毕.
+\end{proof}
+% End: source/chapter_2/2.C.tex
+

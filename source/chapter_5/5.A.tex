@@ -1,0 +1,271 @@
+\section{5.A Invaient Subspaces}
+
+\begin{problem}[1]\label{5.A.1}
+    设\(T \in L(V)\)且\(U\)是\(V\)的一个子空间.
+
+    a.证明：若\(U \subseteq \ker T\)，则\(U\)是\(T\)的不变子空间.
+
+    b.证明：若\(\Img T \subseteq U\)，则\(U\)是\(T\)的不变子空间.
+\end{problem}
+
+\begin{proof}[证明a]
+    \(\forall u \in U,Tu=0 \in U\).
+\end{proof}
+
+\begin{proof}[证明b]
+    \(\forall u \in U,Tu \in \Img T \subseteq U\).
+\end{proof}
+
+\begin{problem}[2]\label{5.A.2}
+    设\(S,T \in L(V)\)满足\(ST=TS\).
+
+    a.证明：\(\ker S\)是\(T\)下的不变子空间.
+    
+    b.证明：\(\Img S\)是\(T\)下的不变子空间.
+\end{problem}
+
+\begin{proof}[证明a]
+    \(\forall v \in \ker S,Sv=0 \Rightarrow STv=TSv=0 \Rightarrow Tv \in \ker S\).
+\end{proof}
+
+\begin{proof}[证明b]
+    \(\forall Sv \in \Img S,T(Sv)=S(Tv) \in \Img S\).
+\end{proof}
+
+\begin{problem}[4]\label{5.A.4}
+    设\(T \in L(V)\)且\(U_1,\cdots,U_m\)都是\(V\)的不变子空间.
+    
+    求证：\(\sum_{i=1}^m U_i\)是 \(V\)的不变子空间.
+\end{problem}
+
+\begin{proof}
+    由于\(\forall u \in \sum_{i=1}^m U_i,\exists u_i \in U_i,u=\sum_{i=1}^m u_i\)且\(U_1,\cdots,U_m\)都是\(V\)的不变子空间，
+
+    得到\(\forall i=1,\cdots,m,Tu_i \in U_i,Tu=\sum_{i=1}^m Tu_i \in \sum_{i=1}^m U_i\).
+\end{proof}
+
+\begin{problem}[5]\label{5.A.5}
+    设\(T \in L(V)\)且\(U_1,\cdots,U_m\)都是\(V\)的不变子空间.
+
+    求证：\(\cap_{i=1}^m U_i\)是 \(V\)的不变子空间.
+\end{problem}
+
+\begin{proof}
+    设\(u \in \cap_{i=1}^m U_i\)，则\(\forall i=1,\cdots,m,Tu \in U_i\).
+    因此\(\forall u \in \cap_{i=1}^m U_i,Tu \in \cap_{i=1}^m U_i\)，证毕.
+\end{proof}
+
+\begin{problem}[6]\label{5.A.6}
+    证明或给出反例：若\(V\)是有限维向量空间且\(V\)是\(U\)的一个子空间.
+
+    若\(U\)满足对于\(V\)上的任意算子\(T\)，\(U\)都是\(T\)的不变子空间，则有\(U=\{0\}\)或\(U=V\).
+\end{problem}
+
+\begin{proof}
+    由于\(U\)是\(V\)的一个子空间且\(V\)是有限维向量空间，不妨设\(\{0\} \subset U \subset V\).
+
+    令\(u_1,\cdots,u_m\)为\(U\)的一组基，\(u_1,\cdots,u_m,v_1,\cdots,v_n\)是\(V\)的一组基.
+    
+    故一定存在\(T \in L(V)\)，使得\(Tu_i=v_j \notin U,i=1,\cdots,m,j=1,\cdots,n\).
+    
+    从而\(U\)不是不变子空间，因此\(U\)只能为\(\{0\}\)或\(V\).
+\end{proof}
+
+\begin{problem}[8]\label{5.A.8}
+    定义\(T \in L(F^2)\)为\(T(w,z)=(z,w)\).给出\(T\)的所有特征值和特征向量.
+\end{problem}
+
+\begin{proof}
+    设\(T(w,z)=\lambda(w,z)\)，得到\(\lambda w=z\)且\(\lambda z=w\)，联立得到\(\lambda_1=1,\lambda_2=-1\).
+
+    当\(\lambda=1\)时，对应的特征向量为\((1,1)\)；当\(\lambda=-1\)时，对应的特征向量为\((1,-1)\).
+\end{proof}
+
+\newpage
+
+\begin{problem}[10]\label{5.A.10}
+    定义\(T \in L(F^n)\)为\(T(x_1,\cdots,x_n)=(x_1,\cdots,nx_n)\).
+
+    a.给出\(T\)的所有特征值和特征向量.
+    
+    b.给出\(T\)的所有不变子空间.
+\end{problem}
+
+\begin{proof}[证明a]
+    \(T(x_1,\cdots,x_n)=(\lambda x_1,\cdots,\lambda x_n)=(x_1,\cdots,nx_n)\).因此只能有\(\lambda_i=i,x_{j \ne i}=0\).
+
+    故\(T\)共有\(n\)个特征值\(1,\cdots,n\)，第\(i\)个特征值对应的特征向量是\((0,\cdots,1^i,\cdots,0)\).
+\end{proof}
+
+\begin{proof}[证明b]
+    设\(e_1,\cdots,e_n\)是\(F^n\)的标准基.
+
+    根据\probref{5.A.10}，\(\forall i=1,\cdots,n,U_i=\altspan (e_i)\)都是\(T\)的不变子空间.
+    
+    又根据\probref{5.A.4}，其中任意若干\(U_i\)之和都是\(T\)的不变子空间.
+\end{proof}
+
+\begin{problem}[12]\label{5.A.12}
+    定义\(T \in P_4(R)\)为\((Tp)(x)=xp'(x)\).给出\(T\)的所有特征值和特征向量.
+\end{problem}
+
+\begin{proof}
+    \((Tp)(x)=xp'(x)=\sum_{i=1}^4 ia_ix^i=\lambda p(x)=\lambda \sum_{i=0}^m a_ix_i\).
+
+    得到\(a_0=0\)且\(\lambda a_i=i a_i\).因此\(\lambda=1,2,3,4\)，对应的特征向量为\(a_1x,a_2x^2,a_3x^3,a_4x^4\).
+\end{proof}
+
+\begin{problem}[14]\label{5.A.14}
+    设\(V=U \oplus W\)，其中\(U\)和\(W\)都是\(V\)的非零子空间.
+
+    定义\(P \in L(V)\)为\(P(u+w)=u,u \in U,w \in W\).给出\(T\)的所有特征值和特征向量.
+\end{problem}
+
+\begin{proof}
+    \(P(u+w)=\lambda(u+w)=u \Rightarrow\) \(\lambda=1,w=0\)或\(\lambda=0,u=0\).
+
+    因此\(T\)有\(0\)和\(1\)两个特征值，对应的特征向量分别是\(W\)和\(U\)中所有非零向量.
+\end{proof}
+
+\begin{problem}[15]\label{5.A.15}
+    设\(T \in L(V)\)且\(S \in L(V)\)是可逆变换.
+
+    a.证明：\(T\)和\(S^{-1}TS\)有相同的特征值.
+    
+    b.给出\(T\)和\(S^{-1}TS\)的特征向量之间的关系.
+\end{problem}
+
+\begin{proof}[证明a]
+    设\(\lambda \in F\)和\(v \in V\)满足\(Tv=\lambda v\).
+    考虑\(S^{-1}v\).有\((S^{-1}TS)(S^{-1}v)=(S^{-1}T)v=\lambda S^{-1}v\).
+    
+    因此\(Tv=\lambda v \Rightarrow (S^{-1}TS)(S^{-1}v)=\lambda S^{-1}v\).
+\end{proof}
+
+\begin{proof}[证明b]
+    根据\probref{5.A.15}，\(S^{-1}v\)是\(S^{-1}TS\)的特征向量等价于\(v\)是\(T\)的特征向量.
+\end{proof}
+
+\begin{problem}[21]\label{5.A.21}
+    设\(T \in L(V)\)是可逆变换.
+
+    a.设\(\lambda \in F\)且\(\lambda \ne 0\).
+    证明：\(\lambda\)是\(T\)的特征值和\(\lambda^{-1}\)是\(T^{-1}\)的特征值等价.
+    
+    b.证明\(T\)和\(T^{-1}\)有相同的特征向量.
+\end{problem}
+
+\begin{proof}[证明a]
+    \(Tv=\lambda v \Rightarrow T^{-1}Tv=\lambda T^{-1}v \Rightarrow T^{-1}v=\lambda^{-1} v\).
+\end{proof}
+
+\begin{proof}[证明b]
+    根据\probref{5.A.21}，若\(v\)是\(T\)的一个特征向量，则\(v\)也是\(T^{-1}\)的一个特征向量.
+\end{proof}
+
+\newpage
+
+\begin{problem}[23]\label{5.A.23}
+    设\(V\)是有限维向量空间且\(S,T \in L(V)\).求证：\(ST\)和\(TS\)有相同的特征值.
+\end{problem}
+
+\begin{proof}
+    设\((ST)v=\lambda v\).考虑\(Tv\)，有\((TS)(Tv)=T((ST)v)=T(\lambda v)=\lambda Tv\).
+
+    若\(v \notin \ker T\)，原式得证；若\(v \in \ker T\)，则\(ST\)和\(TS\)都有特征值\(0\).
+\end{proof}
+
+\begin{problem}[24]\label{5.A.24}
+    设\(A\)是\(n \times n\)矩阵.定义\(T \in L(F^n)\)为\(Tx=Ax\).
+
+    a.矩阵每行元素之和均为\(1\).证明\(1\)是矩阵的特征值.
+
+    b.矩阵每列元素之和均为\(1\).证明\(1\)是矩阵的特征值.    
+\end{problem}
+
+\begin{proof}[证明a]
+    不妨先猜测特征向量.定义\(x \in F^n\)为\((1,\cdots,1)^T\).
+    \begin{align*}
+        (A-I)x=
+            \begin{pmatrix}
+                \sum_{j=1}^n A_{1,j}-1 & \cdots & \sum_{j=1}^n A_{n,j}-1
+            \end{pmatrix}^T
+            =0
+    \end{align*}
+    因此\(1\)确实是\(T\)的特征值.
+\end{proof}
+
+\begin{proof}[证明b]
+    \(x^T(A-I)=0\).因此\(1\)确实是\(T\)的特征值.
+\end{proof}
+
+\begin{problem}[28]\label{5.A.28}
+    设\(V\)是有限维向量空间.\(T \in L(V)\)满足\(\forall \dim U=\dim V-1,T(U) \subseteq U\).
+    
+    求证：\(T=\lambda I,\lambda \in F\).
+\end{problem}
+
+\begin{proof}
+    设\(v_1,\cdots,v_m\)是\(V\)的一组基.则\(\exists a_i^j \in F,Tv_j=\sum_{i=1}^m a_i^j v_i\).
+
+    我们不妨先考虑所有包含\(\altspan (v_1)\)的且维数为\(\dim V-1\)的子空间.
+    
+    设\(U_i=\altspan (v_i)\)，这些子空间的统一形式可以被写作\(\sum_{i=1}^m U_i(i \ne k,k \ne 1)\).
+    
+    由于该子空间不变，故\(Tv_1=\sum_{i=1}^m a_i^1 v_i \in \sum_{i=1}^m U_i(i \ne k)\).
+    
+    因此\(a_{k}=0\).由于\(k\)可以取遍每一个不为\(1\)的值，故\(a_2^1=\cdots=a_n^1=0\)，即\(Tv_1=a_1^1 v_1\).
+    
+    同理，\(\forall i=1,\cdots,m,Tv_i=a_i^i v_i\)均成立，可以推断任意非零向量均为\(T\)的特征向量.
+    
+    根据习题5.A.26，\(T=\lambda I,\lambda \in F\).%此处使用了硬编码
+\end{proof}
+
+\begin{problem}[30]\label{5.A.30}
+    设\(T \in L(R^3)\)且\(-4,5,\sqrt{7}\)是\(T\)的特征值.
+
+    求证：存在\(x \in R^3\)使得\((T-9I)x=(-4,5,\sqrt{7})\).
+\end{problem}
+
+\begin{proof}
+    \(T \in L(R^3)\)最多拥有\(3\)个特征值，即\(9\)不是\(T\)的特征值.从而\(T-9I\)可逆，即满射.
+\end{proof}
+
+\begin{comment}
+    \begin{problem}[31]\label{5.A.31}
+        设\(V\)是有限维向量空间且\(v_1,\cdots,v_m \in V\).
+
+        求证：\(v_1,\cdots,v_m\)线性无关等价于\(v_1,\cdots,v_m\)是某\(T \in L(V)\)对应不同特征值的特征向量.
+    \end{problem}
+
+    \begin{proof}
+        必要性：根据定理5.10证毕.
+
+        充分性：由于\(v_1,\cdots,v_m\)线性无关，可以令\(v_1,\cdots,v_m,v_{m+1},\cdots,v_n\)为\(V\)的一组基.
+        
+        定义\(Tv_i=iv_i,1=1,\cdots,n\)即可.
+    \end{proof}
+\end{comment}
+
+\begin{problem}[32]\label{5.A.32}
+    设\(\lambda_1,\cdots,\lambda_n \in R\).
+    求证：\(e^{\lambda_1 x},\cdots,e^{\lambda_n x}\)在函数空间\(R^R\)中线性无关.
+\end{problem}
+
+\begin{proof}
+    令\(V=\altspan (e^{\lambda_1 x},\cdots,e^{\lambda_n x})\)，并定义\(T \in L(V)\)为\(Tf=f'\).
+
+    由于\((e^{\lambda_i x})'=\lambda_i e^{\lambda_i x}\)，即\(Tf_i=\lambda_i f_i\)，故\(e^{\lambda_i x}\)是\(T\)的特征向量.
+    
+    根据定理5.10，\(e^{\lambda_1 x},\cdots,e^{\lambda_n x}\)线性无关.
+\end{proof}
+
+\begin{problem}[33]\label{5.A.33}
+    设\(T \in L(V)\).证明：\(T/(\Img T)=0\).
+\end{problem}
+
+\begin{proof}
+    \(\forall v \in V,(T/(\Img T))(v+(\Img T))=Tv+\Img T=\Img T\).
+\end{proof}
+% End: source/chapter_5/5.A.tex
+

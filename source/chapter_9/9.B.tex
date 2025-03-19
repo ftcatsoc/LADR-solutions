@@ -1,0 +1,94 @@
+\section{9.B Operators on Real Inner Product Spaces}
+
+\begin{theorem}[9.34]\label{thm 9.34} 实内积空间上的正规算子 \:
+    设\(V\)是有限维实内积空间且\(T \in L(V)\).
+
+    \(T\)是正规算子等价于存在\(V\)的一组规范正交基\(e_1,\cdots,e_n\)使得
+    \begin{align*}
+        M(T,(e_1,\cdots,e_n))=\mathrm{diag}(t_1,\cdots,t_p,A_1,\cdots,A_q),A_j=
+        \begin{pmatrix}
+            a_j & -b_j \\
+            b_j & a_j
+        \end{pmatrix}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    必要性：使用数学归纳法，\(\dim V=1\)的情况显然成立.
+
+    假设满足\(\dim U<\dim V\)的向量空间\(U\)上的正规算子都有如上准对角矩阵.
+    
+    由于实向量空间上的算子一定有一维或二维不变子空间，故设\(e_1,e_2\)满足
+        \begin{align*}
+            Te_1=a_1e_1-b_1e_2,Te_2=b_1e_1+a_1e_2
+        \end{align*}
+    令\(U=\altspan(e_1,e_2)\)，考虑\(U^\bot\).根据\probref{7.B.20*}，\(T|_{U^\bot}\)是正规算子，
+    
+    故\(T|_{U^\bot}\)有规范正交特征基\(e_3,\cdots,e_n\)，使得\(M(T|_{U^\bot})\)是准对角阵.
+    
+    于是合并之，\(e_1,\cdots,e_n\)就是\(T\)的一组满足条件的规范正交特征基.
+    
+    充分性：显然\(M(TT^*)\)和\(M(T^*T)\)都是分块对角阵，分别计算即可.
+    \begin{align*}
+        A_j^H A_j=
+        \begin{pmatrix}
+            a_j & -b_j \\
+            b_j & a_j
+        \end{pmatrix}
+        \begin{pmatrix}
+            a_j  & b_j \\
+            -b_j & a_j
+        \end{pmatrix}
+        =(a_j^2+b_j^2)
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix} \\
+        A_j A_j^H=
+        \begin{pmatrix}
+            a_j  & b_j \\
+            -b_j & a_j
+        \end{pmatrix}
+        \begin{pmatrix}
+            a_j & -b_j \\
+            b_j & a_j
+        \end{pmatrix}
+        =(a_j^2+b_j^2)
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}
+    \end{align*}
+    于是\(A_j^H A_j=A_j A_j^H\)，于是\(T\)是正规算子，证毕.
+\end{proof}
+
+\begin{theorem}[9.35]\label{thm 9.35} 实内积空间上的等距算子 \:
+    设\(V\)是有限维实内积空间且\(T \in L(V)\).
+
+    \(T\)是等距算子等价于存在\(V\)的一组规范正交基\(e_1,\cdots,e_n\)使得
+    \begin{align*}
+        M(T,(e_1,\cdots,e_n))=\mathrm{diag}(t_1,\cdots,t_p,A_1,\cdots,A_q),A_j=
+        \begin{pmatrix}
+            \cos \theta_j & -\sin \theta_j \\
+            \sin \theta_j & \cos \theta_j
+        \end{pmatrix}
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    由于等距算子是正规算子，故由定理9.34，存在规范正交基\(e_1,\cdots,e_n\)使得
+    \begin{align*}
+        M(T,(e_1,\cdots,e_n))=\mathrm{diag}(t_1,\cdots,t_p,A_1,\cdots,A_q),A_j=
+        \begin{pmatrix}
+            a_j & -b_j \\
+            b_j & a_j
+        \end{pmatrix}
+    \end{align*}
+    由\(\forall j=1,\cdots,p,\norm*{Se_j}=\abs*{t_j}\norm*{e_j}=\norm*{e_j}\)，即\(\abs*{t_j}=1\).
+
+    或\(\forall j=1,\cdots,q,\norm*{Se_{2j}}^2=\norm*{b_je_{2j-1}+a_je_{2j}}^2=a_j^2+b_j^2=1=\norm*{e_{2j}}^2\).
+
+    于是有\(\abs*{t_j}=1\)且\(a_j^2+b_j^2=1\)，故令\(a_j=\cos \theta_j,b_j=\sin \theta_j\).
+\end{proof}
+% End: source/chapter_9/9.B.tex
+

@@ -1,0 +1,173 @@
+\section{9.A Complexification}
+
+\begin{theorem}[9.8]\label{thm 9.8}
+    实算子有一维或二维不变子空间.
+\end{theorem}
+
+\begin{proof}
+    考虑实算子\(T \in L(V)\)，则\(T_C \in L(V_C)\)至少有一个特征值\(\lambda=(a,b)\).
+
+    故有不全为零的\(u,v \in V\)使得\((Tu,Tv)=T_C(u,v)=(a,b)(u,v)=(au-bv,av+bu)\).
+    
+    因此\(Tu=au-bv \in \altspan(u,v),Tv=av+bu \in \altspan(u,v),T(\altspan(u,v)) \subseteq \altspan(u,v)\).
+    
+    若\(b=0,\altspan(u),\altspan(v)\)都是\(T\)的一维不变子空间；否则，\(T\)有一个二维不变子空间.
+\end{proof}
+
+\begin{theorem}[9.12] 共轭的广义特征子空间 \:
+    设\(V\)是实向量空间且\(T \in L(V)\)，则
+    \begin{align*}
+        \forall n \in N^*,(T_C-\lambda I)^n (u,v)=0 \Leftrightarrow (T_C-\ol{\lambda} I)^n (u,-v)=0
+    \end{align*}
+\end{theorem}
+
+\begin{proof}
+    使用数学归纳法，先考虑\(n=1\)的情况.
+    \begin{align*}
+        &(T_C-\lambda I)(u,v)=(Tu-au+bv,Tv-av-bu)=0 \\
+        &(T_C-\ol{\lambda} I)(u,-v)=(Tu-au+bv,-(Tv-av-bu))=0
+    \end{align*}
+    因此两式都等价于\(Tu-au+bv=0\)且\(Tv-av-bu=0\)，证毕.
+
+    再假设\(n-1\)的情况成立，考虑\(n\)的情况.令\(x=Tu-au+bv,y=Tv-av-bu\)，
+
+    则\((T_C-\lambda I)(u,v)=(x,y),(T_C-\ol{\lambda} I)(u,-v)=(x,-y)\).
+    \begin{align*}
+        &(T_C-\lambda I)^n (u,v)=(T_C-\lambda I)^{n-1}(T_C-\lambda I)(u,v)
+        =(T_C-\lambda I)^{n-1}(x,y)=0 \\
+        &(T_C-\ol{\lambda} I)^n (u,-v)=(T_C-\ol{\lambda} I)^{n-1}(T_C-\ol{\lambda}I)(u,-v)
+        =(T_C-\ol{\lambda} I)^{n-1}(x,-y)=0    
+    \end{align*}
+    根据归纳假设，两式等价，即\((T_C-\lambda I)^n (u,v)=0 \Leftrightarrow (T_C-\ol{\lambda} I)^n (u,-v)=0\).
+\end{proof}
+
+\begin{theorem}[9.20]\label{thm 9.20} 复化算子的特征多项式 \:
+    设\(V\)是实向量空间且\(T \in L(V)\)，
+    
+    则\(T_C\)的特征多项式系数均为实数.
+\end{theorem}
+
+\begin{proof}
+    设\(t_1,\cdots,t_m\)是\(T_C\)的实特征值，\(\lambda_1,\cdots,\lambda_n,\ol{\lambda_1},\cdots,\ol{\lambda_n}\)是其共轭复特征值.
+
+    由于共轭特征值对应的重数相等，故共轭特征值的重数可以都设为\(l_i\).
+    
+    设\(t_i\)对应的重数为\(d_i\)，\(\lambda_i\)对应的重数为\(l_i\)，则\(T_C\)的特征多项式为
+        \begin{align*}
+            \prod_{i=1}^m (z-t_i)^{c_i} \prod_{i=1}^n (t-\lambda_i)^{d_i}(t-\ol{\lambda_i})^{d_i}
+            =\prod_{i=1}^m (z-t_i)^{c_i} \prod_{i=1}^n (z^2-2\mathrm{Re}(\lambda_j)z+\abs*{\lambda_i}^2)^{d_i}
+        \end{align*}
+    由于\(\mathrm{Re}(\lambda_j),\abs*{\lambda_i}^2\)均为实数，故特征多项式的系数均为实数.
+\end{proof}
+
+\newpage
+
+\begin{theorem}[9.1*]\label{thm 9.1*} 广义特征空间分解的实向量空间版本 \:
+    设\(V\)是实向量空间且\(T \in L(V)\).
+
+    对于\(T_C \in L(V_C)\)，若\(t_1,\cdots,t_m\)是\(T_C\)的实特征值，
+    \(\lambda_1,\cdots,\lambda_n,\ol{\lambda_1},\cdots,\ol{\lambda_n}\)是其共轭复特征值.
+    
+    \(\forall i=1,\cdots,n,G(\lambda_i,T_C),G(\ol{\lambda_i},T_C)\)的基分别为\((u_1,v_1),\cdots,(u_{n_i},v_{n_i})\)及其复共轭.
+    
+    则\(V=\oplus_{i=1}^m G(t_i,T) \oplus \oplus_{i=1}^n U_i\)
+    且\(\forall i=1,\cdots,n,U_i=\altspan(u_1,v_1,\cdots,u_{n_i},v_{n_i})\).
+\end{theorem}
+
+\begin{proof}
+    显然\(V_C=\oplus_{i=1}^m G(t_i,T_C) \oplus \oplus_{i=1}^n (G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C))\).
+
+    考虑\(\forall (u,v) \in G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C)\)，下证\(u,v \in U_i\).
+    \begin{align*}
+        (u,v)=\sum_{j=1}^{n_i} c_j(u_j,v_j)+\sum_{j=1}^{n_i} d_j(u_j,-v_j) \Rightarrow
+        u=\sum_{j=1}^{n_i} (c_j+d_j)u_j,v=\sum_{j=1}^{n_i} (c_j-d_j)v_j
+    \end{align*}
+    反之，考虑\(U_i\)的复化.设\(\forall (x,y) \in U_{iC}\)，下证\((x,y) \in G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C)\).
+    \begin{align*}
+        (x,y)&=(\sum_{j=1}^{n_i}(a_j^\alpha u_i+b_j^\alpha v_j),\sum_{j=1}^{n_i}(a_j^\beta u_i+b_j^\beta v_j)) \\
+                &=\sum_{j=1}^{n_i}(a_j^\alpha (u_j,0)+b_j^\beta (0,v_j)+i a_j^\beta (u_j,0)+i b_j^\alpha (0,-v_j))
+    \end{align*}
+    将\((u_j,0),(0,v_j)\)都表示成\((u_j,v_j),(u_j,-v_j)\)的线性组合.
+    \begin{align*}
+        (u_j,0)=\dfrac{1}{2}((u_j,v_j)+(u_j,-v_j)),(0,v_j)=\dfrac{1}{2}((u_j,v_j)-(u_j,-v_j))
+    \end{align*}
+    于是可将\((x,y)\)重新写为
+    \begin{align*}
+        (x,y)&=\sum_{j=1}^{n_i}(\dfrac{a_j^\alpha+i a_j^\beta}{2}((u_j,v_j)+(u_j,-v_j))+
+        \dfrac{b_j^\beta-i b_j^\alpha}{2}((u_j,v_j)-(u_j,-v_j))) \\
+        &=\sum_{j=1}^{n_i} \dfrac{(a_j^\alpha+b_j^\beta)+i(a_j^\beta-b_j^\alpha)}{2}(u_j,v_j)+
+        \sum_{j=1}^{n_i} \dfrac{(a_j^\alpha-b_j^\beta)+i(a_j^\beta+b_j^\alpha)}{2}(u_j,-v_j)
+    \end{align*}
+    因此\(U_{iC}=G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C)\)，即\(\altspan(u_1,v_1,\cdots,u_{n_i},v_{n_i})\)，证毕.
+\end{proof}
+
+\newpage
+
+\begin{theorem}[9.2*]\label{thm 9.2*} Jordan基存在性的实向量空间版本 \:
+    设\(V\)是有限维实向量空间且\(T \in L(V)\).
+
+    \(t_1,\cdots,t_m\)是\(T_C\)的实特征值，\(\lambda_1,\cdots,\lambda_n,\ol{\lambda_1},\cdots,\ol{\lambda_n}\)是其共轭复特征值.
+    
+    对于\(\lambda_i=a_i+b_i i\)，考虑\(G(\lambda_i,T_C)\)中的复循环基\((u_1,v_1),\cdots,(T_C-\lambda_i I)^{m_1}(u_1,v_1)\).
+\end{theorem}
+
+\begin{proof}
+    给出实空间内对应的递推循环子空间\(U_i^1=\altspan(u_1^0,v_1^0,\cdots,u_1^{m_1},v_1^{m_1})\)构造如下：
+    \begin{align*}
+        &\forall k=0,\cdots,m_i,u_1^k=(T-a_iI)u_1^{k-1}+b_i v_1^{k-1},v_1^k=(T-a_iI)v_1^{k-1}-b_i u_1^{k-1} \\
+        &\forall k=0,\cdots,m_i,Tu_1^k=u_1^{k+1}+a_i u_1^k-b_i v_1^k,Tv_1^k=v_1^{k+1}+a_i v_1^k+b_i u_1^k
+    \end{align*}
+        \begin{comment}
+            \(u^k,v^k\)的显式构造如下：
+            \begin{align*}
+                &u_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j u_0+\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j v_0 \\
+                &v_k=\sum_{j=0}^k C_k^j (-b)^{k-j} (T-aI)^j v_0-\sum_{j=0}^k C_{k-1}^j (-b)^{k-j-1} (T-aI)^j u_0
+            \end{align*}
+            因此若存在\(p<m_1+1\)使得\((T-a_iI)^p u_1^0=0\)或\((T-a_iI)^p v_1^0=0\)，那么
+            \begin{align*}
+                u_1^p/v_1^p \in \altspan(u_1^{p-1},v_1^{p-1},\cdots,u_1^0,v_1^0)
+            \end{align*}
+            从而导致递推链出现冗余，因此\(u,v,(u,v)\)的幂零指数严格相等.
+        \end{comment}
+    这组基下的\(M(T|_{U_j},(u_1^{m_1},v_1^{m_1},\cdots,u_1^0,v_1^0))\)是实向量空间的\textit{Jordan}标准型.
+    \begin{align*}
+        M(T|_{U_j})=
+        \begin{pmatrix}
+            C      & I       & \cdots & 0      \\
+            0      & C       & \ddots & \vdots \\
+            \vdots & \ddots  & \ddots & I      \\
+            0      & \cdots  & 0      & C
+        \end{pmatrix}
+        ,C=
+        \begin{pmatrix}
+            a_i & -b_i \\
+            b_i & a_i
+        \end{pmatrix}
+        ,I=
+        \begin{pmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{pmatrix}
+    \end{align*}
+    于是\(M(T)=\mathrm{diag}(M(T_1),\cdots,M(T_q))\)，其中\(U_1,\cdots,U_q\)是实循环子空间.
+\end{proof}
+
+\begin{theorem}[9.3*]
+    有限维实内积空间上的自伴算子一定有特征值.
+\end{theorem}
+
+\begin{proof}
+    设\(V\)是有限维实内积空间且\(T \in L(V)\)是自伴算子，考虑\(T_C \in L(V_C)\).
+
+    下证\(T_C\)是自伴算子.考虑\((u_1,v_1),(u_2,v_2) \in V_C\).
+    \begin{align*}
+        &\ip*{T_C(u_1,v_1)}{(u_2,v_2)}=\ip*{Tu_1}{v_2}+\ip*{Tv_1}{u_2}+i(\ip*{Tv_1}{u_2}-\ip*{Tu_1}{v_2}) \\
+        &\ip*{(u_1,v_1)}{T_C(u_2,v_2)}=\ip*{u_1}{Tv_2}+\ip*{v_1}{Tu_2}+i(\ip*{v_1}{Tu_2}-\ip*{u_1}{Tv_2}) \\
+        &\ip*{Tu_1}{v_2}=\ip*{u_1}{Tv_2},\ip*{Tv_1}{u_2}=\ip*{v_1}{Tu_2},
+            \ip*{Tv_1}{u_2}=\ip*{u_1}{Tv_2},\ip*{Tu_1}{v_2}=\ip*{v_1}{Tu_2} \\
+        &\Rightarrow \ip*{T_C(u_1,v_1)}{(u_2,v_2)}=\ip*{(u_1,v_1)}{T_C(u_2,v_2)}
+    \end{align*}
+    于是\(T_C\)是自伴算子，故\(T_C\)的特征值均为实数，从而\(T\)拥有实特征值.
+\end{proof}
+% End: source/chapter_9/9.A.tex
+

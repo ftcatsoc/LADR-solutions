@@ -1,0 +1,84 @@
+\section{3.C Matrices}
+
+\begin{problem}[6]\label{3.C.6}
+    设\(V\)和\(W\)都是有限维向量空间且\(T \in L(V,W)\).
+
+    求证：\(\dim \Img T=1\)等价于分别存在\(V\)和\(W\)的一组基，使得\(M(T)_{i,j}=1\).    
+\end{problem}
+
+\begin{proof}
+    必要性：设\(v_1,\cdots,v_m\)和\(w_1,\cdots,w_n\)分别为\(V\)和\(W\)的一组基，
+
+    且这两组基可以使得\(M(T)\)中所有元素均为1.
+    
+    从而有\(\forall i=1,\cdots,m,Tv_i=\sum_{i=1}^n w_i\)，即\(\Img T=\altspan (\sum_{i=1}^m w_i),\dim \Img T=1\)，证毕.
+    
+    充分性：设\(\mu_1,\cdots,\mu_m\)为\(V\)任意的一组基.
+    
+    由于\(\dim \Img T=1\)，不妨设\(\Img T=\altspan (T \mu_1)\)，即\(T \mu_2=\cdots=T \mu_m=0\).
+    
+    则一定存在线性无关的\(w_2,\cdots,w_n\)，使得\(T \mu_1,w_2,\cdots,w_n\)是\(W\)的一组基.
+    
+    令\(w_1=T \mu_1-\sum_{i=2}^m w_i\)，则\(w_1,w_2,\cdots,w_n\)也是\(W\)的一组基.
+    
+    再令\(v_1=\mu_1,v_i=\mu_i+\mu_1,i=2,\cdots,m\)，因而\(Tv_i=T(\mu_1+\mu_i)=T \mu_1=\sum_{i=1}^m w_i\).
+    
+    从而\(v_1,\cdots,v_m\)和\(w_1,\cdots,w_m\)是满足条件的基.    
+\end{proof}
+
+\begin{problem}[7]\label{3.B.7}
+    已知\(S,T \in L(V,W)\)，求证：\(M(S+T)=M(S)+M(T)\).
+\end{problem}
+
+\begin{proof}
+    设\(v_1,\cdots,v_m\)和\(w_1,\cdots,w_n\)分别为\(V\)和\(W\)的一组基，并令\(M(S)=A,M(T)=C\).
+    \begin{align*}
+        &Sv_j=\sum_{i=1}^m A_{i,j}w_i,Tv_j=\sum_{i=1}^m C_{i,j}w_i \quad
+        Sv_j+Tv_j=\sum_{i=1}^m (A_{i,j}+C_{i,j})w_i=(S+T)v_j \\
+        &\forall j=1,\cdots,m,i=1,\cdots,n,(M(S+T))_{i,j}=M(S)_{i,j}+M(T)_{i,j}
+    \end{align*}
+    即\(M(S+T)=M(S)+M(T)\)，证毕.
+\end{proof}
+
+\begin{comment}
+    \begin{problem}[13]\label{3.C.13}
+        证明矩阵加法和乘法的分配律成立.
+    \end{problem}
+
+    \begin{proof}
+        即证明\(A(B+C)=AB+AC,(D+E)F=DF+EF\).
+
+        设\(A,D,E\)是\(m \times n\)矩阵，\(B,C,F\)是\(n \times p\)矩阵.
+
+        \begin{enumerate}
+            \item \(A(B+C)=AB+AC\).
+            \begin{align*}
+                &(A(B+C))_{i,j}=\sum_{k=1}^n A_{i,k}(B+C)_{k,j}=\sum_{k=1}^n A_{i,k}(B_{k,j}+C_{k,j}) \\
+                &(AB+AC)_{i,j}=(AB)_{i,j}+(AC)_{i,j}=\sum_{k=1}^n A_{i,k}B_{k,j}+\sum_{k=1}^n A_{i,k}C_{k,j} \\
+                &(A(B+C))_{i,j}=(AB+AC)_{i,j} \Rightarrow A(B+C)=AB+AC \\
+            \end{align*}
+            \item \((D+E)F=DF+EF\).
+            \begin{align*}
+                &((D+E)F)_{i,j}=\sum_{k=1}^n (D+E)_{i,k}F_{k,j}=\sum_{k=1}^n (D_{i,k}+E_{i,k})F_{k,j} \\
+                &(DF+EF)_{i,j}=(DF)_{i,j}+(EF)_{i,j}=\sum_{k=1}^n D_{i,k}F_{k,j}+\sum_{k=1}^n E_{i,k}F_{k,j} \\
+                &((D+E)F)_{i,j}=(DF+EF)_{i,j} \Rightarrow (D+E)F=DF+EF
+            \end{align*}
+        \end{enumerate}
+            
+    \end{proof}
+
+    \begin{problem}[15]\label{3.B.15}
+        设\(A\)是一个\(n \times n\)矩阵，且\(1 \leq i,j \leq n\).
+        求证：\(A^3_{i,j}=\sum_{k=1}^n \sum_{p=1}^n A_{i,k}A_{k,p}A_{p,j}\).    
+    \end{problem}
+
+    \begin{proof}
+    \begin{align*}
+        A^3_{i,j}=\sum_{p=1}^n A^2_{i,p}A_{p,j}
+        =\sum_{p=1}^n (\sum_{k=1}^n A_{i,k}A_{k,p})A_{p,j}
+        =\sum_{k=1}^n \sum_{p=1}^n A_{i,k}A_{k,p}A_{p,j}
+    \end{align*}
+    \end{proof}
+\end{comment}
+% End: source/chapter_3/3.C.tex
+

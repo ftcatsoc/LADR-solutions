@@ -1,0 +1,230 @@
+\section{7.D Singular Value Decomposition and Polar Decomposition}
+
+\begin{lemma}[7.64*]\label{lem 7.64*}
+    设\(V\)是有限维复内积空间且\(T \in L(V)\).则有
+
+    a.\(T^*T \in L(V),TT^* \in L(W)\)是正算子. \quad b.\(\ker T^*T=\ker T\). \quad c.\(\Img T^*T=\Img T^*\).
+\end{lemma}
+
+\begin{proof}[证明a]
+    由于\((T^*T)^*=T^*(T^*)^*=T^*T\)，即\(T^*T\)为自伴算子.
+
+    从而\(\forall v \in V,\ip*{T^*Tv}{v}=\ip*{Tv}{Tv}=\norm*{Tv}^2 \geq 0\)，即\(T^*T\)为正算子.\(TT^*\)同理.
+\end{proof}
+
+\begin{proof}[证明b]
+    设\(v \in \ker T^*T\)，则\(\ip*{T^*Tv}{v}=\ip*{Tv}{Tv}=\norm*{Tv}^2=0\)，即\(\ker T^*T \subseteq \ker T\).
+
+    \(\ker T \subseteq \ker T^*T\)是显然的.结合之，即有\(\ker T^*T=\ker T\).    
+\end{proof}
+
+\begin{proof}[证明c]
+    \(\Img T^*T=(\ker (T^*T)^*)^\bot=(\ker T^*T)^\bot=(\ker T)^\bot=\Img T^*\).
+\end{proof}
+
+\begin{theorem}[7.70*]\label{thm 7.70*} 奇异值分解 \:
+    设\(V\)是有限维内积空间且\(T \in L(V)\)，其奇异值为\(s_1,\cdots,s_n\).
+
+    那么存在\(V\)的两组规范正交基\(e_1,\cdots,e_n\)和\(f_1,\cdots,f_n\)，
+    使得\(\forall v \in V,Tv=\sum_{i=1}^n s_i\ip*{v}{e_i}f_i\).
+\end{theorem}
+
+\begin{proof}
+    \(T^*T\)作为自伴算子有一组规范正交特征基\(e_1,\cdots,e_n\)满足\(\forall i=1,\cdots,n,T^*Tv=s_i^2 v\).
+
+    定义\(\forall i=1,\cdots,n,f_i\)为\(\dfrac{1}{s_i}Te_i\)，下证\(f_1,\cdots,f_n\)为\(V\)的规范正交基.
+    \begin{align*}
+        \ip*{f_j}{f_k}=\dfrac{1}{s_js_k}\ip*{Te_j}{Te_k}=\dfrac{1}{s_js_k}\ip*{T^*Te_j}{e_k}
+        =\dfrac{1}{s_js_k}\ip*{s_j^2 e_j}{e_k}=\dfrac{s_j}{s_k}\ip*{e_j}{e_k}=\delta_{j,k}
+    \end{align*}
+    其中\(\delta_{i,k}\)是\textit{Kronecker}函数.因此，\(f_1,\cdots,f_n\)确实为\(V\)的规范正交基.
+    \begin{align*}
+        Tv=T\sum_{i=1}^n \ip*{v}{e_i}e_i=\sum_{i=1}^n \ip*{v}{e_i}Te_i
+        =\sum_{i=1}^n \ip*{v}{e_i}s_if_i=\sum_{i=1}^n s_i\ip*{v}{e_i}f_i
+    \end{align*}
+    因此\(M(T,(e_1,\cdots,e_n),(f_1,\cdots,f_n))=\mathrm{diag}(s_1,\cdots,s_n)\).
+\end{proof}
+
+\begin{theorem}[7.93*]\label{thm 7.93*} 极分解 \:
+    设\(T \in L(V)\)，则存在等距映射\(S \in L(V)\)使得\(T=S\sqrt{T^*T}\).
+\end{theorem}
+
+\begin{proof}
+    沿用奇异值分解证明中的记号，设\(\forall v \in V,Tv=\sum_{i=1}^n s_i\ip*{v}{e_i}f_i\).
+
+    定义\(S \in L(V)\)为\(Sv=\sum_{i=1}^n \ip*{v}{e_i}f_i\)，下面验证\(S\)是等距映射.
+    \begin{align*}
+        \norm*{Sv}^2=\norm*{\sum_{i=1}^n \ip*{v}{e_i}f_i}^2=\sum_{i=1}^n \norm*{\ip*{v}{e_i}f_i}^2
+        =\sum_{i=1}^n \norm*{\ip*{v}{e_i}}^2=\norm*{v}^2
+    \end{align*}
+    其中第二个等号来自定理6.25,第四个等号来自定理6.30.
+    
+    由\(T^*v=\sum_{i=1}^n s_i\ip*{v}{f_i}e_i\)得到\(T^*Tv=\sum_{i=1}^n s_i^2 \ip*{v}{e_i}e_i\)，
+    因而\(\sqrt{T^*T}v=\sum_{i=1}^n s_i\ip*{v}{e_i}e_i\).
+    \begin{align*}
+        S\sqrt{T^*T}v=S\sum_{i=1}^n s_i\ip*{v}{e_i}e_i=\sum_{i=1}^n s_i\ip*{v}{e_i}Se_i
+        =\sum_{i=1}^n s_i\ip*{v}{e_i}f_i=Tv
+    \end{align*}
+    因此\(S\)就是所求的等距算子.
+\end{proof}
+
+\newpage
+
+\begin{problem}[1]\label{7.D.1}
+    给定\(u \ne 0,x \in V,Tv=\ip*{v}{u}x\).证明：\(\sqrt{T^*T}v=\dfrac{\norm*{x}}{\norm*{u}}\ip*{v}{u}u\).
+\end{problem}
+
+\begin{proof}
+    根据\probref{7.A.15}，\((T^*T)v=T^*(\ip*{v}{u}x)=\ip*{v}{u}T^*x=\norm*{x}^2\ip*{v}{u}u\).
+
+    令\(Rv=\dfrac{\norm*{x}}{\norm*{u}}\ip*{v}{u}u\)，验证\(R\)是\(T^*T\)的平方根即可.
+        \begin{align*}
+            R^2v=\dfrac{\norm*{x}}{\norm*{u}}\ip*{\dfrac{\norm*{x}}{\norm*{u}}\ip*{v}{u}u}{u}u
+            =\dfrac{\norm*{x}}{\norm*{u}}\dfrac{\norm*{x}}{\norm*{u}}\ip*{v}{u}\norm*{u}^2u
+            =\dfrac{\norm*{x}}{\norm*{u}}\ip*{v}{u}u=Tv
+        \end{align*}
+\end{proof}
+
+\begin{problem}[2]\label{7.D.2}
+    给出\(T \in L(C^2)\)满足\(0\)是其唯一特征值，但奇异值为\(0,5\).
+\end{problem}
+
+\begin{proof}
+    令\(T(z_1,z_2)=(0,5z_1)\)，则\(0\)是其唯一特征值.得\(T^*(z_1,z_2)=(5z_2,0)\)，
+    
+    于是\(T^*T(z_1,z_2)=(25z_1,0)\)，即\(T^*T(1,0)=(25,0),T^*T(0,1)=(0,0)\).
+\end{proof}
+
+\begin{problem}[3]\label{7.D.3}
+    设\(T \in L(V)\).求证：存在等距算子\(S \in L(V)\)满足\(T=\sqrt{TT^*}S\).
+\end{problem}
+
+\begin{proof}
+    利用极分解的结论，\(T=S\sqrt{T^*T}\)，从而\(T^*=\sqrt{T^*T}S^*\).
+
+    将\(T^*\)替换成\(T\)，\(S^*\)替换成\(S\)，即\(T=\sqrt{TT^*}S\).
+\end{proof}
+
+\begin{problem}[8]\label{7.D.8}
+    设\(T,S,R \in L(V)\).\(S\)是等距算子.\(R\)是满足\(T=SR\)的正算子.
+    
+    求证：\(R=\sqrt{T^*T}\).
+\end{problem}
+
+\begin{proof}
+    \(T^*=(SR)^*=R^*S^*\)，故\(T^*T=R^*(S^*S)R=R^*R=R^2\)，据定理7.35有\(R=\sqrt{T^*T}\).
+\end{proof}
+
+\begin{problem}[9]\label{7.D.9}
+    设\(T \in L(V)\)，证明：\(T\)是可逆算子当且仅当其极分解是唯一的.
+\end{problem}
+
+\begin{proof}
+    根据引理7.64*，\(T\)是可逆算子当且仅当\(T^*T,\sqrt{T^*T}\)是可逆算子.
+
+    必要性：设\(T=S_1\sqrt{T^*T}=S_2\sqrt{T^*T}\).由于\(\sqrt{T^*T}=\sqrt{T^*T}^*\)，故\(T^*=\sqrt{T^*T}S_1^*\).
+    
+    于是\(T^*T=\sqrt{T^*T}\sqrt{T^*T}=\sqrt{T^*T}(S_1^*S_2)\sqrt{T^*T}\).
+    
+    \(\sqrt{T^*T}\)是可逆算子，故两侧的\(\sqrt{T^*T}\)可以被消去，得到\(S_1^*S_2=I\).
+    
+    由于\(S_1,S_2\)都是等距算子，故\(S_1^*=S^{-1},S_2^*=S^{-2},S_1=S_2\)，反之亦然.
+    
+    充分性：设\(T\)不可逆，则\(\ker \sqrt{T^*T}=\ker T \ne \{0\}\)，取其中任意向量\(v\).
+    
+    \(S\)作用于\(v\)的结果可以是任意的，从而导致了\(S\)的不唯一，矛盾.
+\end{proof}
+
+\begin{problem}[11]\label{7.D.11}
+    设\(T \in L(V)\).证明：\(T\)和\(T^*\)有相同的奇异值.
+\end{problem}
+
+\begin{proof}
+    由\(T^*T\)是自伴算子，\(E(\lambda,\sqrt{T^*T}) \ne \{0\} \Leftrightarrow E(\lambda,\sqrt{T^*T}^*)=E(\lambda,\sqrt{TT^*}) \ne \{0\}\).
+    
+    因此\(\lambda\)是\(T\)的奇异值和\(\lambda\)是\(T^*\)的奇异值是等价的.
+\end{proof}
+
+\begin{problem}[15]\label{7.D.15}
+    设\(S \in L(V)\).求证：\(S\)是等距算子等价于\(S\)的所有奇异值均为\(1\).
+\end{problem}
+
+\begin{proof}
+    充分性：\(\sqrt{S^*S}=\sqrt{S^{-1}S}=I\)，显然其特征值均为\(1\)，故\(S\)的所有奇异值均为\(1\).
+
+    必要性：沿用定理7,70*证明中的记号，则\(Sv=\sum_{i=1}^n \ip*{v}{e_i}f_i\).
+    
+    沿用定理7.93*的证明即可得到\(\norm*{Sv}=v\).
+\end{proof}
+
+\newpage
+
+\begin{problem}[17]\label{7.D.17}
+    沿用定理7.70*证明的记号，设\(T \in L(V)\)满足\(Tv=\sum_{i=1}^n s_i\ip*{v}{e_i}f_i\)，求证：
+
+    a.\(T^*v=\sum_{i=1}^n s_i\ip*{v}{f_i}e_i\).
+    
+    b.\(T^*Tv=\sum_{i=1}^n s_i^2 \ip*{v}{e_i}e_i\). 
+    
+    c.\(\sqrt{T^*T}v=\sum_{i=1}^n s_i\ip*{v}{e_i}e_i\).
+    
+    d.若\(T\)可逆，则\(T^{-1}v=\sum_{i=1}^n s_i^{-1}\ip*{v}{f_i}e_i\).    
+\end{problem}
+
+\begin{proof}[证明a]
+    设\(\forall v,w \in V\)，利用\(\ip*{Tv}{w}=\ip*{v}{T^*w}\)，有
+    \begin{align*}
+        \ip*{Tv}{w}&=\ip*{\sum_{i=1}^n s_i\ip*{v}{e_i}f_i}{w}=\sum_{i=1}^n s_i\ip*{v}{e_i}\ip*{f_i}{w} \\
+        &=\sum_{i=1}^n \ip*{v}{\ol{s_i\ip*{f_i}{w}}e_i}=\sum_{i=1}^n \ip*{v}{s_i\ip*{w}{f_i}e_i}=\ip*{v}{T^*w}
+    \end{align*}
+    即\(T^*w=\sum_{i=1}^n s_i\ip*{w}{f_i}e_i\).
+\end{proof}
+
+\begin{proof}[证明b]
+    \(T^*(Tv)=T^*\sum_{i=1}^n s_i \ip*{v}{e_i}f_i=\sum_{i=1}^n s_i \ip*{v}{e_i}T^*f_i=\sum_{i=1}^n s_i^2 \ip*{v}{e_i}e_i\).
+\end{proof}
+
+\begin{proof}[证明c]
+    令\(Rv=\sum_{i=1}^n s_i\ip*{v}{e_i}e_i\)，验证\(R\)是\(T^*T\)的平方根即可.
+    \begin{align*}
+        R^2v=\sum_{i=1}^n s_i\ip*{\sum_{i=1}^n s_i\ip*{v}{e_i}e_i}{e_i}e_i
+        =\sum_{i=1}^n s_i (\sum_{i=1}^n s_i\ip*{v}{e_i}\ip*{e_i}{e_i})e_i
+        =\sum_{i=1}^n s_i^2\ip*{v}{e_i}e_i
+    \end{align*}
+    容易验证\(R\)是正算子，故根据定理7.36，\(R=\sqrt{T^*T}\).
+\end{proof}
+
+\begin{proof}[证明d]
+    令\(w=\sum_{i=1}^n s_i^{-1}\ip*{v}{f_i}e_i\)，则
+    \begin{align*}
+        Tw=\sum_{i=1}^n s_i^{-1}\ip*{v}{f_i}Te_i=\sum_{i=1}^n s_i^{-1}\ip*{v}{f_i}s_if_i
+        =\sum_{i=1}^n \ip*{v}{f_i}f_i=v
+    \end{align*}
+    因此\(Tw=v,w=T^{-1}v=\sum_{i=1}^n s_i^{-1}\ip*{v}{f_i}e_i\).
+\end{proof}
+
+\begin{proof}[18]\label{7.D.18}
+    设\(T \in L(V)\).令\(s_{\min},s_{\max}\)分别指代\(T\)的最小和最大奇异值，\(\lambda\)是其特征值.求证：
+
+    a.\(\forall v \in V,s_{\min}\norm*{v} \leq \norm*{Tv} \leq s_{\max}\norm*{v}\). \quad
+    b.\(s_{\min} \leq \abs*{\lambda} \leq s_{\max}\).
+\end{proof}
+
+\begin{proof}[证明a]
+    设\(Tv=\sum_{i=1}^n s_i\ip*{v}{e_i}f_i\)，则
+    \begin{align*}
+        s_{\min}^2\norm*{v}^2w=s_{\min}^2 \sum_{i=1}^n \norm*{\ip*{v}{e_i}f_i}^2 
+        \leq \sum_{i=1}^n \norm*{s_i\ip*{v}{e_i}f_i}^2 
+        \leq s_{\max}^2 \sum_{i=1}^n \norm*{\ip*{v}{e_i}f_i}^2=s_{\max}^2\norm*{v}^2
+    \end{align*}
+    因此\(s_{\min}\norm*{v} \leq \norm*{Tv}=\norm*{\sum_{i=1}^n s_i\ip*{v}{e_i}f_i} \leq s_{\max}\norm*{v}\).
+\end{proof}
+
+\begin{proof}[证明b]
+    设\(v\)是\(\lambda\)的特征向量，
+    则\(s_{\min}\norm*{v}\leq \norm*{Tv}=\norm*{\lambda v}=\abs*{\lambda}\norm*{v} \leq s_{\max}\norm*{v}\).
+    
+    于是\(s_{\min} \leq \abs*{\lambda} \leq s_{\max}\).
+\end{proof}
+% End: source/chapter_7/7.D.tex
+

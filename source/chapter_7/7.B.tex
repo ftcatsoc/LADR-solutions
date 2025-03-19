@@ -1,0 +1,209 @@
+\section{7.B The Spectral Theorem}
+
+\begin{theorem}[7.24]\label{thm 7.24} 复谱定理 \:
+    设\(V\)是有限维复内积空间且\(T \in L(V),\dim V=n\).
+
+    求证：\(T\)是正规算子等价于\(V\)有一组\(T\)的规范正交特征向量组成的基.
+\end{theorem}
+
+\begin{proof}
+    必要性：若\(V\)有一组\(T\)的规范正交特征基，则\(M(T),M(T^*)\)都是对角矩阵.
+
+    由于对角矩阵的可交换性，有\(M(TT^*)=M(T)M(T^*)=M(T^*)M(T)=M(T^*T)\).
+    
+    因此\(T^*T=TT^*\)，\(T\)是正规算子.
+    
+    充分性：根据定理6.38，\(V\)有一组规范正交基\(e_1,\cdots,e_n\)使得\(M(T)\)为上三角矩阵.
+    
+    由于\(M(T^*)\)是\(M(T)\)的共轭转置，故\(M(T^*)\)是下三角矩阵.
+    
+    由于\(T\)是正规算子，故根据定理7.20，\(i=1,\cdots,n,\norm*{Te_i}^2=\norm*{T^*e_i}^2\).设\(M(T)_{i,j}=a_{i,j}\).
+    \begin{align*}
+        \norm*{Te_1}^2=\abs*{a_{1,1}}^2=\sum_{i=1}^n \abs*{a_{1,i}}^2=\norm*{T^*e_1}^2,a_{2,1}=\cdots=a_{n,1}=0
+    \end{align*}
+    进一步地，由\(\norm*{Te_2}^2=\norm*{T^*e_2}^2\)可以得到\(a_{3,2}=\cdots=a_{n,2}=0\).
+    
+    以此类推，\(M(T)\)的所有严格上三角部分元素和严格下三角部分元素均为\(0\)，即\(T\)可对角化.
+    
+    此时的\(e_1,\cdots,e_n\)就是\(T\)的特征向量，它们构成了\(V\)的规范正交基.
+\end{proof}
+
+\begin{lemma}[7.28]\label{lem 7.28} 自伴算子和不变子空间 \:
+    设\(T \in L(V)\)是自伴算子且\(U\)是\(T\)下的不变子空间，则
+
+    a.\(U^\bot\)是\(T\)下的不变子空间. \quad
+    b.\(T|_U\)是自伴算子. \quad
+    c.\(T_{U^\bot}\)是自伴算子.
+\end{lemma}
+
+\begin{proof}[证明a]
+    设\(\forall u \in U,u' \in U^\bot\)，由于\(Tu \in U\)，故\(\ip*{Tu}{u'}=\ip*{u}{Tu'}=0\)，即\(Tu' \in U^\bot\).
+\end{proof}
+
+\begin{proof}[证明b]
+    设\(\forall u_1,u_2 \in U\)，则\(\ip*{T|_U u_1}{u_2}=\ip*{Tu_1}{u_2}=\ip*{u_1}{Tu_2}=\ip*{u_1}{T|_U u_2}\).
+\end{proof}
+
+\begin{proof}[证明c]
+    设\(\forall u_1,u_2 \in U^\bot\)，则\(\ip*{T|_{U^\bot}u_1}{u_2}=\ip*{Tu_1}{u_2}=\ip*{u_1}{Tu_2}=\ip*{u_1}{T|_{U^\bot}u_2}\).
+\end{proof}
+
+\begin{theorem}[7.29]\label{thm 7.29} 实谱定理 \:
+    设\(V\)是有限维实内积空间且\(T \in L(V),\dim V=n\).
+
+    求证：\(T\)是自伴算子等价于\(V\)有一组\(T\)的规范正交特征向量组成的基.
+\end{theorem}
+
+\begin{proof}
+    必要性：若\(V\)有一组\(T\)的规范正交特征基，则\(M(T),M(T^*)\)都是对角矩阵.
+
+    由对角矩阵转置不变，有\(M(T)=M(T)^T=M(T^*)\).因此\(T\)是自伴算子.
+    
+    充分性：使用数学归纳法，\(\dim V=1\)的情况显然成立.
+    
+    假设满足\(\dim U<\dim V\)的向量空间\(U\)上的自伴算子都有规范正交特征基.
+    
+    由于实内积空间上的自伴算子一定有特征值\footnote{这个结论将在复化章节中证明.}，故设\(e_1\)满足\(\norm*{e_1}=1\)是\(T\)的特征向量.
+    
+    令\(U=\altspan(e_1)\)，考虑\(U^\bot\).根据引理7.28，\(T|_{U^\bot}\)是自伴算子，
+    
+    故\(T|_{U^\bot}\)有规范正交特征基\(e_2,\cdots,e_n\)，于是\(e_1,\cdots,e_n\)就是\(T\)的规范正交特征基.
+\end{proof}
+
+\newpage
+
+\begin{problem}[4]\label{7.B.4}
+    设\(V\)是有限维复内积空间且\(\dim V=n\)，\(T \in L(V)\)有特征值\(\lambda_1,\cdots,\lambda_m\).
+
+    求证：\(T\)是正规算子当且仅当\(V=\oplus_{i=1}^m E(\lambda_i,T)\)且特征空间两两正交.
+\end{problem}
+
+\begin{proof}
+    必要性直接依据复谱定理得证.
+
+    充分性：构造每个特征空间\(E(\lambda_i,T)\)的规范正交基\(v_1^i,\cdots,v_{n_i}^i\).
+    
+    将这些规范正交基合并，就得到了\(V\)的规范正交特征基，根据复谱定理，\(T\)是正规算子.
+    
+    实内积空间的版本的证明是类似的.
+\end{proof}
+
+\begin{problem}[6]\label{7.B.6}
+    证明：复内积空间\(V\)上的正规算子\(T\)是自伴算子当且仅当其特征值都是实的.
+\end{problem}
+
+\begin{proof}
+    根据复谱定理，\(V\)有一组规范正交特征基\(e_1,\cdots,e_n\).
+
+    从而\(M(T)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n),M(T^*)=\mathrm{diag}(\ol{\lambda_1},\cdots,\ol{\lambda_n})\).
+    
+    \(M(T)=M(T^*)\)等价于\(\forall i=1,\cdots,n,\lambda_i=\ol{\lambda_i}\)，
+    即\(\forall i=1,\cdots,n,\lambda_i\)都是实数，证毕.
+\end{proof}
+
+\begin{problem}[8]\label{7.B.8}
+    设\(V\)是有限维复内积空间且\(T \in L(V)\)是正规算子，满足\(T^9=T^8\).
+
+    求证：\(T\)是自伴算子且为幂等算子.
+\end{problem}
+
+\begin{proof}
+    \(V\)应有一组规范正交特征基\(e_1,\cdots,e_n\)，从而\(M(T)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n)\).
+
+    若\(T^9=T^8\)，则\(\forall i=1,\cdots,n,\lambda_i^9=\lambda_i^8,\lambda_i^8(\lambda_i-1)=0\)，
+    即特征值只可能为\(0\)或\(1\).
+
+    根据\probref{7.B.6}，\(T\)是自伴算子；根据\probref{5.B.4}，\(T\)是幂等算子.
+\end{proof}
+
+\begin{problem}[12]\label{7.B.12}
+    设\(T \in L(V)\)为自伴算子，满足\(\forall \varepsilon>0,\exists \lambda \in F,\norm*{v}=1\)使得\(\norm*{Tv-\lambda v}<\varepsilon\).
+
+    求证：存在\(T\)的一个特征值\(\mu\)，满足\(\abs*{\lambda-\mu}<\varepsilon\).
+\end{problem}
+
+\begin{proof}
+    设\(\norm*{u}=1\)是\(\mu\)的特征向量.考虑\(\ip*{Tv-\lambda v}{u}\).
+    \begin{align*}
+        \ip*{Tv-\lambda v}{u}=\ip*{Tv}{u}-\ip*{\lambda v}{u}=\ip*{v}{Tu}-\lambda \ip*{v}{u}
+        =\mu \ip*{v}{u}-\lambda \ip*{v}{u}=(\mu-\lambda)\ip*{v}{u}
+    \end{align*}
+    第三个等号是因为自伴算子的特征值均为实数.随后有
+    \begin{align*}
+        &\abs*{\ip*{Tv-\lambda v}{u}} \leq \norm*{Tv-\lambda v}\norm*{u}=\norm*{Tv-\lambda v}<\varepsilon \\
+        &\abs*{\ip*{Tv-\lambda v}{u}}=\abs*{(\mu-\lambda)\ip*{v}{u}} \leq \abs*{\lambda-\mu}\norm*{u}\norm*{v}=\abs*{\lambda-\mu}
+    \end{align*}
+    联立两个不等式，有\(\abs*{\lambda-\mu}<\varepsilon\).
+\end{proof}
+
+\newpage
+
+\begin{problem}[20*]\label{7.B.20*} 正规算子和不变子空间 \:
+    设\(T \in L(V)\)是正规算子且\(U\)是\(T\)下的不变子空间，
+
+    a.\(U^\bot\)是\(T\)下的不变子空间. \quad
+    b.\(T|_U \in L(U),T|_{U^\bot} \in L(U^\bot)\)都是正规算子.
+\end{problem}
+
+\begin{proof}[证明a]
+    根据\probref{7.A.16}，若\(T\)为正规算子，则\(\Img T=\Img T^*\).
+
+    设\(\forall u \in U\)，则\(T^*u \in \Img T^*=\Img T \subseteq U\)，因此\(U\)也是\(T^*\)下的不变子空间.
+    
+    从而\(\forall u' \in U^\bot,\ip*{u}{Tu'}=\ip*{T^*u}{u'}=0\)，因此\(Tu' \in U^\bot\)，\(U^\bot\)是\(T\)下的不变子空间.
+\end{proof}
+
+\begin{proof}[证明b]
+    \(\forall u \in U,\norm*{T|_U u}^2=\norm*{Tu}^2=\norm*{T^*u}^2=\norm*{T^*|_U u}^2\)，即\(T|_U \in L(U)\)是正规算子；
+
+    \(\forall u' \in U^\bot,\norm*{T|_{U^\bot}u'}^2=\norm*{Tu'}^2=\norm*{T^*u'}^2=\norm*{T^*|_{U^\bot}u'}^2\)，
+    即\(T|_{U^\bot} \in L(U^\bot)\)是正规算子.
+\end{proof}
+
+\begin{problem}[13]\label{7.B.13}
+    沿用定理7.24的符号，但使用实谱定理的证明思路证明复谱定理.
+\end{problem}
+
+\begin{proof}
+    必要性的证明与原来一致.
+
+    充分性：使用数学归纳法，\(\dim V=1\)的情况显然成立.
+    
+    假设满足\(\dim U<\dim V\)的向量空间\(U\)上的自伴算子都有规范正交特征基.
+    
+    由于复向量空间上的算子一定有特征值，故设\(e_1\)满足\(\norm*{e_1}=1\)是\(T\)的特征向量.
+    
+    令\(U=\altspan(e_1)\)，考虑\(U^\bot\).根据\probref{7.B.20*}，\(T|_{U^\bot}\)是正规算子，
+    
+    故\(T|_{U^\bot}\)有规范正交特征基\(e_2,\cdots,e_n\)，于是\(e_1,\cdots,e_n\)就是\(T\)的规范正交特征基.
+\end{proof}
+
+\begin{problem}[14]\label{7.B.14}
+    设\(V\)是有限维实内积空间且\(T \in L(V)\).
+
+    求证：\(V\)存在由\(T\)的特征向量组成的基等价于存在一种内积定义，使得\(T\)为自伴算子.
+\end{problem}
+
+\begin{proof}
+    必要性：根据实谱定理，\(V\)有一组\(T\)的规范正交特征向量组成的基.
+
+    充分性：将基设为\(e_1,\cdots,e_m\).考虑\(\forall i,j=1,\cdots,m,a_i,b_i \in R,\)
+    \(v_1=\sum_{i=1}^m a_ie_i,v_2=\sum_{j=1}^m b_je_j\).
+    
+    由于\(V\)是实内积空间，故\(\ip*{v_1}{v_2}\)需要对两个变元都满足线性性，于是可以定义
+    \begin{align*}
+        \ip*{v_1}{v_2}=\ip*{\sum_{i=1}^m a_ie_i}{\sum_{j=1}^m b_je_j}=
+        \sum_{i=1}^m \sum_{j=1}^m a_ib_j \ip*{e_i}{e_j}=\sum_{i=1}^m \sum_{j=1}^m a_ib_j\delta_{i,j}
+    \end{align*}
+    其中\(\delta_{i,j}\)是\textit{Kronecker}函数.下面验证内积\(\ip*{v_1}{v_2}\)的正定性.
+    
+    令\(v_2=v_1\)，则\(\ip*{v_1}{v_1}=\sum_{j=1}^m a_ia_j\delta_{i,j}=\sum_{i=1}^m \abs*{a_i}^2 \geq 0\).
+    
+    且\(\sum_{i=1}^m \abs*{a_i}^2=0\)可推出\(a_1=\cdots=a_m=0\)，从而\(v_1=0\)，满足正定性，该内积定义合法.
+    
+    在这种内积定义下，\(\forall i,j=1,\cdots,n,\ip*{e_i}{e_j}=\delta_{i,j}\)，即\(e_1,\cdots,e_m\)是一组规范正交基.
+    
+    于是\(M(T)\)为对角矩阵且对角线上元素均为实数，则\(T\)是自伴算子.
+\end{proof}
+% End: source/chapter_7/7.B.tex
+

@@ -1,0 +1,55 @@
+\section{8.D Jordan Form}
+
+\begin{theorem}[8.55]\label{thm 8.55} 幂零算子的Jordan基 \:
+    考虑有限维复向量空间\(V\)和幂零算子\(N \in L(V)\).
+
+    证明：\(V\)中存在向量组\(v_1,\cdots,v_n\)满足如下条件：
+    \begin{enumerate}
+        \item \(N^{m_1}v_1,\cdots,v_1,\cdots,N^{m_n}v_n,\cdots,v_n\)是\(V\)的一组基；
+        \item \(N^{m_1+1}v_1=\cdots=N^{m_n+1}v_n=0\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    使用数学归纳法.考虑\(\dim V=1\)的情况.取\(\forall v \in V\)，则\(v\)即为\(V\)的基，且\(Nv=0\).
+
+    现在假设对于任意的有限维复向量空间\(U\)满足\(\dim U<\dim V\)，都存在满足如上条件的基.
+    
+    设\(N\)的幂零指数为\(m_1+1\)，则存在\(v_1\)使得\(N^{m_1}v_1 \ne 0\).构造\(U=\altspan(v_1,\cdots,N^{m_1}v_1)\).
+    
+    由\(N(U)=\altspan(Nv_1,\cdots,N^{m_1}v_1) \subset U\)得到\(U\)是\(N\)下的不变子空间.
+    
+    考虑商空间\(V/U,\dim (V/U)=\dim V-\dim U<\dim V\)，因此可以对\(V/U\)使用归纳.
+    
+    构造\(N\)在\(V/U\)上的诱导变换\(\ol{N} \in L(V/U)\)满足\(\forall \ol{v}=v+U \in V/U,\ol{N}\ol{v}=Nv+U=\ol{Nv}\).
+    
+    \(\ol{N}\)的合法性和线性性由定理5.14保证，幂零性继承自\(N\)，故可以使用归纳.
+    
+    则\(\ol{N^{m_2}u_2},\cdots,\ol{u_2},\cdots,\ol{N^{m_n}u_n},\cdots,\ol{u_n}\)是\(V/U\)的基，
+    满足\(\ol{N^{m_2+1}u_2}=\cdots=\ol{N^{m_n+1}u_n}=\ol{0}\).
+    
+    因此\(\forall i=2,\cdots,n,\ol{N^{m_i+1}u_i}=\ol{0}\)可推出\(\forall i=2,\cdots,n,N^{m_i+1}u_i \in U\).
+    
+    若\(m_i=m_1\)，则\(\forall i=2,\cdots,n,N^{m_i+1}u_i=N^{m_1+1}u_i=0\).令\(v_i=u_i\)，选取\(v_i\)为代表元.
+    
+    若\(m_i<m_1\)，写\(N^{m_i+1}u_i \in U\)为\(\sum_{k=0}^{m_1}c_kN^kv_1\)，下证\(c_0=\cdots=c_{m_i}=0\).
+    
+    假设存在\(p_{\min} \in \{0,\cdots,m_i\}\)使得\(c_p \ne 0\)，那么\(N^{m_i+1}u_i=\sum_{k=p}^{m_1}c_kN^kv_1\)，变形得到
+    \begin{align*}
+        c_pN^pv_1=N^{m_i+1}u_i-\sum_{k=p+1}^{m_1}c_kN^kv_1=N^{p+1}(N^{m_i-p}u_i-\sum_{k=p+1}^{m_1}c_kN^{k-p-1}v_1)=N^{p+1}v
+    \end{align*}
+    对等式两侧施加\(N^{m_1-p}\)将有\(c_pN^{m_1}v_1=N^{m_1+1}v\).由于\(c_pN^{m_1}v_1 \ne 0\)且\(N^{m_1+1}v=0\)，构成矛盾.
+
+    于是\(c_0=\cdots=c_{m_i}=0\)，从而\(N^{m_i+1}u_i \in \altspan(N^{m_1+1}v_1,\cdots,N^{m_1}v_1)=\Img(N^{m_i+1}|_U)\).
+    
+    于是存在\(x_i \in U\)使得\((N^{m_i+1}|_U)x_i=N^{m_i+1}u_i\).令\(\forall i=2,\cdots,n,v_i=u_i-x_i\).
+    
+    则\(\forall i=2,\cdots,n,j=0,\cdots,m_i+1,\ol{N^jv_i}=\ol{N^ju_i},N^{m_i+1}v_i=N^{m_i+1}u_i-N^{m_i+1}x_i=0\).
+
+    故选择\(\ol{N^{m_2}u_2},\cdots,\ol{u_2},\cdots,\ol{N^{m_n}u_n},\cdots,\ol{u_n}\)的代表元
+    \(N^{m_1}v_2,\cdots,v_2,\cdots,N^{m_n}v_n,\cdots,v_n\).
+    
+    根据\probref{3.E.13}，\(N^{m_1}v_1,\cdots,v_1,\cdots,N^{m_n}v_n,\cdots,v_n\)是一组满足条件的基.
+\end{proof}
+% End: source/chapter_8/8.D.tex
+

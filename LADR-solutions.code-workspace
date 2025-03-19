@@ -1,0 +1,63 @@
+{
+    "folders": [{"path": "."}],
+    "settings": {
+        "latex-workshop.latex.autoBuild.run": "never",
+        "latex-workshop.latex.outDir": "../temp",
+        "latex-workshop.latex.tools": [
+            {
+                "name": "pdflatex-win",
+                "command": "pdflatex",
+                "args": [
+                    "-synctex=1",
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "-output-directory=../temp",
+                    "%DOCFILE%"
+                ]
+            },
+            {
+                "name": "lualatex-win",
+                "command": "lualatex",
+                "args": [
+                    "--output-directory=../temp",
+                    "--interaction=nonstopmode",
+                    "--synctex=1",
+                    "%DOC%"
+                ]
+            },
+            {
+                "name": "latexmk-win",
+                "command": "latexmk",
+                "args": [
+                    "-synctex=1",
+                    "-interaction=nonstopmode",
+                    "-file-line-error",
+                    "-pdf",
+                    "-outdir=../temp",
+                    "%DOCFILE%"
+                ]
+            }
+        ],
+        "latex-workshop.latex.recipes": [
+            {
+                "name": "pdflatex (Windows)",
+                "tools": ["pdflatex-win"]
+            },
+            {
+                "name": "lualatex (Windows)",
+                "tools": ["lualatex-win"]
+            },
+            {
+                "name": "latexmk (Windows)",
+                "tools": ["latexmk-win"]
+            }
+        ],
+        "latex-workshop.latex.clean.fileTypes": [
+            "*.aux", "*.bbl", "*.blg", "*.idx", 
+            "*.ind", "*.lof", "*.lot", "*.out", 
+            "*.toc", "*.acn", "*.acr", "*.alg",
+            "*.glg", "*.glo", "*.gls", "*.ist",
+            "*.fls", "*.log", "*.fdb_latexmk"
+        ]
+    }
+}

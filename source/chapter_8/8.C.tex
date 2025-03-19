@@ -1,0 +1,139 @@
+\section{8.C Characteristic and Minimal Polynomials}
+
+\begin{theorem}[8.46]\label{thm 8.46} 极小多项式的决定 \:
+    设\(V\)是有限维向量空间且\(T \in L(V)\).
+
+    设\(\lambda_1,\cdots,\lambda_m\)是\(T\)的不同特征值，
+    \(k_1,\cdots,k_m\)分别是\(\lambda_1,\cdots,\lambda_m\)对应的最大Jordan块的维数.
+
+    求证：\(T\)的极小多项式是\(p_m(z)=\prod_{i=1}^m (z-\lambda_i)^{k_i}\).
+\end{theorem}
+
+\begin{proof}
+    先证\(\prod_{i=1}^m (T-\lambda_i I)^{k_i}=0\).根据定理8.21，\(V=\oplus_{i=1}^m G(\lambda_i,T)\)，
+
+    因此分别考虑\(\forall i=1,\cdots,m,(T-\lambda_i I)^{k_i}|_{G(\lambda_i,T)}\)，
+    并令\(N_i=(T-\lambda_i I)|_{G(\lambda_i,T)}\).
+    
+    根据定理8.55，\(G(\lambda_i,T)\)存在一组\textit{Jordan}基\(N_i^{m_1}v_1,\cdots,v_1,\cdots,N_i^{m_n}v_n,\cdots,v_n\).
+    
+    因此\(\max \{m_1,\cdots,m_n\}=k_i\)，并令\(U_j=\altspan (N_i^{m_j}v_j,\cdots,v_j)\)，
+    则\(G(\lambda_i,T)=\oplus_{j=1}^n U_j\).
+    
+    根据定理8.55的证明，\(\forall j=1,\cdots,n,U_j\)都是\(N_i\)下的不变子空间，且有\(N_i^{m_j}|_{U_j}=0\).
+    
+    因此\(\forall j=1,\cdots,n,N_i^{\max \{m_1,\cdots,m_n\}}|_{U_j}=0\)，
+    即\((T-\lambda_i I)^{k_i}|_{G(\lambda_i,T)}=0\).
+    
+    对于\(\prod_{i=1}^m (T-\lambda_i I)^{k_i}\)，根据算子的可交换性，总是可以把因子\((T-\lambda_i I)^{k_i}\)移至最后，
+    
+    从而\(\forall i=1,\cdots,m,\prod_{i=1}^m (T-\lambda_i I)^{k_i}|_{G(\lambda_i,T)}=0\)，
+    即\(\prod_{i=1}^m (T-\lambda_i I)^{k_i}=0\).
+    
+    下证其确为能使\(p(T)=0\)的幂次最低的首一多项式，考虑\(p'_m(z)=\prod_{i=1}^m (T-\lambda_i I)^{k'_i}\).
+    
+    其中，\(\forall i=1,\cdots,m,k'_i \leq k_i\)，且\(\exists r=1,\cdots,m,k'_r<k_r\).
+    
+    由于\((T-\lambda_r I)\)的幂指数\(k'_r<k_r\)，那么对于\(k_r\)所对应的\(U_j\)，必然有\(N_r^{k'_r}|_{U_j} \ne 0\).
+    
+    因此\(p_m(z)\)的幂次已然最低，即\(p_m(z)=\prod_{i=1}^m (z-\lambda_i)^{k_i}\)就是\(T\)的极小多项式.
+\end{proof}
+
+\begin{problem}[2]\label{8.C.2}
+    设\(V\)是有限维向量空间且\(T \in L(V)\)只有两个特征值\(5,6\).
+
+    求证：\((T-5I)^{n-1}(T-6I)^{n-1}=0\)，其中\(n=\dim V\).
+\end{problem}
+
+\begin{proof}
+    \(T\)有两个特征值，故每个特征值的重数最多为\(n-1\).
+
+    因而\(T\)的特征多项式是\((T-5I)^{n-1}(T-6I)^{n-1}\)的因子，即\((T-5I)^{n-1}(T-6I)^{n-1}=0\).
+\end{proof}
+
+\begin{problem}[7]\label{8.C.7}
+    设\(V\)是有限维向量空间且\(P \in L(V)\)满足\(P^2=P\).
+
+    求证：\(P\)的特征多项式是\(z^m(z-1)^n\)，其中\(m=\dim \ker P,n=\dim \Img P\).
+\end{problem}
+
+\begin{proof}
+    根据\probref{5.B.4}，\(V=\ker P \oplus \Img P\).
+
+    \(\forall u \in \ker P,u \in E(0,T), \forall Pv \in \Img P,P(Pv)=Pv \in \Img P\)，即\(Pv \in E(1,T)\).
+    
+    因此\(V=E(0,P) \oplus \Img P,\Img P \subseteq E(1,P) \subseteq G(1,P)\).
+    
+    由空间维数的限制，只能有\(E(0,P)=G(0,P),\Img P=E(1,P)=G(1,P)\).
+    
+    因此\(P\)的特征多项式为\(p_c(z)=z^{\dim G(0,P)}(z-1)^{\dim G(1,P)}=z^m(z-1)^n\).
+\end{proof}
+
+\newpage
+
+\begin{problem}[10]\label{8.C.10}
+    设\(V\)是有限维向量空间且\(T \in L(V)\)是可逆算子.
+
+    令\(p,q\)分别指代\(T,T^{-1}\)的特征多项式，证明：\(q(z)=\dfrac{z^{\dim V}}{p(0)}p(\dfrac{1}{z})\).
+\end{problem}
+
+\begin{proof}
+    根据\probref{8.A.3}和\probref{5.A.21}，\(G(\lambda,T)=G(\lambda^{-1},T^{-1})\).
+
+    设\(\lambda_1,\cdots,\lambda_m\)是\(T\)的不同特征值，\(d_1,\cdots,d_m\)是其对应的重数，
+    
+    则\(p(z)=\prod_{i=1}^m (z-\lambda_i)^{d_i},q(z)=\prod_{i=1}^m (z-\lambda_i^{-1})^{d_i}\).
+    \begin{align*}
+        q(z)=\prod_{i=1}^m (z-\lambda_i^{-1})^{d_i}
+            =\prod_{i=1}^m \dfrac{z^{d_i}}{\lambda^{d_i}}(\lambda_i-\dfrac{1}{z})^{d_i}
+            =\prod_{i=1}^m \dfrac{z^{d_i}}{-\lambda^{d_i}}(\dfrac{1}{z}-\lambda_i)^{d_i}
+            =\dfrac{z^{\dim V}}{p(0)}p(\dfrac{1}{z})
+    \end{align*}
+\end{proof}
+
+\begin{problem}[12]\label{8.C.12}
+    设\(V\)是有限维向量空间且\(T \in L(V)\).
+
+    求证：\(T\)的极小多项式没有重根等价于\(T\)有由特征向量组成的基.
+\end{problem}
+
+\begin{proof}
+    根据定理8.46，\(T\)的极小多项式\(p_m(z)=\prod_{i=1}^m (z-\lambda_i)^{k_i}\)，
+
+    其中\(\lambda_1,\cdots,\lambda_m\)是\(T\)的不同特征值，
+    \(k_1,\cdots,k_m\)是\(\lambda_1,\cdots,\lambda_m\)对应的最大\textit{Jordan}块的维数.
+    
+    由于\(p_m(z)\)没有重根，故\(k_1=\cdots=k_m=1\)，因此\(G(\lambda_i,T)\)存在一组基\(v_1,\cdots,v_n\)，
+    
+    其中\((T-\lambda_i I)v_1=\cdots=(T-\lambda_i I)v_n=0\)，
+    即\(v_1,\cdots,v_n \in \ker (T-\lambda_i I)=E(\lambda_i,T)\)，
+    
+    因此\(T\)的所有广义特征向量都是特征向量.根据\probref{8.B.5}，这等价于\(T\)有一组特征基，证毕.
+\end{proof}
+
+\begin{problem}[18]\label{8.C.18}
+    设\(a_0,\cdots,a_{n-1} \in C\).给出以下矩阵的特征多项式和极小多项式.
+    \begin{equation*}
+        \begin{pmatrix}
+            0      & \cdots & \cdots & 0      & -a_0     \\
+            1      & \ddots &        & \vdots & -a_1     \\
+            0      & \ddots & \ddots & \vdots & \vdots   \\
+            \vdots & \ddots & 1      & 0      & -a_{n-2} \\
+            0      & \cdots & 0      & 1      & -a_{n-1} 
+        \end{pmatrix}
+    \end{equation*}
+\end{problem}
+
+\begin{proof}
+    设\(e_1,\cdots,e_n\)是\(C^n\)的一组标准基.注意到\(\forall i=1,\cdots,n-1,Te_i=Te_{i+1}\).
+
+    因此\(T^n e_1=Te_n=-\sum_{i=0}^{n-1}a_ie_{i+1}=-\sum_{i=0}^{n-1}a_iT^ie_1\)，
+    整理得\((\sum_{i=0}^{n-1}a_iT^i+T^n)e_1=0\).
+    
+    从而矩阵的极小多项式为\(\sum_{i=0}^n a_iT^i,a_n=1\).
+    
+    由于\(\dim p_m(z)=\dim V\)，根据习题8.C.17，其特征多项式与极小多项式相同.
+    %此处使用了硬编码
+\end{proof}
+% End: source/chapter_8/8.D.tex
+

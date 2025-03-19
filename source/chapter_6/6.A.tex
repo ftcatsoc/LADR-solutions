@@ -1,0 +1,166 @@
+\section{Inner Products and Norms}
+
+\begin{problem}[5]\label{6.A.5}
+    设\(T \in L(V)\)满足\(\forall v \in V,\norm*{Tv} \leq \norm*{v}\).求证：\(T-\sqrt{2}I\)可逆.
+\end{problem}
+
+\begin{proof}
+    假设\(T-\sqrt{2}I\)不可逆，则\(\exists u \in V,Tu=\sqrt{2}I\).
+    从而\(\norm*{Tu}=\norm*{\sqrt{2}u} \leq \norm*{u}\)，矛盾.
+\end{proof}
+
+\begin{problem}[6]\label{6.A.6}
+    设\(u,v \in V,a,b \in R\).证明：\(\norm*{au+bv}=\norm*{bu+av}\)和\(\norm*{u}=\norm*{v}\)等价.
+\end{problem}
+
+\begin{proof}
+    两边平方，得到
+    \begin{align*}
+        &a^2\norm*{u}^2+\ip*{au}{bv}+\ip*{bv}{au}+b^2\norm*{v}^2=b^2\norm*{u}^2+\ip*{bu}{av}+\ip*{av}{bu}+a^2\norm*{v}^2 \\
+        &\ip*{au}{bv}=ab\ip*{u}{v},\ip*{bv}{au}=ab\ip*{v}{u},\ip*{bu}{av}=ab\ip*{u}{v},\ip*{av}{bu}=ab\ip*{v}{u} \\
+        &a^2\norm*{u}^2+b^2\norm*{v}^2=b^2\norm*{u}^2+a^2\norm*{v}^2,(a^2-b^2)(\norm*{u}^2-\norm*{v}^2)=0
+    \end{align*}
+    由\(a,b\)的任意性，只能有\(\norm*{u}=\norm*{v}\).
+\end{proof}
+
+\begin{problem}[9]\label{6.A.9}
+    设\(u,v \in V\)满足\(\norm*{u} \leq 1,\norm*{v} \leq 1\).
+    证明：\(\sqrt{1-\norm*{u}^2}\sqrt{1-\norm*{v}^2} \leq 1-\abs*{\ip*{u}{v}}\).
+\end{problem}
+
+\begin{proof}
+    利用\textit{Cauchy-Schwarz}不等式，得到
+    \begin{align*}
+        &\sqrt{1-\norm*{u}^2}\sqrt{1-\norm*{v}^2} \leq 1-\norm*{u}\norm*{v} \leq 1-\abs*{\ip*{u}{v}} \\
+        &(1-\norm*{u}^2)(1-\norm*{v}^2) \leq (1-\norm*{u}\norm*{v})^2 \\
+        &\norm*{u}^2+\norm*{v}^2-2\norm*{u}\norm*{v} \geq 0,(\norm*{u}-\norm*{v})^2 \geq 0
+    \end{align*}
+\end{proof}
+
+\begin{problem}[12]\label{6.A.12}
+    证明：\(\forall n \in N^*,x_1,\cdots,x_n \in R,(\sum_{i=1}^n x_i)^2 \leq n\sum_{i=1}^n x_i^2\).
+\end{problem}
+
+\begin{proof}
+    考虑\((x_1,\cdots,x_n),(1,\cdots,1) \in R^n\).利用\textit{Cauchy-Schwarz}不等式，得到
+    \begin{align*}
+        (x_1 \cdot 1+\cdots+x_n \cdot 1)^2 \leq (1^2+\cdots+1^2)(x_1^2+\cdots+x_n^2),
+        (\sum_{i=1}^n x_i)^2 \leq n\sum_{i=1}^n x_i^2
+    \end{align*}
+\end{proof}
+
+\begin{problem}[14]\label{6.A.14}
+    设\(u,v \in R^n\).证明：\(\ip*{u}{v}=\norm*{u}\norm*{v}\cos \theta\)，其中\(\theta\)是\(u,v\)的夹角.
+\end{problem}
+
+\begin{proof}
+    注意到\(x,y,x-y\)构成三角形，根据余弦定理，有
+    \begin{align*}
+        \cos \theta =\dfrac{\norm*{x}^2+\norm*{y}^2-\norm*{x-y}^2}{\norm*{x}\norm*{y}}
+        =\dfrac{\norm*{x}^2+\norm*{y}^2-(\norm*{x}^2-\ip*{x}{y}-\ip*{y}{x}+\norm*{y}^2)}{\norm*{x}\norm*{y}}
+        =\dfrac{\ip*{x}{y}}{\norm*{x}\norm*{y}}
+    \end{align*}
+因此该定义是合法的.
+\end{proof}
+
+\newpage
+
+\begin{problem}[20]\label{6.A.20}
+    设\(V\)是复内积空间且\(u,v \in V\).证明：
+    \begin{align*}
+        \ip*{u}{v}=\dfrac{\norm*{u+v}^2-\norm*{u-v}^2+\norm*{u+iv}^2i-\norm*{u-iv}^2i}{4}
+    \end{align*}
+\end{problem}
+
+\begin{proof}
+    直接将等式右边展开即可.
+    \begin{align*}
+        &\norm*{u+v}^2=\norm*{u}^2+\norm*{v}^2+2\mathrm{Re}\ip*{u}{v},
+        \norm*{u-v}^2=\norm*{u}^2+\norm*{v}^2-2\mathrm{Re}\ip*{u}{v} \\
+        &\norm*{u+iv}^2=\norm*{u}^2+\norm*{v}^2+2\mathrm{Im}\ip*{u}{v},
+        \norm*{u-iv}^2=\norm*{u}^2+\norm*{v}^2-2\mathrm{Im}\ip*{u}{v} \\
+        &\norm*{u+v}^2-\norm*{u-v}^2=4\mathrm{Re}\ip*{u}{v},
+        \norm*{u+iv}^2-\norm*{u-iv}^2=4\mathrm{Im}\ip*{u}{v} \\
+        &\ip*{u}{v}=\mathrm{Re}\ip*{u}{v}+i\mathrm{Im}\ip*{u}{v}
+        =\dfrac{\norm*{u+v}^2-\norm*{u-v}^2}{4}+i\dfrac{\norm*{u+iv}^2-\norm*{u-iv}^2}{4}
+    \end{align*}
+\end{proof}
+
+\begin{problem}[23]\label{6.A.23}
+    设\(V_1,\cdots,V_m\)是内积空间.证明：\(\prod_{i=1}^m V_i\)上一个合法的内积定义是
+    \begin{align*}
+        \ip*{(u_1,\cdots,u_m)}{(v_1,\cdots,v_m)}=\sum_{i=1}^m \ip*{u_i}{v_i}
+    \end{align*}
+\end{problem}
+
+\begin{proof}
+    正定性：由于\(\forall i=1,\cdots,m,\ip*{v_i}{v_i} \geq 0\)，故\(\sum_{i=1}^m \ip*{v_i}{v_i} \geq 0\).
+
+    当\(\sum_{i=1}^m \ip*{v_i}{v_i}=0\)时，有\(\forall i=1,\cdots,m,\ip*{v_i}{v_i}=0\)，从而\(v_i=0\).
+    
+    左变元线性：设\(u^\alpha=(u_1^\alpha,\cdots,u_m^\alpha),u^\beta=(u_1^\beta,\cdots,u_m^\beta),\)
+    \(v=(v_1,\cdots,v_m) \in \prod_{i=1}^m V_i\).
+    \begin{align*}
+        \ip*{\lambda u^\alpha+\mu u^\beta}{v}=\sum_{i=1}^m \ip*{\lambda u_i^\alpha+\mu u_i^\beta}{v_i}
+        =\lambda \sum_{i=1}^m \ip*{u_i^\alpha}{v_i}+\mu \sum_{i=1}^m \ip*{u_i^\beta}{v_i}
+        =\lambda \ip*{u^\alpha}{v}+\mu \ip*{u^\beta}{v} 
+    \end{align*}
+    共轭对称性：设\(u=(u_1,\cdots,u_m),v=(v_1,\cdots,v_m) \in \prod_{i=1}^m V_i\)，
+    
+    从而\(\ol{u}=(\ol{u_1},\cdots,\ol{u_m}),\ol{v}=(\ol{v_1},\cdots,\ol{v_m})\).
+    \begin{align*}
+        \ip*{u}{v}=\sum_{i=1}^m \ip*{u_i}{v_i}=\sum_{i=1}^m \ol{\ip*{v_i}{u_i}}=\ol{\ip*{v}{u}}
+    \end{align*}
+\end{proof}
+
+\newpage
+
+\begin{problem}[26]\label{6.A.26}
+    设\(f,g\)都是从\(R\)到\(R^n\)的可微函数.
+
+    a.证明：\(\ip*{f(t)}{g(t)}'=\ip*{f'(t)}{g(t)}+\ip*{f(t)}{g'(t)}\).
+    
+    b.设\(c>0\)且\(\forall t \in R,\norm*{f(t)}=c\)，证明：\(\ip*{f'(t)}{f(t)}=0\).
+\end{problem}
+
+\begin{proof}[证明a]
+    直接对\(\ip*{f(t)}{g(t)}\)求导即可.
+    \begin{align*}
+        \ip*{f(t)}{g(t)}'&=\lim_{h \rightarrow 0}\dfrac{\ip*{f(t+h)}{g(t+h)}-\ip*{f(t)}{g(t)}}{h} \\
+        &=\lim_{h \rightarrow 0}\dfrac{\ip*{f(t+h)}{g(t+h)}-\ip*{f(t+h)}{g(t)}+\ip*{f(t+h)}{g(t)}-\ip*{f(t)}{g(t)}}{h} \\
+        &=\lim_{h \rightarrow 0}\dfrac{\ip*{f(t+h)}{g(t+h)-g(t)}}{h}+\lim_{h \rightarrow 0}\dfrac{\ip*{f(t+h)-f(t)}{g(t)}}{h} \\
+        &=\ip*{f(t)}{g'(t)}+\ip*{f'(t)}{g(t)}
+    \end{align*}
+\end{proof}
+
+\begin{proof}[证明b]
+    根据\probref{6.A.26}，\(\ip*{f(t)}{f(t)}'=\ip*{f'(t)}{f(t)}+\ip*{f(t)}{f'(t)}=2\ip*{f'(t)}{f(t)}\).
+
+    由于\(\ip*{f(t)}{f(t)}\)是常值函数，故\(\ip*{f(t)}{f(t)}'=0\)，即\(\ip*{f'(t)}{f(t)}=0\).
+\end{proof}
+
+\begin{problem}[28]\label{6.A.28}
+    设\(C\)是\(V\)的一个子集，具有如下性质：若\(u,v \in C\)，则\(\dfrac{1}{2}(u+v) \in C\).
+
+    求证：离\(w \in V\)最近的向量至多只有一个.
+\end{problem}
+
+\begin{proof}
+    使用反证法.若有\(u \ne v\)满足\(\norm*{w-u}=\norm*{w-v}=c\)，则考虑\(\norm*{w-\dfrac{1}{2}(u+v)}\).
+    \begin{align*}
+        &\norm*{w-\dfrac{1}{2}(u+v)}^2=\dfrac{1}{4}\norm*{(w-u)+(w-v)}^2=\dfrac{1}{4}\ip*{(w-u)+(w-v)}{(w-u)+(w-v)} \\
+        &=\dfrac{1}{4}(\norm*{w-u}^2+\norm*{w-v}^2+\ip*{w-u}{w-v}+\ip*{w-v}{w-u}) \\
+        &\ip*{w-u}{w-v}=\ip*{w-v+v-u}{w-v}=\norm*{w-v}^2+\ip*{v-u}{w-v} \\
+        &\ip*{w-v}{w-u}=\ip*{w-u+u-v}{w-u}=\norm*{w-u}^2+\ip*{u-v}{w-u} \\
+        &\ip*{v-u}{w-v}+\ip*{u-v}{w-u}=\ip*{v-u}{w-v}-\ip*{v-u}{w-u} \\
+        &=\ip*{v-u}{(w-v)-(w-u)}=\ip*{v-u}{u-v}=-\norm*{u-v}^2 \\
+        &\norm*{w-\dfrac{1}{2}(u+v)}^2=\dfrac{1}{4}(2\norm*{w-u}^2+2\norm*{w-v}^2-\norm*{u-v}^2)
+    \end{align*}
+    而\(\norm*{w-u}^2=\norm*{w-v}^2=c^2\)，得到\(\norm*{w-\dfrac{1}{2}(u+v)}^2=c^2-\dfrac{1}{4}\norm*{u-v}^2<c^2\).
+
+    于是导出矛盾，即离\(w \in V\)最近的向量至多只有一个.
+\end{proof}
+
+{\kaishu 有测度论背景的\textit{29}题和拉普拉斯变换背景的\textit{30}题将单独列出.}
+% End: source/chapter_6/6.A.tex
+

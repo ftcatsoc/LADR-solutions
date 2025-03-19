@@ -1,0 +1,243 @@
+\section{6.B Orthonormal Bases}
+
+\begin{theorem}[6.31]\label{thm 6.31} Gram-Schmidt正交化 \: 
+    设\(v_1,\cdots,v_m\)是内积空间\(V\)中线性无关的向量组.
+    
+    构造正交向量组\(u_1,\cdots,u_m\).
+    \begin{align*}
+        u_1=v_1,\forall i=2,\cdots,m,u_i=v_i-\sum_{j=1}^{i-1} \dfrac{\ip*{v_i}{u_j}}{\ip*{u_j}{u_j}}u_j
+    \end{align*}
+    令\(\forall i=1,\cdots,m,e_i=\dfrac{u_i}{\norm*{u_i}}\)，则\(e_1,\cdots,e_m\)规范正交.
+\end{theorem}
+
+\begin{proof}
+    由于\(\forall i=1,\cdots,m,v_i \notin \altspan(v_1,\cdots,v_{i-1})\)，故\(u_i \ne 0,\norm*{u_i} \ne 0\).
+
+    因此\(\forall i=1,\cdots,m,\norm*{e_i}=1\)，故只需证明\(u_1,\cdots,u_m\)正交即可.
+    
+    根据定理6.14呈现的正交分解，\(\forall j=1,\cdots,i-1,\ip*{v_i-\dfrac{\ip*{v_i}{u_j}}{\ip*{u_j}{u_j}}u_j}{u_j}=0\).
+    
+    因此\(\forall j=1,\cdots,i-1,\ip*{u_i}{u_j}=0\).因此\(u_1,\cdots,u_m\)两两正交，证毕.
+    
+    进一步，有\(\forall i=1,\cdots,m,v_i=u_i+\sum_{j=1}^{i-1} \dfrac{\ip*{v_i}{u_j}}{\ip*{u_j}{u_j}}u_j \in \altspan(u_1,\cdots,u_i)\).
+    
+    从而\(\altspan(v_1,\cdots,v_i) \subseteq \altspan(u_1,\cdots,u_i)\).由于两组向量均线性无关且长度相等，
+    
+    故\(\altspan(v_1,\cdots,v_i)=\altspan(u_1,\cdots,u_i)=\altspan(e_1,\cdots,e_i)\).
+\end{proof}
+
+\begin{theorem}[6.42]\label{thm 6.42} Risez表示定理 \:
+    设\(V\)是有限维内积空间且\(\varphi\)是\(V\)上的线性泛函.
+
+    求证：存在唯一的\(u \in V\)，使得对于任意的\(v \in V\)，都有\(\varphi(v)=\ip*{v}{u}\).
+\end{theorem}
+
+\begin{proof}
+    存在性：设\(e_1,\cdots,e_m\)是\(V\)的一组正交基，从而
+    \begin{align*}
+        \varphi(v)=\varphi(\sum_{i=1}^m \ip*{v}{e_i}e_i)=\sum_{i=1}^m \ip*{v}{e_i}\varphi(e_i)
+        =\ip*{v}{\sum_{i=1}^m \ol{\varphi(e_i)}e_i}=\ip*{v}{u}
+    \end{align*}
+    因此只需令\(u=\sum_{i=1}^m \ol{\varphi(e_i)}e_i\)即可，存在性得证.
+
+    唯一性：若存在\(u_1,\cdots,u_2 \in V\)满足\(\varphi(v)=\ip*{v}{u_1}=\ip*{v}{u_2}\)，则
+    \begin{align*}
+        0=\ip*{v}{u_1}-\ip*{v}{u_2}=\ip*{v}{u_1-u_2}
+    \end{align*}
+    由\(V\)的任意性，取\(v=u_1-u_2\)时得到\(u_1-u_2=0,u_1=u_2\)，唯一性得证.
+\end{proof}
+
+\newpage
+
+\begin{problem}[1]\label{6.B.1}
+    设\(e_1,\cdots,e_m\)是\(V\)中的一向量组，使得\(\forall a_i \in F,\norm*{\sum_{i=1}^m a_ie_i}^2=\sum_{i=1}^m \abs*{a_i}^2\).
+
+    证明：\(e_1,\cdots,e_m\)是规范正交组．
+\end{problem}
+
+\begin{proof}
+    \begin{align*}
+        \norm*{\sum_{i=1}^m a_ie_i}^2=\sum_{i=1}^m \sum_{i=1}^m \ip*{a_ie_i}{a_je_j}=\sum_{i=1}^m \abs*{a_i}^2
+    \end{align*}
+    令\(\forall i \ne k,a_i=0\)，可得\(\abs*{a_{k}}^2\norm*{e_{k}}^2=\abs*{a_{k}}^2,\norm*{e_{k}}=1\).
+    因此\(\forall i=1,\cdots,m,\norm*{e_i}=1\).
+
+    令\(\forall i \ne j,k,a_i=0\)，可得\(\ip*{a_je_j}{a_ke_k}+\ip*{a_ke_k}{a_je_j}=0\).
+
+    从而\(\mathrm{Re}(a_j\ol{a_k}\ip*{e_j}{e_k})=0\).由\(a_j,a_k\)的任意性，必有\(\ip*{e_j}{e_k}=0\).
+
+    从而\(e_1,\cdots,e_m\)是规范正交组，证毕.
+\end{proof}
+
+\begin{problem}[4]\label{6.B.4}
+    设\(n \in N^*\).求证：向量空间\(C[-\pi,\pi]\)中的
+    \begin{align*}
+        \dfrac{1}{\sqrt{2\pi}},\dfrac{\cos x}{\sqrt{\pi}},\cdots,\dfrac{\cos nx}{\sqrt{\pi}},
+        \dfrac{\sin x}{\sqrt{\pi}},\cdots,\dfrac{\sin nx}{\sqrt{\pi}}
+    \end{align*}
+    规范正交，其内积定义为\(\ip*{f}{g}=\int_{-\pi}^{\pi}f(x)g(x)dx\).
+\end{problem}
+
+\begin{proof}
+    先证明其范数均为\(1\).
+    \begin{equation*}
+        \begin{array}{cc}
+            \begin{aligned}
+                \norm*{\dfrac{\cos kx}{\sqrt{\pi}}}^2 &= \int_{-\pi}^{\pi}(\dfrac{\cos kx}{\sqrt{\pi}})^2dx
+                =\dfrac{1}{\pi} \int_{-\pi}^{\pi} \cos^2 kx \\
+                &=\dfrac{1}{\pi} \int_{-\pi}^{\pi} \dfrac{1+\cos 2kx}{2} \\
+                &=\dfrac{1}{2\pi}(\dfrac{\sin 2k(\pi-\pi)}{2k}+2\pi)=1
+            \end{aligned}
+            &
+            \begin{aligned}
+                \norm*{\dfrac{\sin kx}{\sqrt{\pi}}}^2 &= \int_{-\pi}^{\pi}(\dfrac{\sin kx}{\sqrt{\pi}})^2dx
+                =\dfrac{1}{\pi} \int_{-\pi}^{\pi} \sin^2 kx \\
+                &=\dfrac{1}{\pi} \int_{-\pi}^{\pi} \dfrac{1-\cos 2kx}{2} \\
+                &=\dfrac{1}{2\pi}(\dfrac{\sin 2k(\pi-\pi)}{2k}+2\pi)=1
+            \end{aligned}
+        \end{array}
+    \end{equation*}
+    随后证明这些函数两两正交.
+    \begin{align*}
+        \ip*{\dfrac{\cos k_1x}{\sqrt{\pi}}}{\dfrac{\cos k_2x}{\sqrt{\pi}}}&
+        =\dfrac{1}{2\pi} \int_{-\pi}^{\pi}(\cos((k_1+k_2)x)+\cos((k_1-k_2)x))dx=0 \\
+        \ip*{\dfrac{\sin k_1x}{\sqrt{\pi}}}{\dfrac{\sin k_2x}{\sqrt{\pi}}}&
+        =\dfrac{1}{2\pi} \int_{-\pi}^{\pi}(-\cos((k_1+k_2)x)+\cos((k_1-k_2)x))dx=0 \\
+        \ip*{\dfrac{\cos k_1x}{\sqrt{\pi}}}{\dfrac{\sin k_2x}{\sqrt{\pi}}}&
+        =\dfrac{1}{2\pi} \int_{-\pi}^{\pi}(-\sin((k_1+k_2)x)+\sin((k_1-k_2)x))dx=0 \\
+        \ip*{\dfrac{\sin k_1x}{\sqrt{\pi}}}{\dfrac{\cos k_2x}{\sqrt{\pi}}}&
+        =\dfrac{1}{2\pi} \int_{-\pi}^{\pi}(\sin((k_1+k_2)x)+\sin((k_1-k_2)x))dx=0
+    \end{align*}
+    因此它们确实是两两正交且范数为\(1\)的函数，即构成一组规范正交基.
+\end{proof}
+
+\newpage
+
+\begin{problem}[8]\label{6.B.8}
+    给出\(q \in P_2(R)\)满足\(\forall p \in P_2(R),\int_{0}^{1} p(x)q(x)dx=\int_{0}^{1} p(x)\cos(\pi x)dx\).
+\end{problem}
+
+\begin{proof}
+    定义\(P_2(R)[0,1]\)上的内积为\(\ip*{p}{q}=\int_{0}^{1} p(x)q(x)dx\).
+
+    定义\(\varphi \in L(V,F)\)为\(\varphi(p)=\int_{0}^{1} p(x)\cos(\pi x)dx\)，验证\(\varphi\)是线性泛函.
+        \begin{align*}
+            \varphi(\lambda p_1+\mu p_2)&=\int_{0}^{1} (\lambda p_1+\mu p_2)(x)\cos(\pi x)dx
+            =\int_{0}^{1} [\lambda p_1(x)+\mu p_2(x)]\cos(\pi x)dx \\
+            &=\lambda \int_{0}^{1}p_1(x)\cos(\pi x)dx+\mu \int_{0}^{1}p_2(x)\cos(\pi x)dx
+            =\lambda \varphi(p_1)+\mu \varphi(p_2)
+        \end{align*}
+    接下来令\(\varphi(p)=\ip*{p}{q}\).根据定理6.42，可以找到这样的\(q\).
+    
+    根据\probref{5.B.5}，\(P_2(R)\)的一组正交基是\(1,x-\dfrac{1}{2},x^2-x+\dfrac{1}{6}\).
+    
+    从而\(q(x)=\varphi(1)+\varphi(x-\dfrac{1}{2})(x-\dfrac{1}{2})+\varphi(x^2-x+\dfrac{1}{6})(x^2-x+\dfrac{1}{6})\)
+    \(=-\dfrac{2}{\pi^2}x+\dfrac{1}{\pi^2}\).
+\end{proof}
+
+\begin{problem}[12]\label{6.B.12}
+    设\(\ip*{\cdot}{\cdot}_1,\ip*{\cdot}{\cdot}_2\)是\(V\)上的两个内积定义，其正交条件相同.
+
+    求证：存在正常数\(c\)，使得\(\forall v,w \in V,\ip*{v}{w}_1=c\ip*{v}{w}_2\).
+\end{problem}
+
+\begin{proof}
+    给出\(\varphi_1,\varphi_2 \in L(V,F),w_0 \in V\)满足\(\forall v \in V,\varphi_1(v)=\ip*{v}{w_0},\varphi_2(v)=\ip*{v}{w_0}\).
+
+    由于两种内积的正交条件相同，因此\(\ker \varphi_1=\ker \varphi_2\).
+    
+    根据\probref{3.B.30}，存在常数\(c\)，使得\(\varphi_1=c\varphi_2\)，取\(v=w_0\)可得\(c>0\).
+    
+    下证\(c\)不依赖于\(w\)的选取.考虑\(\ip*{v}{w_1}_1=c_1\ip*{v}{w_1}_2,\ip*{v}{w_2}_1=c_2\ip*{v}{w_2}_2\)，要证\(c_1=c_2\).
+    
+由\(v\)的任意性，第一处\(v\)取\(w_2\)，第二处\(v\)取\(w_1\)，得到
+    \begin{align*}
+        c_2\ip*{w_1}{w_2}_2=\ip*{w_1}{w_2}_1=\ol{\ip*{w_2}{w_1}_1}
+        =\ol{c_1\ip*{w_2}{w_1}_2}=\ol{c_1}\ip*{w_1}{w_2}_2
+    \end{align*}
+    因此\(c_1=\ol{c_2}\).由前面\(c>0\)，得\(c_1=c_2\)，因此任意的\(w\)均对应相同的\(c\).
+\end{proof}
+
+\begin{problem}[14]\label{6.B.14}
+    设\(e_1,\cdots,e_n\)为\(V\)的一组规范正交基.
+
+    设\(v_1,\cdots,v_n\)满足\(\forall i=1,\cdots,n,\norm*{e_i-v_i}<\dfrac{1}{\sqrt{n}}\).
+    求证：\(v_1,\cdots,v_n\)是\(V\)的一组基.
+\end{problem}
+
+\begin{proof}
+    令\(a_1,\cdots,a_n \in F\)满足\(\sum_{i=1}^n a_iv_i=0\)，下证\(a_1=\cdots=a_n=0\).
+    考虑\(\norm*{a_i(e_i-v_i)}^2\).
+    \begin{align*}
+        \sum_{i=1}^n \norm*{a_i(e_i-v_i)}^2<\dfrac{1}{n}\sum_{i=1}^n \abs*{a_i}^2,
+        n\sum_{i=1}^n \norm*{a_i(e_i-v_i)}^2<\sum_{i=1}^n \abs*{a_i}^2
+    \end{align*}
+    根据\probref{6.A.12}，\(n\sum_{i=1}^n \norm*{a_i(e_i-v_i)}^2 \geq (\sum_{i=1}^n \norm*{a_i(e_i-v_i)})^2\)
+    \(=(\sum_{i=1}^n \norm*{a_ie_i})^2=\sum_{i=1}^n \abs*{a_i}^2\).
+    
+    若\(\exists i=1,\cdots,n,a_i \ne 0\)，则出现矛盾，因此\(a_1=\cdots=a_n=0\).
+    
+    因此\(v_1,\cdots,v_n\)线性无关，且具有正确的维数，因此是\(V\)的一组基.
+\end{proof}
+
+\newpage
+
+\begin{problem}[17]\label{6.B.17}
+    对于\(u \in V\)，定义\(V\)上的线性泛函\(\varphi_u\)为\(\varphi_u(v)=\ip*{v}{u},\varphi(u)=\varphi_u\).
+
+    a.求证：若\(V\)是在\(R\)上的向量空间，则\(\varphi \in L(V,V')\).
+    
+    b.求证：若\(V\)是在\(C\)上的非零向量空间，则\(\varphi\)不是线性变换.
+    
+    c.求证：\(\varphi\)是单射变换.
+    
+    d.求证：若\(V\)是在\(R\)上的有限维向量空间，则\(\varphi\)是双射变换.
+\end{problem}
+
+\begin{proof}[证明a]
+    直接验证即可.
+    \begin{align*}
+        \forall v \in V,(\varphi(\lambda u_1+\mu u_2))(v)
+        &=\varphi_{\lambda u_1+\mu u_2}(v)=\ip*{v}{\lambda u_1+\mu u_2} \\
+        &=\lambda \ip*{v}{u_1}+\mu \ip*{v}{u_2}=\lambda (\varphi(u_1))(v)+\mu (\varphi(u_2))(v)
+    \end{align*}
+    因此\(\varphi:V \rightarrow V'\)是线性变换.
+\end{proof}
+
+\begin{proof}[证明b]
+    \(\forall v \in V,(\varphi(\lambda u))(v)=\ol{\lambda}\ip*{v}{u_1}=\ol{\lambda} (\varphi(u))(v)\)
+    \(\ne \lambda (\varphi(u))(v)\)
+\end{proof}
+
+\begin{proof}[证明c]
+    令\(\varphi_u=0\)，则\(\forall v \in V,\varphi_u(v)=\ip*{v}{u}=0\).取\(v=u\)，则\(\ip*{u}{u}=0,u=0\).
+
+    因此\(\ker \varphi=\{0\}\)，即\(\varphi\)是单射变换.
+\end{proof}
+
+\begin{proof}[证明d]
+    设\(e_1,\cdots,e_n\)是\(V\)的一组规范正交基，\(\psi_1,\cdots,\psi_n\)是其对偶基.
+
+    下证\(\forall i=1,\cdots,n,\varphi(e_i)=\psi_i\).考虑任意的\(v=\sum_{i=1}^n \ip*{v}{e_i}e_i\)，有
+    \begin{align*}
+        \psi_i(\sum_{i=1}^n \ip*{v}{e_i}e_i)=\ip*{v}{e_i}=(\varphi(e_i))(\sum_{i=1}^n \ip*{v}{e_i}e_i)
+    \end{align*}
+    因此\(\dim \Img \varphi=n=\dim V=\dim V'\)，即\(\varphi\)为满射，证毕.
+\end{proof}
+
+\begin{problem}[7.A.20]
+    在\probref{6.B.17}的情况下设\(T \in L(V,W)\).求证：\(T' \circ \varphi_W=\varphi_V \circ T^*\).
+\end{problem}
+
+\begin{proof}
+    设\(\forall v \in V,w \in W\)，有\((T' \circ \varphi_W)w=\varphi_w \circ T,(\varphi_V \circ T^*)w=\varphi_{T^*w}\).
+    \begin{align*}
+        ((T' \circ \varphi_W)w)v=(\varphi_w \circ T)v=\ip*{Tv}{w}=\ip*{v}{T^*w}=\varphi_{T^*w}v=((\varphi_v \circ T^*)w)v
+    \end{align*}
+    {\kaishu \probref{6.B.17}和习题7.A.20将对偶变换\(T'\)和伴随变换\(T^*\)通过\textit{Risez}表示定理结合起来.}
+    %此处使用了硬编码
+\end{proof}
+
+{\kaishu 有算子范数和奇异值分解背景的\textit{16}题将单独列出.}
+% End: source/chapter_6/6.B.tex
+

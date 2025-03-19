@@ -1,0 +1,330 @@
+\section{3.E Products and Quoients of Vector Spaces}
+
+\begin{problem}[1]\label{3.E.1}
+    设\(T\)是从\(V\)到\(W\)的映射.\(T\)的像是\(V \times W\)的子集，并被定义为
+    \begin{align*}
+        T \text{的像}= \{(v,Tv) \in V \times W | v \in V\}
+    \end{align*}
+求证：\(T\)是线性变换和\(T\)的像是\(V \times W\)的子空间等价.    
+\end{problem}
+
+\begin{proof}
+    设\(v_1,v_2 \in V\)，则\((v_1.Tv_1),(v_2,Tv_2) \in T \text{\kaishu 的像}\).
+
+    若\(T\)的像是\(V \times W\)的子空间，则\((v_1+v_2,Tv_1+Tv_2) \in T \text{\kaishu 的像}\).
+    而\((v_1+v_2,T(v_1+v_2)) \in T \text{\kaishu 的像}\)，
+    
+    且对于同一向量\(v_1+v_2\)，其在\(W\)中的像必然相同，即\(Tv_1+Tv_2=T(v_1+v_2)\).
+    
+    同理\((\lambda v,\lambda Tv)=(\lambda v,T(\lambda v))\)，即\(T(\lambda v)=\lambda Tv\).
+    因此\(T\)是一个线性变换，反之亦然.    
+\end{proof}
+
+\begin{problem}[4]\label{3.E.4}
+    证明：\(\prod_{i=1}^m L(V_i,W)\)和\(L(\prod_{i=1}^m V_i,W)\)同构.
+\end{problem}
+
+\begin{proof}
+    定义\(v=(v_1,\cdots,v_m) \in \prod_{i=1}^m V_i\)，其中\(v_i \in V_i\).
+
+    定义投影映射\(R_j^P \in L(\prod_{i=1}^m V_i,V_j)\)为\(R_j^P(v)=v_j\).验证\(R_j^P\)的线性性.
+    
+    \(R_j^P(c^\alpha v^\alpha+c^\beta v^\beta)=c^\alpha v_j^\alpha+c^\beta v_j^\beta\)
+    \(=c^\alpha R_j^P v^\alpha+c^\beta R_j^P v^\beta\).
+    
+    定义\(S=(S_1,\cdots,S_m) \in \prod_{i=1}^m L(V_i,W)\)，其中\(S_i \in L(V_i,W)\).
+    
+    定义\(\Gamma \in L(\prod_{i=1}^m L(V_i,W),L(\prod_{i=1}^m V_i,W))\)为\(\Gamma(S)=\sum_{i=1}^m S_i \circ R_i^P\).
+    验证\(\Gamma\)的线性性.
+    \begin{align*}
+        \Gamma(c^\alpha S^\alpha+c^\beta S^\beta)
+        =c^\alpha \sum_{i=1}^m(S_i^\alpha \circ R_i^P)+c^\beta \sum_{i=1}^m(S_i^\beta \circ R_i^P)
+        =c^\alpha \Gamma(S^\alpha)+c^\beta \Gamma(S^\beta)
+    \end{align*}
+    定义嵌入映射\(R_j^I \in L(V_j,\prod_{i=1}^m V_i)\)为\(R_j^I(v_j)=(0,\cdots,v_j,\cdots,0)\).验证\(R_j^I\)的线性性.
+    
+    \(R_j^I(c^\alpha v_j^\alpha+c^\beta v_j^\beta)=(0,\cdots,c^\alpha v_j^\alpha+c^\beta v_j^\beta,\cdots,0)\)
+    \(=c^\alpha R_j^I v_j^\alpha+c^\beta R_j^I v_j^\beta\).
+    
+    定义\(T \in L(\prod_{i=1}^m V_i,W)\)为\(Tv=\sum_{i=1}^m S_iv_i\)，其中\(S_i \in L(V_i,W)\).
+    
+    定义\(\psi \in L(L(\prod_{i=1}^m V_i,W),\prod_{i=1}^m L(V_i,W))\)为\(\psi(T)=(T \circ R_1^I,\cdots,T \circ R_m^I)\).
+    验证\(\psi\)的线性性.
+    \begin{align*}
+        \psi(c^\alpha T^\alpha+c^\beta T^\beta)
+        =((c^\alpha T^\alpha+c^\beta T^\beta) \circ R_1^I,\cdots,(c^\alpha T^\alpha+c^\beta T^\beta) \circ R_m^I)
+        =c^\alpha \psi(T^\alpha)+c^\beta \psi(T^\beta)
+    \end{align*}
+    下面验证\(\psi \circ \Gamma\)和\(\Gamma \circ \psi\)是单位变换.
+    \begin{align*}
+        &(\psi \circ \Gamma)(S)=\psi \sum_{i=1}^m S_i \circ R_i^P
+        =((\sum_{i=1}^m S_i \circ R_i^P) \circ R_1^I,\cdots,(\sum_{i=1}^m S_i \circ R_i^P) \circ R_m^I)=S \\
+        &(\Gamma \circ \psi)(T)=\Gamma(T \circ R_1^I,\cdots,T \circ R_m^I)
+        =\sum_{i=1}^m T \circ R_i^I \circ R_i^P=T
+    \end{align*}
+    {\kaishu 这里的嵌入映射和投影映射相当于\(\Gamma\)和\(\psi\)的“受体”.}
+\end{proof}
+
+\newpage
+
+\begin{problem}[6]\label{3.E.6}
+    证明：\(V^n\)和\(L(F^n,V)\)同构.    
+\end{problem}
+
+\begin{proof}
+    定义\(v=(v_1,\cdots,v_n) \in V^n\)，其中\(v_i \in V\)；
+    定义\(x=(x_1,\cdots,x_n) \in F^n\)，其中\(x_i \in F\).
+    
+    定义投影映射\(R_j \in (F^n,V)\)为\(R_j(x)=x_jv_j\).验证\(R_j\)的线性性.
+    
+    \(R_j(c^\alpha x^\alpha+c^\beta x^\beta)=(c^\alpha x_j^\alpha+c^\beta x_j^\beta)v_j\)
+    \(=c^\alpha R_j(x^\alpha)+c^\beta R_j(x^\beta)\).
+    
+    定义\(\Gamma \in L(V^n,L(F^n,V))\)为\(\Gamma(v)=\sum_{i=1}^n R_i\).验证\(\Gamma\)的线性性.
+    \begin{align*}
+        \Gamma(c^\alpha v^\alpha+c^\beta v^\beta)
+        =\sum_{i=1}^n (c^\alpha R_i^\alpha+c^\beta R_i^\beta)
+        =c^\alpha \sum_{i=1}^n R_i^\alpha+c^\beta \sum_{i=1}^n R_i^\beta
+        =c^\alpha \Gamma(v^\alpha)+c^\beta \Gamma(v^\beta)
+    \end{align*}
+    下面证明\(\Gamma\)是单射变换.令\(\sum_{i=1}^n R_i(x)=\sum_{i=1}^n x_iv_i=0\).
+    定义\(e_1,\cdots,e_n \in F^n\)是\(F^n\)的标准基.
+    
+    令\(x_i=e_i\)，则可得\(\forall i=1,\cdots,n,v_i=0\)，即\(v=0\).
+    
+    下面证明\(\Gamma\)是满射变换.\(\forall R \in L(F^n,V)\)，定义\(v \in V^n\)为\(v=(Re_1,\cdots,Re_n)\)，考虑\((\Gamma(v))(x)\).
+    
+    \(\forall x \in F^n,(\Gamma(v))(x)=(\sum_{i=1}^n Re_i)(x)=R\sum_{i=1}^n x_ie_i=R(x)\).
+    
+    因此\(\forall R \in L(F^n,V),\exists v=(Re_1,\cdots,Re_n)\)，使得\(\Gamma(v)=R\)，证毕.    
+\end{proof}
+
+\begin{problem}[7]\label{3.E.7}
+    设\(U\)和\(W\)是\(V\)的子空间，\(v \in V,u \in U,v+U=u+W\)，求证：\(U=W\).
+\end{problem}
+
+\begin{proof}
+    \(U=(u-v)+W\)是\(V\)的子空间，即\(u-v \in W \Rightarrow U=W\).
+\end{proof}
+
+\begin{problem}[8]\label{3.E.8}
+    证明：\(V\)的非空子集\(A\)是\(V\)的仿射集等价于\(\forall v,w \in A,\lambda \in F,\lambda v+(1-\lambda)w \in A\).
+\end{problem}
+
+\begin{proof}
+    充分性：设\(A=a+U\)，其中\(a\in A\)且\(U\)是\(V\)的一个子空间.
+
+    故存在\(v,w \in A\)，满足\(v=a+u_1,w=a+u_2\)，
+
+    得\(\lambda(a+u_1)+(1-\lambda)(a+u_2)=a+(\lambda u_1+(1-\lambda)u_2) \in A\).
+
+    必要性：即存在\(a \in A\)和\(V\)的一个子空间\(U\)，使得\(v-a \in U,w-a \in U\).
+
+    从而\(\forall c_1,c_2 \in F,\dfrac{c_1}{c_1+c_2}(v-a)+\dfrac{c_2}{c_1+c_2}(w-a) \in U\).
+
+    令\(\dfrac{c_1}{c_1+c_2}=\lambda\)，则\(\dfrac{c_2}{c_1+c_2}=1-\lambda\)，
+    有\(\lambda (v-a)+(1- \lambda)(w-a)=\lambda v+(1- \lambda)w-a \in U\).
+
+    从而\(\lambda v+(1- \lambda)w \in a+U=A\)，即\(A\)是\(V\)的一个仿射集.
+
+    {\kaishu 这是仿射集的第二定义.}
+\end{proof}
+
+\begin{problem}[9]\label{3.E.9}
+    设\(A_1\)和\(A_2\)是\(V\)的仿射集.求证：\(A_1 \cap A_2=\phi\)或也是仿射集.
+\end{problem}
+
+\begin{proof}
+    考虑\(A_1 \cap A_2 \ne \phi\).若\(A_1 \cap A_2=\{v\}\)，则\(A_1 \cap A_2\)是仿射集.
+
+    若交集不止一点，则取\(v,w \in A_1 \cap A_2\).
+    根据\probref{3.E.8}，\(\forall v,w \in A_1,\lambda \in F,\lambda v+(1-\lambda)w \in A_1\).
+
+    \(A_2\)的处理方法和\(A_1\)一致，从而\(\lambda v+(1- \lambda)w \in A_1 \cap A_2\).即\(A_1 \cap A_2\)是仿射集，证毕.
+\end{proof}
+
+\newpage
+
+\begin{problem}[11]\label{3.E.11}
+    设\(v_1,\cdots,v_m \in V\)，令\(A=\{\sum_{i=1}^m \lambda_i v_i|\sum_{i=1}^m \lambda_i=1\}\).
+
+    a.证明：\(A\)是\(V\)的一个仿射集.
+
+    b.证明：\(V\)中任意包含\(v_1,\cdots,v_m\)的仿射集都必然包含\(A\).
+
+    c.证明：\(V\)中存在某个向量\(v\)和某个满足\(\dim U \leq m-1\)的子空间\(U\)，使得\(A=v+U\).
+\end{problem}
+
+\begin{proof}[证明a]
+    取\(A\)中的两点\(\sum_{i=1}^m \lambda_i v_i,\sum_{i=1}^m \mu_i v_i\)，
+    考虑\(\gamma \sum_{i=1}^m \lambda_i v_i+(1-\gamma)\sum_{i=1}^m \lambda_i v_i\).
+    
+    由于\(\gamma \sum_{i=1}^m \lambda_i+(1-\gamma)\sum_{i=1}^m \mu_i=1\).故根据仿射集的第二定义，
+    
+    \(\gamma \sum_{i=1}^m \lambda_i v_i+(1-\gamma)\sum_{i=1}^m \mu_i v_i\)
+    \(=\sum_{i=1}^m(\gamma \lambda_i+(1-\gamma)\mu_i)v_i \in A\).即\(A\)是\(V\)的一个仿射集.    
+\end{proof}
+
+\begin{proof}[证明b]
+    由\(A\)是仿射集，故存在\(u_0 \in V\)和\(V\)的一个子空间\(U\)，满足\(A=u_0+U\).
+
+    因此\(\forall i=1,\cdots,m,v_i \in A,\exists u_i \in U,v_i=u_0+u_i\).
+    考虑\(\forall v=\sum_{i=1}^m \lambda_i v_i \in A\).
+    
+    将\(v_i=u_0+u_i\)代入，有\(\sum_{i=1}^m \lambda_i(u_0+u_i)=u_0+\sum_{i=1}^m \lambda_i u_i\).
+    因此\(\sum_{i=1}^m \lambda_i u_i \in U\).
+    
+    同时，\(\sum_{i=1}^m \lambda_i u_i \in \altspan (u_1,\cdots,u_m)\)，
+    因此\(U \subseteq \altspan (u_1,\cdots,u_m)\).
+    
+    根据定理2.7，\(\altspan (u_1,\cdots,u_m)\)是能包含\(u_1,\cdots,u_m\)的最小子空间.
+    
+    能够包含\(u_1,\cdots,u_m\)的子空间必然包含\(U\)，也即能够包含\(v_1,\cdots,v_m\)的仿射集必然包含\(A\).    
+\end{proof}
+
+\begin{proof}[证明c]
+    将\probref{3.E.11}中的\(u_0\)替换成\(v_1\)，则\(\forall i=2,\cdots,m,u_i=v_i-v_1\).
+
+    因此\(A=u_0+U=u_0+\altspan (u_1,\cdots,u_m)=v_1+\altspan (v_2-v_1,\cdots,v_m-v_1)\).
+
+    显然，\(U\)就是满足要求的子空间.
+\end{proof}
+
+\begin{problem}[12]\label{3.E.12}
+    设\(U\)是\(V\)的一个子空间且\(V/U\)是有限维向量空间，求证：\(V\)和\(U \times (V/U)\)同构.
+\end{problem}
+
+\begin{proof}
+    根据定理2.34，存在\(V\)的一个子空间\(W\)，使得\(V=U \oplus W\)，
+
+    从而\(\forall v \in V, \exists u \in U,w \in W,v=u+w\).
+    
+    现在定义\(T \in L(V,U \times (V/U))\)为\(Tv=(u,v+U)\)，令\(Tv=0\)，则\(u=0\)且\(v+U=0+U\).
+    
+    由于\(v+U=w+u+U=w+U\)且\(w \notin U\)，得\(w=0\)，从而\(\ker T=\{0\}\)，即\(T\)为单射变换.
+    
+    由\(\dim (U \times (V/U))=\dim V\)得到\(T\)是满射变换.综上，\(T\)为可逆变换，证毕.
+\end{proof}
+
+\begin{problem}[13]\label{3.E.13}
+    设\(U\)是\(V\)的子空间且\(v_1+U,\cdots,v_m+U\)是\(V/U\)的一组基，
+    
+    \(u_1,\cdots,u_n\)是\(U\)的一组基.求证：\(v_1,\cdots,v_m,u_1,\cdots,u_n\)是\(V\)的一组基.
+\end{problem}
+
+\begin{proof}
+    根据\probref{3.E.12}，\((u_1,0),\cdots,(u_n,0),(0,v_1+U),\cdots,(0,v_m+U)\)是\(V/U\)的一组基.
+
+    由于\(T\)是可逆变换，考虑\(T^{-1} \in L((U \times V/U),V)\).
+
+    则\(\forall i=1,\cdots,n,T^{-1}(u_i,0)=u_i,\forall j=1,\cdots,m,T^{-1}(0,v_j+U)=v_j\).
+
+    于是\(v_1,\cdots,v_m,u_1,\cdots,u_n\)是\(V\)的一组基.
+\end{proof}
+
+\newpage
+
+\begin{problem}[14]\label{3.E.14}
+    设\(U=\{(x_1,x_2,\cdots)\in F^\infty | x_i \ne 0\}\)只对有限多的\(i\)成立.
+
+    a.证明\(U\)是\(F^\infty\)的一个子空间.
+
+    b.证明\(F^\infty /U\)是无限维向量空间.
+\end{problem}
+
+\begin{proof}[证明a]
+    \(U\)中任意元素的加法或数乘都不会使得其中的非零元素增加到无限多个.
+\end{proof}
+
+\begin{proof}[证明b]
+    构造\(e_1,\cdots,e_m,\cdots \notin U\)，使得\(e_1,\cdots,e_m,\cdots\)线性无关.
+
+    从而根据习题2.A.14，\(F^\infty /U\)是无限维向量空间.%此处使用了硬编码
+    令\(e(p)\)是\(e\)中第\(p\)位数.构造向量\(e_m\)
+    \begin{align*}
+        e_m(p)=
+            \begin{cases}
+                0 & p<m \\
+                1 & p \geq m
+            \end{cases}
+    \end{align*}
+    显然\(e_1-e_2,\cdots,e_i-e_{i+1},\cdots,e_{m-1}-e_m,e_m\)线性无关.
+    
+    令\(\sum_{i=1}^{m-1} a_i(e_i-e_{i+1})+a_me_m=0\)，则\(a_1e_1+\sum_{i=2}^m(a_i-a_{i-1})e_i=0\).
+    
+    得\(a_1=\cdots=a_m=0\).于是\(a_1=\cdots=a_m-a_{m-1}=0\)，即\(e_1,\cdots,e_m\)线性无关.
+    
+    由于\(e_1,\cdots,e_m,\cdots \notin U\)，因而\(\forall m \in N^*,e_1+U,\cdots,e_m+U\)线性无关.
+\end{proof}
+
+\begin{comment}
+    \begin{problem}[18]\label{3.E.18}
+        设\(U\)是\(V\)的一个子空间且\(V/U\)是有限维向量空间.
+
+        求证：存在\(V\)的另一个子空间\(W\)，使得\(\dim W=\dim V/U\)且\(V=U \oplus W\).
+    \end{problem}
+
+    \begin{proof}
+        由于\(V/U\)是有限维向量空间，设\(v_1+U,\cdots,v_m+U\)是\(V/U\)的一组基.
+
+        从而\(\forall v+U \in V/U,v+U=\sum_{i=1}^m a_i(v_i+U)=\sum_{i=1}^m a_iv_i+U\).
+        
+        即\(v-\sum_{i=1}^m a_iv_i=u \in U,v=\sum_{i=1}^m a_iv_i+u\)，得到\(V=\altspan (v_1,\cdots,v_m)+U\).
+        
+        下证\(v_1,\cdots,v_m\)线性无关且\(\altspan (v_1,\cdots,v_m) \cap U =\{0\}\).
+        
+        \(\sum_{i=1}^m a_i(v_i+U)=\sum_{i=1}^m a_iv_i+U=U \Rightarrow a_1=\cdots=a_m=0\)，即\(v_1,\cdots,v_m\)线性无关.
+        
+        使用反证法.若\(v_0 \ne 0 \in \altspan (v_1,\cdots,v_m) \cap U\)，
+        即存在至少一个\(a_i \ne 0\)，使得\(v_0=\sum_{i=1}^m a_iv_i\).
+        
+        然而\(v_0 \in U \Rightarrow v_0+U=U \Rightarrow a_1=\cdots=a_m=0\).
+        
+        矛盾，假设不成立，令\(W=\altspan (v_1,\cdots,v_m)\)，原命题即得证.
+    \end{proof}
+\end{comment}
+
+\begin{problem}[19]\label{3.E.19}
+    设\(T \in L(V,W)\)且\(U\)是\(V\)的一个子空间.令\(\pi \in L(V,V/U)\).
+
+    求证：存在\(S \in L(V/U,W)\)满足\(T=S \circ \pi\)是\(U \subseteq \ker T\)的充要条件.
+\end{problem}
+
+\begin{proof}
+    必要性：设存在\(S \in L(V/U,W)\)满足\(T=S \circ \pi\)，
+
+    则对于\(\forall u \in U\)，都有\(Tu=S \circ \pi(u)=S(0)=0\).即\(\forall u \in U,u \in \ker T\)，证毕.
+    
+    充分性：定义\(S \in L(V/U,W)\)为\(S(v+U)=Tv\).合法性由定理3.87保证.
+    
+    因此，\(S \circ \pi(v)=S(v+U)=Tv\)，证毕.
+\end{proof}
+
+\begin{problem}[20]\label{3.E.20}
+    设\(U\)是\(V\)的一个子空间.定义\(\Gamma \in L(L(V/U,W),L(V,W))\)为\(\Gamma(S)=S \circ \pi\).
+
+    a.证明\(\Gamma\)是线性变换.
+    
+    b.证明\(\Gamma\)是单射变换.
+    
+    c.证明\(\Img  \Gamma=\{T \in L(V,W)|\forall u \in U,Tu=0 \}\).
+\end{problem}
+
+\begin{proof}[证明a]
+    \(\Gamma(\lambda S_1+\mu S_2)=(\lambda S_1+\mu S_2) \circ \pi\)
+    \(=\lambda S_1 \circ \pi+\mu S_2 \circ \pi=\lambda \Gamma(S_1)+\mu \Gamma(S_2)\).
+\end{proof}
+
+\begin{proof}[证明b]
+    令\(\Gamma(S)(v)=S \circ \pi(v)=S(v+U)=0\).
+
+    由于对于\(\forall v+U \in V/U\)，\(S(v+U)=0\)，故\(S=0\)，即\(\ker  \Gamma=0\)，证毕.
+\end{proof}
+
+\begin{proof}[证明c]
+    若\(T \in \Img  \Gamma\)，则\(\exists S \in L(V/U,W)\)，使得\(T=S \circ \pi\).
+
+    根据\probref{3.E.13}，\(U \subseteq \ker T\).因此对于\(\forall T \in \Img \Gamma\)，有\(\forall u \in U,Tu=0\).    
+\end{proof}
+% End: source/chapter_3/3.E.tex
+

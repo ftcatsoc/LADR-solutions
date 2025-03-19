@@ -1,0 +1,291 @@
+\section{3.B Null spaces and Ranges}
+
+\begin{problem}[3]\label{3.B.3}
+    设\(v_1,\cdots,v_m \in V\)，定义\(T \in L(F^m,V)\)为\(T(z_1,\cdots,z_m)=\sum_{i=1}^m z_iv_i\).
+
+    a.若\(V=\altspan (v_1,\cdots,v_m)\)，则\(T\)具有怎样的性质？
+
+    b.若\(v_1,\cdots,v_m\)线性无关，则\(T\)具有怎样的性质？
+\end{problem}
+
+\begin{proof}[证明a]
+    由于\(\Img T=\altspan (v_1,\cdots,v_m)=V\)，故\(T\)满射.
+\end{proof}
+
+\begin{proof}[证明b]
+    令\(T(z_1,\cdots,z_m)=\sum_{i=1}^m z_iv_i=0\).
+
+    由于\(v_1,\cdots,v_m\)线性无关，故\(z_1=\cdots=z_m=0\)，即\(\ker T=\{0\}\)，从而\(T\)单射.    
+\end{proof}
+
+\begin{problem}[9]\label{3.B.9}
+    设\(T\in L(V,W)\)是单射的，且\(v_1,\cdots,v_m\)是\(V\)中一列线性无关的向量.
+
+    求证：\(Tv_1,\cdots,Tv_m\)在\(W\)中线性无关.    
+\end{problem}
+
+\begin{proof}
+    令\(\sum_{i=1}^m a_iTv_i=T\sum_{i=1}^m a_iv_i=0\)，由于\(T\)是单射变换，故\(\sum_{i=1}^m a_iv_i=0\).
+
+    而\(v_1,\cdots,v_m\)线性无关，则\(a_1=\cdots=a_m=0\)，证毕.    
+\end{proof}
+
+\begin{problem}[10]\label{3.B.10}
+    设\(V=\altspan (v_1,\cdots,v_m)\)且\(T\in L(V,W)\)，求证：\(\Img T=\altspan (Tv_1,\cdots,Tv_m)\).
+\end{problem}
+
+\begin{proof}
+    \(\Img T=\{Tv|v\in V\}=\{Tv|v\in \altspan(v_1,\cdots,v_m)\}\).
+
+    \(\forall u=T\sum_{i=1}^m a_iv_i \in \Img T,u=\sum_{i=1}^m a_iTv_i \in \altspan(Tv_1,\cdots,Tv_m)\)；
+
+    \(\forall u=\sum_{i=1}^m a_iTv_i \in \altspan(Tv_1,\cdots,Tv_m),u=T\sum_{i=1}^m a_iv_i \in \Img T\).
+
+    因而有\(\Img T \subseteq \altspan(Tv_1,\cdots,Tv_m),\altspan(Tv_1,\cdots,Tv_m) \subseteq \Img T\).
+
+    即\(\Img T=\altspan (Tv_1,\cdots,Tv_m)\)，证毕.
+\end{proof}
+
+\begin{problem}[12]\label{3.B.12}
+    设\(V\)是有限维向量空间且\(T\in L(V,W)\).
+
+    求证：存在\(V\)的一个子空间\(U\)，满足\(U \cap \ker T=\{0\}\)且\(\Img T=\{Tu|u\in U\}\).    
+\end{problem}
+
+\begin{proof}
+    令\(v_1,\cdots,v_m\)为\(\ker T\)的一组基，故存在线性无关的\(u_1,\cdots,u_n\)，
+
+    使得\(v_1,\cdots,v_m,u_1,\cdots,u_n\)为\(V\)的一组基.
+    
+    令\(U=\altspan (u_1,\cdots,u_n)\)，则\(U\cap \ker T=\{0\}\)显然成立，下证\(\Img T=\{Tu|u\in U\}\).
+    
+    令\(\forall w\in V,\exists u\in U,v\in \ker T, w=u+v\)，从而
+    \begin{align*}
+        \Img T=\{Tw|w\in V\}=\{T(u+v)|u\in U,v\in \ker T\}=\{Tu|u\in U\}
+    \end{align*}
+    从而\(\Img T=\{Tu|u\in U\}\)，证毕.    
+\end{proof}
+
+\newpage
+
+\begin{problem}[17]\label{3.B.17}
+    设\(V\)和\(W\)是有限维向量空间.
+    
+    求证：\(\dim V \leq \dim W\)等价于存在单射的\(T\in L(V,W)\).
+\end{problem}
+
+\begin{proof}
+    必要性：若\(T\in L(V,W)\)为单射，则\(\dim V=\dim \Img T \leq \dim W\)，证毕.
+    
+    充分性：设\(v_1,\cdots,v_m\)和\(w_1,\cdots,w_n\)分别为\(V\)和\(W\)的一组基.
+    
+    有\(\dim V=m\leq n=\dim W\)，从而定义\(Tv_i=w_i,i=1,\cdots,m\).
+    
+    定理3.5保证了线性变换\(T\)的存在性，下证\(T\)是单射的.
+    
+    令\(T\sum_{i=1}^m a_iv_i=\sum_{i=1}^m a_iTv_i=\sum_{i=1}^m a_iw_i=0\)，从而\(a_1=\cdots=a_m=0\)，证毕.    
+\end{proof}
+
+\begin{problem}[19]\label{3.B.19}
+    设\(V\)和\(W\)是有限维的，\(U\)是\(V\)的一个子空间.
+
+    求证：当且仅当\(\dim U \geq \dim V-\dim W\)，存在\(T\in L(V,W)\)，满足\(\ker T=U\).
+\end{problem}
+
+\begin{proof}
+    必要性：原式等价于
+    \begin{align*}
+        \dim U=\dim \ker T=\dim V-\dim \Img T \geq \dim V-\dim W,\dim \Img T \leq \dim W
+    \end{align*}
+    充分性：设\(v_1,\cdots,v_m\)是\(U\)的一组基.由于\(U\)是\(V\)的一个子空间，
+
+    故存在线性无关的\(v_{m+1},\cdots,v_{m+n}\)使得\(v_1,\cdots,v_{m+n}\)是\(V\)的一组基.
+
+    从而原式等价于\(m\geq (m+n)-\dim W\)，即\(\dim W\geq n\).令
+    \begin{align*}
+        Tv_i=0,i=1,\cdots,m \quad Tv_i=w_i,i=m+1,\cdots,m+n
+    \end{align*}
+    \(T\)满足\(\ker T=U\)，同时\(\Img T=\altspan (Tv_{m+1},\cdots,Tv_{m+n})\)，满足题意.
+\end{proof}
+
+\begin{problem}[20]\label{3.B.20}
+    设\(V\)是有限维向量空间且\(T\in L(V,W)\).
+
+    求证：\(T\)是单射变换等价于存在\(S \in L(W,V)\)满足\(ST=I_V\).
+\end{problem}
+
+\begin{proof}
+    必要性：利用反证法.设\(T\)不是单射变换，
+    即\(\exists v_\alpha,v_\beta \in V\)满足\(Tv_\alpha=Tv_\beta\)且\(v_\alpha \ne v_\beta\).
+    
+    \(\exists S,ST=I\)，因而有\(v_\alpha=S(Tv_\alpha)=S(Tv_\beta)=v_\beta\).构成矛盾，即\(T\)为单射变换，证毕.
+    
+    充分性：设\(v_1,\cdots,v_m\)是\(V\)的一组基，显然\(Tv_1,\cdots,Tv_m\)线性无关.
+    
+    因而存在\(w_1,\cdots,w_n\)，使得\(Tv_1,\cdots,Tv_m,w_1,\cdots,w_n\)是\(W\)的一组基.定义
+    \begin{align*}
+        S(Tv_i)=v_i,i=1,\cdots,m \quad Sw_j=0,j=1,\cdots,n
+    \end{align*}
+    定理3.5保证了线性变换\(S\)的存在性.下证\(ST=I\).
+    \begin{align*}
+        \forall v=\sum_{i=1}^m a_iv_i\in V,(ST)v=S(\sum_{i=1}^m a_iTv_i)
+        =\sum_{i=1}^m a_iS(Tv_i)=\sum_{i=1}^m a_iv_i=v
+    \end{align*}
+\end{proof}
+
+\newpage
+
+\begin{problem}[21]\label{3.B.21}
+    设\(V\)是有限维向量空间且\(T\in L(V,W)\).
+
+    求证：\(T\)是满射变换等价于存在\(S\in L(W,V)\)满足\(TS=I_W\).    
+\end{problem}
+
+\begin{proof}
+    必要性：利用反证法.设\(T\)不是满射变换，即\(\exists w\in W,w\notin \Img T\).
+
+    \(\exists S,TS=I\)，从而\(T(Sw)=w,w\in \Img T\)，矛盾，必要性得证.
+    
+    充分性：设\(w_1,\cdots,w_m\)是\(W\)的一组基.由于\(T\)是满射变换，\(\Img T=\altspan (w_1,\cdots,w_m)\).
+    
+    设\(v_1,\cdots,v_m\in V,V=\altspan (v_1,\cdots,v_m,u_1,\cdots,u_n)\)，则定义
+    \begin{align*}
+        Sw_i=v_i,i=1,\cdots,m \quad
+        Tv_i=w_i,i=1,\cdots,m \quad Tu_j=0,j=1,\cdots,n
+    \end{align*}
+    定理3.5保证了线性变换\(S\)的存在性.下证\(TS=I\).
+    \begin{align*}
+        \forall w=\sum_{i=1}^m a_iw_i\in W,(TS)w=T(\sum_{i=1}^m a_iSw_i) 
+        =\sum_{i=1}^m a_iTv_i=\sum_{i=1}^m a_iw_i=w
+    \end{align*}
+\end{proof}
+
+\begin{problem}[24]\label{3.B.24}
+    设\(W\)是有限维向量空间且\(T_1,T_2 \in L(V,W)\).
+
+    求证：\(\ker T_1 \subseteq \ker T_2\)的充要条件是\(\exists S \in L(W)\)，使得\(T_2=ST_1\).        
+\end{problem}
+
+\begin{proof}
+    必要性：设\(\forall v \in \ker T_1\)，有\(T_2v=ST_1v=0\).
+
+    故\(\forall v \in \ker T_1, v \in \ker T_2\)，即\(\ker T_1 \subseteq \ker T_2\)，必要性得证.
+    
+    充分性：\(W\)是有限维向量空间且\(\Img T_1 \subseteq W\)，故\(\Img T_1\)也是有限维向量空间.
+    
+    令\(T_1v_1,\cdots,T_1v_m\)是\(\Img T_1\)的一组基且\(\sum_{i=1}^m a_iv_i=0\)，根据习题3.A.4，%此处使用了硬编码
+    
+    有\(\sum_{i=1}^m a_iT_1v_i=T_1(\sum_{i=1}^m a_iv_i)=0\)，得\(a_1=\cdots=a_m=0\)，从而\(v_1,\cdots,v_m\)线性无关.
+    
+    令\(K=\altspan (v_1,\cdots,v_m)\)，从而\(V=K \oplus \ker T\).现在定义线性变换\(S\).
+    
+    由于\(T_1v_1,\cdots,T_1v_m\)线性无关，故将其补充为\(W\)的一组基\(T_1v_1,\cdots,T_1v_m,w_1,\cdots,w_n\).
+    \begin{align*}
+        S(T_1v_i)=T_2v_i,i=1,\cdots,m \quad Sw_j=0,j=1,\cdots,n
+    \end{align*}
+    定理3.5保证了线性变换\(S\)的存在性.下证\(ST_1=T_2\).
+    
+    由于\(\forall v \in V, v=v_0+\sum_{i=1}^m a_iv_i\)，其中\(v_0 \in \ker T_1\)，故
+    \begin{align*}
+        S(T_1v)=S(T_1v_0)+\sum_{i=1}^m a_iS(T_1v_i)
+        =\sum_{i=1}^m a_iT_2v_i=T_2v_0+\sum_{i=1}^m a_iT_2v_i=T_2v
+    \end{align*}
+    由\(\ker T_1 \subseteq \ker T_2\)，上式成立.因此\(\forall v \in V, ST_1v=T_2v\)，证毕.
+\end{proof}
+
+\newpage
+
+\begin{problem}[25]\label{3.B.25}
+    设\(V\)是有限维向量空间且\(T_1,T_2 \in L(V,W)\).
+
+    求证：\(\Img T_1 \subseteq \Img T_2\)的充要条件是\(\exists S \in L(V)\)，使得\(T_1=T_2S\).    
+\end{problem}
+
+\begin{proof}
+    必要性：设\(\forall v \in V\)，有\(T_1v=T_2Sv \in \Img T_2\).
+
+    故\(\forall v \in \Img T_1, v \in \Img T_2\)，即\(\Img T_1 \subseteq \Img T_2\)，必要性得证. 
+    
+    充分性：设\(u_1,\cdots,u_m\)是\(V\)的一组基，从而\(\Img T_1=\altspan(u_1,\cdots,u_m) \subseteq \Img T_2\).
+    
+    因此\(\exists v_1,\cdots,v_m \in V\)，使得\(T_1u_i=T_2v_i,i=1,\cdots,m\).定义\(S\)为\(Su_i=v_i,i=1,\cdots,m\).
+    \begin{align*}
+        \forall u=\sum_{i=1}^m a_iu_i \in V,T_2S\sum_{i=1}^m a_iu_i=T_2\sum_{i=1}^m a_i(Su_i)
+        =\sum_{i=1}^m a_iT_2v_i=\sum_{i=1}^m a_iT_1u_i=T_1\sum_{i=1}^m a_iu_i
+    \end{align*}
+    即\(\forall u \in V , T_1=T_2S\)，充分性得证.    
+\end{proof}
+
+\begin{comment}
+    \begin{problem}[26]\label{3.B.26}
+        设\(D \in L(P(R))\)满足\(\forall p \in P(R),\altdeg Dp=\altdeg p-1\).求证：\(D\)是满射变换.
+    \end{problem}
+
+    \begin{proof}
+        根据\probref{3.B.10}，命题等价于
+        \begin{align*}
+            \altspan (D(x),D(x^2),\cdots)=\Img D=P(R)=\altspan (1,x,\cdots)
+        \end{align*}
+        根据\probref{2.C.10}，由于\(\altdeg Dp=\altdeg p-1\)，
+
+        故\(\altspan (D(x),D(x^2),\cdots)=\altspan (1,x,\cdots)\)成立.        
+    \end{proof}
+\end{comment}
+
+\begin{problem}[28]\label{3.B.28}
+    设\(T \in L(V,W)\)，且\(w_1,\cdots,w_m\)是\(\Img T\)的一组基.
+
+    求证：\(\exists \varphi_1,\cdots,\varphi_m \in L(V,F)\)，
+    故\(\forall v \in V\)均满足\(Tv=\sum_{i=1}^m{\varphi_i(v)w_i}\).
+\end{problem}
+
+\begin{proof}
+    由于\(w_1,\cdots,w_m\)是\(\Img T\)的一组基，
+    故\(\forall Tv \in \Img T,\exists a_i \in F,Tv=\sum_{i=1}^m a_iw_i\).
+    
+    因此定义\(\varphi_i(v)=a_i\)即可，下证\(\forall i=1,\cdots,m,\varphi_i \in L(V,F)\).
+    
+    即证\(\forall i=1,\cdots,m,\forall v_\alpha,v_\beta \in V\),
+    \(\varphi_i(\lambda v_\alpha+\mu v_\beta)=\lambda \varphi_i(v_\alpha)+\mu \varphi_i(v_\beta)\).
+    \begin{align*}
+        T(\lambda v_\alpha+\mu v_\beta)=\sum_{i=1}^m \lambda \varphi_i(v_\alpha)w_i+\sum_{i=1}^m \mu \varphi_i(v_\beta)w_i
+        =\sum_{i=1}^m \varphi_i(\lambda v_\alpha+\mu v_\beta)w_i=\lambda Tv_\alpha+\mu Tv_\beta
+    \end{align*}
+    综上，\(\forall i=1,\cdots,m,\varphi_i \in L(V,F)\).    
+\end{proof}
+
+\begin{problem}[29]\label{3.B.29}
+    设\(\varphi \in L(V,F)\).设\(u \in V \notin \ker \varphi\).求证：\(V=\ker \varphi \oplus \{au|a \in F\}\).
+\end{problem}
+
+\begin{proof}
+    根据\probref{3.B.12}，存在\(V\)的一个子空间\(K\)，使得\(V=\ker \varphi \oplus K\)且\(\Img \varphi=\{\varphi (v)|v \in K\}\).
+    
+    因此只需证明\(K=\{au|a \in F\}\)即可.
+    
+    \(\forall v \in K,\varphi(v) \in F\).而\(\varphi(u) \ne 0 \in F\)，
+    故\(\exists a \in F\)，使得\(\varphi(v)=a \varphi(u)=\varphi(au),a \ne 0\).
+
+    所以\(\Img \varphi=\{\varphi (au)|a \in F\}\)，即\(K=\{au|a \in F\}\)，证毕.    
+\end{proof}
+
+\begin{problem}[30]\label{3.B.30}
+    设\(\varphi_1,\varphi_2 \in L(V,F)\)且\(\ker \varphi_1=\ker \varphi_2\).
+    求证：存在常数\(c \in F\)，使得\(\varphi_1=c \varphi_2\).    
+\end{problem}
+
+\begin{proof}
+    若\(\ker \varphi_1=\ker \varphi_2=V\)，则\(\varphi_1=\varphi_2=0\)，故\(c\)可以为任意常数.
+
+    若\(\exists u \notin \ker \varphi,u \in V\)，
+    则根据\probref{3.B.29}，\(\forall v \in V\)，\(v=v_0+a_vu,v_0 \in \ker \varphi,a_v \in F\).
+    
+    从而\(\varphi_1(v)=\varphi_1(v_0+a_vu)=a_v \varphi_1(u)\)
+    并且\(\varphi_2(v)=\varphi_2(v_0+a_vu)=a_v \varphi_2(u)\).
+    \begin{align*}
+        \dfrac{\varphi_1(v)}{\varphi_2(v)}=\dfrac{\varphi_1(u)}{\varphi_2(u)}=\mathrm{cons.}
+    \end{align*}
+    由于\(u \notin \ker \varphi_2\)，故\(\varphi_2(u) \ne 0\)，该式恒成立，证毕.    
+\end{proof}
+% End: source/chapter_3/3.B.tex
+
