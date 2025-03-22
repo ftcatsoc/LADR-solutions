@@ -123,17 +123,17 @@
 \end{problem}
 
 \begin{proof}
-    设\(\norm*{u}=1\)是\(\mu\)的特征向量.考虑\(\ip*{Tv-\lambda v}{u}\).
-    \begin{align*}
-        \ip*{Tv-\lambda v}{u}=\ip*{Tv}{u}-\ip*{\lambda v}{u}=\ip*{v}{Tu}-\lambda \ip*{v}{u}
-        =\mu \ip*{v}{u}-\lambda \ip*{v}{u}=(\mu-\lambda)\ip*{v}{u}
-    \end{align*}
-    第三个等号是因为自伴算子的特征值均为实数.随后有
-    \begin{align*}
-        &\abs*{\ip*{Tv-\lambda v}{u}} \leq \norm*{Tv-\lambda v}\norm*{u}=\norm*{Tv-\lambda v}<\varepsilon \\
-        &\abs*{\ip*{Tv-\lambda v}{u}}=\abs*{(\mu-\lambda)\ip*{v}{u}} \leq \abs*{\lambda-\mu}\norm*{u}\norm*{v}=\abs*{\lambda-\mu}
-    \end{align*}
-    联立两个不等式，有\(\abs*{\lambda-\mu}<\varepsilon\).
+    由\(T\)是自伴算子，存在\(V\)的规范正交特征基\(e_1,\cdots,e_n\)，使得\(M(T)=\mathrm{diag}(\lambda_1,\cdots,\lambda_n)\).
+
+    因此\(\forall v \in V,\norm*{v}=1,v=\sum_{i=1}^n a_ie_i,Tv=\sum_{i=1}^n a_i\lambda_ie_i\)，
+    其中\(\sum_{i=1}^n \abs*{a_i}^2=1\).
+
+    从而\(\norm*{Tv-\lambda v}^2=\norm*{\sum_{i=1}^n a_i(\lambda_i-\lambda)e_i}^2=\sum_{i=1}^n(\lambda_i-\lambda)^2 a_i^2<\varepsilon^2\).
+
+    若\(\forall i=1,\cdots,n,\abs*{\lambda-\lambda_i}^2 \geq \varepsilon^2\)，
+    考虑\(\sum_{i=1}^n(\lambda_i-\lambda)^2 a_i^2 \geq \varepsilon^2 \sum_{i=1}^n a_i^2=\varepsilon^2\)，矛盾.
+
+    因此存在\(i=1,\cdots,n,\mu=\lambda_i\)，使得\(\abs*{\mu-\lambda}<\varepsilon\).
 \end{proof}
 
 \newpage
