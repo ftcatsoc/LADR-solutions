@@ -1,0 +1,30 @@
+% source/preamble/math_env.sty
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{math_env}
+
+% === 基础数学包 ===
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% === 数学环境定义 ===
+\theoremstyle{plain}
+\newtheorem{theorem}{定理}
+\newtheorem{problem}{习题}[section]
+\newtheorem*{lemma}{引理}
+
+% === 数学符号命令 ===
+\newcommand{\ol}[1]{\overline{#1}} % 上划线
+\DeclareMathOperator{\altspan}{span} % 更现代的运算符定义
+\DeclareMathOperator{\altdeg}{deg}
+\DeclareMathOperator{\Img}{Im}
+
+% === 定界符命令（自动缩放）===
+\DeclarePairedDelimiter{\abs}{\lvert}{\rvert} % 优化绝对值
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert} % 优化范数
+\DeclarePairedDelimiterX{\ip}[2]{\langle}{\rangle}{#1, #2} % 优化内积
+
+% === 其他工具 ===
+\usepackage{verbatim} % 支持注释环境
+\endinput
+

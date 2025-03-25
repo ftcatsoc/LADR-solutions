@@ -1,0 +1,14 @@
+% source/preamble/smart_refs.sty
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{smart_refs}
+
+% === 智能引用 (仅定理和习题) ===
+\usepackage[capitalize]{cleveref}
+\crefname{theorem}{定理}{定理}
+\crefname{problem}{习题}{习题}
+
+% === 简化引用命令 ===
+\newcommand{\thmref}[1]{\cref{#1}}
+\newcommand{\probref}[1]{\cref{#1}}
+\endinput
+

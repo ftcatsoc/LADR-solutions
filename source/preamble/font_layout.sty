@@ -1,0 +1,28 @@
+% source/preamble/font_layout.sty
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{font_layout}
+
+% === 页面布局 ===
+\usepackage{geometry}
+\geometry{a4paper,scale=0.8} 
+\setlength{\parindent}{0pt}
+
+% === 标题样式 ===
+\usepackage{titlesec}
+\titleformat{\section}[block]
+{\normalfont\itshape\Large} % 正常字体，斜体，略大
+{\thesection}
+{0.8em} % 章节号与标题的间距
+{} % 标题前不添加额外内容
+[\titlerule] % 标题下方添加横线，横线在标题下方
+
+% === 页眉页脚 ===
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}  % 取消页眉横线
+\pagestyle{fancy} % 设置页面样式为 fancy
+\fancyhf{} % 清空默认的页眉页脚
+\fancyfoot[L]{\itshape \leftmark}
+\fancyfoot[R]{\thepage}
+
+\endinput
+
