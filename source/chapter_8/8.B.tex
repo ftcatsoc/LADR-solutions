@@ -1,7 +1,7 @@
 \section{8.B Decomposition of an Operator}
 
 \begin{theorem}[8.21]\label{thm 8.21} 广义特征空间分解 \:
-
+    
     设\(V\)是有限维复向量空间且\(T \in L(V)\)，\(\lambda_1,\cdots,\lambda_m\)是\(T\)所有的相异特征值.求证：
 
     a.\(\forall i=1,\cdots,m,G(\lambda_i,T)\)是\(T\)下的不变子空间.
@@ -213,37 +213,28 @@
 \end{proof}
 
 \begin{problem}[11]\label{8.B.11}
-    设\(V\)满足\(\dim V=n\)是有限维复向量空间且\(T \in L(V)\)，有特征值\(\lambda_1,\cdots,\lambda_m\).
+    设\(V\)满足\(\dim V=n\)是有限维复向量空间且\(T \in L(V)\)，有特征值\(\lambda_1,\dots,\lambda_m\).
 
-    设\(v_1,\cdots,v_n\)是\(V\)的一组基，并满足\(M(T,(v_1,\cdots,v_n))\)是上三角矩阵.
+    设\(v_1,\dots,v_n\)是\(V\)的一组基，并满足\(M(T,(v_1,\dots,v_n))\)是上三角矩阵.
     
     求证：\(T\)的每个特征值\(\lambda_i\)在矩阵对角线上出现的次数即为\(\lambda_i\)作为\(T\)的特征值的代数重数.
 \end{problem}
 
 \begin{proof}
-    使用数学归纳法.当\(n=1\)时，\(v\)为\(V\)的基，\(M(T,v)=(\lambda_1)\)，为上三角矩阵.
+    设\(\lambda_i\)在对角线上出现的次数为\(d_i\)，有\(\sum_{i=1}^m d_i=n\)，
+    考虑\(M((T-\lambda_i I)^n, (v_1, \dots, v_n))\).
 
-    现假设对于任意满足\(\dim U<\dim V=n\)的有限维复向量空间\(U\)，结论均成立.
-    
-    由\(V=G(\lambda_1,T) \oplus \Img (T-\lambda_1 I)^n\)，不妨令\(U=\Img (T-\lambda_1 I)^n\).
-    
-    根据引理8.20，\(U\)是\(T\)下的不变子空间，且满足\(\dim U<\dim V\)，因此可对\(U\)使用归纳假设.
-    
-    根据定理5.27，给定\(u_1,\cdots,u_p\)作为\(U\)的一组基使得\(M(T|_U,(u_1,\cdots,u_p))\)是上三角矩阵，
-    
-    \(T|_U\)的所有特征值是\(\lambda_2,\cdots,\lambda_m\)，那么它们在矩阵\(M(T|_U)\)对角线上出现的次数均为其重数.
-    
-    考虑\(G(\lambda_1,T)\).若有一组基\(v_1,\cdots,v_q\)使得\(M(T|_{G(\lambda_1,T)},(v_1,\cdots,v_q))\)是上三角矩阵，
-    
-    则\(\lambda_1\)在矩阵对角线上出现的次数和\(\lambda_1\)的重数均为\(\dim G(\lambda_1,T)\).
-    
-    将\(T|_{G(\lambda_1,T)}\)上的基和\(T|_U\)上的基合并，即可得到\(M(T,(v_1,\cdots,v_q,u_1,\cdots,u_p))\)的上三角矩阵.
-    
-    \(\lambda_1\)只会在\(M(T|_{G(\lambda_1,T)})\)的对角线上出现，且其出现次数即为\(\lambda_1\)的重数；
-    
-    \(\lambda_2,\cdots,\lambda_m\)只会在\(M(T|_U)\)的对角线上出现，且其分别出现次数即为其重数.
-    
-    因此\(\forall i=1,\cdots,m,\lambda_i\)在矩阵对角线上出现的次数即为\(\lambda_i\)作为\(T\)的特征值的代数重数.
+    显然\(M((T-\lambda_i I)^n)\)对角线上的非零元素有\(n-d_i\)个，将对应的基向量重排序为\(v_1, \dots, v_{n-d_i}\).
+
+    \(\forall j=1, \dots, n-d_i, \exists u_j \in \altspan(v_1, \dots, v_{j-1}), (T-\lambda_i I)^n v_j=u_j+(\lambda_j-\lambda_i)^n v_j\).
+
+    于是\((T-\lambda_i I)^n v_j \notin \altspan((T-\lambda_i I)^n v_1, \dots, (T-\lambda_i I)^n v_{j-1})\)，
+
+    得到\((T-\lambda_i I)^n v_1, \dots, (T-\lambda_i I)^n v_{n-d_i}\)线性无关，即\(\dim \Img(T-\lambda_i I)^n \geq n-d_i\).
+
+    由\(\dim V=\dim G(\lambda_i,T) \oplus \dim \Img(T-\lambda_i I)^n\)，得\(\dim G(\lambda_i,T) \leq d_i\).
+
+    然而\(\dim V=\sum_{i=1}^n \dim G(\lambda_i,T) \leq \sum_{i=1}^n d_i=\dim V\)，故\(\forall i=1, \dots, m, \dim G(\lambda_i,T)=d_i\).
 \end{proof}
 % End: source/chapter_8/8.B.tex
 
