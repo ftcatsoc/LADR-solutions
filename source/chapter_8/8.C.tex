@@ -17,7 +17,7 @@
     
     根据定理8.55，\(G(\lambda_i,T)\)存在一组\textit{Jordan}基\(N_i^{m_1}v_1,\cdots,v_1,\cdots,N_i^{m_n}v_n,\cdots,v_n\).
     
-    因此\(\max \{m_1,\cdots,m_n\}=k_i\)，并令\(U_j=\altspan (N_i^{m_j}v_j,\cdots,v_j)\)，
+    因此\(\max \{m_1,\cdots,m_n\}=k_i\)，并令\(U_j=\operatorname{span} (N_i^{m_j}v_j,\cdots,v_j)\)，
     则\(G(\lambda_i,T)=\oplus_{j=1}^n U_j\).
     
     根据定理8.55的证明，\(\forall j=1,\cdots,n,U_j\)都是\(N_i\)下的不变子空间，且有\(N_i^{m_j}|_{U_j}=0\).
@@ -54,17 +54,17 @@
 \begin{problem}[7]\label{8.C.7}
     设\(V\)是有限维向量空间且\(P \in L(V)\)满足\(P^2=P\).
 
-    求证：\(P\)的特征多项式是\(z^m(z-1)^n\)，其中\(m=\dim \ker P,n=\dim \Img P\).
+    求证：\(P\)的特征多项式是\(z^m(z-1)^n\)，其中\(m=\dim \ker P,n=\dim \operatorname{Im} P\).
 \end{problem}
 
 \begin{proof}
-    根据\probref{5.B.4}，\(V=\ker P \oplus \Img P\).
+    根据\probref{5.B.4}，\(V=\ker P \oplus \operatorname{Im} P\).
 
-    \(\forall u \in \ker P,u \in E(0,T), \forall Pv \in \Img P,P(Pv)=Pv \in \Img P\)，即\(Pv \in E(1,T)\).
+    \(\forall u \in \ker P,u \in E(0,T), \forall Pv \in \operatorname{Im} P,P(Pv)=Pv \in \operatorname{Im} P\)，即\(Pv \in E(1,T)\).
     
-    因此\(V=E(0,P) \oplus \Img P,\Img P \subseteq E(1,P) \subseteq G(1,P)\).
+    因此\(V=E(0,P) \oplus \operatorname{Im} P,\operatorname{Im} P \subseteq E(1,P) \subseteq G(1,P)\).
     
-    由空间维数的限制，只能有\(E(0,P)=G(0,P),\Img P=E(1,P)=G(1,P)\).
+    由空间维数的限制，只能有\(E(0,P)=G(0,P),\operatorname{Im} P=E(1,P)=G(1,P)\).
     
     因此\(P\)的特征多项式为\(p_c(z)=z^{\dim G(0,P)}(z-1)^{\dim G(1,P)}=z^m(z-1)^n\).
 \end{proof}

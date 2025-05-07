@@ -114,13 +114,13 @@
 \begin{proof}
     必要性：设\(\forall x=\lambda v+(1-\lambda)w=w+\lambda(w-v) \in A\)，即\(x-w=\lambda(w-v)\).
 
-    令\(U=\altspan(w-v)\)，则\(\forall x \in A,x-w \in U\).由于\(\lambda\)任取，即\(A \subseteq w+U\).
+    令\(U=\operatorname{span}(w-v)\)，则\(\forall x \in A,x-w \in U\).由于\(\lambda\)任取，即\(A \subseteq w+U\).
 
     充分性：设\(A=v+U\).由\(w \in A\)得\(w-v \in U\)，从而\(\lambda(v-w) \in U\).
 
     因此\(w+\lambda(v-w)=v+(1-\lambda)w \in A\)，即\(w+U \subseteq A\).
 
-    合并两者即得\(A=v+\altspan(w-v)=w+\altspan(v-w)\)，{\kaishu 这是仿射集的第二定义.}
+    合并两者即得\(A=v+\operatorname{span}(w-v)=w+\operatorname{span}(v-w)\)，{\kaishu 这是仿射集的第二定义.}
 \end{proof}
 
 \begin{problem}[9]\label{3.E.9}
@@ -139,7 +139,7 @@
 \newpage
 
 \begin{problem}[11]\label{3.E.11}
-    设\(v_1,\cdots,v_m \in V\)，令\(A=\{\sum_{i=1}^m \lambda_i v_i|\sum_{i=1}^m \lambda_i=1\}\).
+    设\(v_1, \dots,v_m \in V\)，令\(A=\{\sum_{i=1}^m \lambda_i v_i|\sum_{i=1}^m \lambda_i=1\}\).
 
     a.证明：\(A\)是\(V\)的一个仿射集.
 
@@ -152,23 +152,23 @@
     对于\(\forall v=\sum_{i=1}^m \lambda_i v_i \in A\)，考虑\(v-v_1\).
     \begin{align*}
         v-v_1=\sum_{i=1}^m \lambda_i v_i-\sum_{i=1}^m \lambda_i v_1=\sum_{i=2}^m \lambda_i(v_i-v_1) 
-        \in \altspan(v_2-v_1,\cdots,v_m-v_1)
+        \in \operatorname{span}(v_2-v_1, \dots, v_m-v_1)
     \end{align*}
-    令\(U=\altspan(v_2-v_1,\cdots,v_m-v_1)\)，则\(v \in v_1+U\)，即\(A \subseteq v_1+U\).
+    令\(U=\operatorname{span}(v_2-v_1, \dots, v_m-v_1)\)，则\(v \in v_1+U\)，即\(A \subseteq v_1+U\).
 
-    后面的证明与\probref{3.E.8}一致，只要认识到\(\lambda_1=1-\sum_{i=2}^m \lambda_i\)即可.
+    后面的证明与\probref{3.E.8}一致，注意到\(\lambda_1=1-\sum_{i=2}^m \lambda_i\)即可.
 \end{proof}
 
 \begin{proof}[证明b]
-    设\(B\)满足\(v_1,\cdots,v_m \in B\)，令\(B=w_0+W\)，下证\(A \subseteq B\).
+    设\(B\)满足\(v_1, \dots, v_m \in B\)，令\(B=w_0+W\)，下证\(A \subseteq B\).
 
-    由于\(v_1,\cdots,v_m \in B\)，故存在\(w_1,\cdots,w_m\)，使得\(\forall v_i \in V,v_i=w_0+w_i\).
+    由于\(v_1, \dots, v_m \in B\)，故存在\(w_1, \dots, w_m\)，使得\(\forall v_i \in V,v_i=w_0+w_i\).
 
     因此\(\sum_{i=1}^m \lambda_i v_i=\sum_{i=1}^m \lambda_i(w_0+w_i)=w_0+\sum_{i=1}^m \lambda_i w_i \in w_0+W=B\).
 \end{proof}
 
 \begin{proof}[证明c]
-    显然第一问中的子空间\(U\)就是满足要求的子空间.
+    \(U=\operatorname{span}(v_2-v_1, \dots, v_m-v_1)\)就是满足要求的子空间.
 \end{proof}
 
 \begin{problem}[12]\label{3.E.12}
@@ -250,18 +250,18 @@
 
         从而\(\forall v+U \in V/U,v+U=\sum_{i=1}^m a_i(v_i+U)=\sum_{i=1}^m a_iv_i+U\).
         
-        即\(v-\sum_{i=1}^m a_iv_i=u \in U,v=\sum_{i=1}^m a_iv_i+u\)，得到\(V=\altspan (v_1,\cdots,v_m)+U\).
+        即\(v-\sum_{i=1}^m a_iv_i=u \in U,v=\sum_{i=1}^m a_iv_i+u\)，得到\(V=\operatorname{span} (v_1,\cdots,v_m)+U\).
         
-        下证\(v_1,\cdots,v_m\)线性无关且\(\altspan (v_1,\cdots,v_m) \cap U =\{0\}\).
+        下证\(v_1,\cdots,v_m\)线性无关且\(\operatorname{span} (v_1,\cdots,v_m) \cap U =\{0\}\).
         
         \(\sum_{i=1}^m a_i(v_i+U)=\sum_{i=1}^m a_iv_i+U=U \Rightarrow a_1=\cdots=a_m=0\)，即\(v_1,\cdots,v_m\)线性无关.
         
-        使用反证法.若\(v_0 \ne 0 \in \altspan (v_1,\cdots,v_m) \cap U\)，
+        使用反证法.若\(v_0 \ne 0 \in \operatorname{span} (v_1,\cdots,v_m) \cap U\)，
         即存在至少一个\(a_i \ne 0\)，使得\(v_0=\sum_{i=1}^m a_iv_i\).
         
         然而\(v_0 \in U \Rightarrow v_0+U=U \Rightarrow a_1=\cdots=a_m=0\).
         
-        矛盾，假设不成立，令\(W=\altspan (v_1,\cdots,v_m)\)，原命题即得证.
+        矛盾，假设不成立，令\(W=\operatorname{span} (v_1,\cdots,v_m)\)，原命题即得证.
     \end{proof}
 \end{comment}
 
@@ -288,7 +288,7 @@
     
     b.证明\(\Gamma\)是单射变换.
     
-    c.证明\(\Img  \Gamma=\{T \in L(V,W)|\forall u \in U,Tu=0 \}\).
+    c.证明\(\operatorname{Im}  \Gamma=\{T \in L(V,W)|\forall u \in U,Tu=0 \}\).
 \end{problem}
 
 \begin{proof}[证明a]
@@ -303,9 +303,9 @@
 \end{proof}
 
 \begin{proof}[证明c]
-    若\(T \in \Img  \Gamma\)，则\(\exists S \in L(V/U,W)\)，使得\(T=S \circ \pi\).
+    若\(T \in \operatorname{Im}  \Gamma\)，则\(\exists S \in L(V/U,W)\)，使得\(T=S \circ \pi\).
 
-    根据\probref{3.E.13}，\(U \subseteq \ker T\).因此对于\(\forall T \in \Img \Gamma\)，有\(\forall u \in U,Tu=0\).    
+    根据\probref{3.E.13}，\(U \subseteq \ker T\).因此对于\(\forall T \in \operatorname{Im} \Gamma\)，有\(\forall u \in U,Tu=0\).    
 \end{proof}
 % End: source/chapter_3/3.E.tex
 

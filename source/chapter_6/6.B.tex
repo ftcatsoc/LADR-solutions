@@ -11,7 +11,7 @@
 \end{theorem}
 
 \begin{proof}
-    由于\(\forall i=1,\cdots,m,v_i \notin \altspan(v_1,\cdots,v_{i-1})\)，故\(u_i \ne 0,\norm*{u_i} \ne 0\).
+    由于\(\forall i=1,\cdots,m,v_i \notin \operatorname{span}(v_1,\cdots,v_{i-1})\)，故\(u_i \ne 0,\norm*{u_i} \ne 0\).
 
     因此\(\forall i=1,\cdots,m,\norm*{e_i}=1\)，故只需证明\(u_1,\cdots,u_m\)正交即可.
     
@@ -19,11 +19,11 @@
     
     因此\(\forall j=1,\cdots,i-1,\ip*{u_i}{u_j}=0\).因此\(u_1,\cdots,u_m\)两两正交，证毕.
     
-    进一步，有\(\forall i=1,\cdots,m,v_i=u_i+\sum_{j=1}^{i-1} \dfrac{\ip*{v_i}{u_j}}{\ip*{u_j}{u_j}}u_j \in \altspan(u_1,\cdots,u_i)\).
+    进一步，有\(\forall i=1,\cdots,m,v_i=u_i+\sum_{j=1}^{i-1} \dfrac{\ip*{v_i}{u_j}}{\ip*{u_j}{u_j}}u_j \in \operatorname{span}(u_1,\cdots,u_i)\).
     
-    从而\(\altspan(v_1,\cdots,v_i) \subseteq \altspan(u_1,\cdots,u_i)\).由于两组向量均线性无关且长度相等，
+    从而\(\operatorname{span}(v_1,\cdots,v_i) \subseteq \operatorname{span}(u_1,\cdots,u_i)\).由于两组向量均线性无关且长度相等，
     
-    故\(\altspan(v_1,\cdots,v_i)=\altspan(u_1,\cdots,u_i)=\altspan(e_1,\cdots,e_i)\).
+    故\(\operatorname{span}(v_1,\cdots,v_i)=\operatorname{span}(u_1,\cdots,u_i)=\operatorname{span}(e_1,\cdots,e_i)\).
 \end{proof}
 
 \begin{theorem}[6.42]\label{thm 6.42} Risez表示定理 \:
@@ -222,7 +222,7 @@
     \begin{align*}
         \psi_i(\sum_{i=1}^n \ip*{v}{e_i}e_i)=\ip*{v}{e_i}=(\varphi(e_i))(\sum_{i=1}^n \ip*{v}{e_i}e_i)
     \end{align*}
-    因此\(\dim \Img \varphi=n=\dim V=\dim V'\)，即\(\varphi\)为满射，证毕.
+    因此\(\dim \operatorname{Im} \varphi=n=\dim V=\dim V'\)，即\(\varphi\)为满射，证毕.
 \end{proof}
 
 \begin{problem}[7.A.20]

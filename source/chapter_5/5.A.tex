@@ -5,7 +5,7 @@
 
     a.证明：若\(U \subseteq \ker T\)，则\(U\)是\(T\)的不变子空间.
 
-    b.证明：若\(\Img T \subseteq U\)，则\(U\)是\(T\)的不变子空间.
+    b.证明：若\(\operatorname{Im} T \subseteq U\)，则\(U\)是\(T\)的不变子空间.
 \end{problem}
 
 \begin{proof}[证明a]
@@ -13,7 +13,7 @@
 \end{proof}
 
 \begin{proof}[证明b]
-    \(\forall u \in U,Tu \in \Img T \subseteq U\).
+    \(\forall u \in U,Tu \in \operatorname{Im} T \subseteq U\).
 \end{proof}
 
 \begin{problem}[2]\label{5.A.2}
@@ -21,7 +21,7 @@
 
     a.证明：\(\ker S\)是\(T\)下的不变子空间.
     
-    b.证明：\(\Img S\)是\(T\)下的不变子空间.
+    b.证明：\(\operatorname{Im} S\)是\(T\)下的不变子空间.
 \end{problem}
 
 \begin{proof}[证明a]
@@ -29,7 +29,7 @@
 \end{proof}
 
 \begin{proof}[证明b]
-    \(\forall Sv \in \Img S,T(Sv)=S(Tv) \in \Img S\).
+    \(\forall Sv \in \operatorname{Im} S,T(Sv)=S(Tv) \in \operatorname{Im} S\).
 \end{proof}
 
 \begin{problem}[4]\label{5.A.4}
@@ -100,7 +100,7 @@
 \begin{proof}[证明b]
     设\(e_1,\cdots,e_n\)是\(F^n\)的标准基.
 
-    根据\probref{5.A.10}，\(\forall i=1,\cdots,n,U_i=\altspan (e_i)\)都是\(T\)的不变子空间.
+    根据\probref{5.A.10}，\(\forall i=1,\cdots,n,U_i=\operatorname{span} (e_i)\)都是\(T\)的不变子空间.
     
     又根据\probref{5.A.4}，其中任意若干\(U_i\)之和都是\(T\)的不变子空间.
 \end{proof}
@@ -208,9 +208,9 @@
 \begin{proof}
     设\(v_1,\cdots,v_m\)是\(V\)的一组基.则\(\exists a_i^j \in F,Tv_j=\sum_{i=1}^m a_i^j v_i\).
 
-    我们不妨先考虑所有包含\(\altspan (v_1)\)的且维数为\(\dim V-1\)的子空间.
+    我们不妨先考虑所有包含\(\operatorname{span} (v_1)\)的且维数为\(\dim V-1\)的子空间.
     
-    设\(U_i=\altspan (v_i)\)，这些子空间的统一形式可以被写作\(\sum_{i=1}^m U_i(i \ne k,k \ne 1)\).
+    设\(U_i=\operatorname{span} (v_i)\)，这些子空间的统一形式可以被写作\(\sum_{i=1}^m U_i(i \ne k,k \ne 1)\).
     
     由于该子空间不变，故\(Tv_1=\sum_{i=1}^m a_i^1 v_i \in \sum_{i=1}^m U_i(i \ne k)\).
     
@@ -253,7 +253,7 @@
 \end{problem}
 
 \begin{proof}
-    令\(V=\altspan (e^{\lambda_1 x},\cdots,e^{\lambda_n x})\)，并定义\(T \in L(V)\)为\(Tf=f'\).
+    令\(V=\operatorname{span} (e^{\lambda_1 x},\cdots,e^{\lambda_n x})\)，并定义\(T \in L(V)\)为\(Tf=f'\).
 
     由于\((e^{\lambda_i x})'=\lambda_i e^{\lambda_i x}\)，即\(Tf_i=\lambda_i f_i\)，故\(e^{\lambda_i x}\)是\(T\)的特征向量.
     
@@ -261,11 +261,11 @@
 \end{proof}
 
 \begin{problem}[33]\label{5.A.33}
-    设\(T \in L(V)\).证明：\(T/(\Img T)=0\).
+    设\(T \in L(V)\).证明：\(T/(\operatorname{Im} T)=0\).
 \end{problem}
 
 \begin{proof}
-    \(\forall v \in V,(T/(\Img T))(v+(\Img T))=Tv+\Img T=\Img T\).
+    \(\forall v \in V,(T/(\operatorname{Im} T))(v+(\operatorname{Im} T))=Tv+\operatorname{Im} T=\operatorname{Im} T\).
 \end{proof}
 % End: source/chapter_5/5.A.tex
 

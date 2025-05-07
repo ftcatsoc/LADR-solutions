@@ -11,19 +11,19 @@
     
     得\(a_1=0,a_1+a_2=0,a_2+a_3=0,a_3+a_4=0\)，即\(a_1=a_2=a_3=a_4=0\)，得证.
     
-    令\(v_1+v_2=u_1,v_2+v_3=u_2,v_3+v_4=u_3,v_4=u_4\)，下证\(V=\altspan(u_1,u_2,u_3,u_4)\).
+    令\(v_1+v_2=u_1,v_2+v_3=u_2,v_3+v_4=u_3,v_4=u_4\)，下证\(V=\operatorname{span}(u_1,u_2,u_3,u_4)\).
     
     由于\(v_1=u_1-u_2+u_3-u_4,v_2=u_2-u_3+u_4,v_3=u_3-u_4,v_4=u_4\)，于是有
     
-    考虑\(\forall v=\sum_{i=1}^4 a_iv_i \in V,u=\sum_{i=1}^4 b_iu_i \in \altspan(u_1,u_2,u_3,u_4),a_i,b_i \in F\).
+    考虑\(\forall v=\sum_{i=1}^4 a_iv_i \in V,u=\sum_{i=1}^4 b_iu_i \in \operatorname{span}(u_1,u_2,u_3,u_4),a_i,b_i \in F\).
     \begin{align*}
         v&=a_1(u_1-u_2+u_3-u_4)+a_2(u_2-u_3+u_4)+a_3(u_3-u_4)+a_4u_4 \\
-            &=a_1u_1+(a_2-a_1)u_2+(a_3-a_2+a_1)u_3+(a_4-a_3+a_2-a_1)u_4 \in \altspan(u_1,u_2,u_3,u_4) \\
-        u&=b_1v_1+(b_1+b_2)v_2+(b_2+b_3)v_3+(b_3+b_4)v_4 \in \altspan(v_1,v_2,v_3,v_4)=V \\
-            & V \subseteq \altspan(u_1,u_2,u_3,u_4),\altspan(u_1,u_2,u_3,u_4)\subseteq V 
-            \Rightarrow V=\altspan(u_1,u_2,u_3,u_4)
+            &=a_1u_1+(a_2-a_1)u_2+(a_3-a_2+a_1)u_3+(a_4-a_3+a_2-a_1)u_4 \in \operatorname{span}(u_1,u_2,u_3,u_4) \\
+        u&=b_1v_1+(b_1+b_2)v_2+(b_2+b_3)v_3+(b_3+b_4)v_4 \in \operatorname{span}(v_1,v_2,v_3,v_4)=V \\
+            & V \subseteq \operatorname{span}(u_1,u_2,u_3,u_4),\operatorname{span}(u_1,u_2,u_3,u_4)\subseteq V 
+            \Rightarrow V=\operatorname{span}(u_1,u_2,u_3,u_4)
     \end{align*}
-    于是\(u_1,u_2,u_3,u_4\)线性无关且\(V=\altspan(u_1,u_2,u_3,u_4)\)，即其确为\(V\)的一组基.    
+    于是\(u_1,u_2,u_3,u_4\)线性无关且\(V=\operatorname{span}(u_1,u_2,u_3,u_4)\)，即其确为\(V\)的一组基.    
 \end{proof}
 
 \begin{problem}[8]\label{2.B.8}
@@ -45,15 +45,15 @@
     
     由\(u_1,\cdots,u_m\)和\(w_1,\cdots,w_m\)分别线性无关，有\(u_1=\cdots=u_m=w_1=\cdots=w_n=0\)，得证.
     
-    再证\(V=\altspan(u_1,\cdots,u_m,w_1,\cdots,w_n)\)，且\(\altspan(u_1,\cdots,u_m,w_1,\cdots,w_n) \subseteq V\)是显然的.
+    再证\(V=\operatorname{span}(u_1,\cdots,u_m,w_1,\cdots,w_n)\)，且\(\operatorname{span}(u_1,\cdots,u_m,w_1,\cdots,w_n) \subseteq V\)是显然的.
     
-    由\(V=U\oplus W\)，得\(\forall v\in V,\exists u \in \altspan(u_1,\cdots,u_m),w \in \altspan(w_1,\cdots,w_n),v=u+w\).
+    由\(V=U\oplus W\)，得\(\forall v\in V,\exists u \in \operatorname{span}(u_1,\cdots,u_m),w \in \operatorname{span}(w_1,\cdots,w_n),v=u+w\).
     
-    因此\(\forall v \in V,v \in \altspan (u_1,\cdots,u_m,w_1,\cdots,w_n)\)，
-    即\(V \subseteq \altspan(u_1,\cdots,u_m,w_1,\cdots,w_n)\).
+    因此\(\forall v \in V,v \in \operatorname{span} (u_1,\cdots,u_m,w_1,\cdots,w_n)\)，
+    即\(V \subseteq \operatorname{span}(u_1,\cdots,u_m,w_1,\cdots,w_n)\).
     
-    结合\(\altspan(u_1,\cdots,u_m,w_1,\cdots,w_n) \subseteq V\)，
-    得到\(V=\altspan (u_1,\cdots,u_m,w_1,\cdots,w_n)\)，证毕.
+    结合\(\operatorname{span}(u_1,\cdots,u_m,w_1,\cdots,w_n) \subseteq V\)，
+    得到\(V=\operatorname{span} (u_1,\cdots,u_m,w_1,\cdots,w_n)\)，证毕.
 \end{proof}
 % End: source/chapter_2/2.B.tex
 

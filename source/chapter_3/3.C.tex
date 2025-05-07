@@ -3,7 +3,7 @@
 \begin{problem}[6]\label{3.C.6}
     设\(V\)和\(W\)都是有限维向量空间且\(T \in L(V,W)\).
 
-    求证：\(\dim \Img T=1\)等价于分别存在\(V\)和\(W\)的一组基，使得\(M(T)_{i,j}=1\).    
+    求证：\(\dim \operatorname{Im} T=1\)等价于分别存在\(V\)和\(W\)的一组基，使得\(M(T)_{i,j}=1\).    
 \end{problem}
 
 \begin{proof}
@@ -11,11 +11,11 @@
 
     且这两组基可以使得\(M(T)\)中所有元素均为1.
     
-    从而有\(\forall i=1,\cdots,m,Tv_i=\sum_{i=1}^n w_i\)，即\(\Img T=\altspan (\sum_{i=1}^m w_i),\dim \Img T=1\)，证毕.
+    从而有\(\forall i=1,\cdots,m,Tv_i=\sum_{i=1}^n w_i\)，即\(\operatorname{Im} T=\operatorname{span} (\sum_{i=1}^m w_i),\dim \operatorname{Im} T=1\)，证毕.
     
     充分性：设\(\mu_1,\cdots,\mu_m\)为\(V\)任意的一组基.
     
-    由于\(\dim \Img T=1\)，不妨设\(\Img T=\altspan (T \mu_1)\)，即\(T \mu_2=\cdots=T \mu_m=0\).
+    由于\(\dim \operatorname{Im} T=1\)，不妨设\(\operatorname{Im} T=\operatorname{span} (T \mu_1)\)，即\(T \mu_2=\cdots=T \mu_m=0\).
     
     则一定存在线性无关的\(w_2,\cdots,w_n\)，使得\(T \mu_1,w_2,\cdots,w_n\)是\(W\)的一组基.
     

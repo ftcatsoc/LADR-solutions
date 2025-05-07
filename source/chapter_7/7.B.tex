@@ -65,7 +65,7 @@
     
     由于实内积空间上的自伴算子一定有特征值\footnote{这个结论将在复化章节中证明.}，故设\(e_1\)满足\(\norm*{e_1}=1\)是\(T\)的特征向量.
     
-    令\(U=\altspan(e_1)\)，考虑\(U^\bot\).根据引理7.28，\(T|_{U^\bot}\)是自伴算子，
+    令\(U=\operatorname{span}(e_1)\)，考虑\(U^\bot\).根据引理7.28，\(T|_{U^\bot}\)是自伴算子，
     
     故\(T|_{U^\bot}\)有规范正交特征基\(e_2,\cdots,e_n\)，于是\(e_1,\cdots,e_n\)就是\(T\)的规范正交特征基.
 \end{proof}
@@ -146,9 +146,9 @@
 \end{problem}
 
 \begin{proof}[证明a]
-    根据\probref{7.A.16}，若\(T\)为正规算子，则\(\Img T=\Img T^*\).
+    根据\probref{7.A.16}，若\(T\)为正规算子，则\(\operatorname{Im} T=\operatorname{Im} T^*\).
 
-    设\(\forall u \in U\)，则\(T^*u \in \Img T^*=\Img T \subseteq U\)，因此\(U\)也是\(T^*\)下的不变子空间.
+    设\(\forall u \in U\)，则\(T^*u \in \operatorname{Im} T^*=\operatorname{Im} T \subseteq U\)，因此\(U\)也是\(T^*\)下的不变子空间.
     
     从而\(\forall u' \in U^\bot,\ip*{u}{Tu'}=\ip*{T^*u}{u'}=0\)，因此\(Tu' \in U^\bot\)，\(U^\bot\)是\(T\)下的不变子空间.
 \end{proof}
@@ -173,7 +173,7 @@
     
     由于复向量空间上的算子一定有特征值，故设\(e_1\)满足\(\norm*{e_1}=1\)是\(T\)的特征向量.
     
-    令\(U=\altspan(e_1)\)，考虑\(U^\bot\).根据\probref{7.B.20*}，\(T|_{U^\bot}\)是正规算子，
+    令\(U=\operatorname{span}(e_1)\)，考虑\(U^\bot\).根据\probref{7.B.20*}，\(T|_{U^\bot}\)是正规算子，
     
     故\(T|_{U^\bot}\)有规范正交特征基\(e_2,\cdots,e_n\)，于是\(e_1,\cdots,e_n\)就是\(T\)的规范正交特征基.
 \end{proof}

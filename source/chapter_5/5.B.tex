@@ -13,11 +13,11 @@
     
     根据定理5.21，该复向量空间必存在一个特征值\(\lambda\)及对应的特征向量\(v_1\).
     
-    令\(U=\altspan(v_1)\)，考虑商空间\(V/U\)，\(\dim V/U=n-1\)，因此可以对其使用假设.
+    令\(U=\operatorname{span}(v_1)\)，考虑商空间\(V/U\)，\(\dim V/U=n-1\)，因此可以对其使用假设.
     
     构造\(T\)在\(V/U\)上的诱导变换\(\ol{T}\)满足\(\forall \ol{v} \in V/U,\ol{T}\ol{v}=\ol{Tv}\).
     
-    则\(V/U\)存在一组基\(\ol{v_2},\cdots,\ol{v_n}\)满足\(\ol{Tv_i} \in \altspan(\ol{v_2},\cdots,\ol{v_n})\).
+    则\(V/U\)存在一组基\(\ol{v_2},\cdots,\ol{v_n}\)满足\(\ol{Tv_i} \in \operatorname{span}(\ol{v_2},\cdots,\ol{v_n})\).
     
     将商空间\(V/U\)的基提升至原空间，将有\(\forall i=1,\cdots,n,Tv_i=\mu v_1+\sum_{j=2}^i a_jv_j\).
     
@@ -45,15 +45,15 @@
 \end{proof}
 
 \begin{problem}[4]\label{5.B.4}
-    设\(P \in L(V)\)满足\(P^2=P\).证明\(V=\ker P \oplus \Img P\).
+    设\(P \in L(V)\)满足\(P^2=P\).证明\(V=\ker P \oplus \operatorname{Im} P\).
 \end{problem}
 
 \begin{proof}
-    对于\(\forall v \in V,v=Pv+(v-Pv),Pv \in \Img P\).
+    对于\(\forall v \in V,v=Pv+(v-Pv),Pv \in \operatorname{Im} P\).
 
-    \(P(v-Pv)=(P-P^2)v=0 \Rightarrow v-Pv \in \ker P\)，因此\(V=\Img P+\ker P\).
+    \(P(v-Pv)=(P-P^2)v=0 \Rightarrow v-Pv \in \ker P\)，因此\(V=\operatorname{Im} P+\ker P\).
     
-    考虑\(v \in \ker P \cap \Img P\)，则\(\exists u \in V\)，使得\(Pu=v\)，得\(v=Pu=P^2u=Pv=0\)，证毕.
+    考虑\(v \in \ker P \cap \operatorname{Im} P\)，则\(\exists u \in V\)，使得\(Pu=v\)，得\(v=Pu=P^2u=Pv=0\)，证毕.
 \end{proof}
 
 \begin{problem}[5]\label{5.B.5}
@@ -77,11 +77,11 @@
 \end{problem}
 
 \begin{proof}
-    使用数学归纳法，设\(\altdeg p=n\).先验证\(n=0\)的情况.\(\forall u \in U,a_0u \in U\)，情况成立.
+    使用数学归纳法，设\(\operatorname{deg} p=n\).先验证\(n=0\)的情况.\(\forall u \in U,a_0u \in U\)，情况成立.
     
-    设\(\altdeg p=n\)时结论成立，即\(\forall u \in U,p_n(T)u=\sum_{i=0}^n a_iT^iu \in U\).
+    设\(\operatorname{deg} p=n\)时结论成立，即\(\forall u \in U,p_n(T)u=\sum_{i=0}^n a_iT^iu \in U\).
     
-    当\(\altdeg p=n+1\)时，\(\forall u \in U,p_{n+1}(T)u=\sum_{i=0}^{n+1} a_iT^iu=\sum_{i=0}^n a_iT^iu+a_{n+1}T^{n+1}u\).
+    当\(\operatorname{deg} p=n+1\)时，\(\forall u \in U,p_{n+1}(T)u=\sum_{i=0}^{n+1} a_iT^iu=\sum_{i=0}^n a_iT^iu+a_{n+1}T^{n+1}u\).
     
     由于\(\sum_{i=0}^n a_iT^iu \in U,a_{n+1}T^{n+1}u \in U\)，故\(p_{n+1}(T)u \in U\)，证毕.
 \end{proof}
@@ -95,7 +95,7 @@
 \begin{proof}
     使用反证法.设\(\exists \lambda \in F,p(\lambda)=0\)但\(T-\lambda I\)可逆.
 
-    根据代数基本定理，存在\(q(T) \in L(V)\)，使得\(p(T)=(T-\lambda I)q(T),\altdeg q<\altdeg p\).
+    根据代数基本定理，存在\(q(T) \in L(V)\)，使得\(p(T)=(T-\lambda I)q(T),\operatorname{deg} q<\operatorname{deg} p\).
     
     因此\(q(T)\)不能满足\(q(T)v=0\).但是\(v \ne 0\)，因而\((T-\lambda I)v \ne 0\).
     
