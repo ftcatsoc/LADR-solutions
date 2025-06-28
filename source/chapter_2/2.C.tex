@@ -1,38 +1,21 @@
 \section{2.C Dimensions}
 
 \begin{problem}[10]\label{2.C.10}
-    设\(p_0,p_1,\cdots,p_m\in P(F)\)，其中\(p_j\)是次数为\(j\)的多项式.
-
-    求证：\(p_0,p_1,\cdots,p_m\)是\(P_m(F)\)的一组基.
+    设\(p_0, p_1, \dots, p_m \in P(F)\)，其中\(p_i\)是次数为\(i\)的多项式，最高次系数为\(c_i\).
+    
+    求证：\(p_0, \dots, p_m\)是\(P_m(F)\)的一组基.
 \end{problem}
 
 \begin{proof}
-    使用数学归纳法.先验证\(m=0\)的情况，显然成立.
+    设\(\sum_{i=0}^m a_ip_i=0\).考虑商空间\(P(F)/P_i(F)\)和商变换\(\pi_i(p)=p+P_i(F)\).
 
-    随后假设\(j=m\)时结论成立，需证\(\altspan (p_0,p_1,\cdots,p_m,p_{m+1})=\altspan (1,x,\cdots,x^m,x^{m+1})\).
+    对两侧施加\(\pi_{m-1}\)，得到\(\sum_{i=0}^m a_ip_i+P_i(F)=a_mc_mx^m+P_i(F)=0+P_i(F)\).
 
-    \begin{enumerate}
-        \item \(\altspan (p_0,p_1,\cdots,p_m,p_{m+1}) \subseteq \altspan (1,x,\cdots,x^m,x^{m+1})\).
-        \item \(\altspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
-    \end{enumerate}
-    
-    情况一的证明是显然的.\(\forall p\in \altspan (p_0,p_1,\cdots,p_m,p_{m+1}),p\in P_{m+1}(F)\).
-    
-    即\(\altspan (p_0,p_1,\cdots,p_m,p_{m+1})\subseteq \altspan (1,x,\cdots,x^m,x^{m+1})\).
-    
-    下证情况二成立.设选定的\(p_{m+1}=a_{m+1}x^{m+1}+\sum_{i=0}^m a_ix^i(a_{m+1} \ne 0)\).
-    
-    变形得到\(x^{i+1}=\dfrac{p_{m+1}-\sum_{i=0}^m a_ix^i}{a_{m+1}} \in \altspan (1,x,\cdots,x^m,p_{m+1})\).
-    
-    而\(\altspan (p_0,p_1,\cdots,p_m)=\altspan (1,x,\cdots,x^m)\)，
-    
-    故\(\altspan (1,x,\cdots,x^m,p_{m+1})=\altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
-    
-    从而\(x^{m+1}\in \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\)，
-    
-    进而\(\altspan (1,x,\cdots,x^m,x^{m+1}) \subseteq \altspan (p_0,p_1,\cdots,p_m,p_{m+1})\).
-    
-    如此双边包含关系均成立且向量均线性无关，即该张成组确实是\(P_m(F)\)的一组基.    
+    由于\(c_m \ne 0\)，故\(a_m=0\).随后依次施加\(\pi_{m-2}, \dots, \pi_{0}\)，得到\(a_m=\dots=a_1=0\).
+
+    此时只剩\(a_0c_0=0\)，显然\(a_m=\dots=a_0=0\)，即\(p_0, \dots, p_m\)线性无关.
+
+    由于\(p_0, \dots, p_m\)线性无关且足够长，故\(p_0, \dots, p_m\)是\(P_m(F)\)的一组基.
 \end{proof}
 
 \begin{problem}[14]\label{2.C.14}
@@ -43,7 +26,7 @@
 
 \begin{proof}
     设\(U_i\)的一组基为\(u_1^i,\cdots,u_{a_i}^i\)，
-    则\(\sum_{i=1}^m U_i=\altspan(u_1^1,\cdots,u_{a_1}^1,\cdots,u_{a_m}^1,\cdots,u_{a_m}^m)\).
+    则\(\sum_{i=1}^m U_i=\operatorname{span}(u_1^1,\cdots,u_{a_1}^1,\cdots,u_{a_m}^1,\cdots,u_{a_m}^m)\).
 
     因而\(\dim \sum_{i=1}^m U_i \leq \sum_{i=1}^m \dim U_i\)，即\(\sum_{i=1}^m U_i\)是有限维向量空间.
 

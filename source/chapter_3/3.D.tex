@@ -12,17 +12,17 @@
     而\(\ker S=\{0\}\)，故\(Tu=0\).由于\(\ker T=\{0\}\)，故\(u=0\)，得\(\ker ST=\{0\}\)，证毕.
     
     再证明\(ST\)是满射变换.
-    由于\(\Img S=W\)，故对于\(\forall w \in W\)，\(\exists v \in V\)，使得\(Sv=w\).
+    由于\(\operatorname{Im} S=W\)，故对于\(\forall w \in W\)，\(\exists v \in V\)，使得\(Sv=w\).
     
-    又由于\(\Img T=V\)，故对于\(\forall v \in V\)，\(\exists u \in U\)，使得\(Tu=v\).
+    又由于\(\operatorname{Im} T=V\)，故对于\(\forall v \in V\)，\(\exists u \in U\)，使得\(Tu=v\).
     
-    因此，\(\forall w \in W\)，\(\exists u \in U\)，使得\((ST)u=S(Tu)=Sv=w\)，即\(\Img ST=W\).
+    因此，\(\forall w \in W\)，\(\exists u \in U\)，使得\((ST)u=S(Tu)=Sv=w\)，即\(\operatorname{Im} ST=W\).
     
     可得\(ST\)是满射变换，因此\(ST\)是可逆变换，证毕.
     
     再证\((ST)^{-1}=T^{-1}S^{-1}\).两边同乘\(ST\)，得
     \begin{align*}
-        (ST)(T^{-1}S^{-1})=S(TT^{-1})S^{-1}=SS^{-1}=I=(ST)(ST)^{-1}
+        (ST)(T^{-1}S^{-1})=S(TT^{-1})S^{-1}=SS^{-1}=I=(ST)(ST)^{-1} 
     \end{align*}
 \end{proof}
 
@@ -61,7 +61,7 @@
     很显然\(T\)是单射变换且\(T \in L(V)\)，故\(T\)是可逆变换.下证\(Tu=Su\).
     \begin{align*}
         \forall u=\sum_{i=1}^m a_iu_i,Tu=T\sum_{i=1}^m a_iu_i
-        =\sum_{i=1}^m a_iTu_i=\sum_{i=1}^m a_iSu_i=S\sum_{i=1}^m a_iu_i=Su
+        =\sum_{i=1}^m a_iTu_i=\sum_{i=1}^m a_iSu_i=S\sum_{i=1}^m a_iu_i=Su 
     \end{align*}
 \end{proof}
 
@@ -70,117 +70,45 @@
 \begin{problem}[4]\label{3.D.4}
     设\(W\)是有限维向量空间且\(T_1,T_2 \in L(V,W)\).
 
-    求证：\(\ker T_1=\ker T_2\)的充要条件是存在可逆算子\(S \in L(W)\)，使得\(T_1=ST_2\).    
+    求证：\(\ker T_1=\ker T_2\)的充要条件是存在可逆算子\(S \in L(W)\)，使得\(T_1=ST_2\).
 \end{problem}
 
 \begin{proof}
-    必要性：\(\forall \mu \in \ker T_1,T_1 \mu=ST_2 \mu =0\).
+    必要性：若\(S\)是可逆变换，那么
+    \begin{align*}
+        \forall v \in V, T_2v=0 \Longleftrightarrow (ST_2)v=0 \Longleftrightarrow T_1v=0
+        \Longrightarrow \ker T_1=\ker T_2
+    \end{align*}
+    充分性：记\(\ker T_1=\ker T_2=K\).定义\(\varphi_i:V/K \rightarrow \operatorname{Im} T_i\)为\(\varphi_i(v+K)=T_iv\).
 
-    由于\(S\)是单射变换，故\(ST_2 \mu =0 \Rightarrow T_2 \mu =0\)，即\(\mu \in \ker T_2\).
-    
-    综上，\(\forall \mu \in \ker T_1, \mu \in \ker T_2\)，即\(\ker T_1 \subseteq \ker T_2\).
-    
-    同时由于\(S\)是可逆变换，故而可以相同方法证明\(\ker T_2 \subseteq \ker T_1\)，得到\(\ker T_1=\ker T_2\).
-    
-    充分性：\(W\)是有限维向量空间且\(\Img T_2 \subseteq W\)，故\(\Img T_2\)也是有限维向量空间.
-    
-    令\(T_2v_1,\cdots,T_2v_m\)是\(\Img T_2\)的一组基.根据\probref{3.B.24}和习题3.A.4，%此处使用了硬编码
-    
-    令\(K=\altspan (v_1,\cdots,v_m)\)，则\(V=\ker T \oplus K\)，且\(v_1,\cdots,v_m\)线性无关.
-    
-    下证\(T_1v_1,\cdots,T_1v_m\)也线性无关.令\(\sum_{i=1}^m a_iT_1v_i=T_1\sum_{i=1}^m a_iv_i=0\).
-    
-    由于\(\ker T_1=\ker T_2\)且\(\ker T \cap \altspan (v_1,\cdots,v_m)=\{0\}\)，故\(\sum_{i=1}^m a_iv_i=0\).
-    
-    结合\(v_1,\cdots,v_m\)线性无关得到\(a_1=\cdots=a_m=0\)，即\(T_1v_1,\cdots,T_1v_m\)也线性无关.
-    
-    现在将\(T_2v_1,\cdots,T_2v_m\)和\(T_1v_1,\cdots,T_1v_m\)分别补充为\(W\)的一组基
-    
-    \(T_2v_1,\cdots,T_2v_m,w_1^\alpha,\cdots,w_n^\alpha\)，其中\(w_1^\alpha,\cdots,w_n^\alpha\)线性无关；
-    
-    \(T_1v_1,\cdots,T_1v_m,w_1^\beta,\cdots,w_n^\beta\)，其中\(w_1^\beta,\cdots,w_n^\beta\)线性无关.
-    
-    现在定义线性变换\(S\).令
+    定义\(S_0:\operatorname{Im} T_2 \rightarrow \operatorname{Im} T_1\)为\(S_0=\varphi_1 \circ \varphi_2^{-1}\).根据同态定理，\(S_0\)是可逆变换.
+
+    由于\(\operatorname{Im} T_1, \operatorname{Im} T_2 \subseteq W\)，分别给出它们相对于\(W\)的补空间\(U_1, U_2\)满足\(\dim U_1=\dim U_2\).
+
+    因此存在\(S':U_2 \rightarrow U_1\)为可逆变换.定义\(S:W \rightarrow W\)为
     \begin{align*}
-        S(T_2v_i)=T_1v_i,i=1,\cdots,m \quad Sw_j^\alpha=Sw_j^\beta,j=1,\cdots,n
+        &\forall w=w_1+w_2 \in W, w_1 \in \operatorname{Im} T_2, w_2 \in U_2, Sw=S(w_1+w_2)=S_0w_1+S'w_2 \\
+        &\forall v \in V, T_1v=\varphi_1(v+K)=(S_0 \circ \varphi_2)(v+K)=S(T_2v) \qedhere
     \end{align*}
-    定理3.5保证了线性变换的存在性.
-    
-    现在证明\(S\)是单射变换.
-    令\(S(\sum_{i=1}^m a_iT_2v_i+\sum_{j=1}^n b_jw_j^\alpha)=\sum_{i=1}^m a_iT_1v_i+\sum_{j=1}^n b_jw_j^\beta=0\).
-    
-    由\(T_1v_1,\cdots,T_1v_m,w_1^\beta,\cdots,w_n^\beta\)线性无关，故\(a_1=\cdots=a_m=b_1=\cdots=b_n=0\)，
-    
-    即\(\ker S=\{0\}\).结合\(S \in L(W)\)，根据定理3.69，\(S\)是可逆变换.
-    
-    下证\(T_1=ST_2\).由于\(V=\ker T \oplus K\)，故\(\forall v \in V,v=v_0+\sum_{i=1}^m a_iv_i\)，其中\(v_0 \in \ker T\).
-    \begin{align*}
-        (ST_2)v&=(ST_2)(v_0+\sum_{i=1}^m a_iv_i)=\sum_{i=1}^m a_iS(T_2v_i)=\sum_{i=1}^m a_iT_1v_i \\
-            &=T_1\sum_{i=1}^m a_iv_i=T_1(\sum_{i=1}^m a_iv_i+v_0)=T_1v
-    \end{align*}
-    从而对于\(\forall v \in V\)，\(T_1v=(ST_2)v\)，即\(T_1=ST_2\)，证毕.    
 \end{proof}
-
-\newpage
 
 \begin{problem}[5]\label{3.D.5}
     设\(V\)是有限维向量空间且\(T_1,T_2 \in L(V,W)\).
 
-    求证：\(\Img T_1=\Img T_2\)的充要条件是存在可逆算子\(S \in L(V)\)，使得\(T_1=T_2S\).    
+    求证：\(\operatorname{Im} T_1=\operatorname{Im} T_2\)的充要条件是存在可逆算子\(S \in L(V)\)，使得\(T_1=T_2S\).    
 \end{problem}
 
 \begin{proof}
-    必要性：\(\forall \mu \in V\)，\(T_1 \mu =T_2S \mu \in \Img T_2\)，即\(\Img T_1 \subseteq \Img T_2\).
+    必要性：显然\(\operatorname{Im} T_1=T_1(V)=T_2S(V)=T_2(S(V))=T_2(V)=\operatorname{Im} T_2\).
+    
+    充分性：考虑对偶变换\(T'_1, T'_2: W' \rightarrow V'\).由\(\operatorname{Im} T_1=\operatorname{Im} T_2\)，故\(\ker T'_1=\ker T'_2\).
 
-    又\(T_1=T_2S \Rightarrow T_1S^{-1}=T_2\)，
-    故\(\forall \mu \in V\)，\(T_2 \mu =T_1S^{-1} \mu \in \Img T_1\)，即\(\Img T_2 \subseteq \Img T_1\).
-    
-    综上\(\Img T_1=\Img T_2\)，证毕.
-    
-    充分性：令\(w_1,\cdots,w_m\)为\(\Img T\)的一组基.
-    
-    找到\(v_1^\alpha,\cdots,v_m^\alpha\)和\(v_1^\beta,\cdots,v_m^\beta\)，
-    使得\(\forall i=1,\cdots,m,T_1v_i^\alpha=w_i,T_2v_i^\beta=w_i\).
-    
-    根据习题3.A.4，%此处使用了硬编码
-    \(v_1^\alpha,\cdots,v_m^\alpha\)和\(v_1^\beta,\cdots,v_m^\beta\)分别线性无关.
-    
-    现在将\(v_1^\alpha,\cdots,v_m^\alpha\)和\(v_1^\beta,\cdots,v_m^\beta\)分别补充成\(V\)的一组基
-    
-    \(v_1^\alpha,\cdots,v_m^\alpha,u_1^\alpha,\cdots,u_n^\alpha\)，其中\(u_1^\alpha,\cdots,u_n^\alpha\)线性无关；
-    
-    \(v_1^\beta,\cdots,v_m^\beta,u_1^\beta,\cdots,u_n^\beta\)，其中\(u_1^\beta,\cdots,u_n^\beta\)线性无关.
-    
-    根据\probref{3.B.24}，
-    \(\ker T_1=\altspan (u_1^\alpha,\cdots,u_m^\alpha),\ker T_2=\altspan (u_1^\beta,\cdots,u_n^\beta)\).
-    
-    现在定义线性变换\(S\).令
-    \begin{align*}
-        Sv_i^\beta=v_i^\alpha,i=1,\cdots,m \quad
-        Su_j^\beta=u_j^\alpha,j=1,\cdots,n
-    \end{align*}
-    定理3.5保证了线性变换的存在性.
-    
-    现在证明\(S\)是单射变换.
-    令\(S(\sum_{i=1}^m a_iv_i^\alpha+\sum_{j=1}^n b_iu_i^\alpha)=\sum_{i=1}^m a_iv_i^\beta+\sum_{j=1}^n b_iu_i^\beta=0\).
-    
-    由\(v_1^\beta,\cdots,v_m^\beta,u_1^\beta,\cdots,u_n^\beta\)线性无关，故\(a_1=\cdots=a_m=b_1=\cdots=b_n=0\)，
-    
-    即\(\ker S=\{0\}\).结合\(S \in L(V)\)，根据定理3.69，\(S\)是可逆变换.
-    
-    下证\(T_1=T_2S\).\(\forall v=\sum_{i=1}^m a_iv_i^\alpha+\sum_{j=1}^n b_iu_i^\alpha \in V\)，有
-    \begin{align*}
-        (T_2S)v&=(T_2S)(\sum_{i=1}^m a_iv_i^\alpha+\sum_{j=1}^n b_iu_i^\alpha )
-                =T_2(\sum_{i=1}^m a_iv_i^\beta+\sum_{j=1}^n b_iu_i^\beta ) \\
-                &=\sum_{i=1}^m a_iT_2v_i^\beta=T_2\sum_{i=1}^m a_iv_i^\beta
-                =\sum_{i=1}^m a_iw_i=\sum_{i=1}^m a_iT_1v_i^\alpha \\
-                &=T_1(\sum_{i=1}^m a_iv_i^\alpha+\sum_{j=1}^n b_iu_i^\alpha)=T_1v
-    \end{align*}
-    从而对于\(\forall v \in V\)，\(T_1v=(T_2S)v\)，即\(T_1=T_2S\)，证毕.    
+    根据\probref{3.D.4}，存在\(S': V' \rightarrow V'\)，使得\(T'_1=S'T'_2\).
+
+    两边取对偶，有\(T''_1=(S'T'_2)'=T''_2S''\)，即\(T_1=T_2S\).
 \end{proof}
 
-\newpage
-
+\begin{comment}
 \begin{problem}[6]\label{3.D.6}
     设\(V\)和\(W\)是有限维向量空间且\(T_1,T_2 \in L(V,W)\).
 
@@ -190,9 +118,9 @@
 \begin{proof}
     必要性：\(T_1=ST_2R \Rightarrow S^{-1}T_1=T_2R\).
 
-    根据\probref{3.D.4}，\(\ker T_1=\ker T_2R\).根据\probref{3.D.5}，\(\Img S^{-1}T_1=\Img T_2\).
+    根据\probref{3.D.4}，\(\ker T_1=\ker T_2R\).根据\probref{3.D.5}，\(\operatorname{Im} S^{-1}T_1=\operatorname{Im} T_2\).
     \begin{align*}
-        \dim \ker T_2R=\dim V-\dim \Img T_2R=\dim V-\dim \Img T_2=\dim \ker T_2
+        \dim \ker T_2R=\dim V-\dim \operatorname{Im} T_2R=\dim V-\dim \operatorname{Im} T_2=\dim \ker T_2
     \end{align*}
     充分性：令\(v_1^\alpha,\cdots,v_m^\alpha\)和\(v_1^\beta,\cdots,v_m^\beta\)分别为\(\ker T_1\)和\(\ker T_2\)的一组基.
     
@@ -202,10 +130,10 @@
     
     \(v_1^\beta,\cdots,v_m^\beta,u_1^\beta,\cdots,u_n^\beta\)，其中\(u_1^\beta,\cdots,u_n^\beta\)线性无关.
     
-    根据\probref{3.B.9}和\probref{3.B.12}，\(T_1u_1^\alpha,\cdots,T_1u_n^\alpha\)是\(\Img T_1\)的一组基，
-    \(T_2u_1^\beta,\cdots,T_2u_n^\beta\)是\(\Img T_2\)的一组基.
+    根据\probref{3.B.9}和\probref{3.B.12}，\(T_1u_1^\alpha,\cdots,T_1u_n^\alpha\)是\(\operatorname{Im} T_1\)的一组基，
+    \(T_2u_1^\beta,\cdots,T_2u_n^\beta\)是\(\operatorname{Im} T_2\)的一组基.
     
-    由于\(\Img T_1,\Img T_2 \subseteq W\)，
+    由于\(\operatorname{Im} T_1,\operatorname{Im} T_2 \subseteq W\)，
     将\(T_1u_1^\alpha,\cdots,T_1u_n^\alpha\)和\(T_2u_1^\beta,\cdots,T_2u_n^\beta\)分别补充成\(W\)的一组基
     
     \(T_1u_1^\alpha,\cdots,T_1u_n^\alpha,w_1^\alpha,\cdots,w_p^\alpha\)，其中\(w_1^\alpha,\cdots,w_p^\alpha\)线性无关；
@@ -230,8 +158,7 @@
     \end{align*}
     故\(\forall v \in V,T_1v=(ST_2R)v\)，即\(T_1=ST_2R\)，证毕.
 \end{proof}
-
-\newpage
+\end{comment}
 
 \begin{problem}[8]\label{3.D.8}
     设\(V\)是有限维向量空间且\(T \in L(V,W)\)是一个满射变换.
@@ -240,19 +167,21 @@
 \end{problem}
 
 \begin{proof}
-    令\(w_1,\cdots,w_m\)为\(\Img T\)的一组基.找到\(v_1,\cdots,v_m\)，使得\(\forall i=1,\cdots,m,T_1v_i=w_i\).
+    令\(w_1,\cdots,w_m\)为\(\operatorname{Im} T\)的一组基.找到\(v_1,\cdots,v_m\)，使得\(\forall i=1,\cdots,m,T_1v_i=w_i\).
 
-    根据习题3.A.4，\(v_1,\cdots,v_m\)线性无关.令\(U=\altspan (v_1,\cdots,v_m)\).%此处使用了硬编码
+    根据习题3.A.4，\(v_1,\cdots,v_m\)线性无关.令\(U=\operatorname{span} (v_1,\cdots,v_m)\).
     
     下证\(T|_U\)是一个可逆变换.先证\(\ker T|_U=\{0\}\).令\(Tv=T\sum_{i=1}^m a_iv_i=\sum_{i=1}^m a_iw_i=0\).
     
     由于\(w_1,\cdots,w_m\)线性无关，故\(a_1=\cdots=a_m=0\)，从而\(\ker T|_U=\{0\}\)，证毕.
     
-    又因为\(\Img T|_U=\Img T=\altspan (w_1,\cdots,w_m)\)，故\(T|_U\)是满射变换.综上，\(T|_U\)是可逆变换.
+    又因为\(\operatorname{Im} T|_U=\operatorname{Im} T=\operatorname{span} (w_1,\cdots,w_m)\)，故\(T|_U\)是满射变换.综上，\(T|_U\)是可逆变换.
 \end{proof}
 
+\newpage
+
 \begin{problem}[14]
-    设\(v_1^,\cdots,v_n\)是\(V\)的一组基.定义\(T \in L(V,F^{n,1})\)为\(Tv=M(v)\).求证：\(T\)是可逆变换.    
+    设\(v_1^,\cdots,v_n\)是\(V\)的基.定义\(T \in L(V,F^{n,1})\)为\(Tv=M(v)\).求证：\(T\)是可逆变换.    
 \end{problem}
 
 \begin{proof}
@@ -284,8 +213,6 @@
     因此总是存在这样的\(A_{i,j}\)，证毕.
 \end{proof}
 
-\newpage
-
 \begin{problem}[17]\label{3.D.17}
     设\(V\)是有限维向量空间，\(\varepsilon\)是\(L(V)\)的一个子空间，
 
@@ -314,26 +241,24 @@
     故而\(\forall S \in L(V),S=SI \in \varepsilon\)，即\(\varepsilon=L(V)\).
 \end{proof}
 
+\begin{comment}
 \begin{problem}[19]\label{3.D.19}
-    设\(T \in L(P(R))\)满足\(T\)是单射变换，且\(\forall p \ne 0 \in P(R)\)满足\(\altdeg Tp \leq \altdeg p\).
+    设\(T \in \mathcal{L}(P(\mathbb{R}))\)满足\(T\)是单射变换，且\(\forall p \ne 0 \in P(R)\)满足\(\operatorname{deg} Tp \leq \operatorname{deg} p\).
 
     a.证明：\(T\)是满射变换.
 
-    b.证明：对于任意非零多项式\(p \in P(R)\)都有\(\altdeg Tp=\altdeg p\).
+    b.证明：对于任意非零多项式\(p \in P(R)\)都有\(\operatorname{deg} Tp=\operatorname{deg} p\).
 \end{problem}
 
 \begin{proof}[证明a]
-    由\(T \in L(P(R))\)单射结合\probref{3.D.3}得到\(\forall n \in N^*,T|_{P_n(R)}\)单射.
+    由于\(\operatorname{deg} Tp \leq \operatorname{deg} p\)，故\(M(T,(1, x, \dots))\)是上三角矩阵.
 
-    结合定理3.69，\(T|_{P_n(R)}\)是一个满射变换，从而\(T\)也是一个满射变换.    
+    由于\(T\)是单射变换，故对角线元素均不为零，即\(\operatorname{Im} T=P(\mathbb{R})\)，证毕.
 \end{proof}
 
 \begin{proof}[证明b]
-    运用数学归纳法和反证法，设\(\altdeg p=n+1,\altdeg Tp<n+1\).
-
-    由\probref{3.D.19}，\(T|_{P_n(R)}\)满射，故\(\exists q \in P_n(R),Tp=T|_{P_n(R)}q\).
-    
-    由\(T\)为单射得\(p=q\)，假设不成立，原命题得证.    
+    使用反证法，若存在\(p\)使得\(\operatorname{deg} Tp<\operatorname{deg} p\)，那么该列对角线元素为零，矛盾.
 \end{proof}
+\end{comment}
 % End: source/chapter_3/3.D.tex
 

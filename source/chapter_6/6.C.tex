@@ -1,26 +1,26 @@
 \section{6.C Orthonormal Complemants and Minimization Problems}
 
 \begin{problem}[1]\label{6.C.1}
-    设\(v_1,\cdots,v_m \in V\).证明：\(\{v_1,\cdots,v_m\}^\bot=\altspan(v_1,\cdots,v_m)^\bot\).
+    设\(v_1,\cdots,v_m \in V\).证明：\(\{v_1,\cdots,v_m\}^\bot=\operatorname{span}(v_1,\cdots,v_m)^\bot\).
 \end{problem}
 
 \begin{proof}
-    由\(\{v_1,\cdots,v_m\} \subseteq \altspan(v_1,\cdots,v_m)\)，
-    故\(\altspan(v_1,\cdots,v_m)^\bot \subseteq \{v_1,\cdots,v_m\}^\bot\).
+    由\(\{v_1,\cdots,v_m\} \subseteq \operatorname{span}(v_1,\cdots,v_m)\)，
+    故\(\operatorname{span}(v_1,\cdots,v_m)^\bot \subseteq \{v_1,\cdots,v_m\}^\bot\).
     
-    下证\(\{v_1,\cdots,v_m\}^\bot \subseteq \altspan(v_1,\cdots,v_m)^\bot\)，
+    下证\(\{v_1,\cdots,v_m\}^\bot \subseteq \operatorname{span}(v_1,\cdots,v_m)^\bot\)，
     考虑\(v \in \{v_1,\cdots,v_m\}^\bot\).
     
     \(\forall i=1,\cdots,m,\ip*{v_i}{v}=0\)，则\(\ip*{\sum_{i=1}^m a_iv_i}{v}=\sum_{i=1}^m a_i\ip*{v_i}{v}=0\).
     
-    而\(\forall a_1,\cdots,a_m \in F,\sum_{i=1}^m a_iv_i \in \altspan(v_1,\cdots,v_m)\)，
-    从而\(v \in \altspan(v_1,\cdots,v_m)^\bot\).
+    而\(\forall a_1,\cdots,a_m \in F,\sum_{i=1}^m a_iv_i \in \operatorname{span}(v_1,\cdots,v_m)\)，
+    从而\(v \in \operatorname{span}(v_1,\cdots,v_m)^\bot\).
     
-    即\(\forall v \in \{v_1,\cdots,v_m\}^\bot,v \in \altspan(v_1,\cdots,v_m)^\bot\)，证毕.    
+    即\(\forall v \in \{v_1,\cdots,v_m\}^\bot,v \in \operatorname{span}(v_1,\cdots,v_m)^\bot\)，证毕.    
 \end{proof}
 
 \begin{problem}[3]\label{6.C.3}
-    设\(u_1,\cdots,u_m,w_1,\cdots,w_n\)是\(V\)的一组基，且\(U=\altspan(u_1,\cdots,u_m)\).
+    设\(u_1,\cdots,u_m,w_1,\cdots,w_n\)是\(V\)的一组基，且\(U=\operatorname{span}(u_1,\cdots,u_m)\).
 
     对其应用Gram-Schmidt正交化，得到\(e_1,\cdots,e_m,f_1,\cdots,f_n\).
     
@@ -28,15 +28,15 @@
 \end{problem}
 
 \begin{proof}
-    考虑\(\forall a_i,b_i \in F,\sum_{i=1}^m a_ie_i \in \altspan(e_1,\cdots,e_m)=U,\)
-    \(\sum_{i=1}^n b_if_i \in \altspan(f_1,\cdots,f_n)\).
+    考虑\(\forall a_i,b_i \in F,\sum_{i=1}^m a_ie_i \in \operatorname{span}(e_1,\cdots,e_m)=U,\)
+    \(\sum_{i=1}^n b_if_i \in \operatorname{span}(f_1,\cdots,f_n)\).
     
     \(\ip*{\sum_{i=1}^m a_ie_i}{\sum_{i=1}^n b_if_i}=\sum_{i=1}^m \sum_{i=1}^n a_i\ol{b_i} \ip*{e_i}{f_i}=0\)，
-    因此\(\forall f \in \altspan(f_1,\cdots,f_n), f\in U^\bot\).
+    因此\(\forall f \in \operatorname{span}(f_1,\cdots,f_n), f\in U^\bot\).
     
-    得到\(\altspan(f_1,\cdots,f_n) \subseteq U^\bot\)，结合\(\dim U^\bot=n=\dim \altspan(f_1,\cdots,f_n)\)，
+    得到\(\operatorname{span}(f_1,\cdots,f_n) \subseteq U^\bot\)，结合\(\dim U^\bot=n=\dim \operatorname{span}(f_1,\cdots,f_n)\)，
     
-    有\(U^\bot=\altspan(f_1,\cdots,f_n)\).
+    有\(U^\bot=\operatorname{span}(f_1,\cdots,f_n)\).
 \end{proof}
 
 \begin{problem}[5]\label{6.C.5}
@@ -56,12 +56,12 @@
 \end{problem}
 
 \begin{proof}
-    根据\probref{5.B.4}，\(V= \ker P \oplus \Img P\).猜想\(U=\Img P\).
+    根据\probref{5.B.4}，\(V= \ker P \oplus \operatorname{Im} P\).猜想\(U=\operatorname{Im} P\).
 
     令\(\forall v \in V,P_U v=u\)，则\(P_U^2 v=P_U u=u\)，
     且\(\norm*{P_U v}=\norm*{(P_U v-v)+v} \leq \norm*{P_U v-v}+\norm*{v}\).
     
-    因此\(P_{\Img P}\)满足\(P\)要求的一切性质.
+    因此\(P_{\operatorname{Im} P}\)满足\(P\)要求的一切性质.
 \end{proof}
 
 \begin{problem}[9]\label{6.C.9}
@@ -99,7 +99,7 @@
 \end{proof}
 
 \begin{problem}[11]\label{6.C.11}
-    在\(R^4\)中，令\(U=\altspan((1,1,0,0),(1,1,1,2)),u \in U\).
+    在\(R^4\)中，令\(U=\operatorname{span}((1,1,0,0),(1,1,1,2)),u \in U\).
     
     给出能使\(\norm*{(1,2,3,4)-u}\)最小的\(u\).
 \end{problem}
@@ -107,14 +107,12 @@
 \begin{proof}
     定义\(R^4\)上的内积为\(\ip*{(x_1,x_2,x_3,x_4)}{(y_1,y_2,y_3,y_4)}=\sum_{i=1}^4 x_iy_i\).
 
-    应用正交化，易得\(U\)的一组规范正交基是\(\dfrac{1}{\sqrt{2}}(1,1,0,0),\dfrac{1}{\sqrt{5}}(0,0,1,2)\).
+    应用正交化，易得\(U\)的一组规范正交基是\(a=\dfrac{1}{\sqrt{2}}(1,1,0,0),b=\dfrac{1}{\sqrt{5}}(0,0,1,2)\).
     
     根据定理6.56和正交投影的性质1，有
     \begin{align*}
-        u&=P_U(1,2,3,4) \\
-        &=\ip*{(1,2,3,4)}{\dfrac{1}{\sqrt{2}}(1,1,0,0)}(\dfrac{1}{\sqrt{2}}(1,1,0,0))
-        +\ip*{(1,2,3,4)}{\dfrac{1}{\sqrt{5}}(0,0,1,2)}(\dfrac{1}{\sqrt{5}}(0,0,1,2)) \\
-        &=(\dfrac{3}{2},\dfrac{3}{2},\dfrac{11}{5},\dfrac{22}{5})
+        u=P_U(1,2,3,4)=\ip*{(1,2,3,4)}{a}a+\ip*{(1,2,3,4)}{b}b 
+        =(\dfrac{3}{2},\dfrac{3}{2},\dfrac{11}{5},\dfrac{22}{5})
     \end{align*}
 \end{proof}
 % End: source/chapter_6/6.C.tex

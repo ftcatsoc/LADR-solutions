@@ -48,11 +48,11 @@
 \end{problem}
 
 \begin{proof}[证明a]
-    \(\ker T=\{0\} \Leftrightarrow (\ker T)^\bot=V \Leftrightarrow \Img T^*=V\).
+    \(\ker T=\{0\} \Leftrightarrow (\ker T)^\bot=V \Leftrightarrow \operatorname{Im} T^*=V\).
 \end{proof}
 
 \begin{proof}[证明b]
-    \(\Img T=V \Leftrightarrow (\Img T)^\bot=\{0\} \Leftrightarrow \Img T^*=\{0\}\).
+    \(\operatorname{Im} T=V \Leftrightarrow (\operatorname{Im} T)^\bot=\{0\} \Leftrightarrow \operatorname{Im} T^*=\{0\}\).
 \end{proof}
 
 \begin{problem}[11]\label{7.A.11}
@@ -66,12 +66,12 @@
     \begin{align*}
         \ip*{Pv}{w}=\ip*{v_1}{w_1+w_2}=\ip*{v_1}{w_1}+\ip*{v_1}{w_2}=\ip*{v_1}{w_1}+\ip*{v_2}{w_1}=\ip*{v}{Pw}
     \end{align*}
-    充分性：根据\probref{5.B.4}，\(V= \ker P \oplus \Img P\).考虑\(\forall v=v_1+v_2,v_1 \in \ker P,v_2 \in \Img P\).
+    充分性：根据\probref{5.B.4}，\(V= \ker P \oplus \operatorname{Im} P\).考虑\(\forall v=v_1+v_2,v_1 \in \ker P,v_2 \in \operatorname{Im} P\).
     \begin{align*}
         \ip*{Pv}{v}=\ip*{v_2}{v_1+v_2}=\ip*{v_2}{v_1}+\norm*{v_2}^2
         =\ip*{v_1}{v_2}+\norm*{v_2}^2=\ip*{v_1+v_2}{v_2}=\ip*{v}{Pv}
     \end{align*}
-    因此\(\ip*{v_1}{v_2}=0\)，即\(\ker P\)和\(\Img P\)互为正交补，取\(U=\Img P\)即可.
+    因此\(\ip*{v_1}{v_2}=0\)，即\(\ker P\)和\(\operatorname{Im} P\)互为正交补，取\(U=\operatorname{Im} P\)即可.
 \end{proof}
 
 \newpage
@@ -118,19 +118,19 @@
 \end{proof}
 
 \begin{problem}[16]\label{7.A.16}
-    设\(T \in L(V)\)是正规算子.求证：\(\ker T^*=\ker T,\Img T^*=\Img T\).
+    设\(T \in L(V)\)是正规算子.求证：\(\ker T^*=\ker T,\operatorname{Im} T^*=\operatorname{Im} T\).
 \end{problem}
 
 \begin{proof}
     \(\forall v \in V,Tv=0 \Leftrightarrow \norm*{Tv}=0 \Leftrightarrow \norm*{T^*v}=0 \Leftrightarrow T^*v=0\).
 
-    \(\Img T^*=(\ker T)^\bot=(\ker T^*)^\bot=\Img T\).
+    \(\operatorname{Im} T^*=(\ker T)^\bot=(\ker T^*)^\bot=\operatorname{Im} T\).
 
-    \(V=\ker T \oplus (\ker T)^\bot=\ker T \oplus \Img T^*=\ker T \oplus \Img T\).
+    \(V=\ker T \oplus (\ker T)^\bot=\ker T \oplus \operatorname{Im} T^*=\ker T \oplus \operatorname{Im} T\).
 \end{proof}
 
 \begin{problem}[17]\label{7.A.17}
-    设\(T \in L(V)\)是正规算子.求证：\(\forall n \in N^*,\ker T^n=\ker T,\Img T^n=\Img T\).
+    设\(T \in L(V)\)是正规算子.求证：\(\forall n \in N^*,\ker T^n=\ker T,\operatorname{Im} T^n=\operatorname{Im} T\).
 \end{problem}
 
 \begin{proof}
@@ -141,7 +141,7 @@
     \end{align*}
     结合显然的\(\ker T \subseteq \ker T^2\)有\(\ker T^2=\ker T\).
 
-    根据定理8.3和\probref{8.A.17}，有\(\forall n \in N^*,\ker T^n=\ker T,\Img T^n=\Img T\).
+    根据定理8.3和\probref{8.A.17}，有\(\forall n \in N^*,\ker T^n=\ker T,\operatorname{Im} T^n=\operatorname{Im} T\).
 \end{proof}
 % End: source/chapter_7/7.A.tex
 

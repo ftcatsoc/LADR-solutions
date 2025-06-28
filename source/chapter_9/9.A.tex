@@ -9,9 +9,9 @@
 
     故有不全为零的\(u,v \in V\)使得\((Tu,Tv)=T_C(u,v)=(a,b)(u,v)=(au-bv,av+bu)\).
     
-    因此\(Tu=au-bv \in \altspan(u,v),Tv=av+bu \in \altspan(u,v),T(\altspan(u,v)) \subseteq \altspan(u,v)\).
+    因此\(Tu=au-bv \in \operatorname{span}(u,v),Tv=av+bu \in \operatorname{span}(u,v),T(\operatorname{span}(u,v)) \subseteq \operatorname{span}(u,v)\).
     
-    若\(b=0,\altspan(u),\altspan(v)\)都是\(T\)的一维不变子空间；否则，\(T\)有一个二维不变子空间.
+    若\(b=0,\operatorname{span}(u),\operatorname{span}(v)\)都是\(T\)的一维不变子空间；否则，\(T\)有一个二维不变子空间.
 \end{proof}
 
 \begin{theorem}[9.12] 共轭的广义特征子空间 \:
@@ -71,7 +71,7 @@
     \(\forall i=1,\cdots,n,G(\lambda_i,T_C),G(\ol{\lambda_i},T_C)\)的基分别为\((u_1,v_1),\cdots,(u_{n_i},v_{n_i})\)及其复共轭.
     
     则\(V=\oplus_{i=1}^m G(t_i,T) \oplus \oplus_{i=1}^n U_i\)
-    且\(\forall i=1,\cdots,n,U_i=\altspan(u_1,v_1,\cdots,u_{n_i},v_{n_i})\).
+    且\(\forall i=1,\cdots,n,U_i=\operatorname{span}(u_1,v_1,\cdots,u_{n_i},v_{n_i})\).
 \end{theorem}
 
 \begin{proof}
@@ -98,7 +98,7 @@
         &=\sum_{j=1}^{n_i} \dfrac{(a_j^\alpha+b_j^\beta)+i(a_j^\beta-b_j^\alpha)}{2}(u_j,v_j)+
         \sum_{j=1}^{n_i} \dfrac{(a_j^\alpha-b_j^\beta)+i(a_j^\beta+b_j^\alpha)}{2}(u_j,-v_j)
     \end{align*}
-    因此\(U_{iC}=G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C)\)，即\(\altspan(u_1,v_1,\cdots,u_{n_i},v_{n_i})\)，证毕.
+    因此\(U_{iC}=G(\lambda_i,T_C) \oplus G(\ol{\lambda_i},T_C)\)，即\(\operatorname{span}(u_1,v_1,\cdots,u_{n_i},v_{n_i})\)，证毕.
 \end{proof}
 
 \newpage
@@ -112,7 +112,7 @@
 \end{theorem}
 
 \begin{proof}
-    给出实空间内对应的递推循环子空间\(U_i^1=\altspan(u_1^0,v_1^0,\cdots,u_1^{m_1},v_1^{m_1})\)构造如下：
+    给出实空间内对应的递推循环子空间\(U_i^1=\operatorname{span}(u_1^0,v_1^0,\cdots,u_1^{m_1},v_1^{m_1})\)构造如下：
     \begin{align*}
         &\forall k=0,\cdots,m_i,u_1^k=(T-a_iI)u_1^{k-1}+b_i v_1^{k-1},v_1^k=(T-a_iI)v_1^{k-1}-b_i u_1^{k-1} \\
         &\forall k=0,\cdots,m_i,Tu_1^k=u_1^{k+1}+a_i u_1^k-b_i v_1^k,Tv_1^k=v_1^{k+1}+a_i v_1^k+b_i u_1^k
@@ -125,7 +125,7 @@
             \end{align*}
             因此若存在\(p<m_1+1\)使得\((T-a_iI)^p u_1^0=0\)或\((T-a_iI)^p v_1^0=0\)，那么
             \begin{align*}
-                u_1^p/v_1^p \in \altspan(u_1^{p-1},v_1^{p-1},\cdots,u_1^0,v_1^0)
+                u_1^p/v_1^p \in \operatorname{span}(u_1^{p-1},v_1^{p-1},\cdots,u_1^0,v_1^0)
             \end{align*}
             从而导致递推链出现冗余，因此\(u,v,(u,v)\)的幂零指数严格相等.
         \end{comment}

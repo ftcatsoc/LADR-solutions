@@ -1,7 +1,7 @@
 \section{5.C Eigenspaces and Diagonal Matrices}
 
 \begin{problem}[1]\label{5.C.1}
-    设\(T \in L(V)\)可对角化.证明\(V=\ker T \oplus \Img T\).
+    设\(T \in L(V)\)可对角化.证明\(V=\ker T \oplus \operatorname{Im} T\).
 \end{problem}
 
 \begin{proof}
@@ -13,13 +13,13 @@
 
     因此\(T(E(\lambda_i,T)) \subseteq E(\lambda_i,T),E(\lambda_i,T) \subseteq T(E(\lambda_i,T))\).
 
-    即\(\Img T=\oplus_{i=1}^m E(\lambda_i,T)\)且\(\ker T=E(0,T)\)，证毕.
+    即\(\operatorname{Im} T=\oplus_{i=1}^m E(\lambda_i,T)\)且\(\ker T=E(0,T)\)，证毕.
 \end{proof}
 
 \begin{problem}[3]\label{5.C.3}
     设\(V\)是有限维向量空间且\(T \in L(V)\).证明以下三个命题等价：
 
-    a.\(V=\ker T \oplus \Img T\) \quad b.\(V=\ker T+\Img T\) \quad c.\(\ker T \cap \Img T=\{0\}\).
+    a.\(V=\ker T \oplus \operatorname{Im} T\) \quad b.\(V=\ker T+\operatorname{Im} T\) \quad c.\(\ker T \cap \operatorname{Im} T=\{0\}\).
 \end{problem}
 
 \begin{proof}
@@ -27,28 +27,28 @@
 
     假设\(b\)成立.根据定理2.43和3.22，
     \begin{align*}
-        \dim V &= \dim \ker T+\dim \Img T \\
-        \dim V &= \dim \ker T+\dim \Img T-\dim (\Img T \cap \ker T)
+        \dim V &= \dim \ker T+\dim \operatorname{Im} T \\
+        \dim V &= \dim \ker T+\dim \operatorname{Im} T-\dim (\operatorname{Im} T \cap \ker T)
     \end{align*}
-    得到\(\dim (\Img T \cap \ker T)=0 \Rightarrow \ker T \cap \Img T=\{0\}\).
+    得到\(\dim (\operatorname{Im} T \cap \ker T)=0 \Rightarrow \ker T \cap \operatorname{Im} T=\{0\}\).
     
-    假设\(c\)成立，令\(u_1,\cdots,u_m\)和\(w_1,\cdots,w_n\)分别为\(\ker T\)和\(\Img T\)的一组基.
+    假设\(c\)成立，令\(u_1,\cdots,u_m\)和\(w_1,\cdots,w_n\)分别为\(\ker T\)和\(\operatorname{Im} T\)的一组基.
     
-    根据\probref{2.B.8}，\(u_1,\cdots,u_m,w_1,\cdots,w_n\)是\(V\)的一组基.从而\(V=\ker T \oplus \Img T\)，证毕.
+    根据\probref{2.B.8}，\(u_1,\cdots,u_m,w_1,\cdots,w_n\)是\(V\)的一组基.从而\(V=\ker T \oplus \operatorname{Im} T\)，证毕.
 \end{proof}
 
 \begin{problem}[5]\label{5.C.5}
     设\(V\)是有限维复向量空间且\(T \in L(V)\).设\(\lambda_1,\cdots,\lambda_m\)是\(T\)的不同特征值.
 
-    证明：若\(\forall i=1,\cdots,m,V=E(\lambda_i,I) \oplus \Img(T-\lambda_i I)\)，则\(T\)可对角化.
+    证明：若\(\forall i=1,\cdots,m,V=E(\lambda_i,I) \oplus \operatorname{Im}(T-\lambda_i I)\)，则\(T\)可对角化.
 \end{problem}
 
 \begin{proof}
-    使用数学归纳法，当\(\dim V=1\)时，\(V=E(\lambda_1,T),\Img(T-\lambda_1 I)=\{0\}\)，显然成立.
+    使用数学归纳法，当\(\dim V=1\)时，\(V=E(\lambda_1,T),\operatorname{Im}(T-\lambda_1 I)=\{0\}\)，显然成立.
 
     现假设对于任意的\(U\)满足\(\dim U<\dim V\)，结论均成立.
     
-    令\(\Img(T-\lambda_1 I)=U\).\(U\)是\(T\)下的不变子空间且\(\dim U<\dim V\)，对其使用归纳.
+    令\(\operatorname{Im}(T-\lambda_1 I)=U\).\(U\)是\(T\)下的不变子空间且\(\dim U<\dim V\)，对其使用归纳.
     
     从而\(U\)有一组由\(T|_U\)的特征向量构成的基\(v_1^U,\cdots,v_m^U\)，使得\(M(T|_U)\)为对角矩阵.
     

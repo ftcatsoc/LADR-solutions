@@ -57,13 +57,13 @@
     
     从\(\ker N^{i-1}\)扩充至\(\ker N^i\)时，所添加的向量组为\(B_i=\{v_{n_{i-1}+1}^i,\cdots,v_{n_i}^i\},i=1,\cdots,n\).
     
-    因\(\ker N^i=\altspan(B_1,\cdots,B_i)\)且\(\ker N^n=V\)，故\(B_1,\cdots,B_n\)中向量顺序排列即得\(V\)的基.
+    因\(\ker N^i=\operatorname{span}(B_1,\cdots,B_i)\)且\(\ker N^n=V\)，故\(B_1,\cdots,B_n\)中向量顺序排列即得\(V\)的基.
     
-    由于\(N(\ker N^{i+1}) \subseteq \ker N^i\)，因此\(N \altspan(B_i) \subseteq \altspan(B_1,\cdots,B_{i-1})\).
+    由于\(N(\ker N^{i+1}) \subseteq \ker N^i\)，因此\(N \operatorname{span}(B_i) \subseteq \operatorname{span}(B_1,\cdots,B_{i-1})\).
     
     因此\(M(N,(B_1,\cdots,B_n))\)中，\(B_i\)列中的\(B_i,\cdots,B_n\)行元素均为\(0\).
     
-    因此在基\(B_1,\cdots,B_n\)下，\(\forall v \in \altspan(B_i),Nv\)都不会由对角线及其之下的分量构成.
+    因此在基\(B_1,\cdots,B_n\)下，\(\forall v \in \operatorname{span}(B_i),Nv\)都不会由对角线及其之下的分量构成.
     
     以矩阵语言表述，也就是\(M(N)\)是对角线元素均为\(0\)的上三角矩阵.
 \end{proof}
@@ -87,7 +87,7 @@
 \end{problem}
 
 \begin{proof}
-    使用数学归纳法.\(n=1\)时，根据习题5.C.9，\(E(\lambda,T)=E(\lambda^{-1},T^{-1})\)，命题成立.%此处使用了硬编码
+    使用数学归纳法.\(n=1\)时，根据习题5.C.9，\(E(\lambda,T)=E(\lambda^{-1},T^{-1})\)，命题成立.
     
     再假设\(n-1\)的情况成立，考虑\(n\)的情况.令\(u=(T-\lambda)v=(T^{-1}-\lambda^{-1} I)v\).
     \begin{align*}
@@ -105,11 +105,9 @@
 \end{problem}
 
 \begin{proof}
-    令\(\sum_{i=0}^{m-1} a_iT^i v=0\).对等式两边施加算子\(T^{m-1}\).
-
-    得到\(\sum_{i=0}^{m-1} a_iT^{i+m-1} v=a_0T^{m-1} v=0\)，因此\(a_0=0\).
+    令\(\sum_{i=0}^{m-1} a_iT^i v=0\).施加算子\(T^{m-1}\)，得到\(\sum_{i=0}^{m-1} a_iT^{i+m-1} v=a_0T^{m-1} v=0\).
     
-    接着依次对该等式两边施加算子\(T^{m-2},\cdots,T\)，得到\(a_0=a_1=\cdots=a_{m-2}=0\).
+    于是\(a_0=0\).随后依次施加算子\(T^{m-2},\cdots,T\)，得到\(a_0=a_1=\cdots=a_{m-2}=0\).
     
     而\(T^{m-1}v \ne 0\)，因此必有\(a_{m-1}=0\)，从而\(a_0=a_1=\cdots=a_{m-1}=0\)，证毕.
 \end{proof}
@@ -143,9 +141,9 @@
 \end{problem}
 
 \begin{proof}
-    由于该矩阵是三角矩阵，则根据定理5.26有\(Nv_i \in \altspan (v_1,\cdots,v_i)\).
+    由于该矩阵是三角矩阵，则根据定理5.26有\(Nv_i \in \operatorname{span} (v_1,\cdots,v_i)\).
 
-    进一步，由于对角线元素均为\(0\)，因此\(Nv_i \in \altspan (v_1,\cdots,v_{i-1})\).
+    进一步，由于对角线元素均为\(0\)，因此\(Nv_i \in \operatorname{span} (v_1,\cdots,v_{i-1})\).
     
     因此\(\forall i=1,\cdots,m,N^m v_i=0\)，即\(N\)是幂零算子，证毕.
 \end{proof}
@@ -165,44 +163,44 @@
 \end{proof}
 
 \begin{problem}[16]\label{8.A.16}
-    设\(T \in L(V)\).求证：\(V=\Img T^0 \supset \Img T^1 \supset \cdots\)
+    设\(T \in L(V)\).求证：\(V=\operatorname{Im} T^0 \supset \operatorname{Im} T^1 \supset \cdots\)
 \end{problem}
 
 \begin{proof}
-    \(\forall v \in V,T^{i+1}v \in \Img T^{i+1},T^{i+1}v=T^i(Tv) \in \Img T^i\).
+    \(\forall v \in V,T^{i+1}v \in \operatorname{Im} T^{i+1},T^{i+1}v=T^i(Tv) \in \operatorname{Im} T^i\).
 
-    因此\(\forall i \in N^*,\Img T^{i+1} \subseteq \Img T^i\).特别地，\(T^0=I,\Img I=V\).
+    因此\(\forall i \in N^*,\operatorname{Im} T^{i+1} \subseteq \operatorname{Im} T^i\).特别地，\(T^0=I,\operatorname{Im} I=V\).
 \end{proof}
 
 \begin{problem}[17]\label{8.A.17}
-    设\(T \in L(V),m \in N^*\)满足\(\Img T^m=\Img T^{m+1}\).
+    设\(T \in L(V),m \in N^*\)满足\(\operatorname{Im} T^m=\operatorname{Im} T^{m+1}\).
     
-    求证：\(\forall i \in N^*,\Img T^{m+i}=\Img T^m\).
+    求证：\(\forall i \in N^*,\operatorname{Im} T^{m+i}=\operatorname{Im} T^m\).
 \end{problem}
 
 \begin{proof}
-    根据\probref{8.A.16}，\(\forall i \in N^*,\Img T^{m+i} \subseteq \Img T^m\).
-    下证\(\forall i \in N^*,\dim \Img T^{m+i}=\dim \Img T^m\).
+    根据\probref{8.A.16}，\(\forall i \in N^*,\operatorname{Im} T^{m+i} \subseteq \operatorname{Im} T^m\).
+    下证\(\forall i \in N^*,\dim \operatorname{Im} T^{m+i}=\dim \operatorname{Im} T^m\).
     
-    根据定理3.22，\(\forall i \in N^*,\dim \Img T^i=\dim V-\dim \ker T^i\)，
+    根据定理3.22，\(\forall i \in N^*,\dim \operatorname{Im} T^i=\dim V-\dim \ker T^i\)，
     
-    故\(\dim \Img T^m=\dim \Img T^{m+1}\)表明\(\dim \ker T^m=\dim \ker T^{m+1}\)，即\(\ker T^m =\ker T^{m+1}\).
+    故\(\dim \operatorname{Im} T^m=\dim \operatorname{Im} T^{m+1}\)表明\(\dim \ker T^m=\dim \ker T^{m+1}\)，即\(\ker T^m =\ker T^{m+1}\).
     
-    得\(\forall i \in N^*,\dim \Img T^{m+i}=\dim V-\dim \ker T^{m+i}=\dim V-\dim \ker T^m=\dim \Img T^m\).
+    得\(\forall i \in N^*,\dim \operatorname{Im} T^{m+i}=\dim V-\dim \ker T^{m+i}=\dim V-\dim \ker T^m=\dim \operatorname{Im} T^m\).
     
-    从而根据习题2.C.1，\(\forall i \in N^*,\Img T^{i+1}=\Img T^i\).
-    %此处使用了硬编码
+    从而根据习题2.C.1，\(\forall i \in N^*,\operatorname{Im} T^{i+1}=\operatorname{Im} T^i\).
+    
 \end{proof}
 
 \begin{problem}[18]\label{8.A.18}
-    设\(T \in L(V),\dim V=n\).求证：\(\Img T^n=\Img T^{n+1}=\cdots\)
+    设\(T \in L(V),\dim V=n\).求证：\(\operatorname{Im} T^n=\operatorname{Im} T^{n+1}=\cdots\)
 \end{problem}
 
 \begin{proof}
-    根据定理3.22和定理8.4，\(\forall i>n \in N^*,\dim \Img T^{i+1}=\dim \Img T^i\).
+    根据定理3.22和定理8.4，\(\forall i>n \in N^*,\dim \operatorname{Im} T^{i+1}=\dim \operatorname{Im} T^i\).
 
-    根据习题2.C.1和\probref{8.A.16}，\(\forall i \in N^*,\Img T^{i+1}=\Img T^i\).
-    %此处使用了硬编码
+    根据习题2.C.1和\probref{8.A.16}，\(\forall i \in N^*,\operatorname{Im} T^{i+1}=\operatorname{Im} T^i\).
+    
 \end{proof}
 % End: source/chapter_8/8.A.tex
 
